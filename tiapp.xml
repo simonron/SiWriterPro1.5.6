@@ -6,7 +6,7 @@
     <property name="acs-oauth-secret-development" type="string">Ui70c5BPO9l3Lc5v2wWgKPZmNEs2lHRd</property>
     <property name="acs-oauth-key-development" type="string">lHzeGvmQ6H027hrHTwfdpLQsJ6uQ9cE3</property>
     <property name="acs-api-key-development" type="string">q3lb9xDuA14jabGxqwzHu6M0fSgPWTlD</property>
-    <id>com.tortysoft.SiWriter</id>
+    <id>com.tortysoft.SiWriterPro</id>
     <name>SiWriterPro</name>
     <version>1.0.0</version>
     <publisher>Simon Anthony</publisher>
@@ -47,9 +47,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules>
-        <module platform="commonjs">ti.cloud</module>
-    </modules>
+    <modules/>
     <deployment-targets>
         <target device="tizen">false</target>
         <target device="mobileweb">false</target>

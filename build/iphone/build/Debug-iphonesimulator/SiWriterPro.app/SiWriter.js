@@ -1,1 +1,0 @@
-/Volumes/Main files 2T/PAID SiWriter/SiWriterPro1.0.0/Resources/SiWriter.js
