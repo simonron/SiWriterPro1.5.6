@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="acs-oauth-secret-production" type="string">4FgsiqsVCX77REpzfBGx5a4K0pMnS1GT</property>
+    <property name="acs-oauth-key-production" type="string">tEfkU5rO15I4zS6CGy7bA7bHdxejZNyd</property>
+    <property name="acs-api-key-production" type="string">8s89g9UYGMiloaAIW0LS1f66MY0K1jA3</property>
+    <property name="acs-oauth-secret-development" type="string">Ui70c5BPO9l3Lc5v2wWgKPZmNEs2lHRd</property>
+    <property name="acs-oauth-key-development" type="string">lHzeGvmQ6H027hrHTwfdpLQsJ6uQ9cE3</property>
+    <property name="acs-api-key-development" type="string">q3lb9xDuA14jabGxqwzHu6M0fSgPWTlD</property>
+    <id>com.tortysoft.SiWriter</id>
+    <name>SiWriterPro</name>
+    <version>1.0.0</version>
+    <publisher>Simon Anthony</publisher>
+    <url>http://siwriter.co.uk</url>
+    <description>Pro version of SiWriter: a text input, note taking app for the iPad/iPad mini, based on the one handed chording keyboard Microwriting codes as used in the CyKey and AgendA. With configurable finger pad layout and multiple productivity features.
+</description>
+    <copyright>2014  Tortoisesoft Enterprises</copyright>
+    <icon>appicon-152.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>false</statusbar-hidden>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>c55cf289-8cf3-412b-bf67-0cbb9c09ffaf</guid>
+    <property name="ti.ui.defaultunit" type="string">system</property>
+    <property name="ti.facebook.appid">122286951199784</property>
+    <iphone>
+        <orientations device="iphone">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+        </orientations>
+        <orientations device="ipad">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+        </orientations>
+    </iphone>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="tizen">false</target>
+        <target device="mobileweb">false</target>
+        <target device="blackberry">false</target>
+        <target device="android">false</target>
+        <target device="ipad">true</target>
+        <target device="iphone">false</target>
+    </deployment-targets>
+    <sdk-version>3.2.0.GA</sdk-version>
+</ti:app>
