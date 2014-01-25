@@ -15,10 +15,10 @@ var LrOffsetL = 0;
 
 var HTMLorientation = "portrait";
 
-var UpDwn = 40;
-var UdOffset = 40;
-var UdOffsetP = 40;
-var UdOffsetL = 170;
+var UpDwn = 0;
+var UdOffset = 0;
+var UdOffsetP = 0;
+var UdOffsetL = 0;
 
 var HeightOffset = 0;
 var HeightOffsetP = 0;
@@ -53,6 +53,7 @@ hide_sizers();
 Ti.App.addEventListener("app:orientation", function(e) {
 	Ti.API.info("webview heard app say " + e.orientation + " to webview");
 	if (e.orientation == "portrait") {
+		appContainer.style.padding = "0px 0px 0px 0px";
 		//orientation = "portrait";
 		LrOffset = LrOffsetP;
 		// HeightOffset = HeightOffsetP;
@@ -61,6 +62,7 @@ Ti.App.addEventListener("app:orientation", function(e) {
 		UdOffset = UdOffsetP;
 	} else {
 		if (e.orientation == "landscape") {
+			appContainer.style.padding = "170px 0px 0px 0px";
 			//orientation = "landscape";
 			LrOffset = LrOffsetL;
 			UdOffset = UdOffsetL;
@@ -162,7 +164,7 @@ function adjust_pads() {
 		UdOffsetL = 170;
 		do_pad_updwn();
 
-		Gap = 0;
+		Gap = 6;
 		GapOffset = 0;
 		do_pad_Gap();
 
@@ -274,7 +276,6 @@ function adjust_pads() {
 
 		//;
 		chordKeybaord.style.margin = UdOffset + UpDwn + "px 0px 0px 0px";
-
 		//alert("orientation="+orientation);
 
 	}
@@ -310,6 +311,8 @@ function adjust_pads() {
 		k5.style.height = (Height * 0.25) + HeightOffset + "px";
 		k6.style.height = Height + HeightOffset + "px";
 		k7.style.height = (Height * 0.5) + HeightOffset + "px";
+		UpperNums.style.height = (Height * 0.5) + HeightOffset + "px";
+		Symbols.style.height = (Height * 0.5) + HeightOffset + "px";
 
 		Ti.API.info("variable update by user finger pads.js is :-height =" + Height);
 	}
@@ -343,9 +346,9 @@ function adjust_pads() {
 		k5.style.width = (2 * Width) + WidthOffset + "px";
 		k6.style.width = Width + WidthOffset + "px";
 		k7.style.width = Width + WidthOffset + "px";
-		// k5.style.width = Width / 1.3 + "px";
-		// k6.style.width = Width / 1.3 + "px";
-		// k7.style.width = Width / 1.3 + "px";
+		UpperNums.style.width = Width + WidthOffset + "px";
+		Symbols.style.width = Width + WidthOffset + "px";
+
 		if ((Width > 300) || (Width < 0)) {
 			Width = 0;
 		}
@@ -373,16 +376,20 @@ function adjust_pads() {
 
 	function do_pad_Gap() {
 
-		k0.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k1.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k2.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k3.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k4.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k5.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k6.style.margin = "0% 0% 0% " + Gap / 10 + GapOffset / 10 + "%";
-		k7.style.margin = Gap / 10 + GapOffset / 10 + "%" + " 0% 0% 0% ";
+        k0.style.margin = "0px 0px 0px " + Gap  + "px";
+		k1.style.margin = "0px 0px 0px " + Gap  + "px";
+		k2.style.margin = "0px 0px 0px " + Gap  + "px";
+		k3.style.margin = "0px 0px 0px " + Gap  + "px";
+		k4.style.margin = "0px 0px 0px " + Gap  + "px";
+		k5.style.margin = "0px 0px 0px " + Gap  + "px";
+		k6.style.margin = "0px 0px 0px " + Gap  + "px";
+
 
 		Ti.API.info("variable update by user finger pads.js is :-Gap =" + Gap + " GapOffset = " + GapOffset);
+		Ti.API.info("finger pads.js is :-Gap/10 =" + Gap/10);
+
+
+
 
 	}
 
@@ -413,6 +420,9 @@ function do_pad_fphelp(FPhelp) {
 		h5.style.display = "none";
 		h6.style.display = "none";
 		h7.style.display = "none";
+		hsymbols.style.display = "none";
+		hunums.style.display = "none";
+
 	}
 
 	if (FPhelp) {
@@ -424,7 +434,10 @@ function do_pad_fphelp(FPhelp) {
 		h5.style.display = "block";
 		h6.style.display = "block";
 		h7.style.display = "block";
+		hsymbols.style.display = "block";
+		hunums.style.display = "block";
 	}
+
 	Ti.API.info("SW line 464 do_pad_fphelp:-" + FPhelp);
 	do_save_pad_state_fph(FPhelp);
 };

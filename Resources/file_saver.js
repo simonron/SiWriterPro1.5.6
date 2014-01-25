@@ -109,10 +109,6 @@ function missedKeypad() {
 	alert("missed");
 }
 
-function ShowTrailer() {
-	trailer = txtViewDesc.value.slice(-12);
-	trailer = trailer.slice(0, -1);
-}
 
 function View_Size() {
 	Size = txtViewDesc.value.length;
@@ -252,6 +248,7 @@ function pasteTextFromClipboard() {
 }
 
 function timeStamp() {
+	contentTyped=txtViewDesc.value;
 	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + new Date + "\n\n";
 	txtViewDesc.value = contentTyped;
 }

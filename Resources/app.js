@@ -41,6 +41,8 @@ Ti.include('buttons.js');
 Ti.include('file_saver.js');
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
+Titanium.App.Properties.setString("date_of_build","\r"+new Date);
+
 
 var foo = new Date();
 
@@ -157,8 +159,6 @@ win2.add(sizer_switch);
 win2.add(sizer_switchlbl);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-Ti.App.fireEvent('app:orientation', { orientation: orientation });// helps to get height offset right.
-
 win1.add(webview);
 win1.add(view);
 Ti.API.info("app 118 Titanium.App.keyboardVisible test ?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");			
@@ -167,7 +167,6 @@ Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible
 
 Ti.App.addEventListener('do_reset', function(e) {
 	getOrientation();
-	Ti.App.fireEvent('app:orientation', { orientation: orientation });// helps to get height offset right.
 	Titanium.App.Properties.setString("email_to_setting", aTextField.value);
 	help_WindowSwitcher();
 	help_LettersSwitch();

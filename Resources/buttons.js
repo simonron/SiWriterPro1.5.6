@@ -20,12 +20,12 @@ var top_view = Ti.UI.createView({/* email window */
 // Create a TextField.
 var aTextField = Ti.UI.createTextField({ });
 /* email window */
-aTextField.value = "Forwarding email";
+aTextField.value = "Outgoing email address here";
 
 var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 	left : 190,
-	top : 500,
-	width : 120,
+	top : 495,
+	width : 240,
 	borderRadius : 10,
 	backgroundColor : '#ffffff',
 	opacity : '0.7',
@@ -36,7 +36,7 @@ var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 	editable : false,
 });
 
-aTrailer.value = "Mini view";
+aTrailer.value = "Mini view of main text area";
 
 var PrivacyTitle = Ti.UI.createLabel({
 	color : '#900',
@@ -226,10 +226,8 @@ function buttonvariablesPortrait() {
 	btnChoosePhoto.left = 20;
 
 	aTrailer.left = 20;
-	aTrailer.top = 500;
+	aTrailer.top = 495;
 
-	webview.top = 450;
-	webview.height = 560;
 	smallHelpView.top = 20;
 	smallHelpView.left = 350;
 	smallHelpView.height = 420;
@@ -290,8 +288,10 @@ function buttonvariablesPortrait() {
 	txtViewDesc.font.backgroundColor = '#fee';
 	//txtViewDesc.height = "400";
 	//view.height = "400";
+	webview.top = 475;
+	//webview.height = 560;
 	webview.height = "100%";
-	webview.left = "0";
+	webview.left = "14";
 	webview.background = "url(images/Sized_AgendA_bg_bottom.png)";
 	webview.bottom = "0";
 	top_view.top = "450";
@@ -392,9 +392,10 @@ function buttonvariablesLandscape() {
 	//txtViewDesc.height = 680;
 
 	view.height = 680;
-	webview.top = 0;
+	webview.top = 95;
+	//webview.top = 70;
 	webview.left = 330;
-	webview.height = "100%";
+	webview.height = 700;
 	webview.background = "none";
 	webview.background = "transparent";
 	webview.bottom = 0;

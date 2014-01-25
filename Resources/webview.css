@@ -65,8 +65,8 @@ div#spacer {
 	border-top-left-radius:27px;
 	border-top-right-radius:27px;
 	position:absolute;
-	height:90px;
-	width:90px;
+	height:100px;
+	width:100px;
 	background:url(images/small_buttons.png) 0px -1px;
 	text-align:center;
 	color:#777;
@@ -78,31 +78,8 @@ div#spacer {
 }
 .chordKeyUpper {/* Upper keys */
 }
-#hunums, #hsymbols {
-	position:relative;
-	top:-10px;
-}
-#UpperNums, #Symbols {
-	border-top-left-radius:27px;
-	border-top-right-radius:27px;//
-	position:absolute;
-	height:100px;
-	width:100px;
-	background:url(images/small_buttons.png) 0px -1px;
-	text-align:center;
-	color:#777;
-	border-bottom-left-radius:27px;
-	border-bottom-right-radius:27px;
-	background-size:100% 100%;
-}
-#UpperNums {
-	margin-top:-102%;
-}
-#Symbols {
-	position:absolute !important;
-	margin-left:102% !important;
-	margin-top:-101% !important;
-}
+
+
 .chordKeyCaps {/* the shape of the keys */
 	border-top-left-radius:23px;
 	border-top-right-radius:23px;
@@ -131,6 +108,23 @@ div#spacer {
 	border-bottom-right-radius:27px;
 	background-size:101% 100%;
 }
+.chordKeyUpper {/* Upper keys */
+		border-top-left-radius:27px;
+	border-top-right-radius:27px;
+	position:absolute;
+	height:100px;
+	width:100px;
+	background:url(images/small_buttons.png) 0px -1px;
+	text-align:center;
+	color:#777;
+	z-index:1000;
+	border-bottom-left-radius:27px;
+	border-bottom-right-radius:27px;
+	background-size:101% 100%;
+}
+
+
+
 .chordKey span {
 	position:absolute;
 	left:110px;
@@ -138,27 +132,39 @@ div#spacer {
 	font-size:18px !important;
 	font-weight:600 !important;
 }
-/*.chordKeyx span { not used ?
- position: absolute;
- left: -40px;
- color: #333;
- font-size: 18px !important;
- font-weight: 600 !important;
- }*/
+
 .chordKeyUp {
 	margin-top:2px;
 	margin-left:2px;
 }
-div #NumsSymbols {/* Nums_Symbols alternative key pads above cap/space pads finger pads */
-	/*position: relative;
-	 z-index:10000;
-	 top: 120px;
-	 float: left;
-	 display: block;*/
-	/*background: #f00;
-	 width: 100px;
-	 height: 100px;*/
+
+/* Nums_Symbols alternative key pads above cap/space pads finger pads */
+
+#hunums, #hsymbols {
+	position:relative;
+	left:-50px;
+	top:10px;
+	opacity:.7;
 }
+#UpperNums{
+	//display:block;
+	float:left;
+	position:relative;
+	//margin-top:-104px;
+	margin-top:-104%;
+	z-index: 1;
+}
+
+#Symbols {
+	display:block;
+	float:left;
+	position:relative;
+	//margin-top:-208px;
+	margin-top:-208%;
+
+	z-index:1;
+}
+
 .CapsKeyUp {
 	background:url(images/buttonw_A.png) -5px 0px;
 	background-size:101% 100%;
@@ -177,6 +183,8 @@ div #NumsSymbols {/* Nums_Symbols alternative key pads above cap/space pads fing
 	background:url(images/horiz_buttons_L.png);
 	background-size:101% 100%;
 }
+
+
 .kHelper {
 	font-family:Arial,sans-serif;
 	position:absolute;
@@ -199,6 +207,9 @@ div#k0 .kHelper {
 	width:115%;
 	padding:0 0 0 2px;
 	margin-left:-7.5%;
+	margin-top:10px;
+	opacity:.7;
+	z-index:100;
 }
 .kHelpers {/* shift lock keys*/
 	position:absolute;
@@ -216,14 +227,17 @@ div#k0 .kHelper {
 	text-align:center;
 	margin-left:-10px;
 	margin-top:-10px;
-	/*opacity: .7;*/
+	opacity: .7;
 }
 #h7.kHelpers {
 	margin-left:-110px;
+opacity: .7;
 }
 .Del {
 	position:absolute;
-	left:110px !important;
+	left:114px !important;
+	
+
 }
 .Green {
 	color:#050;
@@ -252,29 +266,38 @@ div#k0 .kHelper {
 	position:absolute;
 	z-index:0;
 }
-div #k6 {/* number lock top provide thumb verticle offset from other four finger pads */
+
+div #k6 {/* number lock top provide thumb vertical offset from other four finger pads */
 	position:relative;
 	top:250px;
 	float:left;
 	display:block;
+	//display:none;
+
 }
+
 div #k5 {/* Caps lock */
 	position:relative;
 	top:102%;
 	float:left;
-	display:block;
+	display:none;
 }
+
 div#k0 {/* space key, top provide thumb verticle offset from other four finger pads */
 	top:250px;
 	display:block;
 	float:left;
 	position:relative;
+	z-index:10;
+	//margin-right:8px;
 }
+
 div #k1 {
 	top:75px;
 	display:block;
 	float:left;
 	position:relative;
+	margin-left:6px;
 }
 div #k2 {
 	top:30px;
@@ -299,8 +322,7 @@ div.spacer {
 	width:30px;
 }
 div#k7 {/* Delete key*/
-	top:110%;//
-	margin-left:220px;//
+	top:110%;
 	float:left;
 }
 .Red {
