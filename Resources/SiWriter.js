@@ -297,7 +297,8 @@ function setupKeys(){  // detects and acts on 'key' press.
 				// SYMBOLS KEY CODES - for the single key
 				did("Symbols").onTouchUp = function(info){
 					$("#Symbols").removeClass("chordKeyUp");
-					$("#Symbols").addClass("NumKeyUp");
+					$("#UpperNums").addClass("NumKeyUp");
+					$("#k6").addClass("CapsKeyUp");
 					
 					if (Nums==64){
 					Num_lock=!Num_lock;
@@ -310,7 +311,9 @@ function setupKeys(){  // detects and acts on 'key' press.
 					
 					if ((Nums==64)&&(Num_lock==true)){
 						$("#UpperNums").addClass("NumKeyUpL");
-					}else{$("#UpperNums").removeClass("NumKeyUpL");}
+					}else{$("#UpperNums").removeClass("NumKeyUpL");
+					
+					}
 				
 				
 				if (Caps==32){

@@ -21,7 +21,7 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 	};
 
 
-	trailer = contentTyped.slice(-24);
+	trailer = contentTyped.slice(-23);
 	Ti.API.info('trailer: ' + trailer);
 	aTrailer.value = trailer;
 

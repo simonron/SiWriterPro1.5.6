@@ -27,8 +27,8 @@ var orient = "";
 var props = Titanium.App.Properties.listProperties();
 var Last_Typed_Word = "!?!";
 var Review_mode = 0;
-var LR_posP=0;
-var LR_posL=0;
+var LRposP=0;
+var LRposL=0;
 var KV=false;
 var temp="";
 var Toggle=false;
@@ -41,14 +41,12 @@ Ti.include('buttons.js');
 Ti.include('file_saver.js');
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
-Titanium.App.Properties.setString("date_of_build","\r"+new Date);
-
 
 var foo = new Date();
-
 var build_time = (foo.getDate() + "/" + foo.getMonth() + 1 + "/" + foo.getFullYear() + " " + foo.getHours() + ":" + foo.getMinutes() + ":" + foo.getSeconds());
-
 build_label.title = build_time;
+Titanium.App.Properties.setString("date_of_build","\r"+new Date);
+
 
 CheckEmailaddress();
 
@@ -56,10 +54,9 @@ CheckEmailaddress();
 var webview = Titanium.UI.createWebView({
 	backgroundColor : 'transparent',
 	url : 'Keypad.html',
-	width : 760,
-	height : "100%",
-	bottom : 0,
-	left:14,
+	//width : 760,
+	//height : "100%",
+	//left:14,
 	disableBounce : true,
 });
 
@@ -115,19 +112,13 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 	bottom : 0,
 });
 
-		if(Titanium.App.keyboardVisible){
-			 KV=1;
-			Ti.API.info('Keyboad in use'+KV);
-			}
-
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////
-//Ti.App.fireEvent('app:fromTitanium', { message: 'event fired from Titanium, handled in WebView' });
-
+//Ti.App.fireEvent('app:reset', { reset_pads: 'reset_pads' });
 
 ////////////////////////////////////////////////////////////
 
 ////////////////////FROM WEBVIEWW DEMO///////////////////////
-Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
+//Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
 ////////////////////////////////////////////////////////////
 
 
@@ -174,6 +165,7 @@ Ti.App.addEventListener('do_reset', function(e) {
 	Ti.App.fireEvent('webviewEvent', {
 		text : "  "
 	});
+	
 });
 
 Ti.App.addEventListener('Twist', function(e) {
@@ -181,14 +173,14 @@ Ti.App.addEventListener('Twist', function(e) {
 	Titanium.App.Properties.setString("Twist", e.Twist);
 });
 
-Ti.App.addEventListener('LR_posP', function(e) {
-	Ti.API.info("LR_posP  recieved from web, by app.js line THEN added to SETTINGS: 197=" + e.LR_posP);
-	Titanium.App.Properties.setString("LR_posP", e.LR_posP);
+Ti.App.addEventListener('LRposP', function(e) {
+	Ti.API.info("LRposP  recieved from web, by app.js line THEN added to SETTINGS: 197=" + e.LRposP);
+	Titanium.App.Properties.setString("LRposP", e.LRposP);
 });
 
-Ti.App.addEventListener('LR_posL', function(e) {
-	Ti.API.info("LR_posL  recieved from web, by app.js line THEN added to SETTINGS: 197=" + e.LR_posL);
- Titanium.App.Properties.setString("LR_posL", e.LR_posL);
+Ti.App.addEventListener('LRposL', function(e) {
+	Ti.API.info("LRposL  recieved from web, by app.js line THEN added to SETTINGS: 197=" + e.LRposL);
+ Titanium.App.Properties.setString("LRposL", e.LRposL);
 });
 
 Ti.App.addEventListener('UpDwnP', function(e) {
@@ -304,6 +296,7 @@ help_lettersSwitch.addEventListener('change', help_LettersSwitch);
 
 get_MasterSettings();
 
+
 help_windowSwitch.addEventListener('change', function(e) {
 	help_WindowSwitcher();
 });
@@ -319,7 +312,7 @@ help_BIGwindowSwitch.addEventListener('change', function(e) {
 
 //**********************ORIENTATION CHANGE SENSOR************************//
 Ti.Gesture.addEventListener('orientationchange', function(e) {
-
+//alert(e.orientation);
 	orientation = getOrientation(e.orientation);
 //win1.remove(webview);
 

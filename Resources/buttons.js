@@ -9,7 +9,7 @@ var smallHelpimages = Ti.UI.createImageView({
 
 var top_view = Ti.UI.createView({/* email window */
 	height : 35,
-	width : 240,
+	width : 290,
 	borderRadius : 7,
 	keyboardType : Ti.UI.KEYBOARD_EMAIL,
 	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
@@ -25,7 +25,7 @@ aTextField.value = "Outgoing email address here";
 var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 	left : 190,
 	top : 495,
-	width : 240,
+	width : 290,
 	borderRadius : 10,
 	backgroundColor : '#ffffff',
 	opacity : '0.7',
@@ -210,7 +210,7 @@ function buttonvariablesPortrait() {
 	if (!writeFile.exists()) {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
-	PrivacyTitle.left = 500;
+	PrivacyTitle.left = 502;
 	build_label.left = 510;
 	build_label.bottom = 70;
 	version_label.left = 510;
@@ -309,7 +309,7 @@ function buttonvariablesPortrait() {
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	PrivacyTitle.left = 790;
+	PrivacyTitle.left = 792;
 	build_label.left = 800;
 	build_label.bottom = 70;
 	version_label.left = 800;

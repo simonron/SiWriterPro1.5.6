@@ -12,11 +12,17 @@ for (var c = 0; c < props.length; c++) {
 	}
 	Titanium.API.info(props[c] + " = " + value);
 
-	if (props[c] == "Twist") {
-		var Twist = value;
-			Ti.App.fireEvent('From_Settings_Twist', {Twist:Twist});
+	if (props[c] == "TwistP") {
+		var TwistP = value;
+			Ti.App.fireEvent('From_Settings_Twist', {TwistP:TwistP});
 			//alert("from setting one");
 	}
+	if (props[c] == "TwistL") {
+		var TwistL = value;
+			Ti.App.fireEvent('From_Settings_Twist', {TwistL:TwistL});
+			//alert("from setting one");
+	}
+
 
 	if (props[c] == "LR_posP") {
 		var LR_posP = value;
@@ -43,10 +49,6 @@ for (var c = 0; c < props.length; c++) {
 		alert("HeightL="+HeightL);
 	}
 
-	if (props[c] == "Height") {
-		var Height = value;
-		//alert("Height="+Height);
-	}
 
 	if (props[c] == "WidthP") {
 		var WidthP = value;
@@ -381,21 +383,21 @@ function get_MasterSettings() {
 			help_lettersSwitch.value = setting;
 		}
 
-		if (props[c] == "Height") {
-			var Height = value;
-		}
-
-		if (props[c] == "Width") {
-			var Width = value;
-		}
-
-		if (props[c] == "pos") {
-			var pos = value;
-		}
-
-		if (props[c] == "Gap") {
-			var Gap = value;
-		}
+		// if (props[c] == "Height") {
+			// var Height = value;
+		// }
+// 
+		// if (props[c] == "Width") {
+			// var Width = value;
+		// }
+// 
+		// if (props[c] == "pos") {
+			// var pos = value;
+		// }
+// 
+		// if (props[c] == "Gap") {
+			// var Gap = value;
+		// }
 
 		if (props[c] == "FPPDisplay") {
 			var FPPDisplay = value;
