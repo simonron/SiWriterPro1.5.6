@@ -76,7 +76,16 @@ for (var c = 0; c < props.length; c++) {
 }
 
 Ti.API.info("recover_settings -For Next ENDS");
+if (start == 1) {
+	//Ti.API.info(start+"initialising....................................................................");
+	Ti.App.fireEvent('initialise');
 
+	//alert("start app"+start);
+	start = false;
+	//Ti.API.info(start+"initialise fired.................................................!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+	//setup_buttons();
+};
 DoOrientation();
 //satic sensor
 
@@ -85,9 +94,9 @@ DoOrientation();
 Ti.API.info("recover_settings -Orientation ends");
 
 // //Ti.App.fireEvent('app:fromTitanium', { message: 'event fired from Titanium, handled in WebView' });
-Ti.API.info("HeightLllllllllllllllllllllllll as sent by APP Settings = "+HeightL);
-Ti.API.info("HeightPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP as sent by APP Settings = "+HeightP);
-//Ti.API.info("HHHHHHHHHHHHHHHHHHHHHHHHHHHeight as sent by APP Settings = "+Height);
+Ti.API.info("HeightL as sent by APP Settings = "+HeightL);
+Ti.API.info("HeightP as sent by APP Settings = "+HeightP);
+//Ti.API.info("Height as sent by APP Settings = "+Height);
 // 
 // webview.addEventListener('beforeload', function(e)// sends to webview
 // {
@@ -122,6 +131,7 @@ function View_Size() {
 }
 
 function setup_buttons() {
+	//alert("start");
 }
 
 function DoOrientation() {//-static sensor---
@@ -143,8 +153,8 @@ function DoOrientation() {//-static sensor---
 		landscape();
 	}
 	var Model = Titanium.Platform.getModel();
-	Ti.API.info("Titanium.Platform !!!!!!!!!!!!!!!!!!!!!! = " + Model);
-	Ti.API.info('-- FileSaver 42 --------------------static sensor----------------------------orientation: ' + orientation);
+	Ti.API.info("Titanium.Platform !!!!!! THIS IS ME !!!!!!!!!!!!!!!! = " + Model);
+	Ti.API.info('-- FileSaver 157 --------------------static sensor----------------------------orientation: ' + orientation);
 
 	return oriCurrent;
 

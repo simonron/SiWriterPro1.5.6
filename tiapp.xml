@@ -8,7 +8,7 @@
     <property name="acs-api-key-development" type="string">q3lb9xDuA14jabGxqwzHu6M0fSgPWTlD</property>
     <id>com.tortysoft.SiWriterPro</id>
     <name>SiWriterPro</name>
-    <version>1.0.0.2</version>
+    <version>1.0.0.3b</version>
     <publisher>Simon Anthony</publisher>
     <url>http://siwriter.co.uk</url>
     <description>Pro version of SiWriter: a text input, note taking app for the iPad/iPad mini, based on the one handed chording keyboard Microwriting codes as used in the CyKey and AgendA. With configurable finger pad layout and multiple productivity features.

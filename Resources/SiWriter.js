@@ -151,7 +151,7 @@
 
 			];
 
-Ti.API.info("sw 154 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
+Ti.API.info("sw 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
 
 		
 		

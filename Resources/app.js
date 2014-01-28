@@ -101,7 +101,24 @@ var win2 = Titanium.UI.createWindow({// top section BG
 });
 
 /////////////////////////////////////////end help window  //////////////////////////
+if(Titanium.Platform.displayCaps.platformWidth<Titanium.Platform.displayCaps.platformHeight){
+ orientation='portrait';
+    Ti.API.info("Launched in PORTRAIT QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");    
+ 
+} else {
+  orientation='landscape';
 
+    Ti.API.info("Launched in LANDSCAPE QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");   
+}
+
+///////////////////// INITIALISE //////////////////////////////////////////////////////////////
+webview.addEventListener('beforeload',function(e)
+{
+webview.evalJS("var start='" + start + "';");
+webview.evalJS("var HTMLorientation='" + orientation + "';");
+start=0;
+});
+/////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
 
 var SiWriter_helpView = Titanium.UI.createWebView({
@@ -152,7 +169,7 @@ win2.add(sizer_switchlbl);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
-Ti.API.info("app 118 Titanium.App.keyboardVisible test ?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");			
+Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");			
 
 Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
 
@@ -163,7 +180,7 @@ Ti.App.addEventListener('do_reset', function(e) {
 	help_LettersSwitch();
 	help_bigWindowSwitch();
 	Ti.App.fireEvent('webviewEvent', {
-		text : "  "
+		text : ""
 	});
 	
 });
@@ -297,6 +314,7 @@ help_lettersSwitch.addEventListener('change', help_LettersSwitch);
 get_MasterSettings();
 
 
+
 help_windowSwitch.addEventListener('change', function(e) {
 	help_WindowSwitcher();
 });
@@ -326,7 +344,7 @@ Ti.App.fireEvent('app:orientation', { orientation: orientation });
 	if (orientation == "landscape") {
 		landscape();
 	}
-	Ti.API.info('-- App Line 306 ---------------------------------------------------------orientation: ' + orientation);
+	Ti.API.info('-- App Line 336 ---------------------------------------------------------orientation: ' + orientation);
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
@@ -354,18 +372,11 @@ view.show();
 
 var copy = "";
 
-if (start == 1) {
-	Ti.App.fireEvent('orientationchange', {
-		id : 0
-	});
-	start = 0;
-	setup_buttons();
-};
+
 
 /////////////////////////////////////////TEXT MANAGEMENT////////////////////////////////////////
 
 Ti.include('newtext.js');
-
 //////////////////////////////////////END TEXT MANAGEMENT////////////////////////////////////////
 
 //////////////////////////////////////BG IMAGE MANAGEMENT////////////////////////////////////////

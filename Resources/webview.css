@@ -73,8 +73,8 @@ div#spacer {
 	border-top-left-radius: 27px;
 	border-top-right-radius: 27px;
 	position: absolute;
-	height: 100px;
-	width: 100px;
+	/*height: 100px;
+	width: 100px;*/
 	background: url(images/small_buttons.png) 0px -1px;
 	text-align: center;
 	color: #777;

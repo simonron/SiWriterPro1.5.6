@@ -1,1 +1,1 @@
-/Users/Cyberman/Desktop/SiWriterPro1.0.0 2/Resources/user_finger_pads.js
+/Users/Cyberman/Desktop/SiWriterPro1.0.0.3b/Resources/user_finger_pads.js
