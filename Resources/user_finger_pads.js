@@ -35,9 +35,9 @@ var FPhelp = true;
 var LrOffset = 0;
 var LrOffsetP = 0;
 var LrOffsetL = 0;
-
 defaults();
 initialise();
+do_update();
 
 function defaults() {
 	HeightP = 190;
@@ -53,27 +53,6 @@ function defaults() {
 	LRposL = 0;
 	TwistL = 0;
 	UpDwnL = 190;
-
-	// Height = 0;
-	// Width = 100;
-	// Gap = 7;
-	// LRpos = 0;
-	// Twist = 0;
-	// UpDwn = 190;
-// 
-	// HeightP = 215;
-	// WidthP = 130;
-	// GapP = 7;
-	// LRposP = 110;
-	// TwistP = 30;
-	// UpDwnP = -5;
-// 
-	// HeightL = 210;
-	// WidthL = 130;
-	// GapL = 0;
-	// LRposL = 105;
-	// TwistL = 30;
-	// UpDwnL = 190;
  }
 
 //
@@ -120,22 +99,28 @@ Ti.App.addEventListener('initialise', function(e) {
 
 Ti.App.addEventListener("app:orientation", function(e) {
 	Ti.API.info("!!!!!!!!app:orientation!!!!!!!!!");
+	HTMLorientation=e.orientation;
+	initialise();
+	do_update();
 });
 
 function initialise() {
 
-	Ti.API.info("initialise heard app say " + HTMLorientation + " to webview!!");
-	do_update();
-	if (HTMLorientation == "portrait") {
-		//appContainer.style.padding = "70px 0px 0px 0px";
-
-		UpDwn = UpDwnP;
-		Height = HeightP;
-		Gap = GapP;
-		Width = WidthP;
-		LRpos = LRposP;
-		Twist - TwistP;
-
+	Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
+	globalArrayL = [{
+			HeightL : HeightL
+		}, {
+			WidthL : WidthL
+		}, {
+			TwistL : TwistL
+		}, {
+			UpDwnL : UpDwnL
+		}, {
+			LRposL : LRposL
+		}, {
+			GapL : GapL
+		}];
+	
 		globalArrayP = [{
 			HeightP : HeightP
 		}, {
@@ -149,9 +134,21 @@ function initialise() {
 		}, {
 			GapP : GapP
 		}];
+		
+		
+	if (HTMLorientation == "portrait") {
+		//appContainer.style.padding = "70px 0px 0px 0px";
+
+		UpDwn = UpDwnP;
+		Height = HeightP;
+		Gap = GapP;
+		Width = WidthP;
+		LRpos = LRposP;
+		Twist - TwistP;
 	}
 
-	if (HTMLorientation == "landscape") {
+
+		if (HTMLorientation == "landscape") {
 		//appContainer.style.padding = "170px 0px 0px 0px";
 		UpDwn = UpDwnL;
 		Height = HeightL;
@@ -159,19 +156,7 @@ function initialise() {
 		Width = WidthL;
 		LRpos = LRposL;
 		Twist - TwistL;
-		globalArrayL = [{
-			HeightL : HeightL
-		}, {
-			WidthL : WidthL
-		}, {
-			TwistL : TwistL
-		}, {
-			UpDwnL : UpDwnL
-		}, {
-			LRposL : LRposL
-		}, {
-			GapL : GapL
-		}];
+		
 	}
 	//		Ti.API.info("orientation_offset  CALLED " + orientation);
 	//Ti.API.info("UpDwn = " + UpDwn + " UdOffset= " + UdOffset + " UdOffsetP =" + UdOffsetP + " UdOffsetL= " + UdOffsetL);
@@ -179,32 +164,32 @@ function initialise() {
 	//	webview.reload();
 	//alert("orientation="+orientation)
 
-	// Ti.API.info('!!!!!!!!!globalArrayP!!!!!!!!!!!!!!!!');
-	// Ti.API.info(globalArrayP[0]);
-	// Ti.API.info(globalArrayP[1]);
-	// Ti.API.info(globalArrayP[2]);
-	// Ti.API.info(globalArrayP[3]);
-	// Ti.API.info(globalArrayP[4]);
-	// Ti.API.info(globalArrayP[5]);
-	//
-	// Ti.API.info('!!!!!!!!globalArrayL!!!!!!!!!!!!!!');
-	// Ti.API.info(globalArrayL[0]);
-	// Ti.API.info(globalArrayL[1]);
-	// Ti.API.info(globalArrayL[2]);
-	// Ti.API.info(globalArrayL[3]);
-	// Ti.API.info(globalArrayL[4]);
-	// Ti.API.info(globalArrayL[5]);
+	Ti.API.info('!!!!!!!!!globalArrayP!!!!!!!!!!!!!!!!');
+	Ti.API.info(globalArrayP[0]);
+	Ti.API.info(globalArrayP[1]);
+	Ti.API.info(globalArrayP[2]);
+	Ti.API.info(globalArrayP[3]);
+	Ti.API.info(globalArrayP[4]);
+	Ti.API.info(globalArrayP[5]);
+	
+	Ti.API.info('!!!!!!!!globalArrayL!!!!!!!!!!!!!!');
+	Ti.API.info(globalArrayL[0]);
+	Ti.API.info(globalArrayL[1]);
+	Ti.API.info(globalArrayL[2]);
+	Ti.API.info(globalArrayL[3]);
+	Ti.API.info(globalArrayL[4]);
+	Ti.API.info(globalArrayL[5]);
 
 
 	Ti.API.info("after update HTML orientation = " + HTMLorientation);
 
 }
 
-Ti.App.addEventListener("app:orientation", function(e) {
-
-	HTMLorientation = e.orientation;
-	initialise();
-});
+// Ti.App.addEventListener("app:orientation", function(e) {
+// 
+	// HTMLorientation = e.orientation;
+	// initialise();
+// });
 
 ////////////////////////////////////////////////////////////
 function do_update() {
@@ -212,28 +197,30 @@ function do_update() {
 	//appContainer.style.margin = UpDwn+"px 0px 0px " + LRpos + "px";
 
 	if (HTMLorientation == 'portrait') {
-		chordKeybaord.style.margin = UpDwnP + "px 0px 0px " + LRpos + "px";
 		UpDwn = UpDwnP;
-		do_pad_height();
-		do_pad_width();
-		do_pad_Gap();
+
+		chordKeybaord.style.margin = UpDwn + "px 0px 0px " + LRpos + "px";
+		//do_pad_height();
+		//do_pad_width();
+		//do_pad_Gap();
 
 	}
 	if (HTMLorientation == 'landscape') {
-		chordKeybaord.style.margin = UpDwnL + "px 0px 0px " + LRpos + "px";
 		UpDwn = UpDwnL;
-		do_pad_height();
-		do_pad_Gap();
+		chordKeybaord.style.margin = UpDwn + "px 0px 0px " + LRpos + "px";
+	
+		//do_pad_height();
+		//do_pad_Gap();
 
 	}
 
 	//do_pad_width();
 	//do_pad_Gap();
 	//do_pad_LRpos();
-	do_pad_height();
-	do_pad_width();
+	//do_pad_height();
+	//do_pad_width();
 	Ti.API.info("update done");
-	do_pad_updwn();
+	//do_pad_updwn();
 	// do_pad_Gap();
 	// document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + Twist + "deg)");
 };
@@ -785,33 +772,6 @@ function get_user_settings() {
 		FPhelp = e.FPhelp;
 	});
 	Ti.API.info("get_user_settings ENDED OK");
-
-}
-
-
-function DoHTMLOrientation() {//-static sensor---
-
-	var pWidth = Ti.Platform.displayCaps.platformWidth;
-	var pHeight = Ti.Platform.displayCaps.platformHeight;
-
-	if (pWidth > pHeight) {
-		var HTMLorientation = 'landscape';
-		orientation = 'landscape';
-	} else {
-		var HTMLorientation = 'portrait';
-		orientation = 'portrait';
-	}
-	if (HTMLorientation == "portrait") {
-		portrait();
-	}
-	if (HTMLorientation == "landscape") {
-		landscape();
-	}
-	var Model = Titanium.Platform.getModel();
-	Ti.API.info("Titanium.Platform !!!!!! THIS IS ME !!!!!!!!!!!!!!!! = " + Model);
-	Ti.API.info('-- FileSaver 157 --------------------static sensor----------------------------orientation: ' + orientation);
-
-	return HTMLorientation;
 
 }
 
