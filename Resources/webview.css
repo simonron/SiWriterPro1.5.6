@@ -31,7 +31,7 @@ div#sizers {
 	border-top-right-radius: 27px;
 	border-bottom-left-radius: 27px;
 	border-bottom-right-radius: 27px;
-	bottom 90px;
+	top 50%;
 	margin-left: 0px;
 	opacity: 0.95;
 }
@@ -228,6 +228,7 @@ div#spacer {
 div#k0 .kHelper {
 	width: 115%;
 	padding: 0 0 0 2px;
+	display: block;
 	margin-left: -7.5%;
 	margin-top: 10px;
 	opacity: .7;
@@ -295,8 +296,7 @@ div #k6 {/* CAPS PAD number lock top provide thumb vertical offset from other fo
 	position: relative;
 	top: 250px;
 	float: left;
-	display: block;//
-	display: none;
+	display: block;
 }
 
 div #k5 {/* Num pad - disabled currently - horizontal lower thumb pad*/
@@ -311,16 +311,15 @@ div#k0 {/* space key, top provide thumb verticle offset from other four finger p
 	display: block;
 	float: left;
 	position: relative;
-	z-index: 10;//
-	margin-right: 8px;
+	z-index: 10;
 }
+div#spacer0 {width:5px}
 
 div #k1 {
 	top: 75px;
 	display: block;
 	float: left;
 	position: relative;
-	margin-left: 6px;
 }
 
 div #k2 {
@@ -354,9 +353,6 @@ div#k7 {/* Delete key*/
 	float: left;
 }
 
-.Red {
-	margin-left: 100px;
-}
 
 span {
 	color: #ddd;

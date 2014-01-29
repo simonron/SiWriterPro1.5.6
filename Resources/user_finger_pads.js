@@ -41,18 +41,18 @@ do_update();
 
 function defaults() {
 	HeightP = 190;
-	WidthP = 100;
-	GapP = 0;
-	LRposP = 0;
+	WidthP = 98;
+	GapP = -2;
+	LRposP = 126;
 	TwistP = 0;
-	UpDwnP = 590;
+	UpDwnP = 565;
 
 	HeightL = 195;
-	WidthL = 100;
-	GapL = 0;
-	LRposL = 0;
+	WidthL = 91;
+	GapL = -3;
+	LRposL = 120;
 	TwistL = 0;
-	UpDwnL = 220;
+	UpDwnL = 300;
 }
 
 var reset = false;
@@ -206,16 +206,6 @@ function do_update() {
 //Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });
 ////////////////////////////////////////////////////////////
 
-//webview.evalJS("var orientation='" + orientation + "';");
-//var orientation = Titanium.App.Properties.getString(orientation);
-
-// Ti.App.addEventListener('From_Settings', function(e) {
-// Ti.API.info('Display = ' + e.Height);
-// // if(e.message==true){sizers.style.display="block";Ti.API.info('TURNED ON');var Display=1;}
-// // if(e.message==false){sizers.style.display="none";Ti.API.info('DISPLAY TURNED OFF');var Display=0;}
-// Ti.API.info('Display = ' + Display);
-// });
-
 Ti.App.addEventListener('sizer_switch_change', function(e) {
 	Hide = !Hide;
 	if (Hide) {
@@ -270,9 +260,7 @@ function adjust_pads() {
 			document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + 0 + "deg)");
 			defaults();
 			do_update();
-
-			;
-		}
+		};
 
 		Ti.API.info("pad data rest");
 
@@ -293,13 +281,8 @@ function adjust_pads() {
 			twist(Twist);
 		}
 
-		//twist_right(Twist);
-		//Ti.API.info("reset condition               bbbbbbbbbbbbbbbb             " + reset);
-
-		//do_save_pad_state_t(Twist);
-		//Ti.API.info("Twist worked "+Twist);
 		Ti.API.info("finger pads.js is : Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
-		//Ti.API.info("reset condition               ccccccccccccccccccccc             " + reset);
+
 
 	};
 
@@ -361,8 +344,7 @@ function adjust_pads() {
 			UpDwn = UpDwnL;
 		};
 		do_pad_updwn();
-		//alert("U"+UpDwn);
-		//do_save_pad_state_u(UpDwn);
+
 	};
 
 	did("DamountU").onTouchDown = function(info) {
@@ -374,8 +356,7 @@ function adjust_pads() {
 			UpDwn = UpDwnL;
 		};
 		do_pad_updwn();
-		//alert("D"+UpDwn);
-		//do_save_pad_state_u(UpDwn);
+
 	};
 
 	///////////////////////////////////////////////////////
@@ -740,9 +721,9 @@ function do_pad_height() {
 
 function do_pad_updwn() {
 
-	Ti.API.info("UpDwnP = " + UpDwnP + " UpDwnL = " + UpDwnL + " HTMLorientation = " + HTMLorientation);
-
-	Ti.API.info("UpDwn update by user finger pads.js is : UpDwn =" + UpDwn);
+	// Ti.API.info("UpDwnP = " + UpDwnP + " UpDwnL = " + UpDwnL + " HTMLorientation = " + HTMLorientation);
+// 
+	// Ti.API.info("UpDwn update by user finger pads.js is : UpDwn =" + UpDwn);
 	if (HTMLorientation == 'portrait') {
 		UpDwn = UpDwnP;
 		chordKeybaord.style.margin = UpDwn + "px 0px 0px 0px";

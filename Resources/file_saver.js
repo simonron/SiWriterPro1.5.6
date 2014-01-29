@@ -1,125 +1,94 @@
-function recover_settings(){
-	//alert("got here?");
+function recover_settings() {
 
 	Ti.API.info("recover_settings -STARTS");
-for (var c = 0; c < props.length; c++) {
-	var value = Titanium.App.Properties.getString(props[c]);
-	if (value == 0) {
-		setting = false;
-	}
-	if (value == 1) {
-		setting = true;
-	}
-	Titanium.API.info(props[c] + " = " + value);
+	for (var c = 0; c < props.length; c++) {
+		var value = Titanium.App.Properties.getString(props[c]);
+		if (value == 0) {
+			setting = false;
+		}
+		if (value == 1) {
+			setting = true;
+		}
+		Titanium.API.info(props[c] + " = " + value);
 
-	if (props[c] == "TwistP") {
-		var TwistP = value;
-			Ti.App.fireEvent('From_Settings_Twist', {TwistP:TwistP});
+		if (props[c] == "TwistP") {
+			var TwistP = value;
+			Ti.App.fireEvent('From_Settings_Twist', {
+				TwistP : TwistP
+			});
 			//alert("from setting one");
-	}
-	if (props[c] == "TwistL") {
-		var TwistL = value;
-			Ti.App.fireEvent('From_Settings_Twist', {TwistL:TwistL});
+		}
+		if (props[c] == "TwistL") {
+			var TwistL = value;
+			Ti.App.fireEvent('From_Settings_Twist', {
+				TwistL : TwistL
+			});
 			//alert("from setting one");
+		}
+
+		if (props[c] == "LR_posP") {
+			var LR_posP = value;
+		}
+		if (props[c] == "LR_posL") {
+			var LR_posL = value;
+		}
+		if (props[c] == "UpDwnL") {
+			var UpDwnL = value;
+
+		}
+		if (props[c] == "UpDwnP") {
+			var UpDwnP = value;
+		}
+
+		if (props[c] == "HeightP") {
+			var HeightP = value;
+			//alert("HeightP="+HeightP);
+
+		}
+
+		if (props[c] == "HeightL") {
+			var HeightL = value;
+			alert("HeightL=" + HeightL);
+		}
+
+		if (props[c] == "WidthP") {
+			var WidthP = value;
+		}
+
+		if (props[c] == "WidthL") {
+			var WidthL = value;
+		}
+
+		if (props[c] == "GapP") {
+			var GapP = value;
+		}
+
+		if (props[c] == "GapL") {
+			var GapL = value;
+		}
+
+		if (props[c] == "FPPDisplay") {
+			var FPPDisplay = value;
+		}
+
+		if (props[c] == "FPhelp") {
+			var FPhelp = value;
+		}
 	}
 
+	Ti.API.info("recover_settings -For Next ENDS");
+	if (start == 1) {
+		Ti.App.fireEvent('initialise');
+		start = false;
+	};
+	DoOrientation();
 
-	if (props[c] == "LR_posP") {
-		var LR_posP = value;
-	}
-	if (props[c] == "LR_posL") {
-		var LR_posL = value;
-	}
-	if (props[c] == "UpDwnL") {
-		var UpDwnL = value;
-
-	}
-	if (props[c] == "UpDwnP") {
-		var UpDwnP = value;
-	}
-
-	if (props[c] == "HeightP") {
-		var HeightP = value;
-				//alert("HeightP="+HeightP);
-
-	}
-
-	if (props[c] == "HeightL") {
-		var HeightL = value;
-		alert("HeightL="+HeightL);
-	}
-
-
-	if (props[c] == "WidthP") {
-		var WidthP = value;
-	}
-
-	if (props[c] == "WidthL") {
-		var WidthL = value;
-	}
-
-	if (props[c] == "GapP") {
-		var GapP = value;
-	}
-
-	if (props[c] == "GapL") {
-		var GapL = value;
-	}
-
-	if (props[c] == "FPPDisplay") {
-		var FPPDisplay = value;
-	}
-
-	if (props[c] == "FPhelp") {
-		var FPhelp = value;
-	}
 }
-
-Ti.API.info("recover_settings -For Next ENDS");
-if (start == 1) {
-	//Ti.API.info(start+"initialising....................................................................");
-	Ti.App.fireEvent('initialise');
-
-	//alert("start app"+start);
-	start = false;
-	//Ti.API.info(start+"initialise fired.................................................!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-	//setup_buttons();
-};
-DoOrientation();
-//satic sensor
-
-
-
-Ti.API.info("recover_settings -Orientation ends");
-
-// //Ti.App.fireEvent('app:fromTitanium', { message: 'event fired from Titanium, handled in WebView' });
-Ti.API.info("HeightL as sent by APP Settings = "+HeightL);
-Ti.API.info("HeightP as sent by APP Settings = "+HeightP);
-//Ti.API.info("Height as sent by APP Settings = "+Height);
-// 
-// webview.addEventListener('beforeload', function(e)// sends to webview
-// {
-	// webview.evalJS("var Twist='" + Twist + "';");
-	// webview.evalJS("var LR_pos='" + HeightP + "';");
-	// webview.evalJS("var UpDwn='" + UpDwn + "';");
-	// webview.evalJS("var Height='" + Height + "';");
-	// webview.evalJS("var Width='" + Width + "';");
-	// webview.evalJS("var Gap='" + Gap + "';");
-	// webview.evalJS("var FPPDisplay='" + FPPDisplay + "';");
-	// webview.evalJS("var FPhelp='" + FPhelp + "';");
-// });
-
-Ti.API.info("recover_settings -ENDS anfter sending to web");
-} //  END OF RECOVERED SETTINGS
-
-
 
 function missedKeypad() {
 	Ti.Media.vibrate();
 	alert("missed");
 }
-
 
 function View_Size() {
 	Size = txtViewDesc.value.length;
@@ -260,7 +229,7 @@ function pasteTextFromClipboard() {
 }
 
 function timeStamp() {
-	contentTyped=txtViewDesc.value;
+	contentTyped = txtViewDesc.value;
 	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + new Date + "\n\n";
 	txtViewDesc.value = contentTyped;
 }
@@ -394,19 +363,19 @@ function get_MasterSettings() {
 		}
 
 		// if (props[c] == "Height") {
-			// var Height = value;
+		// var Height = value;
 		// }
-// 
+		//
 		// if (props[c] == "Width") {
-			// var Width = value;
+		// var Width = value;
 		// }
-// 
+		//
 		// if (props[c] == "pos") {
-			// var pos = value;
+		// var pos = value;
 		// }
-// 
+		//
 		// if (props[c] == "Gap") {
-			// var Gap = value;
+		// var Gap = value;
 		// }
 
 		if (props[c] == "FPPDisplay") {

@@ -276,21 +276,13 @@ function buttonvariablesPortrait() {
 	timeStampButton.right = 20;
 	timeStampButton.top = 380;
 
-	////Display Screen view///
 
-	//view.width ="620";
-	//view.height = "420";
 	view.left = "20";
 
 	help_WindowSwitcher();
 
 	txtViewDesc.width = 610;
 	txtViewDesc.font.backgroundColor = '#fee';
-	//txtViewDesc.height = "400";
-	//view.height = "400";
-	//webview.top = 475;
-	//webview.height = 560;
-	//webview.height = "100%";
 	webview.left = "14";
 	webview.background = "url(images/Sized_AgendA_bg_bottom.png)";
 	webview.bottom = "0";
@@ -330,7 +322,7 @@ function buttonvariablesLandscape() {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
 
-	smallHelpView.top = 310;
+	smallHelpView.top = 330;
 	smallHelpView.left = 20;
 	smallHelpView.height = 420;
 	smallHelpView.contentHeight = 'auto';

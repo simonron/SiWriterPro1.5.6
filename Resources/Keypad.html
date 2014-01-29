@@ -22,76 +22,79 @@
 				do_save_pad_state_t(Twist);
 			}
 
-function twist(Twist) {
-			
+			function twist(Twist) {
+
 				document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + Twist + "deg)");
 				//do_save_pad_state_t(Twist);
 			}
 
-Ti.App.addEventListener('app:fromWebView', function(e) {alert(reset_pads.message);});
+
+			Ti.App.addEventListener('app:fromWebView', function(e) {
+				alert(reset_pads.message);
+			});
 		</script>
 	</head>
 	<body>
-
-		<div id="sizers">
-			<div id="close_display">
-				Close&nbsp;X
-			</div>
-			<br>
-			<br>
-			<div id="amountT">
-				TR
-			</div>
-			<div id="DamountT">
-				TL
-			</div>
-			<br>
-			<br>
-			<div id="amountP">
-				R+
-			</div>
-			<div id="DamountP">
-				L+
-			</div>
-			<br>
-			<br>
-			<div id="amountU">
-				U+
-			</div>
-			<div id="DamountU">
-				D+
-			</div>
-			<br>
-			<br>
-			<div id="amountH">
-				H+
-			</div>
-			<div id="DamountH">
-				H-
-			</div>
-			<br>
-			<br>
-			<div id="amountW">
-				W+
-			</div>
-			<div id="DamountW">
-				W-
-			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<div id="amountS">
-				G+
-			</div>
-			<div id="DamountS">
-				G-
-			</div>
-			<div id="reset_pads">
-				Re-set
+		<div id="sizerholder">
+			<div id="sizers">
+				<div id="close_display">
+					Close&nbsp;X
+				</div>
+				<br>
+				<br>
+				<div id="amountT">
+					TR
+				</div>
+				<div id="DamountT">
+					TL
+				</div>
+				<br>
+				<br>
+				<div id="amountP">
+					R+
+				</div>
+				<div id="DamountP">
+					L+
+				</div>
+				<br>
+				<br>
+				<div id="amountU">
+					U+
+				</div>
+				<div id="DamountU">
+					D+
+				</div>
+				<br>
+				<br>
+				<div id="amountH">
+					H+
+				</div>
+				<div id="DamountH">
+					H-
+				</div>
+				<br>
+				<br>
+				<div id="amountW">
+					W+
+				</div>
+				<div id="DamountW">
+					W-
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div id="amountS">
+					G+
+				</div>
+				<div id="DamountS">
+					G-
+				</div>
+				<div id="reset_pads">
+					Re-set
+				</div>
 			</div>
 		</div>
-
 		<div id="appContainer" style=" font-family: Arial, sans-serif; font-size: 16px; color: #333333;">
 
 			<div id="finger_pads">
@@ -131,7 +134,7 @@ Ti.App.addEventListener('app:fromWebView', function(e) {alert(reset_pads.message
 							...
 						</div>
 					</div><!--SPACE-->
-					<!--<div id="spacer0">&nbsp;</div>-->
+					<div id="spacer0">&nbsp;</div>
 
 					<div id="k1" class="chordKeyw chordKeyWaiting">
 						<div id="h1" class="kHelper">
@@ -179,7 +182,6 @@ Ti.App.addEventListener('app:fromWebView', function(e) {alert(reset_pads.message
 
 		<script type="text/javascript" src="js/teagueproto.js"></script>
 		<script src="SiWriter.js"></script>
-<script src="pad_functions.js"></script>
-<script src="user_finger_pads.js"></script>
+		<script src="user_finger_pads.js"></script>
 	</body>
 </html>
