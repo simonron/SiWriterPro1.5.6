@@ -288,9 +288,9 @@ function buttonvariablesPortrait() {
 	txtViewDesc.font.backgroundColor = '#fee';
 	//txtViewDesc.height = "400";
 	//view.height = "400";
-	webview.top = 475;
+	//webview.top = 475;
 	//webview.height = 560;
-	webview.height = "100%";
+	//webview.height = "100%";
 	webview.left = "14";
 	webview.background = "url(images/Sized_AgendA_bg_bottom.png)";
 	webview.bottom = "0";
@@ -374,28 +374,18 @@ function buttonvariablesLandscape() {
 	clearButton.right = 246;
 	clearButton.top = 40;
 
-	//buttonvariablesPortrait.saveButton.right= 20;
-	//buttonvariablesPortrait.saveButton.top= 160;
-
 	emailButton.right = 346;
 	emailButton.top = 40;
 	timeStampButton.top = 40;
 	timeStampButton.right = 446;
 
 	////Display Screen view///
-	//view.width = 310;
 	view.left = 20;
-	//view.height = 700;
 	help_WindowSwitcher();
 
 	txtViewDesc.width = "94%";
-	//txtViewDesc.height = 680;
-
 	view.height = 680;
-	webview.top = 95;
-	//webview.top = 70;
 	webview.left = 330;
-	webview.height = 700;
 	webview.background = "none";
 	webview.background = "transparent";
 	webview.bottom = 0;

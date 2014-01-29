@@ -55,7 +55,7 @@ var webview = Titanium.UI.createWebView({
 	backgroundColor : 'transparent',
 	url : 'Keypad.html',
 	//width : 760,
-	//height : "100%",
+	height : "100%",
 	//left:14,
 	disableBounce : true,
 });
@@ -137,6 +137,13 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 ////////////////////FROM WEBVIEWW DEMO///////////////////////
 //Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
 ////////////////////////////////////////////////////////////
+Ti.App.addEventListener('app:sizer_switch', function(e) {
+	sizer_switch.value=false;
+	Ti.App.fireEvent('sizer_switch_change');
+			// Play a device vibration.
+   Ti.Media.vibrate();
+	//alert(e.sizer_switch);
+	});//from webview
 
 
 //alert("here?");

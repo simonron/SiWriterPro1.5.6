@@ -41,28 +41,24 @@ do_update();
 
 function defaults() {
 	HeightP = 190;
-	WidthP = 114;
-	GapP = 7;
+	WidthP = 100;
+	GapP = 0;
 	LRposP = 0;
 	TwistP = 0;
-	UpDwnP = 90;
+	UpDwnP = 590;
 
 	HeightL = 195;
-	WidthL = 114;
-	GapL = -4;
+	WidthL = 100;
+	GapL = 0;
 	LRposL = 0;
 	TwistL = 0;
-	UpDwnL = 190;
- }
-
+	UpDwnL = 220;
+}
 
 var reset = false;
 
 var globalArrayP = [];
 var globalArrayL = [];
-
-
-
 
 $(document).ready(function() {
 	initTouch(touchStart, touchEnd, touchCancel);
@@ -81,7 +77,7 @@ Ti.App.addEventListener('initialise', function(e) {
 
 Ti.App.addEventListener("app:orientation", function(e) {
 	Ti.API.info("!!!!!!!!app:orientation!!!!!!!!!");
-	HTMLorientation=e.orientation;
+	HTMLorientation = e.orientation;
 	initialise();
 	do_update();
 });
@@ -90,34 +86,33 @@ function initialise() {
 
 	Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
-			HeightL : HeightL
-		}, {
-			WidthL : WidthL
-		}, {
-			TwistL : TwistL
-		}, {
-			UpDwnL : UpDwnL
-		}, {
-			LRposL : LRposL
-		}, {
-			GapL : GapL
-		}];
-	
-		globalArrayP = [{
-			HeightP : HeightP
-		}, {
-			WidthP : WidthP
-		}, {
-			TwistP : TwistP
-		}, {
-			UpDwnP : UpDwnP
-		}, {
-			LRposP : LRposP
-		}, {
-			GapP : GapP
-		}];
-		
-		
+		HeightL : HeightL
+	}, {
+		WidthL : WidthL
+	}, {
+		TwistL : TwistL
+	}, {
+		UpDwnL : UpDwnL
+	}, {
+		LRposL : LRposL
+	}, {
+		GapL : GapL
+	}];
+
+	globalArrayP = [{
+		HeightP : HeightP
+	}, {
+		WidthP : WidthP
+	}, {
+		TwistP : TwistP
+	}, {
+		UpDwnP : UpDwnP
+	}, {
+		LRposP : LRposP
+	}, {
+		GapP : GapP
+	}];
+
 	if (HTMLorientation == "portrait") {
 		//appContainer.style.padding = "70px 0px 0px 0px";
 
@@ -129,8 +124,7 @@ function initialise() {
 		Twist - TwistP;
 	}
 
-
-		if (HTMLorientation == "landscape") {
+	if (HTMLorientation == "landscape") {
 		//appContainer.style.padding = "170px 0px 0px 0px";
 		UpDwn = UpDwnL;
 		Height = HeightL;
@@ -138,7 +132,7 @@ function initialise() {
 		Width = WidthL;
 		LRpos = LRposL;
 		Twist - TwistL;
-		
+
 	}
 	//		Ti.API.info("orientation_offset  CALLED " + orientation);
 	//Ti.API.info("UpDwn = " + UpDwn + " UdOffset= " + UdOffset + " UdOffsetP =" + UdOffsetP + " UdOffsetL= " + UdOffsetL);
@@ -153,7 +147,7 @@ function initialise() {
 	Ti.API.info(globalArrayP[3]);
 	Ti.API.info(globalArrayP[4]);
 	Ti.API.info(globalArrayP[5]);
-	
+
 	Ti.API.info('!!!!!!!!globalArrayL!!!!!!!!!!!!!!');
 	Ti.API.info(globalArrayL[0]);
 	Ti.API.info(globalArrayL[1]);
@@ -162,16 +156,9 @@ function initialise() {
 	Ti.API.info(globalArrayL[4]);
 	Ti.API.info(globalArrayL[5]);
 
-
 	Ti.API.info("after update HTML orientation = " + HTMLorientation);
 
 }
-
-// Ti.App.addEventListener("app:orientation", function(e) {
-// 
-	// HTMLorientation = e.orientation;
-	// initialise();
-// });
 
 ////////////////////////////////////////////////////////////
 function do_update() {
@@ -185,13 +172,14 @@ function do_update() {
 		Width = WidthP;
 		LRpos = LRposP;
 		Twist - TwistP;
-		chordKeybaord.style.margin = UpDwn + "px 0px 0px " + LRpos + "px";
+		chordKeybaord.style.margin = UpDwn + "px 0px 0px 0px";
+		appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
+		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + TwistP + "deg)");
 		do_pad_height();
 		do_pad_width();
 		do_pad_Gap();
-		twist(TwistP);
 	}
-	
+
 	if (HTMLorientation == 'landscape') {
 		UpDwn = UpDwnL;
 		Height = HeightL;
@@ -200,22 +188,18 @@ function do_update() {
 		LRpos = LRposL;
 		Twist - TwistL;
 		adjust_pads();
-		chordKeybaord.style.margin = UpDwn + "px 0px 0px " + LRpos + "px";
+		chordKeybaord.style.margin = UpDwn + "px 0px 0px 0px";
+		appContainer.style.margin = "0px 0px 0px " + LRposL + "px";
+		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + TwistL + "deg)");
 		do_pad_height();
 		do_pad_width();
 		do_pad_Gap();
-		twist(TwistL);
+
 	}
 
-	//do_pad_width();
-	//do_pad_Gap();
-	//do_pad_LRpos();
-	//do_pad_height();
-	//do_pad_width();
+
 	Ti.API.info("update done");
-	//do_pad_updwn();
-	// do_pad_Gap();
-	// document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + Twist + "deg)");
+
 };
 
 ////////////////////send to APP /////////////////////////////////
@@ -255,27 +239,22 @@ setupKeys();
 get_user_settings();
 //main loop ! ??
 adjust_pads();
-
 drawHelpers();
 focusTFC(this);
-
 set_pad_data();
 // end loop
-//Ti.API.info('START Ti.Display = '+Ti.Display);
 
 function adjust_pads() {
-		Ti.API.info("RESET at START of djust_pads/ ufp /////////////////" + reset);
 
-	
 	/////////////////     CLOSE      ///////////////////
 	/////////////////     CLOSE      ///////////////////
 	/////////////////     CLOSE      ///////////////////
 
 	did("close_display").onTouchDown = function(info) {
 		hide_sizers();
-		sizer_switch.value = false;
-		// Play a device vibration.
-		Ti.Media.vibrate();
+		Ti.App.fireEvent('app:sizer_switch', {
+			sizer_switch : false
+		});
 	};
 
 	/////////////////     RESET      ///////////////////
@@ -283,17 +262,17 @@ function adjust_pads() {
 	/////////////////     RESET      ///////////////////
 
 	did("reset_pads").onTouchDown = function(info) {
+		var r = confirm("'Do you really want to reset the finger pad positions?'");
+		if (r == true) {
+			Twist = 0;
+			TwistL = 0;
+			TwistP = 0;
+			document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + 0 + "deg)");
+			defaults();
+			do_update();
 
-		Ti.API.info("?????????????RESET TRIG????????????????????????reset is ????" + reset);
-
-		defaults();
-		Ti.App.fireEvent('app:orientation', {
-			orientation : orientation
-		});
-
-		Ti.API.info("reset_pad_data positions RESET");
-		alert("SiWriter reset to defaults");
-		//webview.reload();
+			;
+		}
 
 		Ti.API.info("pad data rest");
 
@@ -347,10 +326,10 @@ function adjust_pads() {
 
 	did("amountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			LRposP += 1;
+			LRposP += 2;
 			LRpos = LRposP;
 		} else {
-			LRposL += 1;
+			LRposL += 2;
 			LRpos = LRposL;
 		};
 		do_pad_LRpos();
@@ -358,16 +337,14 @@ function adjust_pads() {
 
 	did("DamountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			LRposP -= 1;
+			LRposP -= 2;
 			LRpos = LRposP;
 		} else {
-			LRposL -= 1;
+			LRposL -= 2;
 			LRpos = LRposL;
 		};
 		do_pad_LRpos();
 	};
-
-
 
 	///////////////////////////////////////////////////////
 
@@ -401,8 +378,6 @@ function adjust_pads() {
 		//do_save_pad_state_u(UpDwn);
 	};
 
-
-
 	///////////////////////////////////////////////////////
 
 	/////////////////       Height      ///////////////////
@@ -431,7 +406,6 @@ function adjust_pads() {
 		};
 		do_pad_height();
 	};
-
 
 	//////////////////////////////////////////////////////
 
@@ -462,8 +436,6 @@ function adjust_pads() {
 		do_pad_width();
 	};
 
-
-
 	////////////////////////////////////////////////////
 
 	/////////////////       Gap      ///////////////////
@@ -492,7 +464,6 @@ function adjust_pads() {
 		};
 		do_pad_Gap();
 	};
-
 
 	///////////////////////////////////////////////////////
 	Ti.API.info("RESET at end of Pads update//////////////////" + reset);
@@ -704,88 +675,84 @@ function get_user_settings() {
 
 }
 
+function do_pad_LRpos() {
+	if (HTMLorientation == 'portrait') {
+		LRpos = LRposP;		
+		appContainer.style.margin = "0px 0px 0px " + LRpos + "px";
+	}
+	if (HTMLorientation == 'landscape') {
+		LRpos = LRposL;
+		appContainer.style.margin = "0px 0px 0px " + LRpos + "px";
+	}
+	Ti.API.info("LRpos finger pads.js is : LRpos =" + LRpos +" LRposP =" + LRposP +"LRposL =" + LRposL);
+};
 
-	function do_pad_LRpos() {
+function do_pad_Gap() {
 
-		Ti.API.info("variable update by user finger pads.js is :-LRpos =" + LRpos);
+	k0.style.margin = "0px 0px 0px " + Gap + "px";
+	k1.style.margin = "0px 0px 0px " + Gap + "px";
+	k2.style.margin = "0px 0px 0px " + Gap + "px";
+	k3.style.margin = "0px 0px 0px " + Gap + "px";
+	k4.style.margin = "0px 0px 0px " + Gap + "px";
+	k5.style.margin = "0px 0px 0px " + Gap + "px";
+	k6.style.margin = "0px 0px 0px " + Gap + "px";
 
-		if (HTMLorientation == 'portrait') {
-			appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
-			LRpos = LRposP;
-		}
-		if (HTMLorientation == 'landscape') {
-			appContainer.style.margin = "0px 0px 0px " + LRposL + "px";
-			LRpos = LRposL;
-		}
-	};
-	
-	function do_pad_Gap() {
+	// Ti.API.info("variable update by user finger pads.js is :-Gap =" + Gap + " GapOffset = " + GapOffset);
+	// Ti.API.info("finger pads.js is :-Gap/10 =" + Gap / 10);
 
-		k0.style.margin = "0px 0px 0px " + Gap + "px";
-		k1.style.margin = "0px 0px 0px " + Gap + "px";
-		k2.style.margin = "0px 0px 0px " + Gap + "px";
-		k3.style.margin = "0px 0px 0px " + Gap + "px";
-		k4.style.margin = "0px 0px 0px " + Gap + "px";
-		k5.style.margin = "0px 0px 0px " + Gap + "px";
-		k6.style.margin = "0px 0px 0px " + Gap + "px";
+}
 
-		// Ti.API.info("variable update by user finger pads.js is :-Gap =" + Gap + " GapOffset = " + GapOffset);
-		// Ti.API.info("finger pads.js is :-Gap/10 =" + Gap / 10);
+function do_pad_width() {
+	k0.style.width = Width + "px";
+	k1.style.width = Width + "px";
+	k2.style.width = Width + "px";
+	k3.style.width = Width + "px";
+	k4.style.width = Width + "px";
+	k5.style.width = (2 * Width) + "px";
+	k6.style.width = Width + "px";
+	k7.style.width = Width + "px";
+	UpperNums.style.width = Width + "px";
+	Symbols.style.width = Width + "px";
 
+	// if ((Width > 300) || (Width < 0)) {
+	// Width = 0;
+	// }
+	// Ti.API.info("finger pads.js is : Width = " + Width + " WidthP = " + WidthP + " WidthL = " + WidthL);
+
+}
+
+function do_pad_height() {
+	Ti.API.info("do_pad_height after orient =" + Height);
+
+	k0.style.height = Height + "px";
+	k1.style.height = Height + "px";
+	k2.style.height = Height + "px";
+	k3.style.height = Height + "px";
+	k4.style.height = Height + "px";
+	k5.style.height = (Height * 0.25) + "px";
+	k6.style.height = Height + "px";
+	k7.style.height = (Height * 0.5) + "px";
+	UpperNums.style.height = (Height * 0.5) + "px";
+	Symbols.style.height = (Height * 0.5) + "px";
+
+	Ti.API.info("variable update by user finger pads.js is :-height =" + Height);
+}
+
+function do_pad_updwn() {
+
+	Ti.API.info("UpDwnP = " + UpDwnP + " UpDwnL = " + UpDwnL + " HTMLorientation = " + HTMLorientation);
+
+	Ti.API.info("UpDwn update by user finger pads.js is : UpDwn =" + UpDwn);
+	if (HTMLorientation == 'portrait') {
+		UpDwn = UpDwnP;
+		chordKeybaord.style.margin = UpDwn + "px 0px 0px 0px";
+	}
+	if (HTMLorientation == 'landscape') {
+		UpDwn = UpDwnL;
+		chordKeybaord.style.margin = UpDwn + "px 0px 0px 0px";
 	}
 
-	function do_pad_width() {
-		k0.style.width = Width + "px";
-		k1.style.width = Width + "px";
-		k2.style.width = Width + "px";
-		k3.style.width = Width + "px";
-		k4.style.width = Width + "px";
-		k5.style.width = (2 * Width) + "px";
-		k6.style.width = Width + "px";
-		k7.style.width = Width + "px";
-		UpperNums.style.width = Width + "px";
-		Symbols.style.width = Width + "px";
+	Ti.API.info("HTMLorientation = " + HTMLorientation);
+	Ti.API.info("UpDwnP = " + UpDwnP + " UpDwnL = " + UpDwnL + " HTMLorientation = " + HTMLorientation);
 
-		// if ((Width > 300) || (Width < 0)) {
-			// Width = 0;
-		// }
-		// Ti.API.info("finger pads.js is : Width = " + Width + " WidthP = " + WidthP + " WidthL = " + WidthL);
-
-	}
-	
-
-	function do_pad_height() {
-		Ti.API.info("do_pad_height after orient =" + Height);
-
-		k0.style.height = Height + "px";
-		k1.style.height = Height + "px";
-		k2.style.height = Height + "px";
-		k3.style.height = Height + "px";
-		k4.style.height = Height + "px";
-		k5.style.height = (Height * 0.25) + "px";
-		k6.style.height = Height + "px";
-		k7.style.height = (Height * 0.5) + "px";
-		UpperNums.style.height = (Height * 0.5) + "px";
-		Symbols.style.height = (Height * 0.5) + "px";
-
-		Ti.API.info("variable update by user finger pads.js is :-height =" + Height);
-	}
-	
-
-	function do_pad_updwn() {
-
-		Ti.API.info("UpDwnP = " + UpDwnP + " UpDwnL = " + UpDwnL + " HTMLorientation = " + HTMLorientation);
-
-		Ti.API.info("UpDwn update by user finger pads.js is : UpDwn =" + UpDwn);
-		if (HTMLorientation == 'portrait') {
-			chordKeybaord.style.margin = UpDwnP + "px 0px 0px 0px";
-			UpDwn = UpDwnP;
-		}
-		if (HTMLorientation == 'landscape') {
-			chordKeybaord.style.margin = UpDwnL + "px 0px 0px 0px";
-			UpDwn = UpDwnL;
-		}
-
-		Ti.API.info("HTMLorientation = " + HTMLorientation);
-
-	}
+}

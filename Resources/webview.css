@@ -11,12 +11,14 @@ body {
 	overflow: hidden;
 	font-size: 10px;
 }
+
 .demo-description {
 	clear: both;
 	padding: 12px;
 	font-size: 1.3em;
 	line-height: 1.4em;
 }
+
 div#sizers {
 	width: 102px;
 	padding: 8px;
@@ -29,10 +31,11 @@ div#sizers {
 	border-top-right-radius: 27px;
 	border-bottom-left-radius: 27px;
 	border-bottom-right-radius: 27px;
-	top: 90px;//
-	margin-left: 570px;
+	bottom 90px;
+	margin-left: 0px;
 	opacity: 0.95;
 }
+
 div#sizers div {
 	background: #fee;
 	float: right;
@@ -46,20 +49,24 @@ div#sizers div {
 	border-bottom-right-radius: 27px;
 	width: 27px;
 }
+
 div#reset_pads, div#close_display {
 	font-size: 16px;
 	text-align: center;
 	width: 80px !important;
 	padding: 2px 0px 0px 4px;
 }
+
 div#reset_pads span, div#close_display span {
 	display: block;
 	background: #f00;
 	color: #000;
 }
+
 div#spacer {
 	width: 0px;
 }
+
 #mover {
 	position: relative;
 	left: 0px;
@@ -68,6 +75,7 @@ div#spacer {
 	top: 0px;
 	z-index: 1;
 }
+
 .chordKey, .CapsKeyUp {/* the DEL  and Upper keys */
 	display: none;
 	border-top-left-radius: 27px;
@@ -102,6 +110,7 @@ div#spacer {
 	z-index: 1000;
 	background-size: 101% 103%;
 }
+
 .chordKeyw {/* the shape of the WIDE keys */
 	border-top-left-radius: 27px;
 	border-top-right-radius: 27px;
@@ -116,6 +125,7 @@ div#spacer {
 	border-bottom-right-radius: 27px;
 	background-size: 101% 100%;
 }
+
 .chordKeyUpper {/* Upper keys - Nums and Sybols*/
 	border-top-left-radius: 27px;
 	border-top-right-radius: 27px;
@@ -189,6 +199,7 @@ div#spacer {
 	background: url(images/small_buttonsA.png);
 	background-size: 100% 100%;
 }
+
 .NumKeyUpL {
 	/*background: url(images/horiz_buttons_L.png);*/
 	background: url(images/small_buttonsL.png) 0px 0px;
@@ -213,6 +224,7 @@ div#spacer {
 	width: 90%;
 	margin-left: 2.5%;
 }
+
 div#k0 .kHelper {
 	width: 115%;
 	padding: 0 0 0 2px;
@@ -252,21 +264,26 @@ div#k0 .kHelper {
 	font-weight: 600;
 	padding-top: 4px;
 }
+
 .kHelper b {
 	color: #050;
 	font-size: 18px;
 }
+
 #chordKeybaord {
 	width: 100%;
 }
+
 #keypad_area {
 	width: 100%;
 	height: 100%;
 	z-index: 10000000;
 }
+
 #chordKeybaord div {
 	float: left;
 }
+
 #missed {
 	height: 500px;
 	width: 720px;
@@ -305,42 +322,51 @@ div #k1 {
 	position: relative;
 	margin-left: 6px;
 }
+
 div #k2 {
 	top: 30px;
 	display: block;
 	float: left;
 	position: relative;
 }
+
 div #k3 {
 	top: 40px;
 	float: left;
 	position: relative;
 	display: block;
 }
+
 div #k4 {
 	top: 90px;
 	display: block;
 	float: left;
 	position: relative;
 }
+
 div.spacer {
 	display: block;
 	width: 30px;
 }
+
 div#k7 {/* Delete key*/
 	top: 110%;
 	float: left;
 }
+
 .Red {
 	margin-left: 100px;
 }
+
 span {
 	color: #ddd;
 }
+
 .hide {
 	color: #000 !important;
 	/*display:none !important;*/
 }
+
 div#Title {
 	position: absolute;
 	z-index: 1000;
@@ -348,6 +374,7 @@ div#Title {
 	top: 460px;
 	left: 510px;
 }
+
 #kWindshield {/* small text view */
 	margin-left: 244px;
 	color: #000;

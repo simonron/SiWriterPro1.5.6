@@ -23,9 +23,7 @@
 			}
 
 function twist(Twist) {
-				//Twist -= 1;
-				//Ti.API.info("Twist right " + angle);
-				// alert("right");
+			
 				document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:rotate(" + Twist + "deg)");
 				//do_save_pad_state_t(Twist);
 			}
@@ -181,7 +179,7 @@ Ti.App.addEventListener('app:fromWebView', function(e) {alert(reset_pads.message
 
 		<script type="text/javascript" src="js/teagueproto.js"></script>
 		<script src="SiWriter.js"></script>
-		<script src="user_finger_pads.js"></script>
 <script src="pad_functions.js"></script>
+<script src="user_finger_pads.js"></script>
 	</body>
 </html>
