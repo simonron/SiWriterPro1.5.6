@@ -1,3 +1,5 @@
+Ti.App.removeEventListener('webviewEvent', function(e) {});
+
 Ti.App.addEventListener('webviewEvent', function(e) {
 
 	////***********************///DELETE sensor//
@@ -29,10 +31,3 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 });
 
 
-Ti.App.addEventListener('missed_keypad_end', function(e) {
-	alert("MISSED");
-	Ti.API.info('MISSED');
-
-	//Vibrate( 0, 100, 10);
-	Ti.Media.vibrate();
-});

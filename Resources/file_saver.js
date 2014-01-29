@@ -207,6 +207,8 @@ function clearTextFromClipboard() {
 		buttonNames : ['Yes', 'No']
 	});
 
+	dialog.removeEventListener('click', function(e) {});
+	
 	dialog.addEventListener('click', function(e) {
 		if (e.index == 0) {
 			Ti.UI.Clipboard.setText(contentTyped);

@@ -15,7 +15,6 @@ var c = 0;
 var s = 0;
 var Nums = 0;
 var Caps = 0;
-//var blockLen=750;
 var DEL = 0;
 var OS_EDIT = 0;
 var help_windowSwitch = false;
@@ -103,12 +102,12 @@ var win2 = Titanium.UI.createWindow({// top section BG
 /////////////////////////////////////////end help window  //////////////////////////
 if(Titanium.Platform.displayCaps.platformWidth<Titanium.Platform.displayCaps.platformHeight){
  orientation='portrait';
-    Ti.API.info("Launched in PORTRAIT QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");    
+    Ti.API.info("Launched in PORTRAIT ");    
  
 } else {
   orientation='landscape';
 
-    Ti.API.info("Launched in LANDSCAPE QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");   
+    Ti.API.info("Launched in LANDSCAPE ");   
 }
 
 ///////////////////// INITIALISE //////////////////////////////////////////////////////////////
@@ -192,71 +191,6 @@ Ti.App.addEventListener('do_reset', function(e) {
 	
 });
 
-Ti.App.addEventListener('Twist', function(e) {
-	Ti.API.info("Twist  recieved from web, by app.js line THEN added to SETTINGS THEN added to SETTINGS: 179=" + e.Twist);
-	Titanium.App.Properties.setString("Twist", e.Twist);
-});
-
-Ti.App.addEventListener('LRposP', function(e) {
-	Ti.API.info("LRposP  recieved from web, by app.js line THEN added to SETTINGS: 197=" + e.LRposP);
-	Titanium.App.Properties.setString("LRposP", e.LRposP);
-});
-
-Ti.App.addEventListener('LRposL', function(e) {
-	Ti.API.info("LRposL  recieved from web, by app.js line THEN added to SETTINGS: 197=" + e.LRposL);
- Titanium.App.Properties.setString("LRposL", e.LRposL);
-});
-
-Ti.App.addEventListener('UpDwnP', function(e) {
-	Ti.API.info("UpDwnP recieved from web, by app.js line THEN added to SETTINGS: 204 =" + e.UpDwnP);
-	Titanium.App.Properties.setString("UpDwnP", e.UpDwnP);
-});
-
-Ti.App.addEventListener('UpDwnL', function(e) {
-	Ti.API.info("UpDwnL recieved from web, by app.js line THEN added to SETTINGS: 204 =" + e.UpDwnL);
- Titanium.App.Properties.setString("UpDwnL", e.UpDwnL);
-});
-
-Ti.App.addEventListener('HeightP', function(e) {
-	Ti.API.info("HeightP recieved from web, by app.js line THEN added to SETTINGS: 197 =" + e.HeightP);
-	Titanium.App.Properties.setString("HeightP", e.HeightP);
-});
-
-Ti.App.addEventListener('HeightL', function(e) {
-	Ti.API.info("HeightL recieved from web, by app.js line THEN added to SETTINGS: 197 =" + e.HeightL);
- Titanium.App.Properties.setString("HeightL", e.HeightL);
-});
-
-Ti.App.addEventListener('WidthP', function(e) {
-	Ti.API.info("WidthP  recieved from web, by app.js line THEN added to SETTINGS: 203=" + e.WidthP);
-	Titanium.App.Properties.setString("WidthP", e.WidthP);
-});
-
-Ti.App.addEventListener('WidthL', function(e) {
-	Ti.API.info("WidthL  recieved from web, by app.js line THEN added to SETTINGS: 203=" + e.WidthL);
- Titanium.App.Properties.setString("WidthL", e.WidthL);
-});
-
-Ti.App.addEventListener('GapP', function(e) {
-	Ti.API.info("GapP  recieved from web, by app.js line THEN added to SETTINGS: 288=" + e.GapP);
-	Titanium.App.Properties.setString("GapP", e.GapP);
-});
-
-Ti.App.addEventListener('GapL', function(e) {
-	Ti.API.info("GapL  recieved from web, by app.js line THEN added to SETTINGS: 288=" + e.GapL);
- Titanium.App.Properties.setString("GapL", e.GapL);
-});
-
-Ti.App.addEventListener('FPPDisplay', function(e) {
-	Ti.API.info("FPPDisplay  recieved from web, by app.js line THEN added to SETTINGS: 297=" + e.FPPDisplay);
-	Titanium.App.Properties.setString("FPPDisplay", e.FPPDisplay);
-});
-
-Ti.App.addEventListener('FPhelp', function(e) {
-	Ti.API.info("FPhelp  recieved from web, by app.js line THEN added to SETTINGS: 302=" + e.FPhelp);
-	Titanium.App.Properties.setString("FPhelp", e.FPhelp);
-});
-
 
 help_WindowSwitcher();
 win1.open();
@@ -285,9 +219,6 @@ if (help_windowSwitch.value == 1) {
 help_WindowSwitcher();
 smallHelpView.add(smallHelpimages);
 
-//Button1.addEventListener('click', function(e) {
-//	Ti.App.fireEvent('app:fromTitanium', { message: 'event fired from Titanium, handled in WebView' });
-//});
 
 emailButton.removeEventListener('click', emailCurrentText);
 clearButton.removeEventListener('click', clearTextFromClipboard);
@@ -335,6 +266,8 @@ help_BIGwindowSwitch.addEventListener('change', function(e) {
 	//Ti.API.info('****************** help_BIGwindowSwitch at line 1229 now is '+help_BIGwindowSwitch.value);
 });
 
+Ti.Gesture.removeEventListener('orientationchange',function(){});
+
 //**********************ORIENTATION CHANGE SENSOR************************//
 Ti.Gesture.addEventListener('orientationchange', function(e) {
 //alert(e.orientation);
@@ -355,10 +288,14 @@ Ti.App.fireEvent('app:orientation', { orientation: orientation });
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
+sizer_switch.removeEventListener('change', function(e, hide) {});
 
 sizer_switch.addEventListener('change', function(e, hide) {
 	Ti.App.fireEvent('sizer_switch_change');
 });
+
+
+help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {});
 
 help_lettersSwitch.addEventListener('change', function(e, FPhelp) {
 	Ti.API.info('app:Switch value: ' + help_lettersSwitch.value);
@@ -387,6 +324,7 @@ Ti.include('newtext.js');
 //////////////////////////////////////END TEXT MANAGEMENT////////////////////////////////////////
 
 //////////////////////////////////////BG IMAGE MANAGEMENT////////////////////////////////////////
+btnChoosePhoto.removeEventListener('click', function(e) {});
 
 btnChoosePhoto.addEventListener('click', function(e) {
 	Titanium.Media.openPhotoGallery({
@@ -405,6 +343,9 @@ btnChoosePhoto.addEventListener('click', function(e) {
 		mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO]
 	});
 });
+
+btnTakePhoto.removeEventListener('click', function(e) {});
+
 
 btnTakePhoto.addEventListener('click', function(e) {
 	Titanium.Media.showCamera({

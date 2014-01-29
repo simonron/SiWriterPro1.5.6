@@ -29,6 +29,9 @@
 			}
 
 
+			Ti.App.removeEventListener('app:fromWebView', function(e) {
+			});
+
 			Ti.App.addEventListener('app:fromWebView', function(e) {
 				alert(reset_pads.message);
 			});
@@ -134,7 +137,9 @@
 							...
 						</div>
 					</div><!--SPACE-->
-					<div id="spacer0">&nbsp;</div>
+					<div id="spacer0">
+						&nbsp;
+					</div>
 
 					<div id="k1" class="chordKeyw chordKeyWaiting">
 						<div id="h1" class="kHelper">
