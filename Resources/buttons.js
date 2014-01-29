@@ -52,7 +52,7 @@ var PrivacyTitle = Ti.UI.createLabel({
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 	width : Ti.UI.SIZE,
 	height : Ti.UI.SIZE,
-	bottom :40,
+	bottom : 40,
 });
 
 var smallHelpView = Ti.UI.createScrollView({
@@ -210,10 +210,12 @@ function buttonvariablesPortrait() {
 	if (!writeFile.exists()) {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
-	PrivacyTitle.left = 502;
-	build_label.left = 510;
-	build_label.bottom = 70;
-	version_label.left = 510;
+	PrivacyTitle.left = 342;
+	PrivacyTitle.bottom = 60;
+	build_label.left = 350;
+	build_label.bottom = 95;
+	version_label.left = 350;
+	version_label.bottom = 30;
 
 	sizer_switchlbl.top = 640;
 	sizer_switch.top = 630;
@@ -276,7 +278,6 @@ function buttonvariablesPortrait() {
 	timeStampButton.right = 20;
 	timeStampButton.top = 380;
 
-
 	view.left = "20";
 
 	help_WindowSwitcher();
@@ -301,11 +302,12 @@ function buttonvariablesPortrait() {
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	PrivacyTitle.left = 792;
-	build_label.left = 800;
+	PrivacyTitle.left = 642;
+	PrivacyTitle.bottom = 40;
+	build_label.left = 650;
 	build_label.bottom = 70;
-	version_label.left = 800;
-
+	version_label.left = 650;
+	version_label.bottom = 10;
 	btnTakePhoto.top = 410;
 	btnTakePhoto.left = 20;
 

@@ -25,14 +25,15 @@ div#sizers {
 	padding-top: 10px;
 	height: 430px;
 	background: #efe;
-	position: absolute;
+	position:absolute;
+	margin-right:10px;
 	z-index: 10000;
 	border-top-left-radius: 27px;
 	border-top-right-radius: 27px;
 	border-bottom-left-radius: 27px;
 	border-bottom-right-radius: 27px;
 	top 50%;
-	margin-left: 0px;
+	margin-left: 81%;
 	opacity: 0.95;
 }
 

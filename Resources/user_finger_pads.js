@@ -43,16 +43,16 @@ function defaults() {
 	HeightP = 190;
 	WidthP = 98;
 	GapP = -2;
-	LRposP = 126;
+	LRposP = -6;
 	TwistP = 0;
-	UpDwnP = 565;
+	UpDwnP = 550;
 
 	HeightL = 195;
 	WidthL = 91;
 	GapL = -3;
-	LRposL = 120;
+	LRposL = 0;
 	TwistL = 0;
-	UpDwnL = 300;
+	UpDwnL = 305;
 }
 
 var reset = false;
@@ -272,11 +272,11 @@ function adjust_pads() {
 
 	did("amountT").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			TwistP -= 1;
+			TwistP -= 3;
 			Twist = TwistP;
 			twist(Twist);
 		} else {
-			TwistL -= 1;
+			TwistL -= 3;
 			Twist = TwistL;
 			twist(Twist);
 		}
@@ -289,11 +289,11 @@ function adjust_pads() {
 	did("DamountT").onTouchDown = function(info) {
 
 		if (HTMLorientation == 'portrait') {
-			TwistP += 1;
+			TwistP += 3;
 			Twist = TwistP;
 			twist(Twist);
 		} else {
-			TwistL += 1;
+			TwistL += 3;
 			Twist = TwistL;
 			twist(Twist);
 		}
@@ -309,10 +309,10 @@ function adjust_pads() {
 
 	did("amountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			LRposP += 2;
+			LRposP += 4;
 			LRpos = LRposP;
 		} else {
-			LRposL += 2;
+			LRposL += 4;
 			LRpos = LRposL;
 		};
 		do_pad_LRpos();
@@ -320,10 +320,10 @@ function adjust_pads() {
 
 	did("DamountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			LRposP -= 2;
+			LRposP -= 4;
 			LRpos = LRposP;
 		} else {
-			LRposL -= 2;
+			LRposL -= 4;
 			LRpos = LRposL;
 		};
 		do_pad_LRpos();
@@ -368,10 +368,10 @@ function adjust_pads() {
 	did("amountH").onTouchDown = function(info) {
 
 		if (HTMLorientation == 'portrait') {
-			HeightP += 1;
+			HeightP += 4;
 			Height = HeightP;
 		} else {
-			HeightL += 1;
+			HeightL += 4;
 			Height = HeightL;
 		};
 		do_pad_height();
@@ -379,10 +379,10 @@ function adjust_pads() {
 	};
 	did("DamountH").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			HeightP -= 1;
+			HeightP -= 4;
 			Height = HeightP;
 		} else {
-			HeightL -= 1;
+			HeightL -= 4;
 			Height = HeightL;
 		};
 		do_pad_height();
@@ -396,10 +396,10 @@ function adjust_pads() {
 
 	did("amountW").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			WidthP += 1;
+			WidthP += 2;
 			Width = WidthP;
 		} else {
-			WidthL += 1;
+			WidthL += 2;
 			Width = WidthL;
 		};
 		do_pad_width();
@@ -408,10 +408,10 @@ function adjust_pads() {
 
 	did("DamountW").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
-			WidthP -= 1;
+			WidthP -= 2;
 			Width = WidthP;
 		} else {
-			WidthL -= 1;
+			WidthL -= 2;
 			Width = WidthL;
 		};
 		do_pad_width();
