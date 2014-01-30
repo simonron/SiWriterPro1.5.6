@@ -32,6 +32,7 @@ var KV=false;
 var temp="";
 var Toggle=false;
 var Trigger=false;
+var oldOrientation="";
 
 Ti.API.info(props);
 
@@ -136,6 +137,8 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 ////////////////////FROM WEBVIEWW DEMO///////////////////////
 //Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
 ////////////////////////////////////////////////////////////
+Ti.App.removeEventListener('app:sizer_switch', function(e) {});
+
 Ti.App.addEventListener('app:sizer_switch', function(e) {
 	sizer_switch.value=false;
 	Ti.App.fireEvent('sizer_switch_change');
@@ -175,9 +178,11 @@ win2.add(sizer_switchlbl);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
-Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");			
+// Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");			
+// 
+// Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
 
-Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
+Ti.App.removeEventListener('do_reset', function(e) {});
 
 Ti.App.addEventListener('do_reset', function(e) {
 	getOrientation();
@@ -253,9 +258,9 @@ get_MasterSettings();
 
 
 
-help_windowSwitch.addEventListener('change', function(e) {
-	help_WindowSwitcher();
-});
+//help_windowSwitch.addEventListener('change', function(e) {
+//	help_WindowSwitcher();
+//});
 
 help_BIGwindowSwitch.addEventListener('change', function(e) {
 	if (help_BIGwindowSwitch.value == 1) {
@@ -266,7 +271,7 @@ help_BIGwindowSwitch.addEventListener('change', function(e) {
 	//Ti.API.info('****************** help_BIGwindowSwitch at line 1229 now is '+help_BIGwindowSwitch.value);
 });
 
-Ti.Gesture.removeEventListener('orientationchange',function(){});
+//Ti.Gesture.removeEventListener('orientationchange',function(){});
 
 //**********************ORIENTATION CHANGE SENSOR************************//
 Ti.Gesture.addEventListener('orientationchange', function(e) {
@@ -277,6 +282,7 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	//win1.add(webview);
 				
 Ti.App.fireEvent('app:orientation', { orientation: orientation });
+
 
 	if (orientation == "portrait") {
 		portrait();

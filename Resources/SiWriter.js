@@ -153,21 +153,10 @@
 
 Ti.API.info("sw 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
 
-		
-		
+				
 do_pad_updwn();
 do_pad_LR_pos();
 
-// do_pad_height();
-// 
-// do_pad_width();
-// 
-// do_pad_updwn();
-// 
-// do_pad_Gap();
-
-Twist=-1;
-twist_left(Twist);
 			var keyboardShown = false;
 			var initialDownList = [];
 			var activeTextContainer = null;
@@ -248,6 +237,15 @@ function setupKeys(){  // detects and acts on 'key' press.
 						$("#k6").addClass("CapsKeyUpL");
 					}else{$("#k6").removeClass("CapsKeyUpL");}
 				
+				if ((Nums==64)&&(Caps==32)){
+						$("#Symbols").addClass("NumKeyUp");
+					}else{$("#Symbols").removeClass("NumKeyUp");}
+					
+					
+					if (((Nums==64)&&(Num_lock==true))  && ((Caps==32)&&(Caps_lock==true))){
+						$("#Symbols").addClass("NumKeyUpL");
+					}else{$("#Symbols").removeClass("NumKeyUpL");}		
+					
 				};
 				
 				
@@ -274,6 +272,11 @@ function setupKeys(){  // detects and acts on 'key' press.
 						$("#k5").addClass("NumKeyUpL");
 					}else{$("#k5").removeClass("NumKeyUpL");}
 				};	
+			
+			
+				did("UpperNums").onTouchDown = function(info){
+					$("#UpperNums").addClass("chordKeyUp");
+				};
 				
 				did("UpperNums").onTouchUp = function(info){
 					$("#UpperNums").removeClass("chordKeyUp");
@@ -291,32 +294,31 @@ function setupKeys(){  // detects and acts on 'key' press.
 					if ((Nums==64)&&(Num_lock==true)){
 						$("#UpperNums").addClass("NumKeyUpL");
 					}else{$("#UpperNums").removeClass("NumKeyUpL");}
+					
+					if ((Nums==64)&&(Caps==32)){
+						$("#Symbols").addClass("NumKeyUp");
+					}else{$("#Symbols").removeClass("NumKeyUp");}
+					
+				if (((Nums==64)&&(Num_lock==true))  && ((Caps==32)&&(Caps_lock==true))){
+						$("#Symbols").addClass("NumKeyUpL");
+					}else{$("#Symbols").removeClass("NumKeyUpL");}			
+					
 				};	
 				
 				
 				// SYMBOLS KEY CODES - for the single key
+					did("Symbols").onTouchDown = function(info){
+					$("#Symbols").addClass("chordKeyUp");
+				};
+				
 				did("Symbols").onTouchUp = function(info){
 					$("#Symbols").removeClass("chordKeyUp");
-					$("#UpperNums").addClass("NumKeyUp");
+					$("#Symbols").addClass("NumKeyUp");
+					//Caps bit
+					$("#k6").removeClass("chordKeyUp");
 					$("#k6").addClass("CapsKeyUp");
-					
-					if (Nums==64){
-					Num_lock=!Num_lock;
-						if(Num_lock==false){
-							$("#Symbols").removeClass("NumKeyUp");Nums=0;
-						};
-					}else{
-					Nums=64;//Number Shift
-					};
-					
-					if ((Nums==64)&&(Num_lock==true)){
-						$("#UpperNums").addClass("NumKeyUpL");
-					}else{$("#UpperNums").removeClass("NumKeyUpL");
-					
-					}
-				
-				
-				if (Caps==32){
+								
+					if (Caps==32){
 					Caps_lock=!Caps_lock;
 						if(Caps_lock==false){
 							$("#k6").removeClass("CapsKeyUp");Caps=0;
@@ -328,7 +330,43 @@ function setupKeys(){  // detects and acts on 'key' press.
 					if ((Caps==32)&&(Caps_lock==true)){
 						$("#k6").addClass("CapsKeyUpL");
 					}else{$("#k6").removeClass("CapsKeyUpL");}
+					
+					
+					$("#UpperNums").removeClass("chordKeyUp");
+					$("#UpperNums").addClass("NumKeyUp");
+					
+					if (Nums==64){
+					Num_lock=!Num_lock;
+						if(Num_lock==false){
+							$("#UpperNums").removeClass("NumKeyUp");Nums=0;
+						};
+					}else{
+					Nums=64;//Number Shift
+					};
+					
+					if ((Nums==64)&&(Num_lock==true)){
+						$("#UpperNums").addClass("NumKeyUpL");
+					}else{$("#UpperNums").removeClass("NumKeyUpL");}
+				
+					if ((Nums==64)&&(Caps==32)){
+						$("#Symbols").addClass("NumKeyUp");
+					}else{$("#Symbols").removeClass("NumKeyUp");}
+			
+			
+					if (((Nums==64)&&(Num_lock==true))  && ((Caps==32)&&(Caps_lock==true))){
+						$("#Symbols").addClass("NumKeyUpL");
+					}else{$("#Symbols").removeClass("NumKeyUpL");}
+				
+				
+				
 				};	
+				
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -456,10 +494,18 @@ if(s != "_" && s != "..."){ //if buttons are released and they have something to
 				if(symbol==1) {symbol=0;}; 
 					$("#k6").removeClass("CapsKeyUp");
 				    $("#k5").removeClass("NumKeyUp");
-								
+					$("#UpperNums").removeClass("NumKeyUp");
+					$("#Symbols").removeClass("NumKeyUp");			
 			if(Num_lock==true) {Nums=64;$("#k5").addClass("NumKeyUp");}
+			if(Num_lock==true) {Nums=64;$("#UpperNums").addClass("NumKeyUp");}
+			
 			if(Caps_lock==true){Caps=32;$("#k6").addClass("CapsKeyUp");}
 			
+			if((Caps_lock==true)&&(Num_lock==true)){
+				Caps=32;$("#k6").addClass("CapsKeyUp");
+				Nums=64;$("#k5").addClass("NumKeyUp");
+				$("#Symbols").addClass("NumKeyUp");	
+				}else{$("#Symbols").removeClass("NumKeyUp");}
 			
 		// ***************clears green state of buttons *****************************
 }
@@ -524,6 +570,8 @@ Key=Caps+Nums+n;
 				n=32;
 				$("#k6").removeClass("CapsKeyUp");
 				$("#k5").removeClass("NumKeyUp");
+				$("#UpperNums").removeClass("NumKeyUp");
+				$("#Symbols").removeClass("NumKeyUp");
 			 }
 //////////////////////////////////////decides what to send////////////////////////////////////////////////////////////////////////////////////////		
 

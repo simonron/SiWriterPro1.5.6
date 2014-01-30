@@ -216,6 +216,8 @@ function buttonvariablesPortrait() {
 	build_label.bottom = 95;
 	version_label.left = 350;
 	version_label.bottom = 30;
+	build_label.bottom = -10000;
+
 
 	sizer_switchlbl.top = 640;
 	sizer_switch.top = 630;
@@ -308,6 +310,8 @@ function buttonvariablesLandscape() {
 	build_label.bottom = 70;
 	version_label.left = 650;
 	version_label.bottom = 10;
+	build_label.bottom = -10000;
+	
 	btnTakePhoto.top = 410;
 	btnTakePhoto.left = 20;
 

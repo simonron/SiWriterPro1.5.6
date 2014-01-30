@@ -130,22 +130,14 @@ function DoOrientation() {//-static sensor---
 }
 
 function getOrientation(o) {
-	switch (o) {
-		case Titanium.UI.PORTRAIT: {
-			return 'portrait';
-		}
-		case Titanium.UI.UPSIDE_PORTRAIT: {
-			return 'portrait';
-		}
-		case Titanium.UI.LANDSCAPE_LEFT: {
-			return 'landscape';
-		}
-		case Titanium.UI.LANDSCAPE_RIGHT: {
-			return 'landscape';
-		}
-		default :
-			return (o);
-	}
+	oldOrientation=orientation;
+    switch (o) {
+        case Titanium.UI.PORTRAIT: {return 'portrait';}
+        case Titanium.UI.UPSIDE_PORTRAIT: {return 'portrait';}
+        case Titanium.UI.LANDSCAPE_LEFT: {return 'landscape';}
+        case Titanium.UI.LANDSCAPE_RIGHT: {return 'landscape';}
+        default : return oldOrientation;
+    }
 }
 
 function portrait() {
