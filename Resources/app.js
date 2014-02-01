@@ -44,7 +44,7 @@ Titanium.App.Properties.setString("version", Ti.App.version);
 
 var foo = new Date();
 var build_time = (foo.getDate() + "/" + foo.getMonth() + 1 + "/" + foo.getFullYear() + " " + foo.getHours() + ":" + foo.getMinutes() + ":" + foo.getSeconds());
-build_label.title = build_time;
+build_label.text = build_time;
 Titanium.App.Properties.setString("date_of_build","\r"+new Date);
 
 
@@ -55,20 +55,20 @@ var webview = Titanium.UI.createWebView({
 	backgroundColor : 'transparent',
 	url : 'Keypad.html',
 	//width : 760,
-	height : "100%",
+	height : "60%",
 	//left:14,
 	disableBounce : true,
 });
 
 var txtViewDesc = Ti.UI.createTextArea({
 	value : '',
-	top : 20,
+	top : 10,
 	backgroundColor : 'transparent',
 	font : {
 		fontSize : 16,
 	},
 	//editable: "NO",
-	height : "86%",
+	height : "96%",
 });
 
 var view = Ti.UI.createScrollView({
@@ -76,10 +76,12 @@ var view = Ti.UI.createScrollView({
 	borderRadius : 10,
 	top : 20,
 	left : 20,
-	height : "98%",
+	height : 720,
 	font : {
 		fontSize : 10
 	},
+	opacity:0.90,
+
 });
 
 //view.show();
@@ -127,6 +129,7 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 	width : "100%",
 	height : "100%",
 	bottom : 0,
+	  zIndex :0,
 });
 
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////

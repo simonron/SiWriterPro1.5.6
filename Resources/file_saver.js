@@ -90,15 +90,6 @@ function missedKeypad() {
 	alert("missed");
 }
 
-function View_Size() {
-	Size = txtViewDesc.value.length;
-	var remainder = Size % 28;
-	Size = ((Size - remainder) / 28) * 28;
-	Size = Size + 35;
-	txtViewDesc.top = 30;
-	txtViewDesc.height = 355 + Size;
-}
-
 function setup_buttons() {
 	//alert("start");
 }
@@ -283,24 +274,24 @@ function help_WindowSwitcher() {
 
 	if (help_windowSwitch.value == true) {/******** SHOW HELP ******* ALL SMALL **/
 		smallHelpView.show();
-		blockLen = 300;
 		if (orientation == "portrait") {
 			view.width = "290";
 		}
 		if (orientation == "portrait") {
 			view.height = "420";
 		}
-		if (orientation == "landscape") {
-			view.height = "280";
-		}
+	
 		if (orientation == "landscape") {
 			view.width = "310";
+		}
+		
+		if (orientation == "landscape") {
+			view.height = "300";
 		}
 	}
 
 	if (help_windowSwitch.value == false) {/******** HIDE HELP **** ALL BIG *****/
 		smallHelpView.hide();
-		blockLen = 750;
 		if (orientation == "portrait") {
 			view.width = "620";
 		}
@@ -308,7 +299,7 @@ function help_WindowSwitcher() {
 			view.height = "420";
 		}
 		if (orientation == "landscape") {
-			view.height = "700";
+			view.height = "720";
 		}
 		if (orientation == "landscape") {
 			view.width = "310";

@@ -2,10 +2,12 @@ Ti.include('KS_email2.js');
 Ti.include('file_saver.js');
 Ti.include('help.js');
 
-var smallHelpimages = Ti.UI.createImageView({
+var smallHelpimages = Ti.UI.createImageView({ //help screen on win 1
 	//image:'/images/AllCodes.png',
 	borderRadius : 10,
-});
+	  contentHeight: 'auto',
+  showVerticalScrollIndicator: true,
+		});
 
 var top_view = Ti.UI.createView({/* email window */
 	height : 35,
@@ -38,22 +40,6 @@ var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 
 aTrailer.value = "Mini view of main text area";
 
-var PrivacyTitle = Ti.UI.createLabel({
-	color : '#900',
-	font : {
-		fontSize : 30
-	},
-	shadowColor : '#777',
-	shadowOffset : {
-		x : 1,
-		y : 2
-	},
-	text : 'SiWriter.co.uk',
-	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	width : Ti.UI.SIZE,
-	height : Ti.UI.SIZE,
-	bottom : 40,
-});
 
 var smallHelpView = Ti.UI.createScrollView({
 	borderRadius : 10,
@@ -169,17 +155,39 @@ var timeStampButton = Titanium.UI.createButton({
 getOrientation();
 help_WindowSwitcher();
 
-var version_label = Titanium.UI.createButton({
-	title : "Pro Version " + Ti.App.version,
+var PrivacyTitle = Ti.UI.createLabel({
+	color : '#900',
+	font : {
+		fontSize : 30
+	},
+	shadowColor : '#777',
+	shadowOffset : {
+		x : 1,
+		y : 2
+	},
+	text : 'SiWriter.co.uk',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	bottom : 40,
+});
+
+
+var version_label = Ti.UI.createLabel({
+	color : '#900',
+	text : "Pro Version " + Ti.App.version,
 	color : "#000",
 	font : {
 		fontSize : 18
 	},
 	bottom : 10, //doesn't change with orientation'
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
 });
 
-var build_label = Titanium.UI.createButton({
-	title : "Build ",
+var build_label = Ti.UI.createLabel({
+	color : '#900',
 	color : "#000",
 	font : {
 		fontSize : 18
@@ -210,13 +218,16 @@ function buttonvariablesPortrait() {
 	if (!writeFile.exists()) {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
+	
+	webview.height = "60%",
+	
+	
 	PrivacyTitle.left = 342;
 	PrivacyTitle.bottom = 60;
 	build_label.left = 350;
 	build_label.bottom = 95;
 	version_label.left = 350;
 	version_label.bottom = 30;
-	build_label.bottom = -10000;
 
 
 	sizer_switchlbl.top = 640;
@@ -284,7 +295,8 @@ function buttonvariablesPortrait() {
 
 	help_WindowSwitcher();
 
-	txtViewDesc.width = 610;
+	txtViewDesc.width = "94%";
+	//txtViewDesc.height = "96%";
 	txtViewDesc.font.backgroundColor = '#fee';
 	webview.left = "14";
 	webview.background = "url(images/Sized_AgendA_bg_bottom.png)";
@@ -304,13 +316,13 @@ function buttonvariablesPortrait() {
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
+	webview.height = "100%",
 	PrivacyTitle.left = 642;
 	PrivacyTitle.bottom = 40;
 	build_label.left = 650;
 	build_label.bottom = 70;
 	version_label.left = 650;
 	version_label.bottom = 10;
-	build_label.bottom = -10000;
 	
 	btnTakePhoto.top = 410;
 	btnTakePhoto.left = 20;
@@ -382,7 +394,8 @@ function buttonvariablesLandscape() {
 	help_WindowSwitcher();
 
 	txtViewDesc.width = "94%";
-	view.height = 680;
+	//txtViewDesc.height = "96%";
+	view.height = 700;
 	webview.left = 330;
 	webview.background = "none";
 	webview.background = "transparent";

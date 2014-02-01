@@ -22,7 +22,7 @@
 		</dict>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.tortysoft.SiWriterPro</string>
+	<string>com.tortysoft.SiWriter</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -68,7 +68,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>appicon.png</string>
-		<string>appicon-152.png</string>
+		<string>appicon-72.png</string>
 	</array>
 	<key>NSHumanReadableCopyright</key>
 	<string/>

@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>get-task-allow</key>
-	<true/>
+	<false/>
 	<key>application-identifier</key>
-	<string>W6SRGRR9BS.com.tortysoft.SiWriterPro</string>
+	<string>W6SRGRR9BS.com.tortysoft.SiWriter</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>W6SRGRR9BS.com.tortysoft.SiWriterPro</string>
+		<string>W6SRGRR9BS.com.tortysoft.SiWriter</string>
 	</array>
 </dict>
 </plist>
