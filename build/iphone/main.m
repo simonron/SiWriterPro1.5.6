@@ -7,12 +7,12 @@
 #define _QUOTEME(x) #x
 #define STRING(x) _QUOTEME(x)
 
-NSString * const TI_APPLICATION_DEPLOYTYPE = @"production";
-NSString * const TI_APPLICATION_ID = @"com.tortysoft.SiWriter";
+NSString * const TI_APPLICATION_DEPLOYTYPE = @"test";
+NSString * const TI_APPLICATION_ID = @"com.tortysoft.SiWriterPro2";
 NSString * const TI_APPLICATION_PUBLISHER = @"Simon Anthony";
 NSString * const TI_APPLICATION_URL = @"http://siwriter.co.uk";
 NSString * const TI_APPLICATION_NAME = @"SiWriterPro";
-NSString * const TI_APPLICATION_VERSION = @"1.0.1.6";
+NSString * const TI_APPLICATION_VERSION = @"1.0.1.7";
 NSString * const TI_APPLICATION_DESCRIPTION = @"Pro version of SiWriter: a text input, note taking app for the iPad/iPad mini, based on the one handed chording keyboard Microwriting codes as used in the CyKey and AgendA. With configurable finger pad layout and multiple productivity features.";
 NSString * const TI_APPLICATION_COPYRIGHT = @"2014  Tortoisesoft Enterprises";
 NSString * const TI_APPLICATION_GUID = @"c55cf289-8cf3-412b-bf67-0cbb9c09ffaf";

@@ -39,6 +39,7 @@ Ti.API.info(props);
 Ti.include('KS_email2.js');
 Ti.include('buttons.js');
 Ti.include('file_saver.js');
+Ti.include('OpenHelpWindow.js');
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
 
@@ -181,6 +182,7 @@ win2.add(sizer_switchlbl);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
+win1.add(b3);
 // Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");			
 // 
 // Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
