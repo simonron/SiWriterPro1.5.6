@@ -1,1 +1,0 @@
-function help_win(e){var t=Titanium.UI.createWindow({title:e.title,backgroundColor:"transparent"});return t}module.exports=help_win;
