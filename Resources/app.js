@@ -39,6 +39,7 @@ Ti.API.info(props);
 Ti.include('KS_email2.js');
 Ti.include('buttons.js');
 Ti.include('file_saver.js');
+Ti.include('toolbar.js');
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
 

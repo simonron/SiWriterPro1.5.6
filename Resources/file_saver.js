@@ -401,7 +401,6 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 });
 
 b3.addEventListener('click', function() {
-
 	var win3 = Titanium.UI.createWindow({// top section BG
 		title : 'SiWriter.co.uk Help',
 		backgroundImage : 'images/Sized_Screen_lighter.png',
@@ -409,29 +408,17 @@ b3.addEventListener('click', function() {
 		bottom : 0,
 	});
 
+	var a = Titanium.UI.createAnimation();
+	a.height = Ti.UI.FILL;
+	a.width = Ti.UI.FILL;
+	a.duration = 300;
+
 	win3.add(SiWriter_help_win);
 	win3.open({
 		modal : true
 	});
 
-	var win3 = Titanium.UI.createWindow({
-		backgroundColor : 'transparent'
-	});
-
-	var a = Titanium.UI.createAnimation();
-
-	a.height = Ti.UI.FILL;
-	a.width = Ti.UI.FILL;
-	a.duration = 300;
-
-	win3.add(b);
-	b.addEventListener('click', function() {
-		a.height = 0;
-		a.width = 0;
-		win3.close(a);
-	});
-
 	win3.add(SiWriter_help_win);
 	win3.open(a);
-});
 
+});
