@@ -17,23 +17,23 @@ var Nums = 0;
 var Caps = 0;
 var DEL = 0;
 var OS_EDIT = 0;
-var help_windowSwitch = false;
+var help_windowSwitch = null;
 var help_BIGwindowSwitch = false;
-var help_windowSwitchSetting = false;
+var help_windowSwitchSetting = null;
 var Master_Setting_Big_Help = false;
 var angle = {};
 var orient = "";
 var props = Titanium.App.Properties.listProperties();
 var Last_Typed_Word = "!?!";
 var Review_mode = 0;
-var LRposP=0;
-var LRposL=0;
-var KV=false;
-var temp="";
-var Toggle=false;
-var Trigger=false;
-var oldOrientation="";
-
+var LRposP = 0;
+var LRposL = 0;
+var KV = false;
+var temp = "";
+var Toggle = false;
+var Trigger = false;
+var oldOrientation = "";
+var Hide = true;
 Ti.API.info(props);
 
 Ti.include('KS_email2.js');
@@ -46,8 +46,7 @@ Titanium.App.Properties.setString("version", Ti.App.version);
 var foo = new Date();
 var build_time = (foo.getDate() + "/" + foo.getMonth() + 1 + "/" + foo.getFullYear() + " " + foo.getHours() + ":" + foo.getMinutes() + ":" + foo.getSeconds());
 build_label.text = build_time;
-Titanium.App.Properties.setString("date_of_build","\r"+new Date);
-
+Titanium.App.Properties.setString("date_of_build", "\r" + new Date);
 
 CheckEmailaddress();
 
@@ -81,7 +80,7 @@ var view = Ti.UI.createScrollView({
 	font : {
 		fontSize : 10
 	},
-	opacity:0.90,
+	opacity : 0.90,
 
 });
 
@@ -104,22 +103,21 @@ var win2 = Titanium.UI.createWindow({// top section BG
 });
 
 /////////////////////////////////////////end help window  //////////////////////////
-if(Titanium.Platform.displayCaps.platformWidth<Titanium.Platform.displayCaps.platformHeight){
- orientation='portrait';
-    Ti.API.info("Launched in PORTRAIT ");    
- 
-} else {
-  orientation='landscape';
+if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
+	orientation = 'portrait';
+	Ti.API.info("Launched in PORTRAIT ");
 
-    Ti.API.info("Launched in LANDSCAPE ");   
+} else {
+	orientation = 'landscape';
+
+	Ti.API.info("Launched in LANDSCAPE ");
 }
 
 ///////////////////// INITIALISE //////////////////////////////////////////////////////////////
-webview.addEventListener('beforeload',function(e)
-{
-webview.evalJS("var start='" + start + "';");
-webview.evalJS("var HTMLorientation='" + orientation + "';");
-start=0;
+webview.addEventListener('beforeload', function(e) {
+	webview.evalJS("var start='" + start + "';");
+	webview.evalJS("var HTMLorientation='" + orientation + "';");
+	start = 0;
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
@@ -130,7 +128,7 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 	width : "100%",
 	height : "100%",
 	bottom : 0,
-	  zIndex :0,
+	zIndex : 0,
 });
 
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////
@@ -141,16 +139,8 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 ////////////////////FROM WEBVIEWW DEMO///////////////////////
 //Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
 ////////////////////////////////////////////////////////////
-Ti.App.removeEventListener('app:sizer_switch', function(e) {});
-
-Ti.App.addEventListener('app:sizer_switch', function(e) {
-	sizer_switch.value=false;
-	Ti.App.fireEvent('sizer_switch_change');
-			// Play a device vibration.
-   Ti.Media.vibrate();
-	//alert(e.sizer_switch);
-	});//from webview
-
+Ti.App.removeEventListener('app:sizer_switch', function(e) {
+});
 
 //alert("here?");
 recover_settings();
@@ -163,7 +153,7 @@ removeChildrens(win1);
 removeChildrens(win2);
 // can do without ?
 
-help_LettersSwitch();
+//help_LettersSwitch();
 help_bigWindowSwitch();
 
 win2.add(SiWriter_helpView);
@@ -182,12 +172,12 @@ win2.add(sizer_switchlbl);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
-win1.add(b3);
-// Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");			
-// 
-// Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
+// Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");
+//
+// Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);
 
-Ti.App.removeEventListener('do_reset', function(e) {});
+Ti.App.removeEventListener('do_reset', function(e) {
+});
 
 Ti.App.addEventListener('do_reset', function(e) {
 	getOrientation();
@@ -198,19 +188,18 @@ Ti.App.addEventListener('do_reset', function(e) {
 	Ti.App.fireEvent('webviewEvent', {
 		text : ""
 	});
-	
-});
 
+});
 
 help_WindowSwitcher();
 win1.open();
 view.show();
 win1.add(settingsButton);
-win1.add(copyButton);
+win1.add(helpButton);
 win1.add(clearButton);
 win1.add(emailButton);
 
-win1.add(pasteButton);
+//win1.add(pasteButton);
 win1.add(timeStampButton);
 top_view.add(aTextField);
 win1.add(top_view);
@@ -220,74 +209,86 @@ win1.add(aTrailer);
 win1.add(version_label);
 win1.add(build_label);
 win1.add(PrivacyTitle);
+
 if (help_windowSwitch.value == 1) {
 	smallHelpView.show();
+	view.height = 720;
 } else {
 	smallHelpView.hide();
+	view.height = 720;
 }
 
 help_WindowSwitcher();
 smallHelpView.add(smallHelpimages);
 
-
 emailButton.removeEventListener('click', emailCurrentText);
 clearButton.removeEventListener('click', clearTextFromClipboard);
 ReviewButton.removeEventListener('click', viewLastText);
 timeStampButton.removeEventListener('click', timeStamp);
-copyButton.removeEventListener('click', copyTextToClipboard);
-pasteButton.removeEventListener('click', pasteTextFromClipboard);
-settingsButton.removeEventListener('click', settingsButtonAction);
-returnButton.removeEventListener('click', returnButtonAction);
+//helpButton.removeEventListener('click', displayHelpWindow);
+//pasteButton.removeEventListener('click', pasteTextFromClipboard);
+//settingsButton.removeEventListener('click', settingsButtonAction);
+//returnButton.removeEventListener('click', returnButtonAction);
 openWebsiteButton.removeEventListener('click', openWebsiteButtonAction);
 
-help_windowSwitch.removeEventListener('change', help_WindowSwitcher);
-help_lettersSwitch.removeEventListener('change', help_LettersSwitch);
+//help_lettersSwitch.removeEventListener('change', help_LettersSwitch);
 help_BIGwindowSwitch.removeEventListener('change', help_bigWindowSwitch);
 
 emailButton.addEventListener('click', emailCurrentText);
 clearButton.addEventListener('click', clearTextFromClipboard);
 ReviewButton.addEventListener('click', viewLastText);
 timeStampButton.addEventListener('click', timeStamp);
-copyButton.addEventListener('click', copyTextToClipboard);
-pasteButton.addEventListener('click', pasteTextFromClipboard);
-settingsButton.addEventListener('click', settingsButtonAction);
-
-returnButton.addEventListener('click', returnButtonAction);
+//pasteButton.addEventListener('click', pasteTextFromClipboard);
+//helpButton.addEventListener('click', displayHelpWindow);
+//returnButton.addEventListener('click', returnButtonAction);
 openWebsiteButton.addEventListener('click', openWebsiteButtonAction);
 
-help_windowSwitch.addEventListener('change', help_WindowSwitcher);
+//help_windowSwitch.addEventListener('change', help_WindowSwitcher);
 help_BIGwindowSwitch.addEventListener('change', help_bigWindowSwitch);
-help_lettersSwitch.addEventListener('change', help_LettersSwitch);
+//help_lettersSwitch.addEventListener('change', help_LettersSwitch);
+
+helpButton.removeEventListener('click', function() {
+});
+helpButton.addEventListener('click', function() {
+	win3.add(Continue_Siwriting);
+	win3.add(SiWriter_help_win);
+	win3.open(a);
+});
+
+close.removeEventListener('click', function() {
+});
+close.addEventListener('click', function() {
+	win3.close(a);
+	help_WindowSwitcher();
+});
+
+//Continue_Siwriting_main.removeEventListener('click', function(){});
+close_main.addEventListener('click', function() {
+	Ti.API.info("Continue_Siwriting_main clicked");
+	win1.remove(bottomtoolbar);
+	win1.remove(Continue_Siwriting_main);
+	win1.remove(toolbar);
+});
 
 get_MasterSettings();
-
-
 
 //help_windowSwitch.addEventListener('change', function(e) {
 //	help_WindowSwitcher();
 //});
 
-help_BIGwindowSwitch.addEventListener('change', function(e) {
-	if (help_BIGwindowSwitch.value == 1) {
-		smallHelpimages.image = '/images/BIGAllCodes2.png';
-	} else {
-		smallHelpimages.image = '/images/AllCodes.png';
-	}
-	//Ti.API.info('****************** help_BIGwindowSwitch at line 1229 now is '+help_BIGwindowSwitch.value);
-});
-
 //Ti.Gesture.removeEventListener('orientationchange',function(){});
 
 //**********************ORIENTATION CHANGE SENSOR************************//
 Ti.Gesture.addEventListener('orientationchange', function(e) {
-//alert(e.orientation);
+	//alert(e.orientation);
 	orientation = getOrientation(e.orientation);
-//win1.remove(webview);
+	//win1.remove(webview);
 
 	//win1.add(webview);
-				
-Ti.App.fireEvent('app:orientation', { orientation: orientation });
 
+	Ti.App.fireEvent('app:orientation', {
+		orientation : orientation
+	});
 
 	if (orientation == "portrait") {
 		portrait();
@@ -299,20 +300,17 @@ Ti.App.fireEvent('app:orientation', { orientation: orientation });
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
-sizer_switch.removeEventListener('change', function(e, hide) {});
-
-sizer_switch.addEventListener('change', function(e, hide) {
-	Ti.App.fireEvent('sizer_switch_change');
+sizer_switch.removeEventListener('change', function(e, hide) {
 });
 
-
-help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {});
-
-help_lettersSwitch.addEventListener('change', function(e, FPhelp) {
-	Ti.API.info('app:Switch value: ' + help_lettersSwitch.value);
-	Ti.App.fireEvent('help_lettersSwitch_change');
-	FPhelp = help_lettersSwitch.value;
-});
+// help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {
+// });
+//
+// help_lettersSwitch.addEventListener('change', function(e, FPhelp) {
+// Ti.API.info('app:Switch value: ' + help_lettersSwitch.value);
+// Ti.App.fireEvent('help_lettersSwitch_change');
+// FPhelp = help_lettersSwitch.value;
+// });
 
 CheckEmailaddress();
 //getEmail();
@@ -327,74 +325,11 @@ view.show();
 
 var copy = "";
 
-
-
 /////////////////////////////////////////TEXT MANAGEMENT////////////////////////////////////////
 
 Ti.include('newtext.js');
 //////////////////////////////////////END TEXT MANAGEMENT////////////////////////////////////////
 
 //////////////////////////////////////BG IMAGE MANAGEMENT////////////////////////////////////////
-btnChoosePhoto.removeEventListener('click', function(e) {});
-
-btnChoosePhoto.addEventListener('click', function(e) {
-	Titanium.Media.openPhotoGallery({
-		success : function(event) {
-			Ti.API.debug('Our type was: ' + event.mediaType);
-			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
-				image = event.media;
-				saveBackgroundImage(image);
-			}
-		},
-		cancel : function() {
-		},
-		error : function(err) {
-			Ti.API.error(err);
-		},
-		mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO]
-	});
-});
-
-btnTakePhoto.removeEventListener('click', function(e) {});
-
-
-btnTakePhoto.addEventListener('click', function(e) {
-	Titanium.Media.showCamera({
-		//we got something
-		success : function(event) {
-			//getting media
-			var image = event.media;
-
-			//checking if it is photo
-			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
-				//we may create image view with contents from image variable
-				//or simply save path to image
-				Ti.App.Properties.setString("image", image.nativePath);
-				saveBackgroundImage(image);
-			}
-		},
-		cancel : function() {
-			//do somehting if user cancels operation
-		},
-		error : function(error) {
-			//error happend, create alert
-			var a = Titanium.UI.createAlertDialog({
-				title : 'Camera'
-			});
-			//set message
-			if (error.code == Titanium.Media.NO_CAMERA) {
-				a.setMessage('Device does not have camera');
-			} else {
-				a.setMessage('Unexpected error: ' + error.code);
-			}
-
-			// show alert
-			a.show();
-		},
-		allowImageEditing : true,
-		saveToPhotoGallery : true
-	});
-
-});
 
 /////////////////////////////////END BG IMAGE MANAGEMENT////////////////////////////////////////

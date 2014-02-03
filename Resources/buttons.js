@@ -2,12 +2,12 @@ Ti.include('KS_email2.js');
 Ti.include('file_saver.js');
 Ti.include('help.js');
 
-var smallHelpimages = Ti.UI.createImageView({ //help screen on win 1
+var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 	//image:'/images/AllCodes.png',
 	borderRadius : 10,
-	  contentHeight: 'auto',
-  showVerticalScrollIndicator: true,
-		});
+	contentHeight : 'auto',
+	showVerticalScrollIndicator : true,
+});
 
 var top_view = Ti.UI.createView({/* email window */
 	height : 35,
@@ -40,7 +40,6 @@ var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 
 aTrailer.value = "Mini view of main text area";
 
-
 var smallHelpView = Ti.UI.createScrollView({
 	borderRadius : 10,
 	width : 310, //doesn't change with orientation'
@@ -56,37 +55,37 @@ var openWebsiteButton = Titanium.UI.createButton({
 	backgroundImage : 'images/long_thin_button.png',
 });
 
-var returnButton = Titanium.UI.createButton({
-	title : 'Continue SiWriting',
-	width : 240,
-	height : 34,
-
-	backgroundImage : 'images/long_thin_button.png',
-	borderRadius : 15,
-});
-
-var settingsButton = Titanium.UI.createButton({
-	title : 'Settings',
-	width : 100,
-	height : 34,
-
-	backgroundImage : 'images/long_thin_button.png',
-	borderRadius : 15,
-});
+// var returnButton = Titanium.UI.createButton({
+	// title : 'Continue SiWriting',
+	// width : 240,
+	// height : 34,
+// 
+	// backgroundImage : 'images/long_thin_button.png',
+	// borderRadius : 15,
+// });
 
 settingsButton.font = {
 	fontSize : 18
 };
 
-var copyButton = Titanium.UI.createButton({
-	title : 'Copy',
+// var copyButton = Titanium.UI.createButton({
+// title : 'Copy',
+// width : 80,
+// height : 40,
+// right : 20,
+// top : 40,
+// backgroundImage : 'images/mini_key.png',
+// borderRadius : 20,
+// });
+
+var helpButton = Titanium.UI.createButton({
+	title : 'Help',
 	width : 80,
 	height : 40,
 	right : 20,
 	top : 40,
 	backgroundImage : 'images/mini_key.png',
 	borderRadius : 20,
-
 });
 
 var ReviewButton = Titanium.UI.createButton({
@@ -136,13 +135,13 @@ var facebookButton = Titanium.UI.createButton({
 	borderRadius : 20,
 });
 
-var pasteButton = Titanium.UI.createButton({
-	title : "Paste",
-	width : 80,
-	height : 40,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-});
+// var pasteButton = Titanium.UI.createButton({
+// title : "Paste",
+// width : 80,
+// height : 40,
+// backgroundImage : 'images/mini_key.png',
+// borderRadius : 20,
+// });
 
 var timeStampButton = Titanium.UI.createButton({
 	title : "Time",
@@ -153,7 +152,6 @@ var timeStampButton = Titanium.UI.createButton({
 });
 
 getOrientation();
-help_WindowSwitcher();
 
 var PrivacyTitle = Ti.UI.createLabel({
 	color : '#900',
@@ -171,7 +169,6 @@ var PrivacyTitle = Ti.UI.createLabel({
 	height : Ti.UI.SIZE,
 	bottom : 40,
 });
-
 
 var version_label = Ti.UI.createLabel({
 	color : '#900',
@@ -218,17 +215,13 @@ function buttonvariablesPortrait() {
 	if (!writeFile.exists()) {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
-	
-	webview.height = "60%",
-	
-	
-	PrivacyTitle.left = 342;
+
+	webview.height = "60%", PrivacyTitle.left = 342;
 	PrivacyTitle.bottom = 60;
 	build_label.left = 350;
 	build_label.bottom = 95;
 	version_label.left = 350;
 	version_label.bottom = 30;
-
 
 	sizer_switchlbl.top = 640;
 	sizer_switch.top = 630;
@@ -249,26 +242,11 @@ function buttonvariablesPortrait() {
 	smallHelpView.contentHeight = 'auto';
 	smallHelpimages.width = 300;
 
-	help_BIGwindowSwitchLbl.left = 80;
-	help_BIGwindowSwitchLbl.top = 690;
-	help_BIGwindowSwitch.top = 680;
-	help_BIGwindowSwitch.left = 20;
-
-	help_windowSwitchLbl.left = 80;
-	help_windowSwitchLbl.top = 750;
-	help_windowSwitch.top = 740;
-	help_windowSwitch.left = 20;
-
-	help_lettersSwitchLbl.left = 80;
-	help_lettersSwitchLbl.top = 810;
-	help_lettersSwitch.top = 800;
-	help_lettersSwitch.left = 20;
-
 	openWebsiteButton.left = 460;
 	openWebsiteButton.top = 930;
 
-	returnButton.left = 50;
-	returnButton.top = 930;
+	//returnButton.left = 50;
+	//returnButton.top = 930;
 
 	settingsButton.left = 648;
 	settingsButton.top = 450;
@@ -276,8 +254,8 @@ function buttonvariablesPortrait() {
 	ReviewButton.right = 20;
 	ReviewButton.top = 100;
 
-	pasteButton.right = 20;
-	pasteButton.top = 300;
+	// pasteButton.right = 20;
+	// pasteButton.top = 300;
 
 	clearButton.right = 20;
 	clearButton.top = 160;
@@ -316,14 +294,13 @@ function buttonvariablesPortrait() {
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	webview.height = "100%",
-	PrivacyTitle.left = 642;
+	webview.height = "100%", PrivacyTitle.left = 642;
 	PrivacyTitle.bottom = 40;
 	build_label.left = 650;
 	build_label.bottom = 70;
 	version_label.left = 650;
 	version_label.bottom = 10;
-	
+
 	btnTakePhoto.top = 410;
 	btnTakePhoto.left = 20;
 
@@ -346,27 +323,11 @@ function buttonvariablesLandscape() {
 	smallHelpView.contentHeight = 'auto';
 	smallHelpimages.width = 300;
 
-	sizer_switchlbl.top = 520;
-	sizer_switch.top = 510;
-	sizer_switch.left = 20;
-
-	help_BIGwindowSwitchLbl.top = 580;
-	help_BIGwindowSwitch.top = 570;
-	help_BIGwindowSwitch.left = 20;
-
-	help_windowSwitchLbl.top = 650;
-	help_windowSwitch.top = 640;
-	help_windowSwitch.left = 20;
-
-	help_lettersSwitchLbl.top = 710;
-	help_lettersSwitch.top = 700;
-	help_lettersSwitch.left = 20;
-
 	openWebsiteButton.left = 600;
 	openWebsiteButton.top = 680;
 
-	returnButton.left = 220;
-	returnButton.top = 680;
+	// returnButton.left = 220;
+	// returnButton.top = 680;
 
 	settingsButton.left = 370;
 	settingsButton.top = 43;
@@ -378,8 +339,8 @@ function buttonvariablesLandscape() {
 		ReviewButton.top = 40;
 	}
 
-	pasteButton.right = 140;
-	pasteButton.top = 40;
+	// pasteButton.right = 140;
+	// pasteButton.top = 40;
 
 	clearButton.right = 246;
 	clearButton.top = 40;
@@ -395,7 +356,7 @@ function buttonvariablesLandscape() {
 
 	txtViewDesc.width = "94%";
 	//txtViewDesc.height = "96%";
-	view.height = 700;
+
 	webview.left = 330;
 	webview.background = "none";
 	webview.background = "transparent";
@@ -403,5 +364,4 @@ function buttonvariablesLandscape() {
 	top_view.top = 100;
 	/* email window */
 	top_view.left = 480;
-	help_WindowSwitcher();
 }

@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.0.1.7/build/iphone/Classes/TiUICanvasViewProxy.m
+  /Users/Cyberman/Desktop/SiWriterPro1.1/build/iphone/Classes/TiUICanvasViewProxy.m

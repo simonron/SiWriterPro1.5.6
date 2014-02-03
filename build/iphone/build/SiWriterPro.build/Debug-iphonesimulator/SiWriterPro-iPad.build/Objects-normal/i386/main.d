@@ -1,2 +1,1 @@
-dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.0.1.7/build/iphone/main.m
+dependencies: /Users/Cyberman/Desktop/SiWriterPro1.1/build/iphone/main.m

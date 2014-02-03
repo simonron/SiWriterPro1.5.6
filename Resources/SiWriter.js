@@ -694,6 +694,8 @@ function drawHelpers(){   //    Puts text on the 'keys' to show what they will r
 			function touchCancel(e){
 			touchEnd(e);
 			}
+			
+			
 function hide_sizers(){
 	sizers.style.display="none";
 }

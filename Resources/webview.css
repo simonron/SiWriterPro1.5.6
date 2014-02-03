@@ -35,6 +35,7 @@ div#sizers {
 	top 50%;
 	margin-left: 81%;
 	opacity: 0.95;
+	display:none;
 }
 
 div#sizers div {
@@ -224,6 +225,8 @@ div#spacer {
 	text-align: center;
 	width: 90%;
 	margin-left: 2.5%;
+		display:none;
+
 }
 
 div#k0 .kHelper {

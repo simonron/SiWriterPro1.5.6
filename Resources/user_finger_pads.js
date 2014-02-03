@@ -30,8 +30,8 @@ var UpDwn = 0;
 
 var Hide = true;
 
-var FPPdisplay = true;
-var FPhelp = true;
+var FPPdisplay = false;
+var FPhelp = false;
 var LrOffset = 0;
 var LrOffsetP = 0;
 var LrOffsetL = 0;
@@ -63,9 +63,19 @@ var globalArrayL = [];
 $(document).ready(function() {
 	initTouch(touchStart, touchEnd, touchCancel);
 });
-hide_sizers();
+//hide_sizers();
 adjust_pads();
 //;
+
+Ti.App.addEventListener('sizer_switch_change', function(e) {
+	Hide = !Hide;
+	if (Hide) {
+		hide_sizers();
+	} else {
+		show_sizers();
+	}
+	Ti.API.info("@!$ Hide= " + Hide);
+});
 
 ///////////////// FROM APP///////////////////////////////////////////
 Ti.App.removeEventListener('initialise', function(e) {});
@@ -210,15 +220,7 @@ function do_update() {
 ////////////////////////////////////////////////////////////
 Ti.App.removeEventListener('sizer_switch_change', function(e) {});
 
-Ti.App.addEventListener('sizer_switch_change', function(e) {
-	Hide = !Hide;
-	if (Hide) {
-		hide_sizers();
-	} else {
-		show_sizers();
-	}
-	Ti.API.info("@!$ Hide= " + Hide);
-});
+
 
 Ti.App.removeEventListener('help_lettersSwitch_change', function(e) {});
 
@@ -464,7 +466,6 @@ function do_pad_fppdisplay() {
 		sizers.style.display = "block";
 	}
 	do_save_pad_state_fpp(FPPDisplay);
-
 };
 
 function do_pad_fphelp(FPhelp) {

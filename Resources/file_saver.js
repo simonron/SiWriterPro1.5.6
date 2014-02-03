@@ -229,34 +229,25 @@ function timeStamp() {
 	txtViewDesc.value = contentTyped;
 }
 
-function settingsButtonAction() {
-	win2.add(returnButton);
-	win2.add(openWebsiteButton);
-	win2.open();
-}
-
-function returnButtonAction() {
-	win2.close();
-	win1.open();
-
-	updateSettings();
-
-	win2.remove(returnButton);
-	win2.remove(openWebsiteButton);
+function close_main() {
+Ti.API.info("close main triggered");
+	
+updateSettings();
+	//win2.remove(openWebsiteButton);
 	getOrientation();
 
 	Titanium.App.Properties.setString("email_to_setting", aTextField.value);
 	Ti.App.fireEvent('webviewEvent', {
 		text : "  "
 	});
-	win2.close();
-	win1.open();
+
 }
 
 function updateSettings() {
 	help_WindowSwitcher();
 	help_bigWindowSwitch();
-	help_LettersSwitch();
+	Ti.App.fireEvent('help_lettersSwitch_change');
+	Ti.API.info("settings updated line 246 FS");
 }
 
 function openWebsiteButtonAction() {
@@ -280,58 +271,6 @@ function help_bigWindowSwitch() {
 	}
 }
 
-function help_WindowSwitcher() {
-
-	if (help_windowSwitch.value == true) {/******** SHOW HELP ******* ALL SMALL **/
-		smallHelpView.show();
-		if (orientation == "portrait") {
-			view.width = "290";
-		}
-		if (orientation == "portrait") {
-			view.height = "420";
-		}
-
-		if (orientation == "landscape") {
-			view.width = "310";
-		}
-
-		if (orientation == "landscape") {
-			view.height = "300";
-		}
-	}
-
-	if (help_windowSwitch.value == false) {/******** HIDE HELP **** ALL BIG *****/
-		smallHelpView.hide();
-		if (orientation == "portrait") {
-			view.width = "620";
-		}
-		if (orientation == "portrait") {
-			view.height = "420";
-		}
-		if (orientation == "landscape") {
-			view.height = "720";
-		}
-		if (orientation == "landscape") {
-			view.width = "310";
-		}
-	}
-}
-
-function help_LettersSwitch() {
-	// if(help_lettersSwitch.value) {
-	// webview.url = 'Keypad.html';
-	// }else {
-	// webview.url = 'Keypad_no_help.html';
-	// }
-
-	if (help_lettersSwitch.value) {
-
-	} else {
-
-	}
-
-}
-
 function get_MasterSettings() {
 	for (var c = 0; c < props.length; c++) {
 		var value = Titanium.App.Properties.getString(props[c]);
@@ -345,9 +284,9 @@ function get_MasterSettings() {
 		if (props[c] == "email_to_setting") {
 			aTextField.value = value;
 		}
-		if (props[c] == "Master_Setting_Window_Switch") {
-			help_windowSwitch.value = setting;
-		}
+		// if (props[c] == "Master_Setting_Window_Switch") {
+		// help_windowSwitch.value = setting;
+		// }
 
 		if (props[c] == "Master_Setting_Big_Help") {
 			help_BIGwindowSwitch.value = setting;
@@ -384,11 +323,12 @@ function get_MasterSettings() {
 	}
 }
 
-var b3 = Titanium.UI.createButton({
-	title : 'Traditional Modal',
-	width : 200,
-	height : 40,
-	top : 110
+var settingsButton = Titanium.UI.createButton({
+	title : 'Settings',
+	width : 100,
+	height : 34,
+	backgroundImage : 'images/long_thin_button.png',
+	borderRadius : 15,
 });
 
 var SiWriter_help_win = Titanium.UI.createWebView({
@@ -400,25 +340,31 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 	zIndex : 0,
 });
 
-b3.addEventListener('click', function() {
-	var win3 = Titanium.UI.createWindow({// top section BG
-		title : 'SiWriter.co.uk Help',
-		backgroundImage : 'images/Sized_Screen_lighter.png',
-		height : "100%",
-		bottom : 0,
-	});
-
-	var a = Titanium.UI.createAnimation();
-	a.height = Ti.UI.FILL;
-	a.width = Ti.UI.FILL;
-	a.duration = 300;
-
-	win3.add(SiWriter_help_win);
-	win3.open({
-		modal : true
-	});
-
-	win3.add(SiWriter_help_win);
-	win3.open(a);
-
+settingsButton.addEventListener('click', function() {
+	win1.add(toolbar);
+	win1.add(Continue_Siwriting_main);
+	win1.add(bottomtoolbar);
+	
 });
+
+var a = Titanium.UI.createAnimation();
+a.height = Ti.UI.FILL;
+a.width = Ti.UI.FILL;
+a.duration = 300;
+
+//win3.add(SiWriter_help_win);
+
+
+var win3 = Titanium.UI.createWindow({// top section BG
+	title : 'SiWriter.co.uk Help',
+	backgroundImage : 'images/Sized_Screen_lighter.png',
+	height : "100%",
+	bottom : 0,
+});
+
+
+
+
+
+
+
