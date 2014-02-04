@@ -25,7 +25,7 @@ var help_BIGwindowSwitchLbl = Ti.UI.createLabel({
 	font : {
 		fontSize : 16
 	},
-	text : 'Large Letter code map?',
+	text : 'Large Letter Code map?',
 	top : 700,
 	left : 80,
 });
@@ -47,7 +47,7 @@ var help_windowSwitch = Ti.UI.createSwitch({ //'Letter code map'
 });
 
 var help_windowSwitchLbl = Ti.UI.createLabel({
-	text : 'Letter code map?',
+	text : 'Letter Code map?',
 });
 
 var help_lettersSwitch = Ti.UI.createSwitch({
@@ -62,7 +62,7 @@ var help_lettersSwitchLbl = Ti.UI.createLabel({
 	font : {
 		fontSize : 16
 	},
-	text : 'Finger pad code hints ?',
+	text : 'Finger Pad code hints ?',
 });
 
 var btnChoosePhoto = Ti.UI.createButton({
@@ -200,19 +200,20 @@ help_BIGwindowSwitch.addEventListener('change', function(e) {
 	Ti.API.info('****************** help_BIGwindowSwitch at line 200 now is '+help_BIGwindowSwitch.value);
 });
 
-sizer_switch_slider.removeEventListener('change', function(e, hide) {});
+
+Ti.App.addEventListener('sizer_switched_off', function(e) {
+   sizer_switch_slider.value=false; 
+});
+
+
+ sizer_switch_slider.removeEventListener('change', function() {});
+
 
 
 sizer_switch_slider.addEventListener('change', function(e) {
-		Ti.API.info('sizer_switch slide value ' + sizer_switch.value);
-	Ti.App.fireEvent('sizer_switch_change',sizer_switch.value);
-});
+		Ti.API.info('sizer_switch slide value ' + sizer_switch_slider.value);
+	Ti.App.fireEvent('sizer_switch_change', {slider: sizer_switch_slider.value}); 
 
-Ti.App.removeEventListener('sizer_switch_closed', function(){});
-
-Ti.App.addEventListener('sizer_switch_closed', function(e) {
-	Ti.API.info('sizer_switch_closed value ' + sizer_switch.value);
-    Ti.App.fireEvent('sizer_switch_change',sizer_switch.value);
 });
 
 
@@ -279,3 +280,4 @@ function help_WindowSwitcher() {
 		}
 	}
 }
+

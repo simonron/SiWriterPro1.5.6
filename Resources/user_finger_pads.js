@@ -68,7 +68,9 @@ adjust_pads();
 //;
 
 Ti.App.addEventListener('sizer_switch_change', function(e) {
-	Hide = !Hide;
+
+	Hide = !e.slider;
+	Ti.API.info("slider"+e.slider);
 	if (Hide) {
 			sizers.style.display="none";
 	} else {
@@ -248,10 +250,9 @@ function adjust_pads() {
 	/////////////////     CLOSE      ///////////////////
 
 	did("close_display").onTouchDown = function(info) {
-		Ti.App.fireEvent('sizer_switched');
-		sizers.style.display="none";
-		Hide=true;
-	Ti.API.info("close_SIZER_display triggered");
+		//Ti.App.fireEvent('sizer_switched_off');
+	Ti.App.fireEvent('sizer_switched_off', {slider: false}); 
+	Ti.API.info("sizer_switched_off triggered");
 
 	};
 
