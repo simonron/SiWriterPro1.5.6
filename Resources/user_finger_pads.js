@@ -70,9 +70,9 @@ adjust_pads();
 Ti.App.addEventListener('sizer_switch_change', function(e) {
 	Hide = !Hide;
 	if (Hide) {
-		hide_sizers();
+			sizers.style.display="none";
 	} else {
-		show_sizers();
+			sizers.style.display="block";
 	}
 	Ti.API.info("@!$ Hide= " + Hide);
 });
@@ -248,10 +248,11 @@ function adjust_pads() {
 	/////////////////     CLOSE      ///////////////////
 
 	did("close_display").onTouchDown = function(info) {
-		hide_sizers();
-		Ti.App.fireEvent('app:sizer_switch', {
-			sizer_switch : false
-		});
+		Ti.App.fireEvent('sizer_switched');
+		sizers.style.display="none";
+		Hide=true;
+	Ti.API.info("close_SIZER_display triggered");
+
 	};
 
 	/////////////////     RESET      ///////////////////
@@ -591,76 +592,76 @@ function do_save_pad_state_uL(UpDwnL) {
 	Ti.API.info("UpDwnL variable sent as fired event by User_FingerPads.js  " + UpDwnL);
 }
 
-function get_user_settings() {}
-	// Ti.API.info("get_user_settings CALLED");
-// 
-	// Ti.App.addEventListener('From_Settings_Twist', function(e) {
-		// Ti.API.info("Twist  sent by app=" + e.Twist);
-		// Twist = e.Twist;
-		// alert("got one");
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_LRposP', function(e) {
-		// Ti.API.info("LRposP  sent by app=" + e.LRposP);
-		// LRposP = e.LRposP;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_LRposL', function(e) {
-		// Ti.API.info("LRposL  sent by app=" + e.LRposL);
-		// LRposL = e.LRposL;
-	// });
-	// Ti.App.addEventListener('From_Settings_UpDwnL', function(e) {
-		// Ti.API.info("UpDwnL sent by app =" + e.UpDwnL);
-		// UpDwnL = e.UpDwnL;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_UpDwnP', function(e) {
-		// Ti.API.info("UpDwnP sent by app =" + e.UpDwnP);
-		// UpDwnP = e.UpDwnP;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_HeightP', function(e) {
-		// Ti.API.info("HeightP sent by app =" + e.HeightP);
-// 
-		// HeightP = e.HeightP;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_HeightL', function(e) {
-		// Ti.API.info("HeightL sent by app =" + e.HeightL);
-// 
-		// HeightL = e.HeightL;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_WidthP', function(e) {
-		// Ti.API.info("WidthP  sent by app=" + e.WidthP);
-		// WidthP = e.WidthP;
-	// });
-	// Ti.App.addEventListener('From_Settings_WidthL', function(e) {
-		// Ti.API.info("WidthL  sent by app=" + e.WidthL);
-		// WidthL = e.WidthL;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_GapP', function(e) {
-		// Ti.API.info("GapP  sent by app=" + e.GapP);
-		// GapP = e.GapP;
-	// });
-	// Ti.App.addEventListener('From_Settings_GapL', function(e) {
-		// Ti.API.info("GapL  sent by app=" + e.GapL);
-		// GapL = e.GapL;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_FPPDisplay', function(e) {
-		// Ti.API.info("FPPDisplay  sent by app=" + e.FPPDisplay);
-		// FPPDisplay = e.FPPDisplay;
-	// });
-// 
-	// Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
-		// Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
-		// FPhelp = e.FPhelp;
-	// });
-	// Ti.API.info("get_user_settings ENDED OK");
-// 
-// }
+function get_user_settings() {
+	Ti.API.info("get_user_settings CALLED");
+
+	Ti.App.addEventListener('From_Settings_Twist', function(e) {
+		Ti.API.info("Twist  sent by app=" + e.Twist);
+		Twist = e.Twist;
+		alert("got one");
+	});
+
+	Ti.App.addEventListener('From_Settings_LRposP', function(e) {
+		Ti.API.info("LRposP  sent by app=" + e.LRposP);
+		LRposP = e.LRposP;
+	});
+
+	Ti.App.addEventListener('From_Settings_LRposL', function(e) {
+		Ti.API.info("LRposL  sent by app=" + e.LRposL);
+		LRposL = e.LRposL;
+	});
+	Ti.App.addEventListener('From_Settings_UpDwnL', function(e) {
+		Ti.API.info("UpDwnL sent by app =" + e.UpDwnL);
+		UpDwnL = e.UpDwnL;
+	});
+
+	Ti.App.addEventListener('From_Settings_UpDwnP', function(e) {
+		Ti.API.info("UpDwnP sent by app =" + e.UpDwnP);
+		UpDwnP = e.UpDwnP;
+	});
+
+	Ti.App.addEventListener('From_Settings_HeightP', function(e) {
+		Ti.API.info("HeightP sent by app =" + e.HeightP);
+
+		HeightP = e.HeightP;
+	});
+
+	Ti.App.addEventListener('From_Settings_HeightL', function(e) {
+		Ti.API.info("HeightL sent by app =" + e.HeightL);
+
+		HeightL = e.HeightL;
+	});
+
+	Ti.App.addEventListener('From_Settings_WidthP', function(e) {
+		Ti.API.info("WidthP  sent by app=" + e.WidthP);
+		WidthP = e.WidthP;
+	});
+	Ti.App.addEventListener('From_Settings_WidthL', function(e) {
+		Ti.API.info("WidthL  sent by app=" + e.WidthL);
+		WidthL = e.WidthL;
+	});
+
+	Ti.App.addEventListener('From_Settings_GapP', function(e) {
+		Ti.API.info("GapP  sent by app=" + e.GapP);
+		GapP = e.GapP;
+	});
+	Ti.App.addEventListener('From_Settings_GapL', function(e) {
+		Ti.API.info("GapL  sent by app=" + e.GapL);
+		GapL = e.GapL;
+	});
+
+	Ti.App.addEventListener('From_Settings_FPPDisplay', function(e) {
+		Ti.API.info("FPPDisplay  sent by app=" + e.FPPDisplay);
+		FPPDisplay = e.FPPDisplay;
+	});
+
+	Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
+		Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
+		FPhelp = e.FPhelp;
+	});
+	Ti.API.info("get_user_settings ENDED OK");
+
+}
 
 function do_pad_LRpos() {
 	if (HTMLorientation == 'portrait') {

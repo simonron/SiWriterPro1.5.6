@@ -40,6 +40,8 @@ Ti.include('KS_email2.js');
 Ti.include('buttons.js');
 Ti.include('file_saver.js');
 Ti.include('toolbar.js');
+
+
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
 
@@ -94,13 +96,13 @@ var win1 = Titanium.UI.createWindow({// top section BG
 });
 
 /////////////////////////////////////HELP WINDOW SETUP//////////////////////////////
-
-var win2 = Titanium.UI.createWindow({// top section BG
-	title : 'SiWriter.co.uk Help',
-	backgroundImage : 'images/Sized_Screen_lighter.png',
-	height : "100%",
-	bottom : 0,
-});
+// 
+// var win2 = Titanium.UI.createWindow({// top section BG
+	// title : 'SiWriter.co.uk Help',
+	// backgroundImage : 'images/Sized_Screen_lighter.png',
+	// height : "100%",
+	// bottom : 0,
+// });
 
 /////////////////////////////////////////end help window  //////////////////////////
 if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
@@ -139,8 +141,8 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 ////////////////////FROM WEBVIEWW DEMO///////////////////////
 //Ti.App.addEventListener('app:fromWebView', function(e) {alert(e.message);});//from webview
 ////////////////////////////////////////////////////////////
-Ti.App.removeEventListener('app:sizer_switch', function(e) {
-});
+//Ti.App.removeEventListener('app:sizer_switch', function(e) {
+//});
 
 //alert("here?");
 recover_settings();
@@ -150,24 +152,24 @@ DoOrientation();
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
 // can do without ?
-removeChildrens(win2);
+removeChildrens(win3);
 // can do without ?
 
 //help_LettersSwitch();
 help_bigWindowSwitch();
 
-win2.add(SiWriter_helpView);
-win2.add(help_windowSwitch);
-win2.add(help_BIGwindowSwitch);
-win2.add(help_lettersSwitch);
-win2.add(help_BIGwindowSwitchLbl);
-win2.add(help_windowSwitchLbl);
-win2.add(help_lettersSwitchLbl);
+// win2.add(SiWriter_helpView);
+// win2.add(help_windowSwitch);
+// win2.add(help_BIGwindowSwitch);
+// win2.add(help_lettersSwitch);
+// win2.add(help_BIGwindowSwitchLbl);
+// win2.add(help_windowSwitchLbl);
+// win2.add(help_lettersSwitchLbl);
 win1.add(smallHelpView);
-win2.add(btnChoosePhoto);
-win2.add(btnTakePhoto);
-win2.add(sizer_switch);
-win2.add(sizer_switchlbl);
+// win2.add(btnChoosePhoto);
+// win2.add(btnTakePhoto);
+// win2.add(sizer_switch);
+// win2.add(sizer_switchlbl);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
@@ -190,6 +192,8 @@ Ti.App.addEventListener('do_reset', function(e) {
 	});
 
 });
+
+
 
 help_WindowSwitcher();
 win1.open();
@@ -249,24 +253,38 @@ help_BIGwindowSwitch.addEventListener('change', help_bigWindowSwitch);
 
 helpButton.removeEventListener('click', function() {
 });
+
+var a = Titanium.UI.createAnimation();
+a.height = Ti.UI.FILL;
+a.width = Ti.UI.FILL;
+a.duration = 300;
+
 helpButton.addEventListener('click', function() {
 	win3.add(Continue_Siwriting);
 	win3.add(SiWriter_help_win);
+a.height = Ti.UI.FILL;
+a.width = Ti.UI.FILL;
+a.duration = 300;
 	win3.open(a);
 });
 
 close.removeEventListener('click', function() {
 });
 close.addEventListener('click', function() {
+	win3.remove(Continue_Siwriting);
+	win3.remove(SiWriter_help_win);
+		a.height = 0;
+		a.width = Ti.UI.FILL;;
 	win3.close(a);
 	help_WindowSwitcher();
+
 });
 
 //Continue_Siwriting_main.removeEventListener('click', function(){});
 close_main.addEventListener('click', function() {
 	Ti.API.info("Continue_Siwriting_main clicked");
 	win1.remove(bottomtoolbar);
-	win1.remove(Continue_Siwriting_main);
+	//win1.remove(Continue_Siwriting_main);
 	win1.remove(toolbar);
 });
 
@@ -300,8 +318,8 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
-sizer_switch.removeEventListener('change', function(e, hide) {
-});
+//sizer_switch.removeEventListener('change', function(e, hide) {
+//});
 
 // help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {
 // });

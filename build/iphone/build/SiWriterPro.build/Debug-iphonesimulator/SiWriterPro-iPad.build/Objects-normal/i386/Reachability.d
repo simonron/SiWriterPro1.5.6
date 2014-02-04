@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.1/build/iphone/Classes/ASI/Reachability.m \
-  /Users/Cyberman/Desktop/SiWriterPro1.1/build/iphone/Classes/ASI/Reachability.h
+  /Users/Cyberman/Desktop/SiWriterPro1.1.3/build/iphone/Classes/ASI/Reachability.m \
+  /Users/Cyberman/Desktop/SiWriterPro1.1.3/build/iphone/Classes/ASI/Reachability.h

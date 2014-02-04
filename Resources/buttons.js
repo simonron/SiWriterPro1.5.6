@@ -10,13 +10,14 @@ var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 });
 
 var top_view = Ti.UI.createView({/* email window */
-	height : 35,
+	height : 25,
 	width : 290,
-	borderRadius : 7,
+	borderRadius : 15,
 	keyboardType : Ti.UI.KEYBOARD_EMAIL,
 	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	backgroundImage : 'images/Small_Screen.png',
+	
 });
 
 // Create a TextField.
@@ -83,7 +84,7 @@ var helpButton = Titanium.UI.createButton({
 	width : 80,
 	height : 40,
 	right : 20,
-	top : 40,
+	top : 80,
 	backgroundImage : 'images/mini_key.png',
 	borderRadius : 20,
 });
@@ -223,18 +224,9 @@ function buttonvariablesPortrait() {
 	version_label.left = 350;
 	version_label.bottom = 30;
 
-	sizer_switchlbl.top = 640;
-	sizer_switch.top = 630;
-	sizer_switch.left = 20;
-
-	btnTakePhoto.top = 840;
-	btnTakePhoto.left = 20;
-
-	btnChoosePhoto.top = 880;
-	btnChoosePhoto.left = 20;
 
 	aTrailer.left = 20;
-	aTrailer.top = 495;
+	aTrailer.top = 450;
 
 	smallHelpView.top = 20;
 	smallHelpView.left = 350;
@@ -281,7 +273,7 @@ function buttonvariablesPortrait() {
 	webview.bottom = "0";
 	top_view.top = "450";
 	/* email window */
-	top_view.left = "20";
+	top_view.left = "350";
 }
 
 /////////////////Landscape/////////////////////
@@ -301,14 +293,11 @@ function buttonvariablesLandscape() {
 	version_label.left = 650;
 	version_label.bottom = 10;
 
-	btnTakePhoto.top = 410;
-	btnTakePhoto.left = 20;
-
-	btnChoosePhoto.top = 460;
-	btnChoosePhoto.left = 20;
-
-	aTrailer.left = 480;
-	aTrailer.top = 150;
+	aTrailer.left = 370;
+	aTrailer.top = 130;
+	/* email window */
+	top_view.top = 130;
+	top_view.left =  715;
 
 	writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'saved_BGimageL.png');
 	image = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory + 'saved_BGimageL.png');
@@ -330,24 +319,24 @@ function buttonvariablesLandscape() {
 	// returnButton.top = 680;
 
 	settingsButton.left = 370;
-	settingsButton.top = 43;
+	settingsButton.top = 80;
 
 	if (ReviewButton) {
 		ReviewButton.right = 140;
 	}
 	if (ReviewButton) {
-		ReviewButton.top = 40;
+		ReviewButton.top = 80;
 	}
 
 	// pasteButton.right = 140;
 	// pasteButton.top = 40;
 
 	clearButton.right = 246;
-	clearButton.top = 40;
+	clearButton.top = 80;
 
 	emailButton.right = 346;
-	emailButton.top = 40;
-	timeStampButton.top = 40;
+	emailButton.top = 80;
+	timeStampButton.top = 80;
 	timeStampButton.right = 446;
 
 	////Display Screen view///
@@ -361,7 +350,5 @@ function buttonvariablesLandscape() {
 	webview.background = "none";
 	webview.background = "transparent";
 	webview.bottom = 0;
-	top_view.top = 100;
-	/* email window */
-	top_view.left = 480;
+	
 }

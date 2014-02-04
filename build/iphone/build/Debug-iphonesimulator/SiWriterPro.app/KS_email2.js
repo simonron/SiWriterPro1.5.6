@@ -1,1 +1,1 @@
-/Users/Cyberman/Desktop/SiWriterPro1.1/Resources/KS_email2.js
+/Users/Cyberman/Desktop/SiWriterPro1.1.3/Resources/KS_email2.js

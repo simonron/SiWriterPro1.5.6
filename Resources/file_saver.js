@@ -342,15 +342,12 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 
 settingsButton.addEventListener('click', function() {
 	win1.add(toolbar);
-	win1.add(Continue_Siwriting_main);
+	//win1.add(Continue_Siwriting_main);
 	win1.add(bottomtoolbar);
 	
 });
 
-var a = Titanium.UI.createAnimation();
-a.height = Ti.UI.FILL;
-a.width = Ti.UI.FILL;
-a.duration = 300;
+
 
 //win3.add(SiWriter_help_win);
 

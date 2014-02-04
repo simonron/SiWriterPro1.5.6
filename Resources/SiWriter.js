@@ -695,12 +695,5 @@ function drawHelpers(){   //    Puts text on the 'keys' to show what they will r
 			touchEnd(e);
 			}
 			
-			
-function hide_sizers(){
-	sizers.style.display="none";
-}
 
-function show_sizers(){
-	sizers.style.display="block";
-}
 

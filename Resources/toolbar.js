@@ -3,12 +3,12 @@ var flexSpace = Titanium.UI.createButton({
 });
 
 var close = Titanium.UI.createButton({
-	title : 'Continue SiWriting',
+	title : 'Done',
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 });
 
 var close_main = Titanium.UI.createButton({
-	title : 'Continue SiWriting',
+	title : 'Done',
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 });
 
@@ -30,7 +30,7 @@ var help_BIGwindowSwitchLbl = Ti.UI.createLabel({
 	left : 80,
 });
 
-var sizer_switch = Ti.UI.createSwitch({
+var sizer_switch_slider = Ti.UI.createSwitch({
 	value : false, // mandatory property for iOS
 	titleOn : "Pad position trim options displayed in writing area",
 	titleOff : "Pad position trim options are not displayed",
@@ -98,7 +98,8 @@ var btnTakePhoto = Ti.UI.createButton({
 // create and add toolbar
 var toolbar = Titanium.UI.iOS.createToolbar({
 	items : [help_BIGwindowSwitch, help_BIGwindowSwitchLbl, flexSpace, help_windowSwitch, help_windowSwitchLbl, flexSpace,help_lettersSwitch,help_lettersSwitchLbl ],
-	top : 0,
+	top : 20,
+	height:50,
 	borderTop : false,
 	borderBottom : true,
 	zIndex : 10,
@@ -122,7 +123,7 @@ var Continue_Siwriting_main = Titanium.UI.iOS.createToolbar({
 
 
 var bottomtoolbar = Titanium.UI.iOS.createToolbar({
-    items:[flexSpace,sizer_switch,sizer_switchlbl,flexSpace,btnChoosePhoto,flexSpace, btnTakePhoto, flexSpace ],
+    items:[flexSpace,sizer_switch_slider,sizer_switchlbl,flexSpace,btnChoosePhoto,flexSpace, btnTakePhoto, flexSpace,close_main,flexSpace ],
     bottom:0,
     borderTop:false,
     borderBottom:false,
@@ -199,16 +200,22 @@ help_BIGwindowSwitch.addEventListener('change', function(e) {
 	Ti.API.info('****************** help_BIGwindowSwitch at line 200 now is '+help_BIGwindowSwitch.value);
 });
 
-sizer_switch.removeEventListener('change', function(e, hide) {});
+sizer_switch_slider.removeEventListener('change', function(e, hide) {});
 
 
-sizer_switch.addEventListener('change', function(e) {
-	Ti.App.fireEvent('sizer_switch_change');
-	sizer_switch.value=!sizer_switch.value;
-	
-		Ti.API.info('sizer_switch_change clicked value ' + sizer_switch.value);
-
+sizer_switch_slider.addEventListener('change', function(e) {
+		Ti.API.info('sizer_switch slide value ' + sizer_switch.value);
+	Ti.App.fireEvent('sizer_switch_change',sizer_switch.value);
 });
+
+Ti.App.removeEventListener('sizer_switch_closed', function(){});
+
+Ti.App.addEventListener('sizer_switch_closed', function(e) {
+	Ti.API.info('sizer_switch_closed value ' + sizer_switch.value);
+    Ti.App.fireEvent('sizer_switch_change',sizer_switch.value);
+});
+
+
 
 help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {});
 

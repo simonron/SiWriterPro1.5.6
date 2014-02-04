@@ -25,17 +25,16 @@ div#sizers {
 	padding-top: 10px;
 	height: 430px;
 	background: #efe;
-	position:absolute;
-	margin-right:10px;
+	position: absolute;
+	margin-right: 10px;
 	z-index: 10000;
 	border-top-left-radius: 27px;
 	border-top-right-radius: 27px;
 	border-bottom-left-radius: 27px;
-	border-bottom-right-radius: 27px;
-	top 50%;
+	border-bottom-right-radius: 27px;top 50%;
 	margin-left: 81%;
 	opacity: 0.95;
-	display:none;
+	display: none;
 }
 
 div#sizers div {
@@ -84,7 +83,7 @@ div#spacer {
 	border-top-right-radius: 27px;
 	position: absolute;
 	/*height: 100px;
-	width: 100px;*/
+	 width: 100px;*/
 	background: url(images/small_buttons.png) -2px -3px;
 	text-align: center;
 	color: #777;
@@ -225,8 +224,7 @@ div#spacer {
 	text-align: center;
 	width: 90%;
 	margin-left: 2.5%;
-		display:none;
-
+	display: none;
 }
 
 div#k0 .kHelper {
@@ -237,6 +235,7 @@ div#k0 .kHelper {
 	margin-top: 10px;
 	opacity: .7;
 	z-index: 100;
+	display: none;
 }
 
 .kHelpers {/* shift lock keys*/
@@ -256,11 +255,13 @@ div#k0 .kHelper {
 	margin-left: -10px;
 	margin-top: -10px;
 	opacity: .7;
+	display: none;
 }
 
 #h7.kHelpers {
 	margin-left: -110px;
 	opacity: .7;
+	display: none;
 }
 
 .Green {
@@ -268,11 +269,13 @@ div#k0 .kHelper {
 	font-family: Arial, sans-serif;
 	font-weight: 600;
 	padding-top: 4px;
+	display: none;
 }
 
 .kHelper b {
 	color: #050;
 	font-size: 18px;
+	display: none;
 }
 
 #chordKeybaord {
@@ -317,7 +320,9 @@ div#k0 {/* space key, top provide thumb verticle offset from other four finger p
 	position: relative;
 	z-index: 10;
 }
-div#spacer0 {width:5px}
+div#spacer0 {
+	width: 5px
+}
 
 div #k1 {
 	top: 75px;
@@ -356,7 +361,6 @@ div#k7 {/* Delete key*/
 	top: 110%;
 	float: left;
 }
-
 
 span {
 	color: #ddd;
