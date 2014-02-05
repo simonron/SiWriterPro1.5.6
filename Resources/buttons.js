@@ -11,7 +11,7 @@ var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 
 var top_view = Ti.UI.createView({/* email window */
 	height : 25,
-	width : 290,
+	width : 310,
 	borderRadius : 15,
 	keyboardType : Ti.UI.KEYBOARD_EMAIL,
 	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
@@ -229,7 +229,7 @@ function buttonvariablesPortrait() {
 	aTrailer.top = 450;
 
 	smallHelpView.top = 20;
-	smallHelpView.left = 350;
+	smallHelpView.left = 330;
 	smallHelpView.height = 420;
 	smallHelpView.contentHeight = 'auto';
 	smallHelpimages.width = 300;
@@ -241,7 +241,7 @@ function buttonvariablesPortrait() {
 	//returnButton.top = 930;
 
 	settingsButton.left = 648;
-	settingsButton.top = 450;
+	settingsButton.top = 446;
 
 	ReviewButton.right = 20;
 	ReviewButton.top = 100;
@@ -273,7 +273,7 @@ function buttonvariablesPortrait() {
 	webview.bottom = "0";
 	top_view.top = "450";
 	/* email window */
-	top_view.left = "350";
+	top_view.left = "330";
 }
 
 /////////////////Landscape/////////////////////

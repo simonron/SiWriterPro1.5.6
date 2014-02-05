@@ -1,1 +1,1 @@
-/Users/Cyberman/Desktop/SiWriterPro1.1.3/Resources/toolbar.js
+/Users/Cyberman/Desktop/SiWriterPro1.1.3 copy/Resources/toolbar.js

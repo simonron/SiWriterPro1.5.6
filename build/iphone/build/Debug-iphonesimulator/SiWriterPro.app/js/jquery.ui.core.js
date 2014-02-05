@@ -1,1 +1,1 @@
-/Users/Cyberman/Desktop/SiWriterPro1.1.3/Resources/js/jquery.ui.core.js
+/Users/Cyberman/Desktop/SiWriterPro1.1.3 copy/Resources/js/jquery.ui.core.js

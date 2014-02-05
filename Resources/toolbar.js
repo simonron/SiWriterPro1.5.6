@@ -215,7 +215,23 @@ sizer_switch_slider.addEventListener('change', function(e) {
 	Ti.App.fireEvent('sizer_switch_change', {slider: sizer_switch_slider.value}); 
 
 });
+Ti.App.addEventListener('help_BIGwindowSwitch_setting',function(d){
+	Ti.API.info('d.help_BIGwindowSwitch = ' + d.help_BIGwindowSwitch);
+    help_BIGwindowSwitch.value= d.help_BIGwindowSwitch;
+});
 
+
+Ti.App.addEventListener('help_lettersSwitch_setting',function(d){
+    help_lettersSwitch.value= d.help_lettersSwitch;
+	Ti.API.info('d.help_lettersSwitch = ' + d.help_lettersSwitch);
+});
+
+Ti.App.addEventListener('help_windowSwitch_setting',function(d){
+    help_windowSwitch.value= d.help_windowSwitch;
+	Ti.API.info('d.help_windowSwitch = ' + d.help_windowSwitch);
+});
+
+//help_windowSwitch.value=true;
 
 
 help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {});
@@ -225,6 +241,8 @@ help_lettersSwitch.addEventListener('change', function(e, FPhelp) {
 	Ti.API.info('app:Switch value: ' + help_lettersSwitch.value);
 	Ti.App.fireEvent('help_lettersSwitch_change');
 });
+
+
 
 help_windowSwitch.removeEventListener('change', help_WindowSwitcher);
 

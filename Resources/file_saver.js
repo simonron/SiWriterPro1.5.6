@@ -11,6 +11,32 @@ function recover_settings() {
 		}
 		Titanium.API.info(props[c] + " = " + value);
 
+		if (props[c] == "Master_Setting_Window_Switch") {
+			help_windowSwitch.value = setting;
+			Ti.App.fireEvent('FPhelp_setting', {
+				FPhelp : setting
+			});
+			Ti.API.info("Master_Setting_Window_Switch = " + setting);
+		}
+
+		if (props[c] == "Master_Setting_Big_Help") {
+			help_BIGwindowSwitch.value = setting;
+			Ti.App.fireEvent('help_BIGwindowSwitch_setting', {
+				help_BIGwindowSwitch : setting
+			});
+			Ti.API.info("Master_Setting_Big_Help = " + setting);
+
+		}
+
+		if (props[c] == "Master_Setting_Help_Tabs") {
+			help_lettersSwitch.value = setting;
+			Ti.App.fireEvent('help_lettersSwitch_setting', {
+				help_lettersSwitch : setting
+			});
+			Ti.API.info("Master_Setting_Help_Tabs = " + setting);
+
+		}
+
 		if (props[c] == "TwistP") {
 			var TwistP = value;
 			Ti.App.fireEvent('From_Settings_Twist', {
@@ -230,9 +256,9 @@ function timeStamp() {
 }
 
 function close_main() {
-Ti.API.info("close main triggered");
-	
-updateSettings();
+	Ti.API.info("close main triggered");
+
+	updateSettings();
 	//win2.remove(openWebsiteButton);
 	getOrientation();
 
@@ -284,17 +310,6 @@ function get_MasterSettings() {
 		if (props[c] == "email_to_setting") {
 			aTextField.value = value;
 		}
-		// if (props[c] == "Master_Setting_Window_Switch") {
-		// help_windowSwitch.value = setting;
-		// }
-
-		if (props[c] == "Master_Setting_Big_Help") {
-			help_BIGwindowSwitch.value = setting;
-		}
-
-		if (props[c] == "Master_Setting_Help_Tabs") {
-			help_lettersSwitch.value = setting;
-		}
 
 		// if (props[c] == "Height") {
 		// var Height = value;
@@ -344,13 +359,10 @@ settingsButton.addEventListener('click', function() {
 	win1.add(toolbar);
 	//win1.add(Continue_Siwriting_main);
 	win1.add(bottomtoolbar);
-	
+
 });
 
-
-
 //win3.add(SiWriter_help_win);
-
 
 var win3 = Titanium.UI.createWindow({// top section BG
 	title : 'SiWriter.co.uk Help',
@@ -358,10 +370,4 @@ var win3 = Titanium.UI.createWindow({// top section BG
 	height : "100%",
 	bottom : 0,
 });
-
-
-
-
-
-
 

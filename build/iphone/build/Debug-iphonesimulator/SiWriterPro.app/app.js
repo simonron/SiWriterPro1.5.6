@@ -1,1 +1,1 @@
-/Users/Cyberman/Desktop/SiWriterPro1.1.3/Resources/app.js
+/Users/Cyberman/Desktop/SiWriterPro1.1.3 copy/Resources/app.js
