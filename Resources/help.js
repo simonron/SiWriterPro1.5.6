@@ -53,28 +53,6 @@ var help_windowSwitchLbl = Ti.UI.createLabel({
 
 
 
-
-var help_lettersSwitch = Ti.UI.createSwitch({
-  value:false, // mandatory property for iOS 
-  top:800,
-  left:20,
-  titleOn:"Letter Code guide hints above finger pads are on",
-  titleOff:"Letter Code guide hints above finger pads are off",
-  color:"#000000",
-});
-
-var help_lettersSwitchLbl = Ti.UI.createLabel({
-  color:"#000000",
-  font: { fontSize:16 },
-  top:830,
-  left:80,
-  text: 'Finger pad code hints ?',
-});
-
-
-
-
-
  var btnChoosePhoto = Ti.UI.createButton({
         width: 220,
         height: 35,

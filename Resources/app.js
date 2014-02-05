@@ -119,6 +119,8 @@ if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.
 webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var start='" + start + "';");
 	webview.evalJS("var HTMLorientation='" + orientation + "';");
+	var FPhelp=Titanium.App.Properties.getString("Master_Setting_Help_Tabs");
+	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
 });
 /////////////////////////////////////////////////////////////////////////
@@ -318,17 +320,7 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
-//sizer_switch.removeEventListener('change', function(e, hide) {
-//});
 
-// help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {
-// });
-//
-// help_lettersSwitch.addEventListener('change', function(e, FPhelp) {
-// Ti.API.info('app:Switch value: ' + help_lettersSwitch.value);
-// Ti.App.fireEvent('help_lettersSwitch_change');
-// FPhelp = help_lettersSwitch.value;
-// });
 
 CheckEmailaddress();
 //getEmail();

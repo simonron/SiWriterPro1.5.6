@@ -215,33 +215,37 @@ sizer_switch_slider.addEventListener('change', function(e) {
 	Ti.App.fireEvent('sizer_switch_change', {slider: sizer_switch_slider.value}); 
 
 });
-Ti.App.addEventListener('help_BIGwindowSwitch_setting',function(d){
-	Ti.API.info('d.help_BIGwindowSwitch = ' + d.help_BIGwindowSwitch);
-    help_BIGwindowSwitch.value= d.help_BIGwindowSwitch;
-});
+
+//Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//FPhelp=Titanium.App.Properties.getString("Master_Setting_Help_Tabs");
+//Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Help_Tabs); from app is "+FPhelp);
+//help_lettersSwitch.value=FPhelp;
 
 
-Ti.App.addEventListener('help_lettersSwitch_setting',function(d){
-    help_lettersSwitch.value= d.help_lettersSwitch;
-	Ti.API.info('d.help_lettersSwitch = ' + d.help_lettersSwitch);
-});
+HBWS=Titanium.App.Properties.getString("Master_Setting_Big_Help");
+Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Big_Help); from app is "+HBWS);
+help_BIGwindowSwitch.value=HBWS;
 
-Ti.App.addEventListener('help_windowSwitch_setting',function(d){
-    help_windowSwitch.value= d.help_windowSwitch;
-	Ti.API.info('d.help_windowSwitch = ' + d.help_windowSwitch);
-});
+
+HelpWS=Titanium.App.Properties.getString("Master_Setting_Window_Switch");
+Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Window_Switch); from app is "+HelpWS);
+help_windowSwitch.value=HelpWS;
+
 
 //help_windowSwitch.value=true;
 
 
+
+
 help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {});
 
-help_lettersSwitch.addEventListener('change', function(e, FPhelp) {
-	FPhelp = help_lettersSwitch.value;
-	Ti.API.info('app:Switch value: ' + help_lettersSwitch.value);
-	Ti.App.fireEvent('help_lettersSwitch_change');
-});
 
+
+help_lettersSwitch.addEventListener('change', function(e) {
+	//Ti.API.info('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxhelp_lettersSwitch = ' + help_lettersSwitch.value);
+    Ti.App.fireEvent('help_lettersSwitch_change',{ FPhelp : help_lettersSwitch.value});
+	Ti.API.info('help_lettersSwitch = ' + help_lettersSwitch.value);
+});
 
 
 help_windowSwitch.removeEventListener('change', help_WindowSwitcher);

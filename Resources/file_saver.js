@@ -30,9 +30,11 @@ function recover_settings() {
 
 		if (props[c] == "Master_Setting_Help_Tabs") {
 			help_lettersSwitch.value = setting;
-			Ti.App.fireEvent('help_lettersSwitch_setting', {
-				help_lettersSwitch : setting
-			});
+			Ti.App.fireEvent('Do_help_lettersSwitch',{ FPhelp : setting});
+			//Ti.API.info("Do_help_lettersSwitch = " + setting);
+			// Ti.App.fireEvent('help_lettersSwitch_setting', {
+				// help_lettersSwitch : setting
+			// });
 			Ti.API.info("Master_Setting_Help_Tabs = " + setting);
 
 		}
@@ -332,7 +334,7 @@ function get_MasterSettings() {
 		}
 
 		if (props[c] == "FPhelp") {
-			var FPhelp = value;
+			//var FPhelp = value;
 		}
 
 	}

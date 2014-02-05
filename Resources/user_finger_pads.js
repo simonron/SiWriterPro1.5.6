@@ -31,7 +31,6 @@ var UpDwn = 0;
 var Hide = true;
 
 var FPPdisplay = false;
-var FPhelp = false;
 var LrOffset = 0;
 var LrOffsetP = 0;
 var LrOffsetL = 0;
@@ -66,6 +65,13 @@ $(document).ready(function() {
 //hide_sizers();
 adjust_pads();
 //;
+
+Ti.API.info("FPhelp !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+FPhelp);
+
+do_pad_fphelp(FPhelp);
+
+
+Ti.App.removeEventListener('Do_help_lettersSwitch', function(){});
 
 Ti.App.addEventListener('sizer_switch_change', function(e) {
 
@@ -226,8 +232,10 @@ Ti.App.removeEventListener('sizer_switch_change', function(e) {});
 
 Ti.App.removeEventListener('help_lettersSwitch_change', function(e) {});
 
+
+
 Ti.App.addEventListener('help_lettersSwitch_change', function(e) {
-	FPhelp = !FPhelp;
+    FPhelp = e.FPhelp;
 	Ti.API.info('SW- Switch FPhelp: ' + FPhelp);
 	do_pad_fphelp(FPhelp);
 });
