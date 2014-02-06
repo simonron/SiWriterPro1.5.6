@@ -217,11 +217,12 @@ function buttonvariablesPortrait() {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
 
-	webview.height = "60%", PrivacyTitle.left = 342;
+	webview.height = "60%", 
+	PrivacyTitle.left = 442;
 	PrivacyTitle.bottom = 60;
-	build_label.left = 350;
+	build_label.left = 450;
 	build_label.bottom = 95;
-	version_label.left = 350;
+	version_label.left = 450;
 	version_label.bottom = 30;
 
 
@@ -286,18 +287,19 @@ function buttonvariablesPortrait() {
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	webview.height = "100%", PrivacyTitle.left = 642;
+	webview.height = "100%", 
+	PrivacyTitle.left = 682;
 	PrivacyTitle.bottom = 40;
-	build_label.left = 650;
+	build_label.left = 690;
 	build_label.bottom = 70;
-	version_label.left = 650;
+	version_label.left = 690;
 	version_label.bottom = 10;
 
 	aTrailer.left = 370;
 	aTrailer.top = 130;
 	/* email window */
 	top_view.top = 130;
-	top_view.left =  715;
+	top_view.left =  695;
 
 	writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'saved_BGimageL.png');
 	image = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory + 'saved_BGimageL.png');

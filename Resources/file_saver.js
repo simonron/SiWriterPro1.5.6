@@ -30,10 +30,12 @@ function recover_settings() {
 
 		if (props[c] == "Master_Setting_Help_Tabs") {
 			help_lettersSwitch.value = setting;
-			Ti.App.fireEvent('Do_help_lettersSwitch',{ FPhelp : setting});
+			Ti.App.fireEvent('Do_help_lettersSwitch', {
+				FPhelp : setting
+			});
 			//Ti.API.info("Do_help_lettersSwitch = " + setting);
 			// Ti.App.fireEvent('help_lettersSwitch_setting', {
-				// help_lettersSwitch : setting
+			// help_lettersSwitch : setting
 			// });
 			Ti.API.info("Master_Setting_Help_Tabs = " + setting);
 
@@ -185,14 +187,14 @@ function saveCurrentText() {
 function saveBackgroundImage(image) {
 	DoOrientation();
 
-	if ( oriCurrent = "portrait") {
+	if (oriCurrent == "portrait") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
 			title : 'Background image'
 		});
 		BG_Image_Message.setMessage('Portrait background updated. \n Use a small file for best results.\n Now, close and re-open SiWriter');
 	}
 
-	if ( oriCurrent = "landscape") {
+	if (oriCurrent == "landscape") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
 			title : 'Background image'
 		});
@@ -358,9 +360,19 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 });
 
 settingsButton.addEventListener('click', function() {
-	win1.add(toolbar);
-	//win1.add(Continue_Siwriting_main);
-	win1.add(bottomtoolbar);
+	if (setbutton == 0) {
+		setbutton = 1;
+		win1.add(toolbar);
+		//win1.add(Continue_Siwriting_main);
+		win1.add(bottomtoolbar);
+	return;
+	}
+	
+	if (setbutton == 1) {
+		setbutton = 0;
+		win1.remove(toolbar);
+		win1.remove(bottomtoolbar);
+	}
 
 });
 

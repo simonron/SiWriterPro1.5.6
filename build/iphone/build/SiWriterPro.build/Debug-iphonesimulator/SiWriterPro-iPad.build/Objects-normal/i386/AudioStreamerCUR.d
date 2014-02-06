@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.3/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.m \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.3/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.3/build/iphone/Classes/AudioStreamer/AudioStreamer.h
+  /Users/Cyberman/Desktop/SiWriterPro1.1.4/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.m \
+  /Users/Cyberman/Desktop/SiWriterPro1.1.4/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.1.4/build/iphone/Classes/AudioStreamer/AudioStreamer.h

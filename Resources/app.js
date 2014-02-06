@@ -34,13 +34,13 @@ var Toggle = false;
 var Trigger = false;
 var oldOrientation = "";
 var Hide = true;
+var setbutton = 0;
 Ti.API.info(props);
 
 Ti.include('KS_email2.js');
 Ti.include('buttons.js');
 Ti.include('file_saver.js');
 Ti.include('toolbar.js');
-
 
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
@@ -96,12 +96,12 @@ var win1 = Titanium.UI.createWindow({// top section BG
 });
 
 /////////////////////////////////////HELP WINDOW SETUP//////////////////////////////
-// 
+//
 // var win2 = Titanium.UI.createWindow({// top section BG
-	// title : 'SiWriter.co.uk Help',
-	// backgroundImage : 'images/Sized_Screen_lighter.png',
-	// height : "100%",
-	// bottom : 0,
+// title : 'SiWriter.co.uk Help',
+// backgroundImage : 'images/Sized_Screen_lighter.png',
+// height : "100%",
+// bottom : 0,
 // });
 
 /////////////////////////////////////////end help window  //////////////////////////
@@ -119,7 +119,7 @@ if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.
 webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var start='" + start + "';");
 	webview.evalJS("var HTMLorientation='" + orientation + "';");
-	var FPhelp=Titanium.App.Properties.getString("Master_Setting_Help_Tabs");
+	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs");
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
 });
@@ -195,8 +195,6 @@ Ti.App.addEventListener('do_reset', function(e) {
 
 });
 
-
-
 help_WindowSwitcher();
 win1.open();
 view.show();
@@ -264,9 +262,9 @@ a.duration = 300;
 helpButton.addEventListener('click', function() {
 	win3.add(Continue_Siwriting);
 	win3.add(SiWriter_help_win);
-a.height = Ti.UI.FILL;
-a.width = Ti.UI.FILL;
-a.duration = 300;
+	a.height = Ti.UI.FILL;
+	a.width = Ti.UI.FILL;
+	a.duration = 300;
 	win3.open(a);
 });
 
@@ -275,8 +273,9 @@ close.removeEventListener('click', function() {
 close.addEventListener('click', function() {
 	win3.remove(Continue_Siwriting);
 	win3.remove(SiWriter_help_win);
-		a.height = 0;
-		a.width = Ti.UI.FILL;;
+	a.height = 0;
+	a.width = Ti.UI.FILL;
+	;
 	win3.close(a);
 	help_WindowSwitcher();
 
@@ -288,6 +287,7 @@ close_main.addEventListener('click', function() {
 	win1.remove(bottomtoolbar);
 	//win1.remove(Continue_Siwriting_main);
 	win1.remove(toolbar);
+	setbutton = 0;
 });
 
 get_MasterSettings();
@@ -320,7 +320,6 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
-
 
 CheckEmailaddress();
 //getEmail();
