@@ -12,6 +12,7 @@ var dir = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirecto
 //contentTyped = previous_contents;
 var contentTyped = '';
 var c = 0;
+var trailer="";
 var s = 0;
 var Nums = 0;
 var Caps = 0;
@@ -35,13 +36,13 @@ var Trigger = false;
 var oldOrientation = "";
 var Hide = true;
 var setbutton = 0;
+var oriCurrent = 'landscape';
 Ti.API.info(props);
 
 Ti.include('KS_email2.js');
 Ti.include('buttons.js');
 Ti.include('file_saver.js');
 Ti.include('toolbar.js');
-
 Ti.include('help.js');
 Titanium.App.Properties.setString("version", Ti.App.version);
 
@@ -179,7 +180,7 @@ win1.add(view);
 // Ti.API.info("app 118 Titanium.App.keyboardVisible test ?");
 //
 // Ti.API.info("app 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);
-
+DoOrientation();
 Ti.App.removeEventListener('do_reset', function(e) {
 });
 

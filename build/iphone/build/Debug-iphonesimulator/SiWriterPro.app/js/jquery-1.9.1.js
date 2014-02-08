@@ -1,1 +1,0 @@
-/Users/Cyberman/Desktop/SiWriterPro1.1.4/Resources/js/jquery-1.9.1.js

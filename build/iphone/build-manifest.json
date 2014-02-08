@@ -1,7 +1,8 @@
 {
-	"target": "simulator",
-	"deployType": "development",
+	"target": "device",
+	"deployType": "test",
 	"deviceFamily": "ipad",
+	"developerName": "Simon Anthony (YP57LL735P)",
 	"iosSdkPath": "/Users/Cyberman/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone",
 	"tiCoreHash": "77157e1ffaec640cf559356a147b6a4c",
 	"modulesHash": "d41d8cd98f00b204e9800998ecf8427e",
@@ -12,12 +13,12 @@
 	"analytics": true,
 	"publisher": "Simon Anthony",
 	"url": "http://siwriter.co.uk",
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"description": "Pro version of SiWriter: a text input, note taking app for the iPad/iPad mini, based on the one handed chording keyboard Microwriting codes as used in the CyKey and AgendA. With configurable finger pad layout and multiple productivity features.",
 	"copyright": "2014  Tortoisesoft Enterprises",
 	"guid": "c55cf289-8cf3-412b-bf67-0cbb9c09ffaf",
-	"skipJSMinification": true,
+	"skipJSMinification": false,
 	"forceCopy": false,
 	"forceCopyAll": false,
-	"encryptJS": false
+	"encryptJS": true
 }

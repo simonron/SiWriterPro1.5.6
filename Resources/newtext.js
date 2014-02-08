@@ -6,8 +6,9 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 	if (e.text == "\b_") {
 		e.text = "";
 		contentTyped = contentTyped.slice(0, -1);
+		trailer=trailer.slice(0, -1);
 		txtViewDesc.value = contentTyped + "_";
-	} else {
+	} 
 		//************************/END////DELETE sensor//
 		//////////////////////MAGIC BIT////add apple keyboard text and allows full editing//////////////////////
 		if (contentTyped.length!= txtViewDesc.value.length-1){(contentTyped=txtViewDesc.value);};
@@ -15,17 +16,20 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 		////////////////END MAGIC BIT///////////////////////////
 
 		contentTyped = contentTyped + e.text ;
-		e.text = "";
+		
 
 		if (!Titanium.App.keyboardVisible) {
 			txtViewDesc.value = contentTyped + "_";
 		}
-	};
+	
 
 
-	trailer = contentTyped.slice(-23);
-	Ti.API.info('trailer: ' + trailer);
-	aTrailer.value = trailer;
+	// trailer = contentTyped.slice(-23);
+	// Ti.API.info('trailer: ' + trailer);
+	
+	trailer = trailer.slice(-23) + e.text;
+	
+	aTrailer.value = trailer + "_";
 
 
 });

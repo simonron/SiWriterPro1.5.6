@@ -1,1 +1,0 @@
-/Users/Cyberman/Desktop/SiWriterPro1.1.4/Resources/js/multitouch-simplifier.js

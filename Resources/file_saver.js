@@ -33,10 +33,7 @@ function recover_settings() {
 			Ti.App.fireEvent('Do_help_lettersSwitch', {
 				FPhelp : setting
 			});
-			//Ti.API.info("Do_help_lettersSwitch = " + setting);
-			// Ti.App.fireEvent('help_lettersSwitch_setting', {
-			// help_lettersSwitch : setting
-			// });
+
 			Ti.API.info("Master_Setting_Help_Tabs = " + setting);
 
 		}
@@ -191,14 +188,14 @@ function saveBackgroundImage(image) {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
 			title : 'Background image'
 		});
-		BG_Image_Message.setMessage('Portrait background updated. \n Use a small file for best results.\n Now, close and re-open SiWriter');
+		BG_Image_Message.setMessage('Portrait background updated.');
 	}
 
 	if (oriCurrent == "landscape") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
 			title : 'Background image'
 		});
-		BG_Image_Message.setMessage('Landscape background updated. \n Use a small file for best results.\n Now, close and re-open SiWriter');
+		BG_Image_Message.setMessage('Background image updated.');
 	}
 
 	if (writeFile.exists()) {
