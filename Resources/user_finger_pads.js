@@ -392,7 +392,7 @@ function adjust_pads() {
 			Height = HeightL;
 		};
 		do_pad_height();
-		//		do_save_pad_state_h(Height);
+		do_save_pad_state_h(Height);
 	};
 	did("DamountH").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {

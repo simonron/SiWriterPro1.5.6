@@ -69,15 +69,15 @@ settingsButton.font = {
 	fontSize : 18
 };
 
-// var copyButton = Titanium.UI.createButton({
-// title : 'Copy',
-// width : 80,
-// height : 40,
-// right : 20,
-// top : 40,
-// backgroundImage : 'images/mini_key.png',
-// borderRadius : 20,
-// });
+var copyButton = Titanium.UI.createButton({
+title : 'Copy',
+width : 80,
+height : 40,
+right : 20,
+top : 40,
+backgroundImage : 'images/mini_key.png',
+borderRadius : 20,
+});
 
 var helpButton = Titanium.UI.createButton({
 	title : 'Help',
@@ -136,13 +136,13 @@ var facebookButton = Titanium.UI.createButton({
 	borderRadius : 20,
 });
 
-// var pasteButton = Titanium.UI.createButton({
-// title : "Paste",
-// width : 80,
-// height : 40,
-// backgroundImage : 'images/mini_key.png',
-// borderRadius : 20,
-// });
+var pasteButton = Titanium.UI.createButton({
+title : "Paste",
+width : 80,
+height : 40,
+backgroundImage : 'images/mini_key.png',
+borderRadius : 20,
+});
 
 var timeStampButton = Titanium.UI.createButton({
 	title : "Time",
@@ -275,6 +275,8 @@ function buttonvariablesPortrait() {
 	top_view.top = "450";
 	/* email window */
 	top_view.left = "330";
+	pasteButton.right = 20;
+	pasteButton.top = 300;
 }
 
 /////////////////Landscape/////////////////////
@@ -330,8 +332,8 @@ function buttonvariablesLandscape() {
 		ReviewButton.top = 80;
 	}
 
-	// pasteButton.right = 140;
-	// pasteButton.top = 40;
+	pasteButton.right = 140;
+	pasteButton.top = 40;
 
 	clearButton.right = 246;
 	clearButton.top = 80;

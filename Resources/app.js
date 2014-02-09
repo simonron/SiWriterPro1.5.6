@@ -203,8 +203,8 @@ win1.add(settingsButton);
 win1.add(helpButton);
 win1.add(clearButton);
 win1.add(emailButton);
-
-//win1.add(pasteButton);
+win1.add(copyButton);
+win1.add(pasteButton);
 win1.add(timeStampButton);
 top_view.add(aTextField);
 win1.add(top_view);
@@ -230,27 +230,21 @@ emailButton.removeEventListener('click', emailCurrentText);
 clearButton.removeEventListener('click', clearTextFromClipboard);
 ReviewButton.removeEventListener('click', viewLastText);
 timeStampButton.removeEventListener('click', timeStamp);
-//helpButton.removeEventListener('click', displayHelpWindow);
-//pasteButton.removeEventListener('click', pasteTextFromClipboard);
-//settingsButton.removeEventListener('click', settingsButtonAction);
-//returnButton.removeEventListener('click', returnButtonAction);
+copyButton.removeEventListener('click', copyTextToClipboard);
+pasteButton.removeEventListener('click', pasteTextFromClipboard);
 openWebsiteButton.removeEventListener('click', openWebsiteButtonAction);
 
-//help_lettersSwitch.removeEventListener('change', help_LettersSwitch);
 help_BIGwindowSwitch.removeEventListener('change', help_bigWindowSwitch);
 
 emailButton.addEventListener('click', emailCurrentText);
 clearButton.addEventListener('click', clearTextFromClipboard);
 ReviewButton.addEventListener('click', viewLastText);
 timeStampButton.addEventListener('click', timeStamp);
-//pasteButton.addEventListener('click', pasteTextFromClipboard);
-//helpButton.addEventListener('click', displayHelpWindow);
-//returnButton.addEventListener('click', returnButtonAction);
+copyButton.addEventListener('click', copyTextToClipboard);
+pasteButton.addEventListener('click', pasteTextFromClipboard);
 openWebsiteButton.addEventListener('click', openWebsiteButtonAction);
 
-//help_windowSwitch.addEventListener('change', help_WindowSwitcher);
 help_BIGwindowSwitch.addEventListener('change', help_bigWindowSwitch);
-//help_lettersSwitch.addEventListener('change', help_LettersSwitch);
 
 helpButton.removeEventListener('click', function() {
 });

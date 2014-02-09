@@ -175,6 +175,15 @@ function landscape() {
 	buttonvariablesLandscape();
 }
 
+function copyTextToClipboard() {
+	//if(txtViewDesc.value==="_") {
+	if (contentTyped == "_") {
+
+		alert("Nothing to copy");
+	} else {
+		Ti.UI.Clipboard.setText(contentTyped);
+	}
+}
 function saveCurrentText() {
 	saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter ' + new Date);
 	saved_file.write(save);
@@ -210,6 +219,15 @@ function saveBackgroundImage(image) {
 function viewLastText() {
 }
 
+function pasteTextFromClipboard() {
+	if (Ti.UI.Clipboard.getText()) {
+		//txtViewDesc.value = txtViewDesc.value + Ti.UI.Clipboard.getText()+"_";
+		contentTyped = contentTyped + Ti.UI.Clipboard.getText() + "_";
+		txtViewDesc.value = contentTyped;
+	} else {
+		alert("Nothing to paste");
+	}
+}
 function copyTextToClipboard() {
 	//if(txtViewDesc.value==="_") {
 	if (contentTyped == "_") {

@@ -95,6 +95,45 @@ var btnTakePhoto = Ti.UI.createButton({
 	visible : true
 });
 
+
+var close_main = Titanium.UI.createButton({
+	title : 'Done',
+	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
+});
+
+
+var CyKey = Titanium.UI.createButton({
+title :"Cykey site",
+	style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
+
+});
+	CyKey.addEventListener("click", function() {
+		Ti.API.info("Opening Cykey");
+Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
+	});
+
+var SiWriter = Titanium.UI.createButton({
+title :"SiWriter site",
+	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
+
+});
+	SiWriter.addEventListener("click", function() {
+		Ti.API.info("Opening SiWriter");
+Ti.Platform.openURL("http://www.siwriter.co.uk/");
+	});
+
+var Facebook = Titanium.UI.createButton({
+title :"Facebook",
+	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
+
+});
+
+Facebook.addEventListener("click", function() {
+	Ti.API.info("Opening Facebook");
+	Ti.Platform.openURL("https://www.facebook.com/SiWriter");
+}); 
+
+
 // create and add toolbar
 var toolbar = Titanium.UI.iOS.createToolbar({
 	items : [help_BIGwindowSwitch, help_BIGwindowSwitchLbl, flexSpace, help_windowSwitch, help_windowSwitchLbl, flexSpace,help_lettersSwitch,help_lettersSwitchLbl ],
@@ -106,7 +145,7 @@ var toolbar = Titanium.UI.iOS.createToolbar({
 });
 
 var Continue_Siwriting = Titanium.UI.iOS.createToolbar({
-    items:[ flexSpace,close,flexSpace,],
+    items:[ flexSpace,SiWriter,flexSpace,Facebook,flexSpace,CyKey,flexSpace,close,flexSpace],
     bottom:0,
     borderTop:true,
     borderBottom:false,
