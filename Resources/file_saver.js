@@ -374,22 +374,22 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 	zIndex : 0,
 });
 
-settingsButton.addEventListener('click', function() {
-	if (setbutton == 0) {
-		setbutton = 1;
-		win1.add(toolbar);
-		//win1.add(Continue_Siwriting_main);
-		win1.add(bottomtoolbar);
-	return;
-	}
-	
-	if (setbutton == 1) {
-		setbutton = 0;
-		win1.remove(toolbar);
-		win1.remove(bottomtoolbar);
-	}
-
-});
+// settingsButton.addEventListener('click', function() {
+	// if (setbutton == 0) {
+		// setbutton = 1;
+		// win1.add(toolbar);
+		// //win1.add(Continue_Siwriting_main);
+		// win1.add(bottomtoolbar);
+	// return;
+	// }
+// 	
+	// if (setbutton == 1) {
+		// setbutton = 0;
+		// win1.remove(toolbar);
+		// win1.remove(bottomtoolbar);
+	// }
+// 
+// });
 
 //win3.add(SiWriter_help_win);
 

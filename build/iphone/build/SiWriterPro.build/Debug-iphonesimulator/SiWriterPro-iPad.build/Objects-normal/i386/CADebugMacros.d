@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/CADebugMacros.cpp \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/CADebugMacros.h
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/CADebugMacros.cpp \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/CADebugMacros.h

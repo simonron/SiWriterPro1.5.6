@@ -17,7 +17,7 @@ var top_view = Ti.UI.createView({/* email window */
 	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	backgroundImage : 'images/Small_Screen.png',
-	
+
 });
 
 // Create a TextField.
@@ -56,27 +56,16 @@ var openWebsiteButton = Titanium.UI.createButton({
 	backgroundImage : 'images/long_thin_button.png',
 });
 
-// var returnButton = Titanium.UI.createButton({
-	// title : 'Continue SiWriting',
-	// width : 240,
-	// height : 34,
-// 
-	// backgroundImage : 'images/long_thin_button.png',
-	// borderRadius : 15,
-// });
 
-settingsButton.font = {
-	fontSize : 18
-};
 
 var copyButton = Titanium.UI.createButton({
-title : 'Copy',
-width : 80,
-height : 40,
-right : 20,
-top : 40,
-backgroundImage : 'images/mini_key.png',
-borderRadius : 20,
+	title : 'Copy',
+	width : 80,
+	height : 40,
+	right : 20,
+	top : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
 });
 
 var helpButton = Titanium.UI.createButton({
@@ -137,11 +126,11 @@ var facebookButton = Titanium.UI.createButton({
 });
 
 var pasteButton = Titanium.UI.createButton({
-title : "Paste",
-width : 80,
-height : 40,
-backgroundImage : 'images/mini_key.png',
-borderRadius : 20,
+	title : "Paste",
+	width : 80,
+	height : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
 });
 
 var timeStampButton = Titanium.UI.createButton({
@@ -217,14 +206,12 @@ function buttonvariablesPortrait() {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
 
-	webview.height = "60%", 
-	PrivacyTitle.left = 442;
+	webview.height = "60%", PrivacyTitle.left = 442;
 	PrivacyTitle.bottom = 60;
 	build_label.left = 450;
 	build_label.bottom = 95;
 	version_label.left = 450;
 	version_label.bottom = 30;
-
 
 	aTrailer.left = 20;
 	aTrailer.top = 450;
@@ -235,32 +222,30 @@ function buttonvariablesPortrait() {
 	smallHelpView.contentHeight = 'auto';
 	smallHelpimages.width = 300;
 
-	openWebsiteButton.left = 460;
-	openWebsiteButton.top = 930;
-
-	//returnButton.left = 50;
-	//returnButton.top = 930;
-
 	settingsButton.left = 648;
 	settingsButton.top = 446;
 
-	ReviewButton.right = 20;
-	ReviewButton.top = 100;
+	helpButton.left = 665;
+	helpButton.top = 80;
 
-	// pasteButton.right = 20;
-	// pasteButton.top = 300;
+	copyButton.left = 665;
+	copyButton.top = 140;
 
-	clearButton.right = 20;
-	clearButton.top = 160;
+	pasteButton.left = 665;
+	pasteButton.top = 200;
 
-	//buttonvariablesPortrait.saveButton.right= 20;
-	//buttonvariablesPortrait.saveButton.top= 160;
+	clearButton.left = 665;
+	clearButton.top = 260;
 
-	emailButton.right = 20;
-	emailButton.top = 220;
+	timeStampButton.left = 665;
+	timeStampButton.top = 320;
 
-	timeStampButton.right = 20;
-	timeStampButton.top = 380;
+	emailButton.left = 665;
+	emailButton.top = 380;
+
+
+	
+
 
 	view.left = "20";
 
@@ -275,8 +260,7 @@ function buttonvariablesPortrait() {
 	top_view.top = "450";
 	/* email window */
 	top_view.left = "330";
-	pasteButton.right = 20;
-	pasteButton.top = 300;
+
 }
 
 /////////////////Landscape/////////////////////
@@ -289,19 +273,18 @@ function buttonvariablesPortrait() {
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	webview.height = "100%", 
-	PrivacyTitle.left = 682;
+	webview.height = "100%", PrivacyTitle.left = 682;
 	PrivacyTitle.bottom = 40;
 	build_label.left = 690;
 	build_label.bottom = 70;
 	version_label.left = 690;
 	version_label.bottom = 10;
 
-	aTrailer.left = 370;
+	aTrailer.left = 345;
 	aTrailer.top = 130;
 	/* email window */
 	top_view.top = 130;
-	top_view.left =  695;
+	top_view.left = 695;
 
 	writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'saved_BGimageL.png');
 	image = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory + 'saved_BGimageL.png');
@@ -316,32 +299,28 @@ function buttonvariablesLandscape() {
 	smallHelpView.contentHeight = 'auto';
 	smallHelpimages.width = 300;
 
-	openWebsiteButton.left = 600;
-	openWebsiteButton.top = 680;
+	settingsButton.left = 345;
+	settingsButton.top = 79;
+		
+	helpButton.left = 925;
+	helpButton.top = 75;
 
-	// returnButton.left = 220;
-	// returnButton.top = 680;
+	copyButton.left = 834;
+	copyButton.top = 75;
 
-	settingsButton.left = 370;
-	settingsButton.top = 80;
+	pasteButton.left = 741;
+	pasteButton.top = 75;
 
-	if (ReviewButton) {
-		ReviewButton.right = 140;
-	}
-	if (ReviewButton) {
-		ReviewButton.top = 80;
-	}
+	clearButton.left = 649;
+	clearButton.top = 75;
 
-	pasteButton.right = 140;
-	pasteButton.top = 40;
+	timeStampButton.left = 556;
+	timeStampButton.top = 75;
 
-	clearButton.right = 246;
-	clearButton.top = 80;
+	emailButton.left = 461;
+	emailButton.top = 75;
 
-	emailButton.right = 346;
-	emailButton.top = 80;
-	timeStampButton.top = 80;
-	timeStampButton.right = 446;
+
 
 	////Display Screen view///
 	view.left = 20;
@@ -354,5 +333,5 @@ function buttonvariablesLandscape() {
 	webview.background = "none";
 	webview.background = "transparent";
 	webview.bottom = 0;
-	
+
 }

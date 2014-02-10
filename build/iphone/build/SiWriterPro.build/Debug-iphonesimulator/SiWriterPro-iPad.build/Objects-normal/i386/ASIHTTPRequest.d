@@ -1,12 +1,12 @@
 dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIHTTPRequest.m \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIHTTPRequest.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIHTTPRequestConfig.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIHTTPRequestDelegate.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIProgressDelegate.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASICacheDelegate.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/Reachability.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIAuthenticationDialog.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIInputStream.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIDataDecompressor.h \
-  /Users/Cyberman/Desktop/SiWriterPro1.1.8/build/iphone/Classes/ASI/ASIDataCompressor.h
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIHTTPRequest.m \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIHTTPRequest.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIHTTPRequestConfig.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIHTTPRequestDelegate.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIProgressDelegate.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASICacheDelegate.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/Reachability.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIAuthenticationDialog.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIInputStream.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIDataDecompressor.h \
+  /Users/Cyberman/Desktop/SiWriterPro1.2.0/build/iphone/Classes/ASI/ASIDataCompressor.h
