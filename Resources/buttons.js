@@ -1,6 +1,15 @@
 Ti.include('KS_email2.js');
 Ti.include('file_saver.js');
 Ti.include('help.js');
+LRH =20;
+
+Ti.App.removeEventListener('Handedness', function(e){});
+
+Ti.App.addEventListener('Handedness', function(e) {
+	Ti.API.info("Handednes  sent by user_fingers=" + e.LRH);
+	LRH = e.LRH;
+	//alert("LRH"+LRH);
+});
 
 var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 	//image:'/images/AllCodes.png',
@@ -261,6 +270,28 @@ function buttonvariablesPortrait() {
 	/* email window */
 	top_view.left = "330";
 
+if (LRH==-1) {
+	buttonvariablesLandscape_LHp();
+	}
+
+}
+
+/////////////////PORTRAIT Left Handed/////////////////////
+/////////////////PORTRAIT Left Handed/////////////////////
+/////////////////PORTRAIT Left Handed/////////////////////
+/////////////////PORTRAIT Left Handed/////////////////////
+/////////////////PORTRAIT Left Handed/////////////////////
+/////////////////PORTRAIT Left Handed/////////////////////
+/////////////////PORTRAIT Left Handed/////////////////////
+
+function buttonvariablesLandscape_LHp() {
+
+
+	webview.right = 0;
+	webview.left = 0;
+	webview.width = 750;
+	PrivacyTitle.left = 20;
+	version_label.left = 20;
 }
 
 /////////////////Landscape/////////////////////
@@ -275,6 +306,7 @@ function buttonvariablesPortrait() {
 function buttonvariablesLandscape() {
 	webview.height = "100%", PrivacyTitle.left = 682;
 	PrivacyTitle.bottom = 40;
+	version_label.left = 690;
 	build_label.left = 690;
 	build_label.bottom = 70;
 	version_label.left = 690;
@@ -334,4 +366,44 @@ function buttonvariablesLandscape() {
 	webview.background = "transparent";
 	webview.bottom = 0;
 
+
+if (LRH==-1) {
+	buttonvariablesLandscape_LH();
+	}
+
+}
+
+
+
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+
+function buttonvariablesLandscape_LH() {
+
+LHw=670;
+	smallHelpView.left = 20+LHw;
+	view.left = 20+LHw;
+
+LH=330;
+	build_label.left = 690-LH;
+	aTrailer.left = 345-LH;
+	top_view.left = 705-LH;
+	settingsButton.left = 345-LH;
+	helpButton.left = 925-LH;
+	copyButton.left = 834-LH;
+	pasteButton.left = 741-LH;
+	clearButton.left = 649-LH;
+	timeStampButton.left = 556-LH;
+	emailButton.left = 461-LH;
+	help_WindowSwitcher();
+	webview.right = 0;
+	webview.left = -40;
+	webview.width = 850;
+	//LRposL=-130;
+	PrivacyTitle.left = 20;
+	version_label.left = 20;
 }

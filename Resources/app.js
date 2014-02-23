@@ -123,7 +123,7 @@ webview.removeEventListener('beforeload', function(e) {});
 webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var start='" + start + "';");
 	webview.evalJS("var HTMLorientation='" + orientation + "';");
-	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs");
+	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs",true);
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	start = 0;
 });
@@ -204,7 +204,7 @@ win1.add(top_view);
 top_view.add(aTrailer);
 win1.add(aTrailer);
 win1.add(version_label);
-win1.add(build_label);
+//win1.add(build_label);
 win1.add(PrivacyTitle);
 
 if (help_windowSwitch.value == 1) {

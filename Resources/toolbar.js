@@ -245,7 +245,14 @@ Ti.App.addEventListener('sizer_switched_off', function(e) {
 });
 
 
- sizer_switch_slider.removeEventListener('change', function() {});
+sizer_switch_slider.removeEventListener('change', function() {});
+
+
+
+Ti.App.addEventListener('help_switched_off', function(e) {
+   help_lettersSwitch.value=false; 
+});
+
 
 
 
@@ -256,10 +263,6 @@ sizer_switch_slider.addEventListener('change', function(e) {
 });
 
 //Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//FPhelp=Titanium.App.Properties.getString("Master_Setting_Help_Tabs");
-//Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Help_Tabs); from app is "+FPhelp);
-//help_lettersSwitch.value=FPhelp;
-
 
 HBWS=Titanium.App.Properties.getString("Master_Setting_Big_Help");
 Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Big_Help); from app is "+HBWS);
