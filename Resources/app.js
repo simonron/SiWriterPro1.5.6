@@ -154,7 +154,13 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 recover_settings();
 //("and here?");
 
+Ti.App.removeEventListener('Handedness', function(e) {});
 DoOrientation();
+Ti.App.addEventListener('Handedness', function(e) {
+   LRH=e.LRH; 
+   
+  Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 162 = "+LRH);
+});
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
 // can do without ?
@@ -302,7 +308,8 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	if (orientation == "landscape") {
 		landscape();
 	}
-	Ti.API.info('-- App Line 336 ---------------------------------------------------------orientation: ' + orientation);
+Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
+Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 312 = "+LRH);
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//

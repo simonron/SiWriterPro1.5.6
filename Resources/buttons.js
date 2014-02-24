@@ -1,15 +1,16 @@
 Ti.include('KS_email2.js');
 Ti.include('file_saver.js');
 Ti.include('help.js');
-LRH =20;
+LRH =1;// 1 means right handed, -1 means left handed
 
 Ti.App.removeEventListener('Handedness', function(e){});
 
 Ti.App.addEventListener('Handedness', function(e) {
-	Ti.API.info("Handednes  sent by user_fingers=" + e.LRH);
+	Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
 	LRH = e.LRH;
-	//alert("LRH"+LRH);
 });
+
+
 
 var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 	//image:'/images/AllCodes.png',
@@ -152,6 +153,14 @@ var timeStampButton = Titanium.UI.createButton({
 
 getOrientation();
 
+if (LRH == -1) {
+	if (orientation == Landscape) {
+		LH_buttonvariablesLandscape();
+	} else {
+		LH_buttonvariablesPortrait();
+	}
+}
+
 var PrivacyTitle = Ti.UI.createLabel({
 	color : '#900',
 	font : {
@@ -269,30 +278,17 @@ function buttonvariablesPortrait() {
 	top_view.top = "450";
 	/* email window */
 	top_view.left = "330";
+	 Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = "+LRH);
 
-if (LRH==-1) {
-	buttonvariablesLandscape_LHp();
-	}
+// if (LRH==-1) {//Left hand mode
+	// LH_buttonvariablesPortrait();
+	// }else{
+// 		
+	// }
 
 }
 
-/////////////////PORTRAIT Left Handed/////////////////////
-/////////////////PORTRAIT Left Handed/////////////////////
-/////////////////PORTRAIT Left Handed/////////////////////
-/////////////////PORTRAIT Left Handed/////////////////////
-/////////////////PORTRAIT Left Handed/////////////////////
-/////////////////PORTRAIT Left Handed/////////////////////
-/////////////////PORTRAIT Left Handed/////////////////////
 
-function buttonvariablesLandscape_LHp() {
-
-
-	webview.right = 0;
-	webview.left = 0;
-	webview.width = 750;
-	PrivacyTitle.left = 20;
-	version_label.left = 20;
-}
 
 /////////////////Landscape/////////////////////
 /////////////////Landscape/////////////////////
@@ -366,9 +362,10 @@ function buttonvariablesLandscape() {
 	webview.background = "transparent";
 	webview.bottom = 0;
 
+Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at butt.js 370 = "+LRH);
 
-if (LRH==-1) {
-	buttonvariablesLandscape_LH();
+if (LRH==-1) {//left hand Landscape
+	LH_buttonvariablesLandscape();
 	}
 
 }
@@ -382,7 +379,7 @@ if (LRH==-1) {
 /////////////////Landscape Left Handed/////////////////////
 /////////////////Landscape Left Handed/////////////////////
 
-function buttonvariablesLandscape_LH() {
+function LH_buttonvariablesLandscape() {
 
 LHw=670;
 	smallHelpView.left = 20+LHw;
@@ -402,7 +399,7 @@ LH=330;
 	help_WindowSwitcher();
 	webview.right = 0;
 	webview.left = -40;
-	webview.width = 850;
+	//webview.width = 850;
 	//LRposL=-130;
 	PrivacyTitle.left = 20;
 	version_label.left = 20;
