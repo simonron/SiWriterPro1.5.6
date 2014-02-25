@@ -13,7 +13,8 @@ function buttonvariablesPortrait() {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
 
-	webview.height = "60%", PrivacyTitle.left = 442;
+	webview.height = "60%", 
+	PrivacyTitle.left = 442;
 	PrivacyTitle.bottom = 60;
 	build_label.left = 450;
 	build_label.bottom = 95;
@@ -69,15 +70,16 @@ function buttonvariablesPortrait() {
 	top_view.left = "330";
 	 Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = "+LRH);
 
-// if (LRH==-1) {//Left hand mode
-	// LH_buttonvariablesPortrait();
-	// }else{
-// 		
-	// }
+if (LRH==-1) {//Left hand mode
+	LH_buttonvariablesPortrait();
+	}
 
 }
 
-
+function LH_buttonvariablesPortrait(){
+	PrivacyTitle.left = 20;	
+	version_label.left = 20;
+}
 
 /////////////////Landscape/////////////////////
 /////////////////Landscape/////////////////////

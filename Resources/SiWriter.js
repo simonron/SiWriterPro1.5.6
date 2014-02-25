@@ -153,9 +153,6 @@
 
 Ti.API.info("sw 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible);			
 
-				
-do_pad_updwn();
-do_pad_LR_pos();
 
 			var keyboardShown = false;
 			var initialDownList = [];

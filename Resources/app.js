@@ -53,7 +53,7 @@ webview.addEventListener('beforeload', function(e) {
 recover_settings();
 //("and here?");
 
-Ti.App.removeEventListener('Handedness', function(e) {});
+Ti.App.removeEventListener(' ness', function(e) {});
 DoOrientation();
 Ti.App.addEventListener('Handedness', function(e) {
    LRH=e.LRH; 
@@ -423,10 +423,7 @@ help_windowSwitch.addEventListener('change', function(e) {
 	smallHelpView.hide();
 	view.height = 720;
 }
-
-//help_windowSwitch.value =!help_windowSwitch.value;
 	help_WindowSwitcher();
-	//help_windowSwitch.removeEventListener('change', help_WindowSwitcher);
 });
 
 
@@ -442,12 +439,12 @@ help_windowSwitch.addEventListener('change', function(e) {
 
 //LRH =1;// 1 means right handed, -1 means left handed
 
-Ti.App.removeEventListener('Handedness', function(e){});
-
-Ti.App.addEventListener('Handedness', function(e) {
-	Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
-	LRH = e.LRH;
-});
+// Ti.App.removeEventListener('Handedness', function(e){});
+// 
+// Ti.App.addEventListener('Handedness', function(e) {
+	// Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
+	// LRH = e.LRH;
+// });
 
 
 

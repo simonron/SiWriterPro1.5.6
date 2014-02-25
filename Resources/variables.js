@@ -68,6 +68,267 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 });
 
 
+
+
+
+var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
+	//image:'/images/AllCodes.png',
+	borderRadius : 10,
+	contentHeight : 'auto',
+	showVerticalScrollIndicator : true,
+});
+
+var top_view = Ti.UI.createView({/* email window */
+	height : 25,
+	width : 310,
+	borderRadius : 15,
+	keyboardType : Ti.UI.KEYBOARD_EMAIL,
+	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
+	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	backgroundImage : 'images/Small_Screen.png',
+
+});
+
+// Create a TextField.
+var aTextField = Ti.UI.createTextField({ });
+/* email window */
+aTextField.value = "Outgoing email address here";
+
+var aTrailer = Ti.UI.createTextField({/* preview mini text window */
+	left : 190,
+	top : 495,
+	width : 290,
+	borderRadius : 10,
+	backgroundColor : '#ffffff',
+	opacity : '0.7',
+	paddingTop : 8,
+	paddingBottom : 4,
+	paddingLeft : 6,
+	paddingRight : 6,
+	editable : false,
+});
+
+aTrailer.value = "Mini view of main text area";
+
+var smallHelpView = Ti.UI.createScrollView({
+	borderRadius : 10,
+	width : 310, //doesn't change with orientation'
+	contentHeight : 'auto',
+	backgroundImage : 'images/help_bg.png',
+});
+
+var openWebsiteButton = Titanium.UI.createButton({
+	title : "Open SiWriter's website",
+	width : 240,
+	height : 34,
+	borderRadius : 15,
+	backgroundImage : 'images/long_thin_button.png',
+});
+
+
+
+var copyButton = Titanium.UI.createButton({
+	title : 'Copy',
+	width : 80,
+	height : 40,
+	right : 20,
+	top : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+});
+
+var helpButton = Titanium.UI.createButton({
+	title : 'Help',
+	width : 80,
+	height : 40,
+	right : 20,
+	top : 80,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+});
+
+var ReviewButton = Titanium.UI.createButton({
+	title : 'Review',
+	width : 80,
+	height : 40,
+
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+	enabled : false,
+
+});
+
+var clearButton = Titanium.UI.createButton({
+	title : 'Clear',
+	width : 80,
+	height : 40,
+
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+
+});
+
+var saveButton = Titanium.UI.createButton({
+	title : 'Save',
+	width : 80,
+	height : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+
+});
+
+var emailButton = Titanium.UI.createButton({
+	title : 'e-mail',
+	width : 80,
+	height : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+
+});
+
+var facebookButton = Titanium.UI.createButton({
+	title : "Facebook",
+	width : 80,
+	height : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+});
+
+var pasteButton = Titanium.UI.createButton({
+	title : "Paste",
+	width : 80,
+	height : 40,
+	backgroundImage : 'images/mini_key.png',
+	borderRadius : 20,
+});
+
+var timeStampButton = Titanium.UI.createButton({
+	title : "Time",
+	width : 80,
+	height : 40,
+	backgroundImage : 'images/smaller_button.png',
+	borderRadius : 20,
+});
+
+
+
+var PrivacyTitle = Ti.UI.createLabel({
+	color : '#900',
+	font : {
+		fontSize : 30
+	},
+	shadowColor : '#777',
+	shadowOffset : {
+		x : 1,
+		y : 2
+	},
+	text : 'SiWriter.co.uk',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	bottom : 40,
+});
+
+var version_label = Ti.UI.createLabel({
+	color : '#900',
+	text : "Pro Version " + Ti.App.version,
+	color : "#000",
+	font : {
+		fontSize : 18
+	},
+	bottom : 10, //doesn't change with orientation'
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+});
+
+var build_label = Ti.UI.createLabel({
+	color : '#900',
+	color : "#000",
+	font : {
+		fontSize : 18
+	},
+});
+
+Titanium.App.Properties.setString("version", Ti.App.version);
+
+var foo = new Date();
+var build_time = (foo.getDate() + "/" + foo.getMonth() + 1 + "/" + foo.getFullYear() + " " + foo.getHours() + ":" + foo.getMinutes() + ":" + foo.getSeconds());
+build_label.text = build_time;
+Titanium.App.Properties.setString("date_of_build", "\r" + new Date);
+
+//create a webview - of the HTML keypad - NB Background set in HTML file
+var webview = Titanium.UI.createWebView({
+	backgroundColor : 'transparent',
+	url : 'Keypad.html',
+	//width : 760,
+	height : "60%",
+	//left:14,
+	disableBounce : true,
+});
+
+var txtViewDesc = Ti.UI.createTextArea({
+	value : '',
+	top : 10,
+	backgroundColor : 'transparent',
+	font : {
+		fontSize : 16,
+	},
+	//editable: "NO",
+	height : "96%",
+});
+
+var view = Ti.UI.createScrollView({
+	backgroundImage : 'images/Sized_Screen_lighter.png',
+	borderRadius : 10,
+	top : 20,
+	left : 20,
+	height : 720,
+	font : {
+		fontSize : 10
+	},
+	opacity : 0.90,
+
+});
+
+//view.show();
+
+var win1 = Titanium.UI.createWindow({// top section BG
+	title : 'SiWriter 1' + new Date,
+	backgroundImage : 'images/bg_image.png',
+	height : "100%",
+	bottom : 0,
+});
+
+var LRH =1;
+
+
+var SiWriter_helpView = Titanium.UI.createWebView({
+	backgroundColor : 'transparent',
+	url : 'help.html',
+	width : "100%",
+	height : "100%",
+	bottom : 0,
+	zIndex : 0,
+});
+
+
+var win3 = Titanium.UI.createWindow({// top section BG
+	title : 'SiWriter.co.uk Help',
+	backgroundImage : 'images/Sized_Screen_lighter.png',
+	height : "100%",
+	bottom : 0,
+});
+
+var SiWriter_help_win = Titanium.UI.createWebView({
+	backgroundColor : '#FFF',
+	url : 'help.html',
+	width : "100%",
+	height : "100%",
+	bottom : 0,
+	zIndex : 0,
+});
+
 /////////////////TOOLBAR//////////////////
 /////////////////TOOLBAR//////////////////
 /////////////////TOOLBAR//////////////////
@@ -247,271 +508,12 @@ var bottomtoolbar = Titanium.UI.iOS.createToolbar({
     zIndex : 10,
 }); 
 
-var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
-	//image:'/images/AllCodes.png',
-	borderRadius : 10,
-	contentHeight : 'auto',
-	showVerticalScrollIndicator : true,
-});
 
-var top_view = Ti.UI.createView({/* email window */
-	height : 25,
-	width : 310,
-	borderRadius : 15,
-	keyboardType : Ti.UI.KEYBOARD_EMAIL,
-	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
-	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	backgroundImage : 'images/Small_Screen.png',
-
-});
-
-// Create a TextField.
-var aTextField = Ti.UI.createTextField({ });
-/* email window */
-aTextField.value = "Outgoing email address here";
-
-var aTrailer = Ti.UI.createTextField({/* preview mini text window */
-	left : 190,
-	top : 495,
-	width : 290,
-	borderRadius : 10,
-	backgroundColor : '#ffffff',
-	opacity : '0.7',
-	paddingTop : 8,
-	paddingBottom : 4,
-	paddingLeft : 6,
-	paddingRight : 6,
-	editable : false,
-});
-
-aTrailer.value = "Mini view of main text area";
-
-var smallHelpView = Ti.UI.createScrollView({
-	borderRadius : 10,
-	width : 310, //doesn't change with orientation'
-	contentHeight : 'auto',
-	backgroundImage : 'images/help_bg.png',
-});
-
-var openWebsiteButton = Titanium.UI.createButton({
-	title : "Open SiWriter's website",
-	width : 240,
-	height : 34,
-	borderRadius : 15,
-	backgroundImage : 'images/long_thin_button.png',
-});
-
-
-
-var copyButton = Titanium.UI.createButton({
-	title : 'Copy',
-	width : 80,
-	height : 40,
-	right : 20,
-	top : 40,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-});
-
-var helpButton = Titanium.UI.createButton({
-	title : 'Help',
-	width : 80,
-	height : 40,
-	right : 20,
-	top : 80,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-});
-
-var ReviewButton = Titanium.UI.createButton({
-	title : 'Review',
-	width : 80,
-	height : 40,
-
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-	enabled : false,
-
-});
-
-var clearButton = Titanium.UI.createButton({
-	title : 'Clear',
-	width : 80,
-	height : 40,
-
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-
-});
-
-var saveButton = Titanium.UI.createButton({
-	title : 'Save',
-	width : 80,
-	height : 40,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-
-});
-
-var emailButton = Titanium.UI.createButton({
-	title : 'e-mail',
-	width : 80,
-	height : 40,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-
-});
-
-var facebookButton = Titanium.UI.createButton({
-	title : "Facebook",
-	width : 80,
-	height : 40,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-});
-
-var pasteButton = Titanium.UI.createButton({
-	title : "Paste",
-	width : 80,
-	height : 40,
-	backgroundImage : 'images/mini_key.png',
-	borderRadius : 20,
-});
-
-var timeStampButton = Titanium.UI.createButton({
-	title : "Time",
-	width : 80,
-	height : 40,
-	backgroundImage : 'images/smaller_button.png',
-	borderRadius : 20,
-});
-
-getOrientation();
-
-if (LRH == -1) {
-	if (orientation == Landscape) {
-		LH_buttonvariablesLandscape();
-	} else {
-		LH_buttonvariablesPortrait();
-	}
-}
-
-var PrivacyTitle = Ti.UI.createLabel({
-	color : '#900',
-	font : {
-		fontSize : 30
-	},
-	shadowColor : '#777',
-	shadowOffset : {
-		x : 1,
-		y : 2
-	},
-	text : 'SiWriter.co.uk',
-	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	width : Ti.UI.SIZE,
-	height : Ti.UI.SIZE,
-	bottom : 40,
-});
-
-var version_label = Ti.UI.createLabel({
-	color : '#900',
-	text : "Pro Version " + Ti.App.version,
-	color : "#000",
-	font : {
-		fontSize : 18
-	},
-	bottom : 10, //doesn't change with orientation'
-	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	width : Ti.UI.SIZE,
-	height : Ti.UI.SIZE,
-});
-
-var build_label = Ti.UI.createLabel({
-	color : '#900',
-	color : "#000",
-	font : {
-		fontSize : 18
-	},
-});
-
-Titanium.App.Properties.setString("version", Ti.App.version);
-
-var foo = new Date();
-var build_time = (foo.getDate() + "/" + foo.getMonth() + 1 + "/" + foo.getFullYear() + " " + foo.getHours() + ":" + foo.getMinutes() + ":" + foo.getSeconds());
-build_label.text = build_time;
-Titanium.App.Properties.setString("date_of_build", "\r" + new Date);
-
-CheckEmailaddress();
-
-//create a webview - of the HTML keypad - NB Background set in HTML file
-var webview = Titanium.UI.createWebView({
-	backgroundColor : 'transparent',
-	url : 'Keypad.html',
-	//width : 760,
-	height : "60%",
-	//left:14,
-	disableBounce : true,
-});
-
-var txtViewDesc = Ti.UI.createTextArea({
-	value : '',
-	top : 10,
-	backgroundColor : 'transparent',
-	font : {
-		fontSize : 16,
-	},
-	//editable: "NO",
-	height : "96%",
-});
-
-var view = Ti.UI.createScrollView({
-	backgroundImage : 'images/Sized_Screen_lighter.png',
-	borderRadius : 10,
-	top : 20,
-	left : 20,
-	height : 720,
-	font : {
-		fontSize : 10
-	},
-	opacity : 0.90,
-
-});
-
-//view.show();
-
-var win1 = Titanium.UI.createWindow({// top section BG
-	title : 'SiWriter 1' + new Date,
-	backgroundImage : 'images/bg_image.png',
-	height : "100%",
-	bottom : 0,
-});
-
-var LRH =1;
-
-
-var SiWriter_helpView = Titanium.UI.createWebView({
-	backgroundColor : 'transparent',
-	url : 'help.html',
-	width : "100%",
-	height : "100%",
-	bottom : 0,
-	zIndex : 0,
-});
-
-
-var win3 = Titanium.UI.createWindow({// top section BG
-	title : 'SiWriter.co.uk Help',
-	backgroundImage : 'images/Sized_Screen_lighter.png',
-	height : "100%",
-	bottom : 0,
-});
-
-var SiWriter_help_win = Titanium.UI.createWebView({
-	backgroundColor : '#FFF',
-	url : 'help.html',
-	width : "100%",
-	height : "100%",
-	bottom : 0,
-	zIndex : 0,
-});
+///////////////END TOOLBAR//////////////////
+///////////////END TOOLBAR//////////////////
+///////////////END TOOLBAR//////////////////
+///////////////END TOOLBAR//////////////////
+///////////////END TOOLBAR//////////////////
+///////////////END TOOLBAR//////////////////
+///////////////END TOOLBAR//////////////////
 
