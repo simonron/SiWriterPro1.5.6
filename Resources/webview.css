@@ -21,6 +21,7 @@ div#sizerholder {
 	margin-right:10px;
 	z-index:10000;
 	margin-left:81%;
+	margin-top:-60px;
 }
 div#sizers {
 	width:102px;

@@ -1,111 +1,19 @@
-var SiWriter = {};
-var start = 1;
-//orientation sensor flag
-var orientation = "null";
-//var oldOrientation="";
-var saved_email_url_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter_default_email.txt');
-var saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);
-var last_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);
-var previous_contents = saved_file.read();
-var default_email = saved_email_url_file.read();
-var dir = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory);
-//contentTyped = previous_contents;
-var contentTyped = '';
-var c = 0;
-var trailer="";
-var s = 0;
-var Nums = 0;
-var Caps = 0;
-var DEL = 0;
-var OS_EDIT = 0;
-var help_windowSwitch = null;
-var help_BIGwindowSwitch = false;
-var help_windowSwitchSetting = null;
-var Master_Setting_Big_Help = false;
-var angle = {};
-var orient = "";
-var props = Titanium.App.Properties.listProperties();
-var Last_Typed_Word = "!?!";
-var Review_mode = 0;
-var LRposP = 0;
-var LRposL = 0;
-var KV = false;
-var temp = "";
-var Toggle = false;
-var Trigger = false;
-var oldOrientation = "";
-var Hide = true;
-var setbutton = 0;
-var oriCurrent = 'landscape';
-Ti.API.info(props);
+var cloudebug = require("com.infinery.cdb");
+var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
 
-Ti.include('KS_email2.js');
-Ti.include('buttons.js');
-Ti.include('file_saver.js');
-Ti.include('toolbar.js');
-Ti.include('help.js');
-Titanium.App.Properties.setString("version", Ti.App.version);
-
-var foo = new Date();
-var build_time = (foo.getDate() + "/" + foo.getMonth() + 1 + "/" + foo.getFullYear() + " " + foo.getHours() + ":" + foo.getMinutes() + ":" + foo.getSeconds());
-build_label.text = build_time;
-Titanium.App.Properties.setString("date_of_build", "\r" + new Date);
-
-CheckEmailaddress();
-
-//create a webview - of the HTML keypad - NB Background set in HTML file
-var webview = Titanium.UI.createWebView({
-	backgroundColor : 'transparent',
-	url : 'Keypad.html',
-	//width : 760,
-	height : "60%",
-	//left:14,
-	disableBounce : true,
+cdb.session(
+{
+connected: function(e)
+{
+cdb.write('info', 'cloudebug is connected to the server and ready');
+}
 });
 
-var txtViewDesc = Ti.UI.createTextArea({
-	value : '',
-	top : 10,
-	backgroundColor : 'transparent',
-	font : {
-		fontSize : 16,
-	},
-	//editable: "NO",
-	height : "96%",
-});
+Ti.include('variables.js');
+Ti.include('functions.js');
 
-var view = Ti.UI.createScrollView({
-	backgroundImage : 'images/Sized_Screen_lighter.png',
-	borderRadius : 10,
-	top : 20,
-	left : 20,
-	height : 720,
-	font : {
-		fontSize : 10
-	},
-	opacity : 0.90,
 
-});
 
-//view.show();
-
-var win1 = Titanium.UI.createWindow({// top section BG
-	title : 'SiWriter 1' + new Date,
-	backgroundImage : 'images/bg_image.png',
-	height : "100%",
-	bottom : 0,
-});
-
-/////////////////////////////////////HELP WINDOW SETUP//////////////////////////////
-//
-// var win2 = Titanium.UI.createWindow({// top section BG
-// title : 'SiWriter.co.uk Help',
-// backgroundImage : 'images/Sized_Screen_lighter.png',
-// height : "100%",
-// bottom : 0,
-// });
-
-/////////////////////////////////////////end help window  //////////////////////////
 if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
 	orientation = 'portrait';
 	Ti.API.info("Launched in PORTRAIT ");
@@ -129,15 +37,6 @@ webview.addEventListener('beforeload', function(e) {
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
-
-var SiWriter_helpView = Titanium.UI.createWebView({
-	backgroundColor : 'transparent',
-	url : 'help.html',
-	width : "100%",
-	height : "100%",
-	bottom : 0,
-	zIndex : 0,
-});
 
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////
 //Ti.App.fireEvent('app:reset', { reset_pads: 'reset_pads' });
@@ -252,6 +151,10 @@ a.height = Ti.UI.FILL;
 a.width = Ti.UI.FILL;
 a.duration = 300;
 
+
+
+
+
 helpButton.addEventListener('click', function() {
 	win3.add(Continue_Siwriting);
 	win3.add(SiWriter_help_win);
@@ -274,15 +177,6 @@ close.addEventListener('click', function() {
 
 });
 
-close_main.removeEventListener('click', function() {});
-
-close_main.addEventListener('click', function() {
-	Ti.API.info("Continue_Siwriting_main clicked");
-	win1.remove(bottomtoolbar);
-	//win1.remove(Continue_Siwriting_main);
-	win1.remove(toolbar);
-	setbutton = 0;
-});
 
 get_MasterSettings();
 
@@ -372,375 +266,7 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 //////////////////////////////////////END TEXT MANAGEMENT////////////////////////////////////////
 //////////////////////////////////////END TEXT MANAGEMENT////////////////////////////////////////
 
-function recover_settings() {
 
-	Ti.API.info("recover_settings -STARTS");
-	for (var c = 0; c < props.length; c++) {
-		var value = Titanium.App.Properties.getString(props[c]);
-		if (value == 0) {
-			setting = false;
-		}
-		if (value == 1) {
-			setting = true;
-		}
-		Titanium.API.info(props[c] + " = " + value);
-
-		if (props[c] == "Master_Setting_Window_Switch") {
-			help_windowSwitch.value = setting;
-			Ti.App.fireEvent('FPhelp_setting', {
-				FPhelp : setting
-			});
-			Ti.API.info("Master_Setting_Window_Switch = " + setting);
-		}
-
-		if (props[c] == "Master_Setting_Big_Help") {
-			help_BIGwindowSwitch.value = setting;
-			Ti.App.fireEvent('help_BIGwindowSwitch_setting', {
-				help_BIGwindowSwitch : setting
-			});
-			Ti.API.info("Master_Setting_Big_Help = " + setting);
-
-		}
-
-		if (props[c] == "Master_Setting_Help_Tabs") {
-			help_lettersSwitch.value = setting;
-			Ti.App.fireEvent('Do_help_lettersSwitch', {
-				FPhelp : setting
-			});
-
-			Ti.API.info("Master_Setting_Help_Tabs = " + setting);
-
-		}
-
-		if (props[c] == "TwistP") {
-			var TwistP = value;
-			Ti.App.fireEvent('From_Settings_Twist', {
-				TwistP : TwistP
-			});
-			//alert("from setting one");
-		}
-		if (props[c] == "TwistL") {
-			var TwistL = value;
-			Ti.App.fireEvent('From_Settings_Twist', {
-				TwistL : TwistL
-			});
-			//alert("from setting one");
-		}
-
-		if (props[c] == "LR_posP") {
-			var LR_posP = value;
-		}
-		if (props[c] == "LR_posL") {
-			var LR_posL = value;
-		}
-		if (props[c] == "UpDwnL") {
-			var UpDwnL = value;
-
-		}
-		if (props[c] == "UpDwnP") {
-			var UpDwnP = value;
-		}
-
-		if (props[c] == "HeightP") {
-			var HeightP = value;
-			//alert("HeightP="+HeightP);
-
-		}
-
-		if (props[c] == "HeightL") {
-			var HeightL = value;
-			alert("HeightL=" + HeightL);
-		}
-
-		if (props[c] == "WidthP") {
-			var WidthP = value;
-		}
-
-		if (props[c] == "WidthL") {
-			var WidthL = value;
-		}
-
-		if (props[c] == "GapP") {
-			var GapP = value;
-		}
-
-		if (props[c] == "GapL") {
-			var GapL = value;
-		}
-
-		if (props[c] == "FPPDisplay") {
-			var FPPDisplay = value;
-		}
-
-		if (props[c] == "FPhelp") {
-			var FPhelp = value;
-		}
-	}
-
-	Ti.API.info("recover_settings -For Next ENDS");
-	if (start == 1) {
-		Ti.App.fireEvent('initialise');
-		start = false;
-	};
-	DoOrientation();
-
-}
-
-function missedKeypad() {
-	Ti.Media.vibrate();
-	alert("missed");
-}
-
-function setup_buttons() {
-	//alert("start");
-}
-
-function DoOrientation() {//-static sensor---
-
-	var pWidth = Ti.Platform.displayCaps.platformWidth;
-	var pHeight = Ti.Platform.displayCaps.platformHeight;
-
-	if (pWidth > pHeight) {
-		var oriCurrent = 'landscape';
-		orientation = 'landscape';
-	} else {
-		var oriCurrent = 'portrait';
-		orientation = 'portrait';
-	}
-	if (oriCurrent == "portrait") {
-		portrait();
-	}
-	if (oriCurrent == "landscape") {
-		landscape();
-	}
-	var Model = Titanium.Platform.getModel();
-	Ti.API.info("Titanium.Platform !!!!!! THIS IS ME !!!!!!!!!!!!!!!! = " + Model);
-	Ti.API.info('-- FileSaver 157 --------------------static sensor----------------------------orientation: ' + orientation);
-
-	return oriCurrent;
-
-}
-
-function getOrientation(o) {
-	oldOrientation = orientation;
-	switch (o) {
-		case Titanium.UI.PORTRAIT: {
-			return 'portrait';
-		}
-		case Titanium.UI.UPSIDE_PORTRAIT: {
-			return 'portrait';
-		}
-		case Titanium.UI.LANDSCAPE_LEFT: {
-			return 'landscape';
-		}
-		case Titanium.UI.LANDSCAPE_RIGHT: {
-			return 'landscape';
-		}
-		default :
-			return oldOrientation;
-	}
-}
-
-function portrait() {
-	buttonvariablesPortrait();
-}
-
-function landscape() {
-	buttonvariablesLandscape();
-}
-
-function copyTextToClipboard() {
-	//if(txtViewDesc.value==="_") {
-	if (contentTyped == "_") {
-
-		alert("Nothing to copy");
-	} else {
-		Ti.UI.Clipboard.setText(contentTyped);
-	}
-}
-function saveCurrentText() {
-	saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter ' + new Date);
-	saved_file.write(save);
-	// write to the file
-}
-
-function saveBackgroundImage(image) {
-	DoOrientation();
-
-	if (oriCurrent == "portrait") {
-		var BG_Image_Message = Titanium.UI.createAlertDialog({
-			title : 'Background image'
-		});
-		BG_Image_Message.setMessage('Portrait background updated.');
-	}
-
-	if (oriCurrent == "landscape") {
-		var BG_Image_Message = Titanium.UI.createAlertDialog({
-			title : 'Background image'
-		});
-		BG_Image_Message.setMessage('Background image updated.');
-	}
-
-	if (writeFile.exists()) {
-		delete writefile;
-		BG_Image_Message.show();
-	}
-
-	writeFile.write(image);
-	DoOrientation();
-}
-
-function viewLastText() {
-}
-
-function pasteTextFromClipboard() {
-	if (Ti.UI.Clipboard.getText()) {
-		//txtViewDesc.value = txtViewDesc.value + Ti.UI.Clipboard.getText()+"_";
-		contentTyped = contentTyped + Ti.UI.Clipboard.getText() + "_";
-		txtViewDesc.value = contentTyped;
-	} else {
-		alert("Nothing to paste");
-	}
-}
-function copyTextToClipboard() {
-	//if(txtViewDesc.value==="_") {
-	if (contentTyped == "_") {
-
-		alert("Nothing to copy");
-	} else {
-		Ti.UI.Clipboard.setText(contentTyped);
-	}
-}
-
-function clearTextFromClipboard() {
-	var dialog = Ti.UI.createAlertDialog({
-		title : 'Do you really want to clear the text ?',
-		buttonNames : ['Yes', 'No']
-	});
-
-	dialog.removeEventListener('click', function(e) {
-	});
-
-	dialog.addEventListener('click', function(e) {
-		if (e.index == 0) {
-			Ti.UI.Clipboard.setText(contentTyped);
-			contentTyped = "_";
-			txtViewDesc.value = contentTyped;
-			//win1.remove(ReviewButton);
-		}
-	});
-	dialog.show();
-};
-
-function pasteTextFromClipboard() {
-	if (Ti.UI.Clipboard.getText()) {
-		//txtViewDesc.value = txtViewDesc.value + Ti.UI.Clipboard.getText()+"_";
-		contentTyped = contentTyped + Ti.UI.Clipboard.getText() + "_";
-		txtViewDesc.value = contentTyped;
-	} else {
-		alert("Nothing to paste");
-	}
-}
-
-function timeStamp() {
-	contentTyped = txtViewDesc.value;
-	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + new Date + "\n\n";
-	txtViewDesc.value = contentTyped;
-}
-
-function close_main() {
-	Ti.API.info("close main triggered");
-
-	updateSettings();
-	//win2.remove(openWebsiteButton);
-	getOrientation();
-
-	Titanium.App.Properties.setString("email_to_setting", aTextField.value);
-	Ti.App.fireEvent('webviewEvent', {
-		text : "  "
-	});
-
-}
-
-function updateSettings() {
-	help_WindowSwitcher();
-	help_bigWindowSwitch();
-	Ti.App.fireEvent('help_lettersSwitch_change');
-	Ti.API.info("settings updated line 246 FS");
-}
-
-function openWebsiteButtonAction() {
-	Ti.Platform.openURL("http://SiWriter.co.uk");
-}
-
-function removeChildrens(objeto) {
-	for (i in objeto.children) {
-		var child = objeto.children[0];
-		removeChildrens(child);
-		objeto.remove(child);
-		child = null;
-	}
-}
-
-function help_bigWindowSwitch() {
-	if (help_BIGwindowSwitch.value == 1) {
-		smallHelpimages.image = '/images/BIGAllCodes2.png';
-	} else {
-		smallHelpimages.image = '/images/AllCodes.png';
-	}
-}
-
-function get_MasterSettings() {
-	for (var c = 0; c < props.length; c++) {
-		var value = Titanium.App.Properties.getString(props[c]);
-		if (value == 0) {
-			setting = false;
-		}
-		if (value == 1) {
-			setting = true;
-		}
-		Titanium.API.info(props[c] + " = " + value);
-		if (props[c] == "email_to_setting") {
-			aTextField.value = value;
-		}
-
-		// if (props[c] == "Height") {
-		// var Height = value;
-		// }
-		//
-		// if (props[c] == "Width") {
-		// var Width = value;
-		// }
-		//
-		// if (props[c] == "pos") {
-		// var pos = value;
-		// }
-		//
-		// if (props[c] == "Gap") {
-		// var Gap = value;
-		// }
-
-		if (props[c] == "FPPDisplay") {
-			var FPPDisplay = value;
-		}
-
-		if (props[c] == "FPhelp") {
-			//var FPhelp = value;
-		}
-
-	}
-}
-
-
-
-var SiWriter_help_win = Titanium.UI.createWebView({
-	backgroundColor : '#FFF',
-	url : 'help.html',
-	width : "100%",
-	height : "100%",
-	bottom : 0,
-	zIndex : 0,
-});
 
 settingsButton.removeEventListener('click', function() {});
 
@@ -763,10 +289,189 @@ settingsButton.addEventListener('click', function() {
 
 //win3.add(SiWriter_help_win);
 
-var win3 = Titanium.UI.createWindow({// top section BG
-	title : 'SiWriter.co.uk Help',
-	backgroundImage : 'images/Sized_Screen_lighter.png',
-	height : "100%",
-	bottom : 0,
+
+
+
+btnChoosePhoto.removeEventListener('click', function(e) {});
+
+btnChoosePhoto.addEventListener('click', function(e) {
+	Titanium.Media.openPhotoGallery({
+		success : function(event) {
+			Ti.API.debug('Our type was: ' + event.mediaType);
+			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+				image = event.media;
+				saveBackgroundImage(image);
+			}
+		},
+		cancel : function() {
+		},
+		error : function(err) {
+			Ti.API.error(err);
+		},
+		mediaTypes : [Ti.Media.MEDIA_TYPE_PHOTO]
+	});
 });
+
+btnTakePhoto.removeEventListener('click', function(e) {});
+
+
+btnTakePhoto.addEventListener('click', function(e) {
+	Titanium.Media.showCamera({
+		//we got something
+		success : function(event) {
+			//getting media
+			var image = event.media;
+
+			//checking if it is photo
+			if (event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+				//we may create image view with contents from image variable
+				//or simply save path to image
+				Ti.App.Properties.setString("image", image.nativePath);
+				saveBackgroundImage(image);
+			}
+		},
+		cancel : function() {
+			//do somehting if user cancels operation
+		},
+		error : function(error) {
+			//error happend, create alert
+			var a = Titanium.UI.createAlertDialog({
+				title : 'Camera'
+			});
+			//set message
+			if (error.code == Titanium.Media.NO_CAMERA) {
+				a.setMessage('Device does not have camera');
+			} else {
+				a.setMessage('Unexpected error: ' + error.code);
+			}
+			// show alert
+			a.show();
+		},
+		allowImageEditing : true,
+		saveToPhotoGallery : true
+	});
+});
+
+help_BIGwindowSwitch.addEventListener('change', function(e) {
+	//help_BIGwindowSwitch.value=!help_BIGwindowSwitch.value;
+	if (help_BIGwindowSwitch.value == 1) {
+		smallHelpimages.image = '/images/BIGAllCodes2.png';
+	} else {
+		smallHelpimages.image = '/images/AllCodes.png';
+	}
+	Ti.API.info('****************** help_BIGwindowSwitch at line 200 now is '+help_BIGwindowSwitch.value);
+});
+
+
+Ti.App.addEventListener('sizer_switched_off', function(e) {
+   sizer_switch_slider.value=false; 
+});
+
+
+sizer_switch_slider.removeEventListener('change', function() {});
+
+
+
+Ti.App.addEventListener('help_switched_off', function(e) {
+   help_lettersSwitch.value=false; 
+});
+
+
+
+
+sizer_switch_slider.addEventListener('change', function(e) {
+		Ti.API.info('sizer_switch slide value ' + sizer_switch_slider.value);
+	Ti.App.fireEvent('sizer_switch_change', {slider: sizer_switch_slider.value}); 
+
+});
+
+//Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+HBWS=Titanium.App.Properties.getString("Master_Setting_Big_Help");
+Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Big_Help); from app is "+HBWS);
+help_BIGwindowSwitch.value=HBWS;
+
+
+HelpWS=Titanium.App.Properties.getString("Master_Setting_Window_Switch");
+Ti.API.info("Titanium.App.Properties.getString(Master_Setting_Window_Switch); from app is "+HelpWS);
+help_windowSwitch.value=HelpWS;
+
+
+//help_windowSwitch.value=true;
+
+
+
+
+help_lettersSwitch.removeEventListener('change', function(e, FPhelp) {});
+
+help_lettersSwitch.addEventListener('change', function(e) {
+	//Ti.API.info('xxxxxxxxxxxhelp_lettersSwitch = ' + help_lettersSwitch.value);
+    Ti.App.fireEvent('help_lettersSwitch_change',{ FPhelp : help_lettersSwitch.value});
+	Ti.API.info('help_lettersSwitch = ' + help_lettersSwitch.value);
+});
+
+
+help_windowSwitch.removeEventListener('change', help_WindowSwitcher);
+
+help_windowSwitch.addEventListener('change', function(e) {
+	Ti.API.info("help_windowSwitch.value= "+help_windowSwitch.value);	
+	
+	if (help_windowSwitch.value == 1) {
+	smallHelpView.show();
+	view.height = 720;
+} else {
+	smallHelpView.hide();
+	view.height = 720;
+}
+
+//help_windowSwitch.value =!help_windowSwitch.value;
+	help_WindowSwitcher();
+	//help_windowSwitch.removeEventListener('change', help_WindowSwitcher);
+});
+
+
+
+
+
+//////////////////BUTTONS////////////////
+//////////////////BUTTONS////////////////
+//////////////////BUTTONS////////////////
+//////////////////BUTTONS////////////////
+//////////////////BUTTONS////////////////
+//////////////////BUTTONS////////////////
+
+//LRH =1;// 1 means right handed, -1 means left handed
+
+Ti.App.removeEventListener('Handedness', function(e){});
+
+Ti.App.addEventListener('Handedness', function(e) {
+	Ti.API.info("Handednes at BUTTONS 9 sent by user_fingers=" + e.LRH);
+	LRH = e.LRH;
+});
+
+
+
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+
+
+
+
+
+/////////////////////////////////////HELP WINDOW SETUP//////////////////////////////
+//
+// var win2 = Titanium.UI.createWindow({// top section BG
+// title : 'SiWriter.co.uk Help',
+// backgroundImage : 'images/Sized_Screen_lighter.png',
+// height : "100%",
+// bottom : 0,
+// });
+
+/////////////////////////////////////////end help window  //////////////////////////
+
 
