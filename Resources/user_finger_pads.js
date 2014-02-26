@@ -155,9 +155,9 @@ Ti.App.addEventListener('sizer_switch_change', function(e) {
 	} else {
 		sizers.style.display = "block";
 		// if (LRH == -1) {
-		// sizerholder.style.margin = "0px 0px 0px 30px";
+			// sizerholder.style.margin = "0px 0px 0px 30px";
 		// } else {
-		// sizerholder.style.margin = "0px 0px 0px 81px";
+			// sizerholder.style.margin = "0px 0px 0px 81px";
 		// }
 	}
 	Ti.API.info("@!$ Hide= " + Hide);
@@ -281,7 +281,6 @@ function do_update() {
 		LRpos = LRposP + LRHpoffset;
 		Twist - TwistP;
 		sizerholder.style.top = "72px";
-		sizerholder.style.left = "80%";
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
 		appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
@@ -298,8 +297,7 @@ function do_update() {
 		LRpos = LRposL + LRHloffset;
 		Twist - TwistL;
 		adjust_pads();
-		sizerholder.style.top = "300px";
-		sizerholder.style.left = "20px";
+		sizerholder.style.top = "300px";		
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
 		appContainer.style.margin = "0px 0px 0px " + LRposL + "px";
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistL + "deg)");
@@ -309,47 +307,10 @@ function do_update() {
 
 	}
 
-	if (LRH == -1) {//Left hand mode
-		LH_buttonvariablesPortrait();
-	} else {
-		LH_buttonvariablesLandscape();
-	}
-
 	Ti.API.info("update done");
 	//////////////
 
 };
-
-function LH_buttonvariablesPortrait() {
-	PrivacyTitle.left = 14;
-	version_label.left = 20;
-}
-
-function LH_buttonvariablesLandscape() {
-
-	LHw = 670;
-	smallHelpView.left = 20 + LHw;
-	view.left = 20 + LHw;
-
-	LH = 330;
-	build_label.left = 690 - LH;
-	aTrailer.left = 345 - LH;
-	top_view.left = 705 - LH;
-	settingsButton.left = 345 - LH;
-	helpButton.left = 925 - LH;
-	copyButton.left = 834 - LH;
-	pasteButton.left = 741 - LH;
-	clearButton.left = 649 - LH;
-	timeStampButton.left = 556 - LH;
-	emailButton.left = 461 - LH;
-	help_WindowSwitcher();
-	webview.right = 0;
-	webview.left = -40;
-	//webview.width = 850;
-	//LRposL=-130;
-	PrivacyTitle.left = 14;
-	version_label.left = 20;
-}
 
 ////////////////////send to APP /////////////////////////////////
 //Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });

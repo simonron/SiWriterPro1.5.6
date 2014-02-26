@@ -201,16 +201,16 @@ function saveCurrentText() {
 }
 
 function saveBackgroundImage(image) {
-	DoOrientation();
+	//DoOrientation();
 
-	if (oriCurrent == "portrait") {
+	if (orientation == "portrait") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
 			title : 'Background image'
 		});
 		BG_Image_Message.setMessage('Portrait background updated.');
 	}
 
-	if (oriCurrent == "landscape") {
+	if (orientation == "landscape") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
 			title : 'Background image'
 		});
@@ -223,7 +223,6 @@ function saveBackgroundImage(image) {
 	}
 
 	writeFile.write(image);
-	DoOrientation();
 }
 
 function viewLastText() {
