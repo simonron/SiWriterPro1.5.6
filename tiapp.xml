@@ -47,9 +47,10 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-       <modules>
-   		<module platform="iphone" version="1.0">com.infinery.cdb</module>
-	</modules>
+    <modules>
+        <module platform="iphone" version="1.0">com.infinery.cdb</module>
+        <module platform="iphone">bencoding.utterance</module>
+    </modules>
     <deployment-targets>
         <target device="tizen">false</target>
         <target device="mobileweb">false</target>

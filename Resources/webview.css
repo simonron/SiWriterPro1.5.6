@@ -17,11 +17,11 @@ body {
 	line-height:1.4em;
 }
 div#sizerholder {
+	float:right;
 	position:absolute;
-	margin-right:10px;
+	margin-right:6px;
 	z-index:10000;
-	margin-left:81%;
-	margin-top:-60px;
+	margin-left:81.5%;
 }
 div#sizers {
 	width:102px;
@@ -48,6 +48,7 @@ div#sizers div {
 	border-bottom-left-radius:27px;
 	border-bottom-right-radius:27px;
 	width:27px;
+	z-index:10000;
 }
 div#reset_pads, div#close_display {
 	font-size:16px;
@@ -248,7 +249,7 @@ div#k0 .kHelper {
 	color:#050;
 	font-size:18px;
 	}
-#chordKeybaord {
+#chordKeyboard_id {
 	width:100%;
 }
 #keypad_area {
@@ -256,7 +257,7 @@ div#k0 .kHelper {
 	height:100%;
 	z-index:10000000;
 }
-#chordKeybaord div {
+#chordKeyboard_id div {
 	float:left;
 }
 #missed {

@@ -1,28 +1,28 @@
-var cloudebug = require("com.infinery.cdb");
-var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
-
-cdb.session(
-{
-connected: function(e)
-{
-cdb.write('info', 'cloudebug is connected to the server and ready');
-}
-});
+// var cloudebug = require("com.infinery.cdb");
+// var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
+// 
+// cdb.session(
+// {
+// connected: function(e)
+// {
+// cdb.write('info', 'cloudebug is connected to the server and ready');
+// }
+// });
 
 Ti.include('variables.js');
 Ti.include('functions.js');
+Ti.include('speech.js');
 
+DoOrientation();
+//if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
+//	orientation = 'portrait';
+//	Ti.API.info("Launched in PORTRAIT ");
 
+//} else {
+//	orientation = 'landscape';
 
-if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
-	orientation = 'portrait';
-	Ti.API.info("Launched in PORTRAIT ");
-
-} else {
-	orientation = 'landscape';
-
-	Ti.API.info("Launched in LANDSCAPE ");
-}
+	Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  "+orientation);
+//}
 
 ///////////////////// INITIALISE //////////////////////////////////////////////////////////////
 webview.removeEventListener('beforeload', function(e) {});
@@ -58,7 +58,8 @@ DoOrientation();
 Ti.App.addEventListener('Handedness', function(e) {
    LRH=e.LRH; 
    
-  Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 162 = "+LRH);
+  Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = "+LRH);
+  set_orientation_variables();
 });
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
@@ -192,18 +193,11 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 
 	//win1.add(webview);
 
-	Ti.App.fireEvent('app:orientation', {
-		orientation : orientation
-	});
 
-	if (orientation == "portrait") {
-		portrait();
-	}
-	if (orientation == "landscape") {
-		landscape();
-	}
+
 Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
-Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 312 = "+LRH);
+Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = "+LRH);
+set_orientation_variables();
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//

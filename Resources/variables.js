@@ -42,6 +42,226 @@ var oriCurrent = 'landscape';
 Ti.API.info(props);
 
 Ti.include('KS_email2.js');
+
+function set_orientation_variables(){
+	Ti.App.fireEvent('app:orientation', {
+		orientation : orientation
+	});
+
+	if (orientation == "portrait") {
+		portrait();
+	}
+	if (orientation == "landscape") {
+		landscape();
+	}
+}
+
+////////////portrait//////////////////
+////////////portrait//////////////////
+////////////portrait//////////////////
+////////////portrait//////////////////
+////////////portrait//////////////////
+
+
+
+function buttonvariablesPortrait() {
+
+	writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'saved_BGimageP.png');
+	image = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory + 'saved_BGimageP.png');
+	win1.backgroundImage = image.nativePath;
+
+	if (!writeFile.exists()) {
+		win1.backgroundImage = 'images/bg_image.png';
+	}
+
+	webview.height = "60%", 
+	PrivacyTitle.left = 442;
+	PrivacyTitle.bottom = 40;
+	build_label.left = 450;
+	build_label.bottom = 95;
+	version_label.left = 450;
+	version_label.bottom = 10;
+
+	aTrailer.left = 20;
+	aTrailer.top = 450;
+
+	smallHelpView.top = 20;
+	smallHelpView.left = 330;
+	smallHelpView.height = 420;
+	smallHelpView.contentHeight = 'auto';
+	smallHelpimages.width = 300;
+
+	settingsButton.left = 648;
+	settingsButton.top = 446;
+
+	helpButton.left = 665;
+	helpButton.top = 80;
+
+	copyButton.left = 665;
+	copyButton.top = 140;
+
+	pasteButton.left = 665;
+	pasteButton.top = 200;
+
+	clearButton.left = 665;
+	clearButton.top = 260;
+
+	timeStampButton.left = 665;
+	timeStampButton.top = 320;
+
+	emailButton.left = 665;
+	emailButton.top = 380;
+
+
+	
+
+
+	view.left = "20";
+
+	help_WindowSwitcher();
+
+	txtViewDesc.width = "94%";
+	//txtViewDesc.height = "96%";
+	txtViewDesc.font.backgroundColor = '#fee';
+	webview.left = "14";
+	webview.background = "url(images/Sized_AgendA_bg_bottom.png)";
+	webview.bottom = "0";
+	top_view.top = "450";
+	/* email window */
+	top_view.left = "330";
+	 Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = "+LRH);
+
+if (LRH==-1) {//Left hand mode
+	LH_buttonvariablesPortrait();
+	}
+
+}
+
+function LH_buttonvariablesPortrait(){
+	PrivacyTitle.left = 14;	
+	version_label.left = 20;
+}
+
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+/////////////////Landscape/////////////////////
+
+function buttonvariablesLandscape() {
+	webview.height = "110%", 
+	PrivacyTitle.left = 682;
+	PrivacyTitle.bottom = 40;
+	version_label.left = 690;
+	build_label.left = 690;
+	build_label.bottom = 70;
+	version_label.left = 690;
+	version_label.bottom = 10;
+
+	aTrailer.left = 345;
+	aTrailer.top = 130;
+	/* email window */
+	top_view.top = 130;
+	top_view.left = 695;
+
+	writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'saved_BGimageL.png');
+	image = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory + 'saved_BGimageL.png');
+	win1.backgroundImage = image.nativePath;
+	if (!writeFile.exists()) {
+		win1.backgroundImage = 'images/bg_image.png';
+	}
+
+	smallHelpView.top = 330;
+	smallHelpView.left = 20;
+	smallHelpView.height = 420;
+	smallHelpView.contentHeight = 'auto';
+	smallHelpimages.width = 300;
+
+	settingsButton.left = 345;
+	settingsButton.top = 79;
+		
+	helpButton.left = 925;
+	helpButton.top = 75;
+
+	copyButton.left = 834;
+	copyButton.top = 75;
+
+	pasteButton.left = 741;
+	pasteButton.top = 75;
+
+	clearButton.left = 649;
+	clearButton.top = 75;
+
+	timeStampButton.left = 556;
+	timeStampButton.top = 75;
+
+	emailButton.left = 461;
+	emailButton.top = 75;
+
+
+
+	////Display Screen view///
+	view.left = 20;
+	help_WindowSwitcher();
+
+	txtViewDesc.width = "94%";
+	//txtViewDesc.height = "96%";
+
+	webview.left = 330;
+	webview.background = "none";
+	webview.background = "transparent";
+	webview.bottom = 0;
+
+Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = "+LRH);
+
+if (LRH==-1) {//left hand Landscape
+	LH_buttonvariablesLandscape();
+	}
+
+}
+
+
+
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+/////////////////Landscape Left Handed/////////////////////
+
+function LH_buttonvariablesLandscape() {
+
+LHw=670;
+	smallHelpView.left = 20+LHw;
+	view.left = 20+LHw;
+
+LH=330;
+	build_label.left = 690-LH;
+	aTrailer.left = 345-LH;
+	top_view.left = 705-LH;
+	settingsButton.left = 345-LH;
+	helpButton.left = 925-LH;
+	copyButton.left = 834-LH;
+	pasteButton.left = 741-LH;
+	clearButton.left = 649-LH;
+	timeStampButton.left = 556-LH;
+	emailButton.left = 461-LH;
+	help_WindowSwitcher();
+	webview.right = 0;
+	webview.left = -40;
+	//webview.width = 850;
+	//LRposL=-130;
+	PrivacyTitle.left = 14;
+	version_label.left = 20;
+}
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+
+
 var win3 = Titanium.UI.createWindow({// top section BG
 	title : 'SiWriter.co.uk Help',
 	backgroundImage : 'images/Sized_Screen_lighter.png',
@@ -64,7 +284,7 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 	width : "100%",
 	height : "100%",
 	bottom : 0,
-	zIndex : 0,
+	zIndex : 1,
 });
 
 
@@ -276,6 +496,7 @@ var txtViewDesc = Ti.UI.createTextArea({
 	},
 	//editable: "NO",
 	height : "96%",
+	zIndex : 3,
 });
 
 var view = Ti.UI.createScrollView({
@@ -288,6 +509,7 @@ var view = Ti.UI.createScrollView({
 		fontSize : 10
 	},
 	opacity : 0.90,
+	zIndex : 2,
 
 });
 
@@ -343,7 +565,7 @@ var flexSpace = Titanium.UI.createButton({
 });
 
 var close = Titanium.UI.createButton({
-	title : 'Done X',
+	title : 'Done',
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 });
 

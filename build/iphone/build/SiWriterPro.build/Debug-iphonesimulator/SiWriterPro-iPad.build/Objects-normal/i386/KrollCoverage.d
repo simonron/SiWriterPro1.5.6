@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/Cyberman/Desktop/SiWriterPro1.4.0/build/iphone/Classes/KrollCoverage.m
+  /Users/Cyberman/Desktop/SiWriterPro1.4.1/build/iphone/Classes/KrollCoverage.m

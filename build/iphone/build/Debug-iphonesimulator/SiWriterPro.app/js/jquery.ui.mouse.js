@@ -1,1 +1,1 @@
-/Users/Cyberman/Desktop/SiWriterPro1.4.0/Resources/js/jquery.ui.mouse.js
+/Users/Cyberman/Desktop/SiWriterPro1.4.1/Resources/js/jquery.ui.mouse.js

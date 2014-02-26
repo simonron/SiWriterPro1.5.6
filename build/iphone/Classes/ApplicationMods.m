@@ -30,6 +30,20 @@
 			nil
 		]];
 		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"utterance",
+			@"name",
+			@"bencoding.utterance",
+			@"moduleid",
+			@"0.1",
+			@"version",
+			@"3ffcde48-e965-4c88-8dc6-2c7150da60fb",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
 
 	return modules;
 }
