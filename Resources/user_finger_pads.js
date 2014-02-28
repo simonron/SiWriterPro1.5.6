@@ -16,6 +16,7 @@ var HeightL = 0;
 var WidthL = 0;
 var GapL = 0;
 var LRposL = 0;
+var LRposP = 0;
 var TwistL = 0;
 var UpDwnL = 0;
 
@@ -432,24 +433,28 @@ function adjust_pads() {
 	did("amountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
 			LRposP += 4;
-			LRpos = LRposP + LRHloffset;
+			LRpos = LRposP + LRHpoffset;
 		} else {
 			LRposL += 4;
 			LRpos = LRposL + LRHloffset;
 		};
+Ti.API.info(orientation+"+++++++++++++++++++LRposL ="+LRposL);
 		do_pad_LRpos();
-
+Ti.API.info(orientation+"+++++++++++++++++++LRposL ="+LRposL);
 	};
 
 	did("DamountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
 			LRposP -= 4;
-			LRpos = LRposP;
+			LRpos = LRposP + LRHpoffset;
 		} else {
 			LRposL -= 4;
-			LRpos = LRposL;
+			LRpos = LRposL + LRHloffset;
 		};
+Ti.API.info(orientation+"--------------------LRposL ="+LRposL);
+
 		do_pad_LRpos();
+Ti.API.info(orientation+"--------------------LRposL ="+LRposL);
 
 	};
 
@@ -593,13 +598,13 @@ function do_righthanded(LRH) {
 		//Right handed Portrait
 		LRH = LRHP;
 		handed(LRH);
-		LRHpoffset = 0;
+		//LRHpoffset = 0;
 	} else {
 		LRHL = 1;
 		//Right handed Landscape
 		LRH = LRHL;
 		handed(LRH);
-		LRHloffset = 0;
+		//LRHloffset = 0;
 	}
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistL + "deg)");
 	flip_helper_text();
@@ -610,7 +615,9 @@ function do_righthanded(LRH) {
 };
 
 function do_lefthanded(LRH) {
-	Ti.API.info("ufp line 611 do_lefthanded called. LRH=" + LRH);
+	Ti.API.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ufp line 614 do_lefthanded called. LRH=" + LRH);
+	Ti.API.info("ufp line 615 HTMLorientation = "+ HTMLorientation);
+	Ti.API.info("ufp line 615 orientation = "+ orientation);
 
 	Ti.App.fireEvent('Handedness', {
 		LRH : -1
@@ -621,17 +628,25 @@ function do_lefthanded(LRH) {
 	Ti.App.fireEvent('help_switched_off', {
 		slider : false
 	});
-	if (HTMLorientation == 'portrait') {
+	if (orientation*-1 != 90) {
+		//HTMLorientation="portrait";
 		LRHpoffset = -196;
 		LRHP = -1;
+		//alert("HTMLorientation = "+HTMLorientation);
 		//LEFT handed Portrait
 		LRH = LRHP;
+	Ti.API.info("LEFT handed Portrait UFP.js 630 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
+	Ti.API.info("LEFT handed Portrait in UFP.js 631 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 		document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistP + "deg)");
 	} else {
-		LRHloffset = -456;
+		//HTMLorientation="landscape";
+//alert("LEFT handed Landscape");
+		Ti.API.info("LEFT handed Landscape in UFP.js 634 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
+//alert("2");
+		LRHloffset = -450;
 		LRHL = -1;
 		//LEFT handed Landscape
-		LRH = LRHL;
+		LRH = LRHL+ LRHloffset;
 	}
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + TwistL + "deg)");
 	document.getElementById("h0").setAttribute("style", "-webkit-transform:scale(-1,1);");
@@ -644,8 +659,8 @@ function do_lefthanded(LRH) {
 	document.getElementById("h7").setAttribute("style", "-webkit-transform:scale(-1,1);");
 	document.getElementById("hsymbols").setAttribute("style", "-webkit-transform:scale(-1,1);");
 	document.getElementById("hunums").setAttribute("style", "-webkit-transform:scale(-1,1);");
-	Ti.API.info("Handedness in UFP.js 393 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
-	Ti.API.info("LEFT HANDED Handedness in UFP.js 394 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
+	Ti.API.info("Handedness in UFP.js 648 is : LRHP = " + LRHP + " LRHL = " + LRHL + " LRH = " + LRH);
+	Ti.API.info("LEFT HANDED Handedness in UFP.js 649 is : LRHloffset = " + LRHloffset + " LRHpoffset = " + LRHpoffset);
 
 	do_save_pad_state_lrh(LRH);
 	//do_update();
@@ -798,7 +813,7 @@ function do_pad_LRpos() {
 		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 
 	}
-	Ti.API.info("[UFP 766] LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + "LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
+	Ti.API.info("[UFP 766] LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + " LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
 	Ti.API.info("[UFP 767] LHR is : = " + LRH);
 
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + Twist + "deg)");

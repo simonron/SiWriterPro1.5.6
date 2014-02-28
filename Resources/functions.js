@@ -115,7 +115,7 @@ function recover_settings() {
 
 	Ti.API.info("recover_settings -For Next ENDS");
 	if (start == 1) {
-		Ti.App.fireEvent('initialise');
+		Ti.App.fireEvent('initialise', {});
 		start = false;
 	};
 	DoOrientation();
@@ -201,7 +201,7 @@ function saveCurrentText() {
 }
 
 function saveBackgroundImage(image) {
-	//DoOrientation();
+	DoOrientation();
 
 	if (orientation == "portrait") {
 		var BG_Image_Message = Titanium.UI.createAlertDialog({
@@ -223,6 +223,8 @@ function saveBackgroundImage(image) {
 	}
 
 	writeFile.write(image);
+		DoOrientation();
+
 }
 
 function viewLastText() {

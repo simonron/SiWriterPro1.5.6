@@ -1,6 +1,7 @@
 Ti.include('functions.js');
 
 var SiWriter = {};
+var newrelic = require('ti.newrelic'); newrelic.start("AAa87e12dc1aaa9ad6b224c1072f4faa3515fc52d2");
 var start = 1;
 //orientation sensor flag
 var orientation = "null";
@@ -43,10 +44,10 @@ Ti.API.info(props);
 
 Ti.include('KS_email2.js');
 
-function set_orientation_variables(){
-	Ti.App.fireEvent('app:orientation', {
-		orientation : orientation
-	});
+function set_orientation_variables(orientation){
+	// Ti.App.fireEvent('app:orientation', {
+		// orientation : orientation
+	// });
 
 	if (orientation == "portrait") {
 		portrait();
@@ -74,7 +75,8 @@ function buttonvariablesPortrait() {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
 
-	webview.height = "60%", 
+	webview.height = "100%"; 
+	webview.top = "40%";
 	PrivacyTitle.left = 442;
 	PrivacyTitle.bottom = 40;
 	build_label.left = 450;
@@ -152,7 +154,8 @@ function LH_buttonvariablesPortrait(){
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	webview.height = "110%", 
+	webview.height = "110%"; 
+	webview.top = "20%";
 	PrivacyTitle.left = 682;
 	PrivacyTitle.bottom = 40;
 	version_label.left = 690;

@@ -11,7 +11,8 @@
 
 Ti.include('variables.js');
 Ti.include('functions.js');
-Ti.include('speech.js');
+
+
 
 DoOrientation();
 //if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
@@ -59,7 +60,7 @@ Ti.App.addEventListener('Handedness', function(e) {
    LRH=e.LRH; 
    
   Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = "+LRH);
-  set_orientation_variables();
+  set_orientation_variables(orientation);
 });
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
@@ -193,11 +194,20 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 
 	//win1.add(webview);
 
+	Ti.App.fireEvent('app:orientation', {
+		orientation : orientation
+	});
 
+	if (orientation == "portrait") {
+		portrait();
+	}
+	if (orientation == "landscape") {
+		landscape();
+	}
 
 Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
 Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = "+LRH);
-set_orientation_variables();
+set_orientation_variables(orientation);
 	return orientation;
 });
 //******************END***ORIENTATION CHANGE SENSOR*********************//
@@ -464,5 +474,6 @@ help_windowSwitch.addEventListener('change', function(e) {
 // });
 
 /////////////////////////////////////////end help window  //////////////////////////
-
+//Ti.include('speech_to_text.js');
+//Ti.include('text_to_speech.js');
 

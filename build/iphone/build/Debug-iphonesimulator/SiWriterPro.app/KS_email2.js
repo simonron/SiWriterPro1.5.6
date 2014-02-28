@@ -1,1 +1,0 @@
-/Users/Cyberman/Desktop/SiWriterPro1.4.1/Resources/KS_email2.js
