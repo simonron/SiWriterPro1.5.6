@@ -54,7 +54,7 @@ webview.addEventListener('beforeload', function(e) {
 recover_settings();
 //("and here?");
 
-Ti.App.removeEventListener(' ness', function(e) {});
+Ti.App.removeEventListener('Handedness', function(e) {});
 DoOrientation();
 Ti.App.addEventListener('Handedness', function(e) {
    LRH=e.LRH; 

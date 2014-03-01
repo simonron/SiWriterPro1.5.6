@@ -1,0 +1,7 @@
+// this is a generated file - DO NOT EDIT
+
+BENCODING_UTTERANCE_OTHER_LDFLAGS=$(inherited) -framework AVFoundation
+TI_NEWRELIC_FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.newrelic/3.1/platform /Library/Application\ Support/Titanium/modules/iphone/ti.newrelic/3.1/platform ~/Library/Application\ Support/Titanium/modules/iphone/ti.newrelic/3.1/platform
+TI_NEWRELIC_OTHER_LDFLAGS=$(inherited) -framework CoreTelephony -framework SystemConfiguration -framework NewRelicAgent -lz
+OTHER_LDFLAGS=$(inherited) $(BENCODING_UTTERANCE_OTHER_LDFLAGS) $(TI_NEWRELIC_OTHER_LDFLAGS) 
+FRAMEWORK_SEARCH_PATHS=$(inherited) $(TI_NEWRELIC_FRAMEWORK_SEARCH_PATHS) 

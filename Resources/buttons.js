@@ -272,7 +272,7 @@ function buttonvariablesPortrait() {
 	txtViewDesc.width = "94%";
 	//txtViewDesc.height = "96%";
 	txtViewDesc.font.backgroundColor = '#fee';
-	webview.left = "14";
+	//webview.left = "14";
 	webview.background = "url(images/Sized_AgendA_bg_bottom.png)";
 	webview.bottom = "0";
 	top_view.top = "450";
@@ -280,14 +280,19 @@ function buttonvariablesPortrait() {
 	top_view.left = "330";
 	 Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = "+LRH);
 
-// if (LRH==-1) {//Left hand mode
-	// LH_buttonvariablesPortrait();
+if (LRH==-1) {//Left hand mode
+	LH_buttonvariablesPortrait();
 	// }else{
 // 		
-	// }
+	 }
 
 }
 
+function LH_buttonvariablesPortrait(){
+		 Ti.API.info(" LH_buttonvariablesPortrait triggered !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+	
+}
 
 
 /////////////////Landscape/////////////////////

@@ -155,7 +155,7 @@ function LH_buttonvariablesPortrait(){
 
 function buttonvariablesLandscape() {
 	webview.height = "110%"; 
-	webview.top = "20%";
+	webview.top = "-30px";
 	PrivacyTitle.left = 682;
 	PrivacyTitle.bottom = 40;
 	version_label.left = 690;
