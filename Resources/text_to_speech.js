@@ -21,11 +21,8 @@ speech.addEventListener('continued',function(d){
 
 
 
-var playButton = Ti.UI.createButton({
-	bottom:10, title:"Play",
-	left:10, width:50, height:50
-});
-win1.add(playButton);
+
+//win1.add(playButton);
 
 playButton.addEventListener('click',function(){
 	
@@ -36,12 +33,15 @@ playButton.addEventListener('click',function(){
 	speech.startSpeaking({
 		text:contentTyped
 	});	
+			Ti.UI.Clipboard.setText(contentTyped);
+			contentTyped = "";
+			txtViewDesc.value = contentTyped;
 });
 
 var pauseButton = Ti.UI.createButton({
 	bottom:10, title:"Pause", left:60, width:50, height:50
 });
-win1.add(pauseButton);
+//win1.add(pauseButton);
 
 pauseButton.addEventListener('click',function(){
 	
@@ -55,7 +55,7 @@ pauseButton.addEventListener('click',function(){
 var continueButton = Ti.UI.createButton({
 	bottom:10, title:"Continue", left:110, width:80, height:50
 });
-win1.add(continueButton);
+//win1.add(continueButton);
 
 continueButton.addEventListener('click',function(){
 	
@@ -69,7 +69,7 @@ continueButton.addEventListener('click',function(){
 var stopButton = Ti.UI.createButton({
 	bottom:10, title:"Stop", left:190, width:50, height:50
 });
-win1.add(stopButton);
+//win1.add(stopButton);
 
 stopButton.addEventListener('click',function(){
 	

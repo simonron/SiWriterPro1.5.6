@@ -302,7 +302,7 @@ function close_main() {
 function updateSettings() {
 	help_WindowSwitcher();
 	help_bigWindowSwitch();
-	Ti.App.fireEvent('help_lettersSwitch_change');
+	//Ti.App.fireEvent('help_lettersSwitch_change');
 	Ti.API.info("settings updated line 246 FS");
 }
 

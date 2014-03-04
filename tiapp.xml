@@ -14,7 +14,7 @@
     <description>Pro, Left hand enabled version of SiWriter: a text input, note taking app for the iPad/iPad mini, based on the one handed chording keyboard Microwriting codes as used in the CyKey and AgendA. With configurable finger pad layout and multiple productivity features.
 </description>
     <copyright>2014  Tortoisesoft Enterprises</copyright>
-    <icon>appicon-72.png</icon>
+    <icon>image/appicon-152.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>

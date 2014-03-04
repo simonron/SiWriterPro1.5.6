@@ -645,9 +645,9 @@ function do_lefthanded(LRH) {
 	LRH = -1;
 	// LEFT HANDED
 	blank_helper_text();
-	// Ti.App.fireEvent('help_switched_off', {
-	// slider : false
-	// });
+	Ti.App.fireEvent('help_switched_off', {
+		slider : false
+	});
 	if (orientation * -1 != 90) {
 		HTMLorientation = "portrait";
 
@@ -826,12 +826,12 @@ function get_user_settings() {
 
 function do_pad_LRpos() {
 	if (HTMLorientation == 'portrait') {
-		Twist=TwistP;
+		Twist = TwistP;
 		LRpos = LRposP + LRHpoffset;
 		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 	}
 	if (HTMLorientation == 'landscape') {
-		Twist=TwistL;
+		Twist = TwistL;
 		LRpos = LRposL + LRHloffset;
 		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 

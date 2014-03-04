@@ -587,7 +587,7 @@ var help_BIGwindowSwitchLbl = Ti.UI.createLabel({
 	font : {
 		fontSize : 16
 	},
-	text : 'Large Letter Code map?',
+	text : 'Large Letter Code map',
 	top : 700,
 	left : 80,
 });
@@ -599,7 +599,7 @@ var sizer_switch_slider = Ti.UI.createSwitch({
 });
 
 var sizer_switchlbl = Ti.UI.createLabel({
-	text : 'Alter Pad positions ?',
+	text : 'Alter Pad positions',
 });
 
 var help_windowSwitch = Ti.UI.createSwitch({ //'Letter code map'
@@ -609,7 +609,7 @@ var help_windowSwitch = Ti.UI.createSwitch({ //'Letter code map'
 });
 
 var help_windowSwitchLbl = Ti.UI.createLabel({
-	text : 'Letter Code map?',
+	text : 'Letter Code map',
 });
 
 var help_lettersSwitch = Ti.UI.createSwitch({
@@ -624,7 +624,7 @@ var help_lettersSwitchLbl = Ti.UI.createLabel({
 	font : {
 		fontSize : 16
 	},
-	text : 'Finger Pad code hints ?',
+	text : 'Finger Pad code hints',
 });
 
 var btnChoosePhoto = Ti.UI.createButton({
@@ -637,7 +637,7 @@ var btnChoosePhoto = Ti.UI.createButton({
 	top : 900,
 	borderWidth : 1,
 	borderRadius : 16,
-	title : 'Select a background photo',
+	title : 'Select photo',
 	color : '#000000',
 	top : (Ti.Platform.displayCaps.platformHeight / 2),
 	visible : true
@@ -713,6 +713,7 @@ var Continue_Siwriting = Titanium.UI.iOS.createToolbar({
 
 var close_main = Titanium.UI.createButton({
 	title : 'Done',
+	left:10, width:50, height:50,
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 });
 
@@ -726,8 +727,13 @@ close_main.addEventListener('click', function() {
 	setbutton = 0;
 });
 
+var playButton = Ti.UI.createButton({
+	bottom:10, title:"Play",
+	left:10, width:50, height:50
+});
+
 var bottomtoolbar = Titanium.UI.iOS.createToolbar({
-    items:[flexSpace,sizer_switch_slider,sizer_switchlbl,flexSpace,btnChoosePhoto,flexSpace, btnTakePhoto, flexSpace,close_main,flexSpace ],
+    items:[playButton,sizer_switch_slider,sizer_switchlbl,flexSpace,flexSpace,btnChoosePhoto,flexSpace, btnTakePhoto, flexSpace,close_main],
     bottom:0,
     borderTop:false,
     borderBottom:false,

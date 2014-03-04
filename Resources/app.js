@@ -11,8 +11,7 @@
 
 Ti.include('variables.js');
 Ti.include('functions.js');
-Ti.include('text_to_speech.js');
-Ti.include('socialise.js');
+//Ti.include('socialise.js');
 
 
 //DoOrientation();
@@ -481,5 +480,5 @@ help_windowSwitch.addEventListener('change', function(e) {
 
 /////////////////////////////////////////end help window  //////////////////////////
 //Ti.include('speech_to_text.js');
-//Ti.include('text_to_speech.js');
+Ti.include('text_to_speech.js');
 
