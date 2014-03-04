@@ -58,6 +58,34 @@
 			nil
 		]];
 		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"facebook",
+			@"name",
+			@"facebook",
+			@"moduleid",
+			@"3.1.1",
+			@"version",
+			@"da8acc57-8673-4692-9282-e3c1a21f5d83",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"urlsession",
+			@"name",
+			@"com.appcelerator.urlsession",
+			@"moduleid",
+			@"1.0.0",
+			@"version",
+			@"cbf3cdea-b7e8-4375-bdfb-70fb9307054d",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
 
 	return modules;
 }

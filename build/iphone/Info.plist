@@ -32,9 +32,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.2.1393668856105</string>
+	<string>1.5.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.2.1393668856105</string>
+	<string>1.5.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSApplicationCategoryType</key>
@@ -67,14 +67,13 @@
 	</array>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon-57.png</string>
-		<string>Icon-76.png</string>
-		<string>Icon-152.png</string>
+		<string>appicon-57.png</string>
+		<string>appicon-76.png</string>
+		<string>appicon-152.png</string>
 		<string>appicon.png</string>
-		<string>Icon-52.png</string>
-		<string>appicon-72.png</string>
+		<string>appicon-52.png</string>
 	</array>
 	<key>NSHumanReadableCopyright</key>
-	<string>Icon-72.png</string>
+	<string>appicon-72.png</string>
 </dict>
 </plist>

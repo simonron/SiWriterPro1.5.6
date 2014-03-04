@@ -1,0 +1,1 @@
+/Users/Cyberman/Desktop/SiWriterPro1.5/Resources/js/jquery.ui.widget.js

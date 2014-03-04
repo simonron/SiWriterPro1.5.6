@@ -11,10 +11,11 @@
 
 Ti.include('variables.js');
 Ti.include('functions.js');
+Ti.include('text_to_speech.js');
+Ti.include('socialise.js');
 
 
-
-DoOrientation();
+//DoOrientation();
 //if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
 //	orientation = 'portrait';
 //	Ti.API.info("Launched in PORTRAIT ");
@@ -79,7 +80,12 @@ win1.add(smallHelpView);
 win1.add(webview);
 win1.add(view);
 
-DoOrientation();
+//webview.add(testButton);
+
+
+
+
+//DoOrientation();
 Ti.App.removeEventListener('do_reset', function(e) {
 });
 
@@ -198,12 +204,12 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 		orientation : orientation
 	});
 
-	if (orientation == "portrait") {
-		portrait();
-	}
-	if (orientation == "landscape") {
-		landscape();
-	}
+	// if (orientation == "portrait") {
+		// portrait();
+	// }
+	// if (orientation == "landscape") {
+		// landscape();
+	// }
 
 Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
 Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = "+LRH);

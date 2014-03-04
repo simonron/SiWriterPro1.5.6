@@ -118,7 +118,7 @@ function recover_settings() {
 		Ti.App.fireEvent('initialise', {});
 		start = false;
 	};
-	DoOrientation();
+	//DoOrientation();
 
 }
 

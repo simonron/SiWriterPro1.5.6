@@ -222,6 +222,8 @@ Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = "+
 
 if (LRH==-1) {//left hand Landscape
 	LH_buttonvariablesLandscape();
+		PrivacyTitle.left = 122;
+	version_label.left = 130;
 	}
 
 }
@@ -281,17 +283,6 @@ var settingsButton = Titanium.UI.createButton({
 	borderRadius : 15,
 });
 
-var SiWriter_help_win = Titanium.UI.createWebView({
-	backgroundColor : '#FFF',
-	url : 'help.html',
-	width : "100%",
-	height : "100%",
-	bottom : 0,
-	zIndex : 1,
-});
-
-
-
 
 
 var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
@@ -338,6 +329,7 @@ var smallHelpView = Ti.UI.createScrollView({
 	width : 310, //doesn't change with orientation'
 	contentHeight : 'auto',
 	backgroundImage : 'images/help_bg.png',
+	Zindex:2000,
 });
 
 var openWebsiteButton = Titanium.UI.createButton({
@@ -348,6 +340,15 @@ var openWebsiteButton = Titanium.UI.createButton({
 	backgroundImage : 'images/long_thin_button.png',
 });
 
+
+
+var testButton = Titanium.UI.createButton({
+	title : "testButton",
+	width : 240,
+	height : 34,
+	borderRadius : 15,
+	backgroundImage : 'images/long_thin_button.png',
+});
 
 
 var copyButton = Titanium.UI.createButton({
@@ -546,7 +547,7 @@ var win3 = Titanium.UI.createWindow({// top section BG
 });
 
 var SiWriter_help_win = Titanium.UI.createWebView({
-	backgroundColor : '#FFF',
+	backgroundColor : 'transparent',
 	url : 'help.html',
 	width : "100%",
 	height : "100%",
@@ -703,7 +704,7 @@ var toolbar = Titanium.UI.iOS.createToolbar({
 
 var Continue_Siwriting = Titanium.UI.iOS.createToolbar({
     items:[ flexSpace,SiWriter,flexSpace,Facebook,flexSpace,CyKey,flexSpace,close,flexSpace],
-    bottom:0,
+    bottom:14,
     borderTop:true,
     borderBottom:false,
     zIndex : 10,
