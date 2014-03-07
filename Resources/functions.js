@@ -1,6 +1,3 @@
-
-
-
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
@@ -194,6 +191,7 @@ function copyTextToClipboard() {
 		Ti.UI.Clipboard.setText(contentTyped);
 	}
 }
+
 function saveCurrentText() {
 	saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter ' + new Date);
 	saved_file.write(save);
@@ -223,7 +221,7 @@ function saveBackgroundImage(image) {
 	}
 
 	writeFile.write(image);
-		DoOrientation();
+	DoOrientation();
 
 }
 
@@ -239,6 +237,7 @@ function pasteTextFromClipboard() {
 		alert("Nothing to paste");
 	}
 }
+
 function copyTextToClipboard() {
 	//if(txtViewDesc.value==="_") {
 	if (contentTyped == "_") {
@@ -374,39 +373,24 @@ function help_WindowSwitcher() {
 		smallHelpView.show();
 		if (orientation == "portrait") {
 			view.width = "290";
-		}
-		if (orientation == "portrait") {
 			view.height = "420";
-		}
-
-		if (orientation == "landscape") {
+		} else {
 			view.width = "310";
-		}
-
-		if (orientation == "landscape") {
 			view.height = "300";
 		}
-	}
-
-	if (help_windowSwitch.value == false) {/******** HIDE HELP **** ALL BIG *****/
+	} else {/******** HIDE HELP **** ALL BIG *****/
 		smallHelpView.hide();
 		if (orientation == "portrait") {
 			view.width = "620";
-		}
-		if (orientation == "portrait") {
 			view.height = "420";
-		}
-		if (orientation == "landscape") {
+		} else {
 			view.height = "720";
-		}
-		if (orientation == "landscape") {
 			view.width = "310";
 		}
 	}
+
+	Ti.API.info("Orientation = " + orientation + " view.width = " + view.width + " help_windowSwitch.value = " + help_windowSwitch.value);
 }
-
-
-
 
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////

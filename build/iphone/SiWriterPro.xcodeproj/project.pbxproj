@@ -30,17 +30,17 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2412F467115C296300454E5B /* TiMediaVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412F465115C296300454E5B /* TiMediaVideoPlayer.m */; };
 		242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		F9859F78B37C444097C7FE6E /* libcom.appcelerator.urlsession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0849572AA53D4858910264CE /* libcom.appcelerator.urlsession.a */; };
-		FCDEBDEF575748D5AD9637E9 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5F99C1BB8245939CCCEDE3 /* libfacebook.a */; };
-		22FF8066FC414BF2ADEA8F85 /* libti.newrelic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15248187B5F842B8B5B1CA26 /* libti.newrelic.a */; };
-		2B45F083F3544E57A759ACE6 /* libbencoding.utterance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A0B944172A488BBC344838 /* libbencoding.utterance.a */; };
-		90196EEC43D54F748B56AF19 /* libcom.infinery.cdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14EBB47CC5614FB78D14F122 /* libcom.infinery.cdb.a */; };
+		6ED12A8214644F93A03D3C2F /* libcom.appcelerator.urlsession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB671057ABDF4171A83AC0C6 /* libcom.appcelerator.urlsession.a */; };
+		4BFD3AA62A8C4EF5A9701721 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A76900AE45B4EC3AF6321E3 /* libfacebook.a */; };
+		1E57BBBFDB004EDAAC32DBF4 /* libti.newrelic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDF025DF4B441A8A1A4498B /* libti.newrelic.a */; };
+		67055E26177A4A70BBA0BCD6 /* libbencoding.utterance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5763E1E444976B320CD04 /* libbencoding.utterance.a */; };
+		16BAC70CB8A34CBC85FCAE30 /* libcom.infinery.cdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D805786B7E547418A13CAF3 /* libcom.infinery.cdb.a */; };
 		242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		1B08F8D1C6C14F05BEA83885 /* libcom.appcelerator.urlsession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0849572AA53D4858910264CE /* libcom.appcelerator.urlsession.a */; };
-		DCCDDC3A0F4D4271A028DFA4 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5F99C1BB8245939CCCEDE3 /* libfacebook.a */; };
-		75F282B31BFA4F02956A1963 /* libti.newrelic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15248187B5F842B8B5B1CA26 /* libti.newrelic.a */; };
-		C19F9B52707C46FDAF2DD7CB /* libbencoding.utterance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A0B944172A488BBC344838 /* libbencoding.utterance.a */; };
-		D59BB7E4292A42A4BBD74BE9 /* libcom.infinery.cdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14EBB47CC5614FB78D14F122 /* libcom.infinery.cdb.a */; };
+		B7BB3D2F2AF84C828EAAF79C /* libcom.appcelerator.urlsession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB671057ABDF4171A83AC0C6 /* libcom.appcelerator.urlsession.a */; };
+		3DBA47F06D8B4D8E85E868F9 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A76900AE45B4EC3AF6321E3 /* libfacebook.a */; };
+		783C06F9F1D340A88259802D /* libti.newrelic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDF025DF4B441A8A1A4498B /* libti.newrelic.a */; };
+		44F5454ED2624F6B9364CF8E /* libbencoding.utterance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5763E1E444976B320CD04 /* libbencoding.utterance.a */; };
+		FD042BBA36684B3487801F54 /* libcom.infinery.cdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D805786B7E547418A13CAF3 /* libcom.infinery.cdb.a */; };
 		242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
 		242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967611BAD2F20046A0D0 /* AsyncUdpSocket.m */; };
 		242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
@@ -907,11 +907,11 @@
 		DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB0A57111E1BAE001DC2D1 /* libxml2.dylib */; };
 		DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24597034118FF66300519F79 /* StoreKit.framework */; };
 		DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		35FF93CBC751416BA095F7C2 /* libcom.appcelerator.urlsession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0849572AA53D4858910264CE /* libcom.appcelerator.urlsession.a */; };
-		F12814D84DC94F7EA1670D4D /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5F99C1BB8245939CCCEDE3 /* libfacebook.a */; };
-		531E4B558B0B46FA826A5A4A /* libti.newrelic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15248187B5F842B8B5B1CA26 /* libti.newrelic.a */; };
-		50162883AFA44789BD23B5AE /* libbencoding.utterance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A0B944172A488BBC344838 /* libbencoding.utterance.a */; };
-		F129F77C2AE1469EB4C61B45 /* libcom.infinery.cdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14EBB47CC5614FB78D14F122 /* libcom.infinery.cdb.a */; };
+		19AE15E2BBC74CAC91684F14 /* libcom.appcelerator.urlsession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB671057ABDF4171A83AC0C6 /* libcom.appcelerator.urlsession.a */; };
+		50A000EB56A24614BDD4AC0E /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A76900AE45B4EC3AF6321E3 /* libfacebook.a */; };
+		944D6CE157D640D0899B095B /* libti.newrelic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDF025DF4B441A8A1A4498B /* libti.newrelic.a */; };
+		8C71F47680F248F38D36E9DD /* libbencoding.utterance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F5763E1E444976B320CD04 /* libbencoding.utterance.a */; };
+		8F95459C5B604E44B45B4B70 /* libcom.infinery.cdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D805786B7E547418A13CAF3 /* libcom.infinery.cdb.a */; };
 		DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5C75811E6364F00F097E2 /* libtiverify.a */; };
 		DABDEB08128B5A8F00C85FEA /* AudioStreamerCUR.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF582128A1F3600457759 /* AudioStreamerCUR.m */; };
 		DABF3ECF134D210400836137 /* TiBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF3ECE134D210400836137 /* TiBuffer.m */; };
@@ -973,11 +973,11 @@
 		241EAA21118AB3BB0081A5BE /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = Classes/defines.h; sourceTree = SOURCE_ROOT; };
 		241EAEC5118E2BA90081A5BE /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		242E8E3011BA39FD0046A0D0 /* libTiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTiCore.a; path = lib/libTiCore.a; sourceTree = SOURCE_ROOT; };
-		0849572AA53D4858910264CE /* libcom.appcelerator.urlsession.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.appcelerator.urlsession.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.appcelerator.urlSession/1.0.0/libcom.appcelerator.urlsession.a"; sourceTree = "<absolute>"; };
-		3B5F99C1BB8245939CCCEDE3 /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1/libfacebook.a"; sourceTree = "<absolute>"; };
-		15248187B5F842B8B5B1CA26 /* libti.newrelic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.newrelic.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1/libti.newrelic.a"; sourceTree = "<absolute>"; };
-		16A0B944172A488BBC344838 /* libbencoding.utterance.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.utterance.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1/libbencoding.utterance.a"; sourceTree = "<absolute>"; };
-		14EBB47CC5614FB78D14F122 /* libcom.infinery.cdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.infinery.cdb.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1/libcom.infinery.cdb.a"; sourceTree = "<absolute>"; };
+		FB671057ABDF4171A83AC0C6 /* libcom.appcelerator.urlsession.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.appcelerator.urlsession.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.appcelerator.urlSession/1.0.0/libcom.appcelerator.urlsession.a"; sourceTree = "<absolute>"; };
+		9A76900AE45B4EC3AF6321E3 /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1/libfacebook.a"; sourceTree = "<absolute>"; };
+		2CDF025DF4B441A8A1A4498B /* libti.newrelic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.newrelic.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1/libti.newrelic.a"; sourceTree = "<absolute>"; };
+		F6F5763E1E444976B320CD04 /* libbencoding.utterance.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.utterance.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1/libbencoding.utterance.a"; sourceTree = "<absolute>"; };
+		5D805786B7E547418A13CAF3 /* libcom.infinery.cdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.infinery.cdb.a; path = "/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0/libcom.infinery.cdb.a"; sourceTree = "<absolute>"; };
 		242E95C811BAC8B40046A0D0 /* TiDebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiDebugger.h; path = Classes/TiDebugger.h; sourceTree = SOURCE_ROOT; };
 		242E967311BAD2F20046A0D0 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Classes/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		242E967411BAD2F20046A0D0 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Classes/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
@@ -1616,11 +1616,11 @@
 				24EB0A58111E1BAE001DC2D1 /* libxml2.dylib in Frameworks */,
 				24597035118FF66300519F79 /* StoreKit.framework in Frameworks */,
 				242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */,
-				F9859F78B37C444097C7FE6E /* libcom.appcelerator.urlsession.a in Frameworks */,
-				FCDEBDEF575748D5AD9637E9 /* libfacebook.a in Frameworks */,
-				22FF8066FC414BF2ADEA8F85 /* libti.newrelic.a in Frameworks */,
-				2B45F083F3544E57A759ACE6 /* libbencoding.utterance.a in Frameworks */,
-				90196EEC43D54F748B56AF19 /* libcom.infinery.cdb.a in Frameworks */,
+				6ED12A8214644F93A03D3C2F /* libcom.appcelerator.urlsession.a in Frameworks */,
+				4BFD3AA62A8C4EF5A9701721 /* libfacebook.a in Frameworks */,
+				1E57BBBFDB004EDAAC32DBF4 /* libti.newrelic.a in Frameworks */,
+				67055E26177A4A70BBA0BCD6 /* libbencoding.utterance.a in Frameworks */,
+				16BAC70CB8A34CBC85FCAE30 /* libcom.infinery.cdb.a in Frameworks */,
 				242EA11611BD956F0046A0D0 /* ExternalAccessory.framework in Frameworks */,
 				24D5C75911E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DAA4B2AE134E3DBD00AB6011 /* libti_ios_debugger.a in Frameworks */,
@@ -1657,11 +1657,11 @@
 				24D8E4AB119B9D8A00F8CAA6 /* libxml2.dylib in Frameworks */,
 				24D8E4AC119B9D8A00F8CAA6 /* StoreKit.framework in Frameworks */,
 				242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */,
-				1B08F8D1C6C14F05BEA83885 /* libcom.appcelerator.urlsession.a in Frameworks */,
-				DCCDDC3A0F4D4271A028DFA4 /* libfacebook.a in Frameworks */,
-				75F282B31BFA4F02956A1963 /* libti.newrelic.a in Frameworks */,
-				C19F9B52707C46FDAF2DD7CB /* libbencoding.utterance.a in Frameworks */,
-				D59BB7E4292A42A4BBD74BE9 /* libcom.infinery.cdb.a in Frameworks */,
+				B7BB3D2F2AF84C828EAAF79C /* libcom.appcelerator.urlsession.a in Frameworks */,
+				3DBA47F06D8B4D8E85E868F9 /* libfacebook.a in Frameworks */,
+				783C06F9F1D340A88259802D /* libti.newrelic.a in Frameworks */,
+				44F5454ED2624F6B9364CF8E /* libbencoding.utterance.a in Frameworks */,
+				FD042BBA36684B3487801F54 /* libcom.infinery.cdb.a in Frameworks */,
 				24D5C75A11E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DAA4B2AF134E3DBD00AB6011 /* libti_ios_debugger.a in Frameworks */,
 				DADE76D613D65C6F0079FC75 /* libicucore.dylib in Frameworks */,
@@ -1699,11 +1699,11 @@
 				DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */,
 				DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */,
 				DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */,
-				35FF93CBC751416BA095F7C2 /* libcom.appcelerator.urlsession.a in Frameworks */,
-				F12814D84DC94F7EA1670D4D /* libfacebook.a in Frameworks */,
-				531E4B558B0B46FA826A5A4A /* libti.newrelic.a in Frameworks */,
-				50162883AFA44789BD23B5AE /* libbencoding.utterance.a in Frameworks */,
-				F129F77C2AE1469EB4C61B45 /* libcom.infinery.cdb.a in Frameworks */,
+				19AE15E2BBC74CAC91684F14 /* libcom.appcelerator.urlsession.a in Frameworks */,
+				50A000EB56A24614BDD4AC0E /* libfacebook.a in Frameworks */,
+				944D6CE157D640D0899B095B /* libti.newrelic.a in Frameworks */,
+				8C71F47680F248F38D36E9DD /* libbencoding.utterance.a in Frameworks */,
+				8F95459C5B604E44B45B4B70 /* libcom.infinery.cdb.a in Frameworks */,
 				DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */,
 				DAA4B2B0134E3DBD00AB6011 /* libti_ios_debugger.a in Frameworks */,
 				DADE76D713D65C7D0079FC75 /* libicucore.dylib in Frameworks */,
@@ -2817,11 +2817,11 @@
 				DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */,
 				24D5C75811E6364F00F097E2 /* libtiverify.a */,
 				242E8E3011BA39FD0046A0D0 /* libTiCore.a */,
-				0849572AA53D4858910264CE /* libcom.appcelerator.urlsession.a */,
-				3B5F99C1BB8245939CCCEDE3 /* libfacebook.a */,
-				15248187B5F842B8B5B1CA26 /* libti.newrelic.a */,
-				16A0B944172A488BBC344838 /* libbencoding.utterance.a */,
-				14EBB47CC5614FB78D14F122 /* libcom.infinery.cdb.a */,
+				FB671057ABDF4171A83AC0C6 /* libcom.appcelerator.urlsession.a */,
+				9A76900AE45B4EC3AF6321E3 /* libfacebook.a */,
+				2CDF025DF4B441A8A1A4498B /* libti.newrelic.a */,
+				F6F5763E1E444976B320CD04 /* libbencoding.utterance.a */,
+				5D805786B7E547418A13CAF3 /* libcom.infinery.cdb.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -4147,7 +4147,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DDEBUG",
@@ -4191,7 +4191,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				"OTHER_LDFLAGS[sdk=iphoneos*]" = (
 					"$(inherited)",
@@ -4227,7 +4227,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DIPAD",
@@ -4265,7 +4265,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DIPAD",
@@ -4428,7 +4428,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DDEBUG",
@@ -4473,7 +4473,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DIPAD",
@@ -4513,7 +4513,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DIPAD",
@@ -4559,7 +4559,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DIPAD",
@@ -4603,7 +4603,7 @@
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/facebook/3.1.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/ti.newrelic/3.1\"",
                                         "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/bencoding.utterance/0.1\"",
-                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/2.1\"",
+                                        "\"/Users/Cyberman/Library/Application Support/Titanium/modules/iphone/com.infinery.cdb/1.0\"",
 				);
 				OTHER_CFLAGS = (
 					"-DIPAD",

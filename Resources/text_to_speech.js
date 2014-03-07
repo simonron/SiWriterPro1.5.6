@@ -31,7 +31,7 @@ playButton.addEventListener('click',function(){
 	}
 	
 	speech.startSpeaking({
-		text:contentTyped
+		text:last_word
 	});	
 			Ti.UI.Clipboard.setText(contentTyped);
 			contentTyped = "";
