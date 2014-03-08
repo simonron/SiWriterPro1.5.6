@@ -392,6 +392,42 @@ function help_WindowSwitcher() {
 	Ti.API.info("Orientation = " + orientation + " view.width = " + view.width + " help_windowSwitch.value = " + help_windowSwitch.value);
 }
 
+function do_speech(ws, letter, whole_sentance) {
+	var n = trailer.lastIndexOf(" ");
+	var l = trailer.length;
+
+	if (ws == "word") {
+		LW = l - n;
+		OldWord = last_word;
+		last_word = trailer.slice(-LW);
+		if (last_word == " ") {
+			SpeakWord = OldWord;
+		} else {
+			SpeakWord = "";
+		}
+		Ti.API.info("last_word + n = " + n + " " + last_word + " SW " + SpeakWord);
+
+		if (SpeakWord != "") {
+			speech.startSpeaking({
+				text : SpeakWord
+			});
+		}
+	} else {
+
+		Ti.API.info("whole_sentance = " + whole_sentance);
+
+		switch(letter) {
+			case ".":
+			case "!":
+			case "?":
+				speech.startSpeaking({
+					text : whole_sentance
+				});
+				whole_sentance = "";
+		}
+	}
+}
+
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////
 //////////////////////////END FUNCTIONS/////////////////////////

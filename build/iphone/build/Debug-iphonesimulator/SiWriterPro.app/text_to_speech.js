@@ -1,1 +1,0 @@
-/Users/Cyberman/Desktop/SiWriterPro1.5/Resources/text_to_speech.js

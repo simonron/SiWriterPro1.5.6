@@ -18,7 +18,7 @@ if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.
 } else {
 	orientation = 'landscape';
 }
-	Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
+Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
 
 help_WindowSwitcher();
 ///////////////////// INITIALISE //////////////////////////////////////////////////////////////
@@ -227,9 +227,12 @@ Ti.App.removeEventListener('webviewEvent', function(e) {
 Ti.App.addEventListener('webviewEvent', function(e) {
 
 	////***********************///DELETE sensor//
+
+
 	if (e.text == "\b_") {
 		e.text = "";
 		contentTyped = contentTyped.slice(0, -1);
+		whole_sentance = whole_sentance.slice(0, -1);
 		trailer = trailer.slice(0, -1);
 		txtViewDesc.value = contentTyped + "_";
 	}
@@ -239,7 +242,11 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 	};
 
 	////////////////END MAGIC BIT///////////////////////////
-
+	if (speech_slider.value == true) {
+		if (word_sentance_slider.value == true) {
+			whole_sentance = whole_sentance + e.text;
+		}
+	}
 	contentTyped = contentTyped + e.text;
 
 	if (!Titanium.App.keyboardVisible) {
@@ -250,24 +257,27 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 	// Ti.API.info('trailer: ' + trailer);
 
 	trailer = trailer.slice(-23) + e.text;
-
-	var n = trailer.lastIndexOf(" ");
-	var l = trailer.length;
-	LW = l - n;
-	OldWord = last_word;
-	last_word = trailer.slice(-LW);
-	if (last_word == " ") {
-		SpeakWord = OldWord;
-	} else {
-		SpeakWord = "";
-	}
-	Ti.API.info("last_word + n = " + n + " " + last_word + " SW " + SpeakWord);
 	aTrailer.value = trailer + "_";
-	if (SpeakWord != "") {
-		speech.startSpeaking({
-			text : SpeakWord
-		});
+
+	if (speech_slider.value == true) {
+		if (word_sentance_slider.value == true) {
+			ws = "sentance";
+		} else {
+			ws = "word";
+		}
+
+
+
+		do_speech(ws, e.text, whole_sentance);
 	}
+
+switch(e.text) {
+			case ".":
+			case "!":
+			case "?":
+			whole_sentance="";
+
+};
 
 });
 
@@ -284,6 +294,11 @@ settingsButton.addEventListener('click', function() {
 		win1.add(toolbar);
 		//win1.add(Continue_Siwriting_main);
 		win1.add(bottomtoolbar);
+		if (speech_slider.value) {
+			win1.add(speech_toolbar);
+		} else {
+			win1.remove(speech_toolbar);
+		}
 		return;
 	}
 
@@ -291,8 +306,18 @@ settingsButton.addEventListener('click', function() {
 		setbutton = 0;
 		win1.remove(toolbar);
 		win1.remove(bottomtoolbar);
+		//if(win1.speech_toolbar(exists)){win1.remove(speech_toolbar);};
+		win1.remove(speech_toolbar);
 	}
 
+});
+
+speech_slider.addEventListener('change', function() {
+	if (speech_slider.value) {
+		win1.add(speech_toolbar);
+	} else {
+		win1.remove(speech_toolbar);
+	}
 });
 
 //win3.add(SiWriter_help_win);

@@ -8,7 +8,7 @@
     <property name="acs-api-key-development" type="string">q3lb9xDuA14jabGxqwzHu6M0fSgPWTlD</property>
     <id>com.tortysoft.SiWriterPro2</id>
     <name>SiWriterPro</name>
-    <version>1.5</version>
+    <version>1.5.1</version>
     <publisher>Simon Anthony</publisher>
     <url>http://siwriter.co.uk</url>
     <description>Pro, Left hand enabled version of SiWriter: a text input, note taking app for the iPad/iPad mini, based on the one handed chording keyboard Microwriting codes as used in the CyKey and AgendA. With configurable finger pad layout and multiple productivity features.
@@ -48,19 +48,16 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="iphone">com.infinery.cdb</module>
         <module platform="iphone">bencoding.utterance</module>
         <module platform="iphone">ti.newrelic</module>
         <module platform="android">ti.newrelic</module>
-        <module platform="android">facebook</module>
-        <module platform="iphone">facebook</module>
-        <module platform="iphone">com.appcelerator.urlSession</module>
+        <module platform="iphone">com.infinery.cdb</module>
     </modules>
     <deployment-targets>
         <target device="tizen">false</target>
         <target device="mobileweb">false</target>
         <target device="blackberry">false</target>
-        <target device="android">false</target>
+        <target device="android">true</target>
         <target device="ipad">true</target>
         <target device="iphone">false</target>
     </deployment-targets>

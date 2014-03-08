@@ -24,19 +24,19 @@ speech.addEventListener('continued',function(d){
 
 //win1.add(playButton);
 
-playButton.addEventListener('click',function(){
-	
-	if(speech.isSpeaking){
-		Ti.API.info("already speaking");
-	}
-	
-	speech.startSpeaking({
-		text:last_word
-	});	
-			Ti.UI.Clipboard.setText(contentTyped);
-			contentTyped = "";
-			txtViewDesc.value = contentTyped;
-});
+// playButton.addEventListener('click',function(){
+// 	
+	// if(speech.isSpeaking){
+		// Ti.API.info("already speaking");
+	// }
+// 	
+	// // speech.startSpeaking({
+		// // text:last_word
+	// // });	
+			// Ti.UI.Clipboard.setText(contentTyped);
+			// contentTyped = "";
+			// txtViewDesc.value = contentTyped;
+// });
 
 var pauseButton = Ti.UI.createButton({
 	bottom:10, title:"Pause", left:60, width:50, height:50

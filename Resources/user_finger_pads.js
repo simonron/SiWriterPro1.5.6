@@ -29,17 +29,16 @@ var UpDwn = 0;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
-var LRHpoffset = 0;
-var LRHloffset = 0;
+
+var	LRHpoffset = 0;
+var	LRHloffset = 0;
 
 //alert("HTMLorientation="+HTMLorientation);
 
 var Hide = true;
 
 var FPPdisplay = false;
-var LrOffset = 0;
-var LrOffsetP = 0;
-var LrOffsetL = 0;
+
 
 defaults();
 initialise();

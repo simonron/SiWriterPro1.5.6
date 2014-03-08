@@ -1,7 +1,8 @@
 Ti.include('functions.js');
 
 var SiWriter = {};
-var newrelic = require('ti.newrelic'); newrelic.start("AAa87e12dc1aaa9ad6b224c1072f4faa3515fc52d2");
+var newrelic = require('ti.newrelic');
+newrelic.start("AAa87e12dc1aaa9ad6b224c1072f4faa3515fc52d2");
 var start = 1;
 //orientation sensor flag
 var orientation = "null";
@@ -15,10 +16,10 @@ var dir = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirecto
 //contentTyped = previous_contents;
 var contentTyped = '';
 var last_word = '';
-var OldWord ='';
-var SpeakWord='';
+var OldWord = '';
+var SpeakWord = '';
 var c = 0;
-var trailer="";
+var trailer = "";
 var s = 0;
 var Nums = 0;
 var Caps = 0;
@@ -42,14 +43,21 @@ var Trigger = false;
 var oldOrientation = "";
 var Hide = true;
 var setbutton = 0;
-var oriCurrent = 'landscape';
+var oriCurrent = 'portrait';
+var do_speech = false;
+var language = Titanium.Platform.locale;
+var whole_sentance = "";
+var sentance = "";
+var letter = "";
+Titanium.App.Properties.setString('locale', language);
+Titanium.App.language = language;
 Ti.API.info(props);
 
 Ti.include('KS_email2.js');
 
-function set_orientation_variables(orientation){
+function set_orientation_variables(orientation) {
 	// Ti.App.fireEvent('app:orientation', {
-		// orientation : orientation
+	// orientation : orientation
 	// });
 
 	if (orientation == "portrait") {
@@ -66,8 +74,6 @@ function set_orientation_variables(orientation){
 ////////////portrait//////////////////
 ////////////portrait//////////////////
 
-
-
 function buttonvariablesPortrait() {
 
 	writeFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'saved_BGimageP.png');
@@ -78,7 +84,7 @@ function buttonvariablesPortrait() {
 		win1.backgroundImage = 'images/bg_image.png';
 	}
 
-	webview.height = "100%"; 
+	webview.height = "100%";
 	webview.top = "40%";
 	PrivacyTitle.left = 442;
 	PrivacyTitle.bottom = 40;
@@ -117,10 +123,6 @@ function buttonvariablesPortrait() {
 	emailButton.left = 665;
 	emailButton.top = 380;
 
-
-	
-
-
 	view.left = "20";
 
 	help_WindowSwitcher();
@@ -134,16 +136,16 @@ function buttonvariablesPortrait() {
 	top_view.top = "450";
 	/* email window */
 	top_view.left = "330";
-	 Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = "+LRH);
+	Ti.API.info(" HHHHHH PORTRAIT HHHHHHHHHHHHH Handedness at butt.js 271 = " + LRH);
 
-if (LRH==-1) {//Left hand mode
-	LH_buttonvariablesPortrait();
+	if (LRH == -1) {//Left hand mode
+		LH_buttonvariablesPortrait();
 	}
 
 }
 
-function LH_buttonvariablesPortrait(){
-	PrivacyTitle.left = 14;	
+function LH_buttonvariablesPortrait() {
+	PrivacyTitle.left = 14;
 	version_label.left = 20;
 }
 
@@ -157,7 +159,7 @@ function LH_buttonvariablesPortrait(){
 /////////////////Landscape/////////////////////
 
 function buttonvariablesLandscape() {
-	webview.height = "110%"; 
+	webview.height = "110%";
 	webview.top = "-30px";
 	PrivacyTitle.left = 682;
 	PrivacyTitle.bottom = 40;
@@ -188,7 +190,7 @@ function buttonvariablesLandscape() {
 
 	settingsButton.left = 345;
 	settingsButton.top = 79;
-		
+
 	helpButton.left = 925;
 	helpButton.top = 75;
 
@@ -207,8 +209,6 @@ function buttonvariablesLandscape() {
 	emailButton.left = 461;
 	emailButton.top = 75;
 
-
-
 	////Display Screen view///
 	view.left = 20;
 	help_WindowSwitcher();
@@ -221,17 +221,15 @@ function buttonvariablesLandscape() {
 	webview.background = "transparent";
 	webview.bottom = 0;
 
-Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = "+LRH);
+	Ti.API.info(" HHHHHHHHH LANDSACPE HHHHHHHHHH Handedness at variables.js 218 = " + LRH);
 
-if (LRH==-1) {//left hand Landscape
-	LH_buttonvariablesLandscape();
+	if (LRH == -1) {//left hand Landscape
+		LH_buttonvariablesLandscape();
 		PrivacyTitle.left = 122;
-	version_label.left = 130;
+		version_label.left = 130;
 	}
 
 }
-
-
 
 /////////////////Landscape Left Handed/////////////////////
 /////////////////Landscape Left Handed/////////////////////
@@ -242,21 +240,21 @@ if (LRH==-1) {//left hand Landscape
 
 function LH_buttonvariablesLandscape() {
 
-LHw=670;
-	smallHelpView.left = 20+LHw;
-	view.left = 20+LHw;
+	LHw = 670;
+	smallHelpView.left = 20 + LHw;
+	view.left = 20 + LHw;
 
-LH=330;
-	build_label.left = 690-LH;
-	aTrailer.left = 345-LH;
-	top_view.left = 705-LH;
-	settingsButton.left = 345-LH;
-	helpButton.left = 925-LH;
-	copyButton.left = 834-LH;
-	pasteButton.left = 741-LH;
-	clearButton.left = 649-LH;
-	timeStampButton.left = 556-LH;
-	emailButton.left = 461-LH;
+	LH = 330;
+	build_label.left = 690 - LH;
+	aTrailer.left = 345 - LH;
+	top_view.left = 705 - LH;
+	settingsButton.left = 345 - LH;
+	helpButton.left = 925 - LH;
+	copyButton.left = 834 - LH;
+	pasteButton.left = 741 - LH;
+	clearButton.left = 649 - LH;
+	timeStampButton.left = 556 - LH;
+	emailButton.left = 461 - LH;
 	help_WindowSwitcher();
 	webview.right = 0;
 	webview.left = -40;
@@ -265,10 +263,10 @@ LH=330;
 	PrivacyTitle.left = 14;
 	version_label.left = 20;
 }
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
-////////////END /BUTTONS////////////////
 
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
+////////////END /BUTTONS////////////////
 
 var win3 = Titanium.UI.createWindow({// top section BG
 	title : 'SiWriter.co.uk Help',
@@ -277,7 +275,6 @@ var win3 = Titanium.UI.createWindow({// top section BG
 	bottom : 0,
 });
 
-
 var settingsButton = Titanium.UI.createButton({
 	title : 'Settings',
 	width : 100,
@@ -285,8 +282,6 @@ var settingsButton = Titanium.UI.createButton({
 	backgroundImage : 'images/long_thin_button.png',
 	borderRadius : 15,
 });
-
-
 
 var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 	//image:'/images/AllCodes.png',
@@ -332,7 +327,7 @@ var smallHelpView = Ti.UI.createScrollView({
 	width : 310, //doesn't change with orientation'
 	contentHeight : 'auto',
 	backgroundImage : 'images/help_bg.png',
-	Zindex:2000,
+	Zindex : 2000,
 });
 
 var openWebsiteButton = Titanium.UI.createButton({
@@ -343,8 +338,6 @@ var openWebsiteButton = Titanium.UI.createButton({
 	backgroundImage : 'images/long_thin_button.png',
 });
 
-
-
 var testButton = Titanium.UI.createButton({
 	title : "testButton",
 	width : 240,
@@ -352,7 +345,6 @@ var testButton = Titanium.UI.createButton({
 	borderRadius : 15,
 	backgroundImage : 'images/long_thin_button.png',
 });
-
 
 var copyButton = Titanium.UI.createButton({
 	title : 'Copy',
@@ -414,7 +406,7 @@ var emailButton = Titanium.UI.createButton({
 });
 
 var facebookButton = Titanium.UI.createButton({
-	title : "Facebook",
+	title : "SW Facebook",
 	width : 80,
 	height : 40,
 	backgroundImage : 'images/mini_key.png',
@@ -436,8 +428,6 @@ var timeStampButton = Titanium.UI.createButton({
 	backgroundImage : 'images/smaller_button.png',
 	borderRadius : 20,
 });
-
-
 
 var PrivacyTitle = Ti.UI.createLabel({
 	color : '#900',
@@ -529,8 +519,7 @@ var win1 = Titanium.UI.createWindow({// top section BG
 	bottom : 0,
 });
 
-var LRH =1;
-
+var LRH = 1;
 
 var SiWriter_helpView = Titanium.UI.createWebView({
 	backgroundColor : 'transparent',
@@ -540,7 +529,6 @@ var SiWriter_helpView = Titanium.UI.createWebView({
 	bottom : 0,
 	zIndex : 0,
 });
-
 
 var win3 = Titanium.UI.createWindow({// top section BG
 	title : 'SiWriter.co.uk Help',
@@ -565,8 +553,6 @@ var SiWriter_help_win = Titanium.UI.createWebView({
 /////////////////TOOLBAR//////////////////
 /////////////////TOOLBAR//////////////////
 
-
-
 var flexSpace = Titanium.UI.createButton({
 	systemButton : Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
 });
@@ -575,7 +561,6 @@ var close = Titanium.UI.createButton({
 	title : 'Done',
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 });
-
 
 var help_BIGwindowSwitch = Ti.UI.createSwitch({
 	value : false, // mandatory property for iOS
@@ -602,10 +587,10 @@ var sizer_switch_slider = Ti.UI.createSwitch({
 });
 
 var sizer_switchlbl = Ti.UI.createLabel({
-	text : 'Alter Pad positions',
+	text : 'Alter Pads',
 });
 
-var help_windowSwitch = Ti.UI.createSwitch({ //'Letter code map'
+var help_windowSwitch = Ti.UI.createSwitch({//'Letter code map'
 	value : false, // mandatory property for iOS
 	titleOn : "Letter Code guide map displayed in writing area",
 	titleOff : "Letter Code guide map is not displayed",
@@ -660,89 +645,132 @@ var btnTakePhoto = Ti.UI.createButton({
 	visible : true
 });
 
+var Latest_news = Titanium.UI.createButton({
+	title : "Latest news",
+	style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
+});
 
+Latest_news.removeEventListener("click", function() {});
+
+Latest_news.addEventListener("click", function() {
+	Ti.API.info("Opening More help");
+	Ti.Platform.openURL("http://www.siwriter.co.uk/latest_news");
+});
 
 
 var CyKey = Titanium.UI.createButton({
-title :"Cykey site",
+	title : "Cykey site",
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE,
-
 });
-	CyKey.addEventListener("click", function() {
-		Ti.API.info("Opening Cykey");
-Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
-	});
+
+CyKey.removeEventListener("click", function() {});
+
+CyKey.addEventListener("click", function() {
+	Ti.API.info("Opening Cykey");
+	Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
+});
 
 var SiWriter = Titanium.UI.createButton({
-title :"SiWriter site",
+	title : "SiWriter site",
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 
 });
-	SiWriter.addEventListener("click", function() {
-		Ti.API.info("Opening SiWriter");
-Ti.Platform.openURL("http://www.siwriter.co.uk/");
-	});
+
+SiWriter.removeEventListener("click", function() {});
+
+SiWriter.addEventListener("click", function() {
+	Ti.API.info("Opening SiWriter");
+	Ti.Platform.openURL("http://www.siwriter.co.uk/");
+});
 
 var Facebook = Titanium.UI.createButton({
-title :"Facebook",
+	title : "SW Facebook",
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 
 });
+
+Facebook.removeEventListener("click", function() {});
 
 Facebook.addEventListener("click", function() {
 	Ti.API.info("Opening Facebook");
 	Ti.Platform.openURL("https://www.facebook.com/SiWriter");
-}); 
-
+});
 
 // create and add toolbar
 var toolbar = Titanium.UI.iOS.createToolbar({
-	items : [help_BIGwindowSwitch, help_BIGwindowSwitchLbl, flexSpace, help_windowSwitch, help_windowSwitchLbl, flexSpace,help_lettersSwitch,help_lettersSwitchLbl ],
+	items : [help_BIGwindowSwitch, help_BIGwindowSwitchLbl, flexSpace, help_windowSwitch, help_windowSwitchLbl, flexSpace, help_lettersSwitch, help_lettersSwitchLbl],
 	top : 20,
-	height:50,
+	height : 50,
+	borderTop : false,
+	borderBottom : true,
+	zIndex : 10,
+});
+
+var speech_wordlbl = Ti.UI.createLabel({
+	text : 'Speak each word',
+});
+
+var word_sentance_slider = Ti.UI.createSwitch({
+	value : false, // mandatory property for iOS
+});
+
+var speech_sentancelbl = Ti.UI.createLabel({
+	text : 'Speak a sentance',
+});
+
+var speech_toolbar = Titanium.UI.iOS.createToolbar({
+	items : [speech_wordlbl, word_sentance_slider, speech_sentancelbl],
+	bottom : 50,
+	height : 50,
 	borderTop : false,
 	borderBottom : true,
 	zIndex : 10,
 });
 
 var Continue_Siwriting = Titanium.UI.iOS.createToolbar({
-    items:[ flexSpace,SiWriter,flexSpace,Facebook,flexSpace,CyKey,flexSpace,close,flexSpace],
-    bottom:14,
-    borderTop:true,
-    borderBottom:false,
-    zIndex : 10,
+	items : [flexSpace, SiWriter, flexSpace,Latest_news,flexSpace, Facebook, flexSpace, CyKey, flexSpace, close, flexSpace],
+	bottom : 14,
+	borderTop : true,
+	borderBottom : false,
+	zIndex : 10,
 });
-
 
 var close_main = Titanium.UI.createButton({
 	title : 'Done',
-	left:10, width:50, height:50,
+	left : 10,
+	width : 50,
+	height : 50,
 	style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 });
 
-close_main.removeEventListener('click', function() {});
+close_main.removeEventListener('click', function() {
+});
 
 close_main.addEventListener('click', function() {
 	Ti.API.info("Continue_Siwriting_main clicked");
 	win1.remove(bottomtoolbar);
 	win1.remove(toolbar);
+	win1.remove(speech_toolbar);
 	close_main();
 	setbutton = 0;
 });
 
-var playButton = Ti.UI.createButton({
-	bottom:10, title:"Play",
-	left:10, width:50, height:50
+var speech_slider = Ti.UI.createSwitch({
+	value : false, // mandatory property for iOS
+});
+
+var speech_sliderlbl = Ti.UI.createLabel({
+	text : 'Speech',
+	width : "180px",
 });
 
 var bottomtoolbar = Titanium.UI.iOS.createToolbar({
-    items:[playButton,sizer_switch_slider,sizer_switchlbl,flexSpace,flexSpace,btnChoosePhoto,flexSpace, btnTakePhoto, flexSpace,close_main],
-    bottom:0,
-    borderTop:false,
-    borderBottom:false,
-    zIndex : 10,
-}); 
-
+	items : [speech_slider, speech_sliderlbl, flexSpace, sizer_switch_slider, sizer_switchlbl, flexSpace, btnChoosePhoto, flexSpace, btnTakePhoto, flexSpace, close_main],
+	bottom : 0,
+	borderTop : false,
+	borderBottom : false,
+	zIndex : 10,
+});
 
 ///////////////END TOOLBAR//////////////////
 ///////////////END TOOLBAR//////////////////
