@@ -1,8 +1,8 @@
 Ti.include('functions.js');
 
 var SiWriter = {};
-var newrelic = require('ti.newrelic');
-newrelic.start("AAa87e12dc1aaa9ad6b224c1072f4faa3515fc52d2");
+// var newrelic = require('ti.newrelic');
+// newrelic.start("AAa87e12dc1aaa9ad6b224c1072f4faa3515fc52d2");
 var start = 1;
 //orientation sensor flag
 var orientation = "null";

@@ -260,9 +260,11 @@ function clearTextFromClipboard() {
 	dialog.addEventListener('click', function(e) {
 		if (e.index == 0) {
 			Ti.UI.Clipboard.setText(contentTyped);
-			contentTyped = "_";
+			contentTyped = "";
 			txtViewDesc.value = contentTyped;
 			//win1.remove(ReviewButton);
+			trailer = "";
+			aTrailer.value = trailer;
 		}
 	});
 	dialog.show();
@@ -280,8 +282,25 @@ function pasteTextFromClipboard() {
 
 function timeStamp() {
 	contentTyped = txtViewDesc.value;
-	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + new Date + "\n\n";
+	getDate();
+	contentTyped = contentTyped.substring(0, contentTyped.length - 1) + "\r" + Now + "\n\n";
 	txtViewDesc.value = contentTyped;
+}
+
+function getDate()
+{
+	// var dateObj = new MMPDate("Year         : YYYY, YYY<br/>\
+						 // Month        : MMMMM, MMMM, MMM<br/>\
+						 // Day          : DDDDD, DDDD<br/>\
+						 // Date         : DDD<br/>\
+						 // Hour         : HHHH, HHH<br/>\
+						 // Minute       : mmm<br/>\
+						 // Second       : sss<br/>\
+						 // Milli Second : lll");
+	// //document.getElementById("datetime").innerHTML = dateObj.FormattedDate();
+	
+	var dateObj = new MMPDate("DDDDD, MMMMM DDD at HHHH:mmm:sss");
+	Now = dateObj.FormattedDate();
 }
 
 function close_main() {

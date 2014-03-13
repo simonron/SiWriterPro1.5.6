@@ -1,17 +1,18 @@
-var cloudebug = require("com.infinery.cdb");
-var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
-
-cdb.session({
-	connected : function(e) {
-		cdb.write('info', 'cloudebug is connected to the server and ready');
-	}
-});
+// var cloudebug = require("com.infinery.cdb");
+// var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
+// 
+// cdb.session({
+	// connected : function(e) {
+		// cdb.write('info', 'cloudebug is connected to the server and ready');
+	// }
+// });
 
 Ti.include('variables.js');
 Ti.include('functions.js');
+Ti.include('js/mmp_datetime.min.js');
 //Ti.include('socialise.js');
-var newrelic = require('ti.newrelic');
-newrelic.start("AA74e486693cef4750c1e890e35e57d02534907bde");
+// var newrelic = require('ti.newrelic');
+// newrelic.start("AA74e486693cef4750c1e890e35e57d02534907bde");
 
 if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
 	orientation = 'portrait';

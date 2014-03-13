@@ -1,0 +1,4 @@
+// this is a generated file - DO NOT EDIT
+
+BENCODING_UTTERANCE_OTHER_LDFLAGS=$(inherited) -framework AVFoundation
+OTHER_LDFLAGS=$(inherited) $(BENCODING_UTTERANCE_OTHER_LDFLAGS) 
