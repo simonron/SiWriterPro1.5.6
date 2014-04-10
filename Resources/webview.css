@@ -27,7 +27,7 @@ div#sizers {
 	width:102px;
 	padding:8px;
 	padding-top:10px;
-	height:438px;
+	height:495px;
 	background:#efe;
 	border-top-left-radius:27px;
 	border-top-right-radius:27px;
@@ -40,7 +40,7 @@ div#sizers div {
 	background:#fee;
 	float:right;
 	font-size:20px;
-	margin-bottom:10px;
+	margin-bottom:7px;
 	margin-right:3px;
 	padding:10px;
 	border-top-left-radius:27px;
@@ -118,6 +118,12 @@ div#spacer {
 	border-bottom-right-radius:27px;
 	background-size:100% 100%;
 }
+
+.chordKeywLG {/*WIDE keys colour during help letters display*/
+	background:url(images/buttonwLG.png)  -2px 0px;
+	background-size:100% 100%;
+}
+
 .chordKeyUpper {/* Upper keys - Nums and Sybols*/
 	border-top-left-radius:27px;
 	border-top-right-radius:27px;
@@ -130,7 +136,7 @@ div#spacer {
 	z-index:1000;
 	border-bottom-left-radius:27px;
 	border-bottom-right-radius:27px;
-	background-size:101% 100%;
+	background-size:100% 100%;
 }
 .chordKey span {
 	position:absolute;
@@ -192,6 +198,7 @@ div#spacer {
 	z-index:100;
 	top:-28px;
 	background:#fff;
+	background:#fee;
 	opacity:.7;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -220,6 +227,8 @@ div#k0 .kHelper {
 	font-family:Arial,sans-serif;
 	height:1em;
 	background:#fff;
+		background:#fee;
+
 	padding:2px 4px 2px 4px;
 	z-index:10000;
 	border-top-left-radius:10px;

@@ -48,7 +48,7 @@ var foo = socializeiostitanium.createActionBar({
   "height":44,
   "bottom":0,
   "modalController":nav,
-  "entityKey":"http://www.npr.org/"
+  //"entityKey":"http://www.npr.org/"
 });
 
 navWindow.add(foo);

@@ -159,8 +159,7 @@ Ti.API.info("sw 161 Titanium.App.keyboardVisible="+Titanium.App.keyboardVisible)
 			var activeTextContainer = null;
 			
 function setupKeys(){  // detects and acts on 'key' press.
-
-
+				
 				
 				did("k0").onTouchDown = function(info){
 					keyState |= (1<<0);
@@ -353,9 +352,7 @@ function setupKeys(){  // detects and acts on 'key' press.
 					if (((Nums==64)&&(Num_lock==true))  && ((Caps==32)&&(Caps_lock==true))){
 						$("#Symbols").addClass("NumKeyUpL");
 					}else{$("#Symbols").removeClass("NumKeyUpL");}
-				
-				
-				
+								
 				};	
 				
 				

@@ -293,28 +293,32 @@ var smallHelpimages = Ti.UI.createImageView({//help screen on win 1
 var top_view = Ti.UI.createView({/* email window */
 	height : 25,
 	width : 310,
-	borderRadius : 15,
-	keyboardType : Ti.UI.KEYBOARD_EMAIL,
-	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
+	borderRadius : 5,
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	backgroundImage : 'images/Small_Screen.png',
-
+	
 });
 
 // Create a TextField.
-var aTextField = Ti.UI.createTextField({ });
+var aTextField = Ti.UI.createTextField({ 
+	keyboardType : Titanium.UI.KEYBOARD_EMAIL,
+	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
+	});
 /* email window */
 aTextField.value = "Outgoing email address here";
+
 
 var aTrailer = Ti.UI.createTextField({/* preview mini text window */
 	left : 190,
 	top : 495,
 	width : 290,
-	borderRadius : 10,
-	backgroundColor : '#ffffff',
+	borderRadius : 5,
+	backgroundColor : '#eeffee',
+		backgroundImage : 'images/Small_Screen.png',
+height : 25,
 	opacity : '0.7',
-	paddingTop : 8,
-	paddingBottom : 4,
+	paddingTop : 12,
+	paddingBottom : 6,
 	paddingLeft : 6,
 	paddingRight : 6,
 	editable : false,
@@ -654,6 +658,7 @@ Latest_news.removeEventListener("click", function() {});
 
 Latest_news.addEventListener("click", function() {
 	Ti.API.info("Opening More help");
+		checkInternet();
 	Ti.Platform.openURL("http://www.siwriter.co.uk/latest_news");
 });
 
@@ -667,6 +672,7 @@ CyKey.removeEventListener("click", function() {});
 
 CyKey.addEventListener("click", function() {
 	Ti.API.info("Opening Cykey");
+		checkInternet();
 	Ti.Platform.openURL("https://sites.google.com/site/cykeybellaire/cykey-home-page");
 });
 
@@ -680,6 +686,8 @@ SiWriter.removeEventListener("click", function() {});
 
 SiWriter.addEventListener("click", function() {
 	Ti.API.info("Opening SiWriter");
+		checkInternet();
+
 	Ti.Platform.openURL("http://www.siwriter.co.uk/");
 });
 
@@ -693,6 +701,7 @@ Facebook.removeEventListener("click", function() {});
 
 Facebook.addEventListener("click", function() {
 	Ti.API.info("Opening Facebook");
+	checkInternet();
 	Ti.Platform.openURL("https://www.facebook.com/SiWriter");
 });
 

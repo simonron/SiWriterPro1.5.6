@@ -4,6 +4,13 @@
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
+function checkInternet() {
+	if (!Titanium.Network.getOnline( ) ){alert("You are not online");
+	var dialog = Ti.UI.createAlertDialog({
+    title: 'Sorry'
+  }).show();	
+}	
+}
 
 function recover_settings() {
 
@@ -325,6 +332,7 @@ function updateSettings() {
 }
 
 function openWebsiteButtonAction() {
+	checkInternet();
 	Ti.Platform.openURL("http://SiWriter.co.uk");
 }
 

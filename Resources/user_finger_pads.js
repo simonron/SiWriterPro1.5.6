@@ -715,6 +715,22 @@ function do_pad_fphelp(FPhelp) {
 
 	Ti.API.info("ufp line 464 do_pad_fphelp:-" + FPhelp);
 	do_save_pad_state_fph(FPhelp);
+				if ((FPhelp) == true){
+					//alert("False ? FPhelp ="+FPhelp);
+				$("#k0").addClass("chordKeywLG");
+				$("#k1").addClass("chordKeywLG");
+				$("#k2").addClass("chordKeywLG");
+				$("#k3").addClass("chordKeywLG");
+				$("#k4").addClass("chordKeywLG");
+			} else {
+				//alert("true ? FPhelp ="+FPhelp);
+
+				$("#k0").removeClass("chordKeywLG");				
+				$("#k1").removeClass("chordKeywLG");				
+				$("#k2").removeClass("chordKeywLG");				
+				$("#k3").removeClass("chordKeywLG");				
+				$("#k4").removeClass("chordKeywLG");					
+			}	
 };
 
 function do_save_pad_state_fph(FPhelp) {
