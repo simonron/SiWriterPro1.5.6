@@ -23,7 +23,7 @@ function recover_settings() {
 		if (value == 1) {
 			setting = true;
 		}
-		Titanium.API.info(props[c] + " = " + value);
+		Titanium.API.info("!xxxx! "+props[c] + " = " + value);
 
 		if (props[c] == "Master_Setting_Window_Switch") {
 			help_windowSwitch.value = setting;
@@ -84,6 +84,7 @@ function recover_settings() {
 		if (props[c] == "HeightP") {
 			var HeightP = value;
 			//alert("HeightP="+HeightP);
+			
 
 		}
 
@@ -367,21 +368,37 @@ function get_MasterSettings() {
 			aTextField.value = value;
 		}
 
-		// if (props[c] == "Height") {
-		// var Height = value;
-		// }
-		//
-		// if (props[c] == "Width") {
-		// var Width = value;
-		// }
-		//
-		// if (props[c] == "pos") {
-		// var pos = value;
-		// }
-		//
-		// if (props[c] == "Gap") {
-		// var Gap = value;
-		// }
+		if (props[c] == "HeightL") {
+		var HeightL = value;
+		}
+		
+		if (props[c] == "WidthL") {
+		var WidthL = value;
+		}
+		
+		if (props[c] == "posL") {
+		var posL = value;
+		}
+		
+		if (props[c] == "GapL") {
+		var GapL = value;
+		}
+		
+		if (props[c] == "HeightP") {
+		var HeightP = value;
+		}
+		
+		if (props[c] == "WidthP") {
+		var WidthP = value;
+		}
+		
+		if (props[c] == "posP") {
+		var posP = value;
+		}
+		
+		if (props[c] == "GapP") {
+		var GapP = value;
+		}
 
 		if (props[c] == "FPPDisplay") {
 			var FPPDisplay = value;

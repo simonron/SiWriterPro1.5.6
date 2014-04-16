@@ -1,10 +1,10 @@
 // var cloudebug = require("com.infinery.cdb");
 // var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
-// 
+//
 // cdb.session({
-	// connected : function(e) {
-		// cdb.write('info', 'cloudebug is connected to the server and ready');
-	// }
+// connected : function(e) {
+// cdb.write('info', 'cloudebug is connected to the server and ready');
+// }
 // });
 
 Ti.include('variables.js');
@@ -76,6 +76,12 @@ win1.add(smallHelpView);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
+
+Ti.App.addEventListener('app:HeightP', function(e) {
+	HeightP=e.HeightP;
+Titanium.App.Properties.setString("HeightP", HeightP);
+//alert(HeightP);
+});
 
 //webview.add(testButton);
 
@@ -229,7 +235,6 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 
 	////***********************///DELETE sensor//
 
-
 	if (e.text == "\b_") {
 		e.text = "";
 		contentTyped = contentTyped.slice(0, -1);
@@ -267,18 +272,16 @@ Ti.App.addEventListener('webviewEvent', function(e) {
 			ws = "word";
 		}
 
-
-
 		do_speech(ws, e.text, whole_sentance);
 	}
 
-switch(e.text) {
-			case ".":
-			case "!":
-			case "?":
-			whole_sentance="";
+	switch(e.text) {
+		case ".":
+		case "!":
+		case "?":
+			whole_sentance = "";
 
-};
+	};
 
 });
 

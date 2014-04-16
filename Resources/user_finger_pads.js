@@ -5,33 +5,33 @@
 //  Created by Simon Anthony on 2014-01-25.
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
-var HeightP = 0;
-var WidthP = 0;
-var GapP = 0;
-var LRposP = 0;
-var TwistP = 0;
-var UpDwnP = 0;
+var HeightP =null;
+var WidthP = null;
+var GapP = null;
+var LRposP = null;
+var TwistP = null;
+var UpDwnP = null;
 
-var HeightL = 0;
-var WidthL = 0;
-var GapL = 0;
-var LRposL = 0;
-var LRposP = 0;
-var TwistL = 0;
-var UpDwnL = 0;
+var HeightL = null;
+var WidthL = null;
+var GapL = null;
+var LRposL = null;
+var LRposP = null;
+var TwistL = null;
+var UpDwnL = null;
 
-var Height = 0;
-var Width = 0;
-var Gap = 0;
-var LRpos = 0;
-var Twist = 0;
-var UpDwn = 0;
+var Height = null;
+var Width = null;
+var Gap = null;
+var LRpos = null;
+var Twist = null;
+var UpDwn = null;
 var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
 
-var	LRHpoffset = 0;
-var	LRHloffset = 0;
+var	LRHpoffset = null;
+var	LRHloffset = null;
 
 //alert("HTMLorientation="+HTMLorientation);
 
@@ -40,9 +40,8 @@ var Hide = true;
 var FPPdisplay = false;
 
 
-defaults();
-initialise();
-do_update();
+
+
 
 Ti.App.addEventListener('From_Settings_Twist', function(e) {
 	Ti.API.info("Twist  sent by app=" + e.Twist);
@@ -79,6 +78,8 @@ Ti.App.addEventListener('From_Settings_HeightL', function(e) {
 	Ti.API.info("HeightL sent by app =" + e.HeightL);
 
 	HeightL = e.HeightL;
+		Titanium.App.Properties.setString("HeightL", HeightL);
+
 });
 
 Ti.App.addEventListener('From_Settings_WidthP', function(e) {
@@ -108,6 +109,12 @@ Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
 	Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
 	FPhelp = e.FPhelp;
 });
+
+
+initialise();
+//if (HeightP==0) defaults();
+do_update();
+
 
 function defaults() {
 	HeightP = 190;
@@ -172,7 +179,7 @@ Ti.App.addEventListener('initialise', function(e) {
 	Ti.API.info("initialise recieved  LRH !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + LRH);
 
 	//recover_settings -For Next ENDSrecover_settings -For Next ENDSalert("start app"+start);
-	//initialise();
+	initialise();
 });
 
 Ti.App.removeEventListener("app:orientation", function(e) {
@@ -519,8 +526,13 @@ function adjust_pads() {
 			HeightL += 4;
 			Height = HeightL;
 		};
+		
+			Ti.App.fireEvent('app:HeightP', { HeightP: HeightP });
+	Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightP" + HeightP);
 		do_pad_height();
-		//do_save_pad_state_h(Height);
+		do_save_pad_state_h(Height);
+
+
 	};
 	did("DamountH").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
@@ -531,6 +543,7 @@ function adjust_pads() {
 			Height = HeightL;
 		};
 		do_pad_height();
+		do_save_pad_state_h(Height);
 	};
 
 	//////////////////////////////////////////////////////
@@ -548,7 +561,7 @@ function adjust_pads() {
 			Width = WidthL;
 		};
 		do_pad_width();
-		//do_save_pad_state_w(Width);
+		do_save_pad_state_w(Width);
 	};
 
 	did("DamountW").onTouchDown = function(info) {
@@ -560,6 +573,7 @@ function adjust_pads() {
 			Width = WidthL;
 		};
 		do_pad_width();
+		do_save_pad_state_w(Width);
 	};
 
 	////////////////////////////////////////////////////
@@ -577,7 +591,7 @@ function adjust_pads() {
 			Gap = GapL;
 		};
 		do_pad_Gap();
-		//do_save_pad_state_g(Gap);
+		do_save_pad_state_g(Gap);
 	};
 
 	did("DamountS").onTouchDown = function(info) {
@@ -589,6 +603,7 @@ function adjust_pads() {
 			Gap = GapL;
 		};
 		do_pad_Gap();
+		do_save_pad_state_g(Gap);
 	};
 
 	///////////////////////////////////////////////////////
@@ -745,6 +760,8 @@ function do_save_pad_state_hP(HeightP) {
 		HeightP : HeightP
 	});
 	Ti.API.info("heightP variable sent as fired event by User_FingerPads.js  " + HeightP);
+	Titanium.App.Properties.setString("HeightP", "HeightP");
+
 }
 
 function do_save_pad_state_hL(HeightL) {
@@ -752,6 +769,8 @@ function do_save_pad_state_hL(HeightL) {
 		HeightL : HeightL
 	});
 	Ti.API.info("HeightL variable sent as fired event by User_FingerPads.js  " + HeightL);
+		Titanium.App.Properties.setString("HeightL", "HeightL");
+
 }
 
 function do_save_pad_state_wP(WidthP) {
