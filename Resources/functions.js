@@ -81,16 +81,18 @@ function recover_settings() {
 			var UpDwnP = value;
 		}
 
-		if (props[c] == "HeightP") {
-			var HeightP = value;
-			//alert("HeightP="+HeightP);
-			
-
+		if (props[c] == "recHeightP") {
+			recHeightP = value;
+			//recHeightP = 200;
+			//alert("functions line 86 recovered HeightP="+recHeightP);
+			Ti.API.info("func:HeightP fired HeightP recovered "+recHeightP);
 		}
 
-		if (props[c] == "HeightL") {
-			var HeightL = value;
-			alert("HeightL=" + HeightL);
+		if (props[c] == "recHeightL") {
+			recHeightL = value;
+			//alert("functions line 93 recovered HeightL="+recHeightL);
+			Ti.API.info("func:HeightL fired HeightL recovered "+recHeightL);
+
 		}
 
 		if (props[c] == "WidthP") {
@@ -120,7 +122,7 @@ function recover_settings() {
 
 	Ti.API.info("recover_settings -For Next ENDS");
 	if (start == 1) {
-		Ti.App.fireEvent('initialise', {});
+		Ti.App.fireEvent('app:initialise', {});
 		start = false;
 	};
 	//DoOrientation();
@@ -387,7 +389,9 @@ function get_MasterSettings() {
 		if (props[c] == "HeightP") {
 		var HeightP = value;
 		}
-		
+		if (props[c] == "HeightL") {
+		var HeightL = value;
+		}		
 		if (props[c] == "WidthP") {
 		var WidthP = value;
 		}

@@ -108,7 +108,7 @@ div#spacer {
 	border-top-left-radius:27px;
 	border-top-right-radius:27px;
 	position:absolute;
-	height:194px;
+	//height:194px;
 	width:100px;
 	background:url(images/buttonw.png) -2px 0px;
 	text-align:center;

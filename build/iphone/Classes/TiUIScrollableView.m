@@ -171,8 +171,13 @@
         [viewproxy windowWillOpen];
         [viewproxy windowDidOpen];
         [viewproxy layoutChildrenIfNeeded];
-    } else if (!CGRectEqualToRect([viewproxy sandboxBounds], [wrapper bounds])) {
-        [viewproxy parentSizeWillChange];
+    } else {
+        if ([[viewproxy view] superview] != wrapper) {
+            [wrapper addSubview:[viewproxy view]];
+            [viewproxy layoutChildrenIfNeeded];
+        } else if (!CGRectEqualToRect([viewproxy sandboxBounds], [wrapper bounds])) {
+            [viewproxy parentSizeWillChange];
+        }
     }
 }
 
@@ -234,14 +239,26 @@
 
 -(void)listenerAdded:(NSString*)event count:(int)count
 {
-	[super listenerAdded:event count:count];
-	[[self proxy] lockViews];
-	for (TiViewProxy* viewProxy in [[self proxy] viewProxies]) {
-		if ([viewProxy viewAttached]) {
-			[[viewProxy view] updateTouchHandling];
-		}
-	}
-	[[self proxy] unlockViews];
+    [super listenerAdded:event count:count];
+    NSArray * childrenArray = [[[self proxy] views] retain];
+    for (id child in childrenArray) {
+        if ([child respondsToSelector:@selector(parentListenersChanged)]) {
+            [child performSelector:@selector(parentListenersChanged)];
+        }
+    }
+    [childrenArray release];
+}
+
+-(void)listenerRemoved:(NSString*)event count:(int)count
+{
+    [super listenerRemoved:event count:count];
+    NSArray * childrenArray = [[[self proxy] views] retain];
+    for (id child in childrenArray) {
+        if ([child respondsToSelector:@selector(parentListenersChanged)]) {
+            [child performSelector:@selector(parentListenersChanged)];
+        }
+    }
+    [childrenArray release];
 }
 
 -(int)currentPage
@@ -288,11 +305,6 @@
 	{
 		for (UIView *view in [sv subviews]) {
 			[view removeFromSuperview];
-		}
-        
-		for (TiViewProxy* theView in [[self proxy] views]) {
-			[theView windowWillClose];
-			[theView windowDidClose];
 		}
 	}
 	

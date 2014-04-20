@@ -26,18 +26,22 @@ help_WindowSwitcher();
 webview.removeEventListener('beforeload', function(e) {
 });
 
+recover_settings();
+
 webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var start='" + start + "';");
 	webview.evalJS("var HTMLorientation='" + orientation + "';");
 	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs", true);
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
+	webview.evalJS("var HeightP=" + recHeightP + ";");
+	webview.evalJS("var HeightL=" + recHeightL + ";");
 	start = 0;
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
 
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////
-//Ti.App.fireEvent('app:reset', { reset_pads: 'reset_pads' });
+Ti.App.fireEvent('app:reset', { reset_pads: 'reset_pads' });
 
 ////////////////////////////////////////////////////////////
 
@@ -48,7 +52,7 @@ webview.addEventListener('beforeload', function(e) {
 //});
 
 //alert("here?");
-recover_settings();
+//
 //("and here?");
 
 Ti.App.removeEventListener('Handedness', function(e) {
@@ -76,12 +80,25 @@ win1.add(smallHelpView);
 ////////////////////////////////////////////////////////////////////////////////////////////////
 win1.add(webview);
 win1.add(view);
+//recover_settings();
+
+
 
 Ti.App.addEventListener('app:HeightP', function(e) {
 	HeightP=e.HeightP;
-Titanium.App.Properties.setString("HeightP", HeightP);
-//alert(HeightP);
+Titanium.App.Properties.setString("recHeightP", HeightP);
+//alert("dynamically altered HeightP event from fp = "+HeightP);
+Ti.API.info("dynamically altered HeightP event from fp = "+HeightP);
 });
+
+Ti.App.addEventListener('app:HeightL', function(e) {
+	HeightL=e.HeightL;
+Titanium.App.Properties.setString("recHeightL", HeightL);
+//alert("dynamically altered HeightL event from fp = "+HeightL);
+Ti.API.info("dynamically altered HeightL event from fp = "+HeightL);
+});
+
+
 
 //webview.add(testButton);
 
@@ -95,7 +112,7 @@ Ti.App.addEventListener('do_reset', function(e) {
 	help_LettersSwitch();
 	help_bigWindowSwitch();
 	Ti.App.fireEvent('webviewEvent', {
-		text : ""
+		text : "ELEPHANT"
 	});
 
 });
@@ -196,6 +213,8 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	Ti.App.fireEvent('app:orientation', {
 		orientation : orientation
 	});
+
+
 
 	// if (orientation == "portrait") {
 	// portrait();

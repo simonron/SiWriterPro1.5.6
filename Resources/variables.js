@@ -5,8 +5,12 @@ var SiWriter = {};
 // newrelic.start("AAa87e12dc1aaa9ad6b224c1072f4faa3515fc52d2");
 var start = 1;
 //orientation sensor flag
-var orientation = "null";
+var orientation = null;
 //var oldOrientation="";
+var recHeightP =null;
+var recHeightL =null;
+var HeightP =null;
+var HeightL =null;
 var saved_email_url_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter_default_email.txt');
 var saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);
 var last_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);

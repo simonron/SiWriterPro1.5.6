@@ -1659,6 +1659,14 @@ LAYOUTFLAGS_SETTER(setHorizontalWrap,horizontalWrap,horizontalWrap,[self willCha
 	}
 }
 
+-(void)parentListenersChanged
+{
+    TiThreadPerformOnMainThread(^{
+        if (view != nil && [view respondsToSelector:@selector(updateTouchHandling)]) {
+            [view updateTouchHandling];
+        }
+    }, NO);
+}
 
 -(void)_listenerAdded:(NSString*)type count:(int)count
 {
@@ -1672,6 +1680,15 @@ LAYOUTFLAGS_SETTER(setHorizontalWrap,horizontalWrap,horizontalWrap,[self willCha
 			[self.view listenerAdded:type count:count];
 		}
 	}
+    
+    //TIMOB-15991 Update children as well
+    NSArray* childrenArray = [[self children] retain];
+    for (id child in childrenArray) {
+        if ([child respondsToSelector:@selector(parentListenersChanged)]) {
+            [child parentListenersChanged];
+        }
+    }
+    [childrenArray release];
 }
 
 -(void)_listenerRemoved:(NSString*)type count:(int)count
@@ -1686,6 +1703,15 @@ LAYOUTFLAGS_SETTER(setHorizontalWrap,horizontalWrap,horizontalWrap,[self willCha
 			[self.view listenerRemoved:type count:count];
 		}
 	}
+
+    //TIMOB-15991 Update children as well
+    NSArray* childrenArray = [[self children] retain];
+    for (id child in childrenArray) {
+        if ([child respondsToSelector:@selector(parentListenersChanged)]) {
+            [child parentListenersChanged];
+        }
+    }
+    [childrenArray release];
 }
 
 -(TiProxy *)parentForBubbling
