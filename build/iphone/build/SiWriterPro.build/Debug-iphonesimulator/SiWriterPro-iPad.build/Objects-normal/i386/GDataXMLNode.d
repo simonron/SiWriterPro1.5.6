@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/Cyberman/Documents/Titanium_Studio_Workspace/SiWriterPro1.5.5/build/iphone/Classes/GDataXMLNode.m \
-  /Users/Cyberman/Documents/Titanium_Studio_Workspace/SiWriterPro1.5.5/build/iphone/Classes/GDataXMLNode.h \
+  /Users/Cyberman/Documents/Titanium_Studio_Workspace/SiWriterPro1.5.6/build/iphone/Classes/GDataXMLNode.m \
+  /Users/Cyberman/Documents/Titanium_Studio_Workspace/SiWriterPro1.5.6/build/iphone/Classes/GDataXMLNode.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/include/libxml2/libxml/tree.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/include/libxml2/libxml/xmlversion.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/include/libxml2/libxml/xmlexports.h \

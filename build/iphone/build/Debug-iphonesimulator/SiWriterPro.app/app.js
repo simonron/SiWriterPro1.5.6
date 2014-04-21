@@ -35,6 +35,8 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
 	webview.evalJS("var HeightP=" + recHeightP + ";");
 	webview.evalJS("var HeightL=" + recHeightL + ";");
+	webview.evalJS("var UpDwnP=" + recUpDwnP + ";");
+	webview.evalJS("var UpDwnL=" + recUpDwnL + ";");
 	start = 0;
 });
 /////////////////////////////////////////////////////////////////////////
@@ -98,6 +100,18 @@ Titanium.App.Properties.setString("recHeightL", HeightL);
 Ti.API.info("dynamically altered HeightL event from fp = "+HeightL);
 });
 
+
+Ti.App.addEventListener('app:UpDwnP', function(e) {
+	UpDwnP=e.UpDwnP;
+Titanium.App.Properties.setString("recUpDwnP", UpDwnP);
+Ti.API.info("dynamically altered UpDwnP event from fp = "+UpDwnP);
+});
+
+Ti.App.addEventListener('app:UpDwnL', function(e) {
+	UpDwnL=e.UpDwnL;
+Titanium.App.Properties.setString("recUpDwnL", UpDwnL);
+Ti.API.info("dynamically altered UpDwnL event from fp = "+UpDwnL);
+});
 
 
 //webview.add(testButton);
@@ -197,7 +211,7 @@ close.addEventListener('click', function() {
 
 });
 
-get_MasterSettings();
+//get_MasterSettings();
 
 //**********************ORIENTATION CHANGE SENSOR************************//
 Ti.Gesture.removeEventListener('orientationchange', function(e) {
@@ -215,13 +229,6 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	});
 
 
-
-	// if (orientation == "portrait") {
-	// portrait();
-	// }
-	// if (orientation == "landscape") {
-	// landscape();
-	// }
 
 	Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
 	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = " + LRH);

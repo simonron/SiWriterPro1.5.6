@@ -7,10 +7,17 @@ var start = 1;
 //orientation sensor flag
 var orientation = null;
 //var oldOrientation="";
+
 var recHeightP =null;
 var recHeightL =null;
 var HeightP =null;
 var HeightL =null;
+
+var recUpDwnP =null;
+var recUpDwnL =null;
+var UpDwnP =null;
+var UpDwnL =null;
+
 var saved_email_url_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter_default_email.txt');
 var saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);
 var last_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);
@@ -38,8 +45,8 @@ var orient = "";
 var props = Titanium.App.Properties.listProperties();
 var Last_Typed_Word = "!?!";
 var Review_mode = 0;
-var LRposP = 0;
-var LRposL = 0;
+var LRposP = null;
+var LRposL = null;
 var KV = false;
 var temp = "";
 var Toggle = false;

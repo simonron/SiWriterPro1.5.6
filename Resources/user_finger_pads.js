@@ -10,15 +10,12 @@ var WidthP = null;
 var GapP = null;
 var LRposP = null;
 var TwistP = null;
-var UpDwnP = null;
 
-//var HeightL = null;
 var WidthL = null;
 var GapL = null;
 var LRposL = null;
 var LRposP = null;
 var TwistL = null;
-var UpDwnL = null;
 
 var Height = null;
 var Width = null;
@@ -30,114 +27,34 @@ var LRHL = 1;
 var LRHP = 1;
 var LRH = 1;
 
-var	LRHpoffset = null;
-var	LRHloffset = null;
+var LRHpoffset = null;
+var LRHloffset = null;
 
 //alert("HTMLorientation="+HTMLorientation);
 
 var Hide = true;
 
 var FPPdisplay = false;
-// 
-// Ti.App.addEventListener('app:reset', function(e) {
-	// //Ti.API.info("Twist  sent by app=" + e.Twist);
-	// //Twist = e.Twist;
-	// alert("got one");
-// });
-// 
-// 
-// 
-// Ti.App.addEventListener('From_Settings_Twist', function(e) {
-	// Ti.API.info("Twist  sent by app=" + e.Twist);
-	// Twist = e.Twist;
-	// alert("twist got one");
-// });
-// 
-// Ti.App.addEventListener('From_Settings_LRposP', function(e) {
-	// Ti.API.info("LRposP  sent by app=" + e.LRposP);
-	// LRposP = e.LRposP;
-// });
-// 
-// Ti.App.addEventListener('From_Settings_LRposL', function(e) {
-	// Ti.API.info("LRposL  sent by app=" + e.LRposL);
-	// LRposL = e.LRposL;
-// });
-// Ti.App.addEventListener('From_Settings_UpDwnL', function(e) {
-	// Ti.API.info("UpDwnL sent by app =" + e.UpDwnL);
-	// UpDwnL = e.UpDwnL;
-// });
-// 
-// Ti.App.addEventListener('From_Settings_UpDwnP', function(e) {
-	// Ti.API.info("UpDwnP sent by app =" + e.UpDwnP);
-	// UpDwnP = e.UpDwnP;
-// });
-// 
-// Ti.App.addEventListener('HeightP', function(e) {
-	// Ti.API.info("HeightP sent by app =" + e.HeightP);
-// alert("from App e.HeightP "+e.HeightP);
-	// HeightP = e.HeightP;
-// });
-// 
-// Ti.App.addEventListener('From_Settings_HeightL', function(e) {
-	// Ti.API.info("HeightL sent by app =" + e.HeightL);
-// 
-	// HeightL = e.HeightL;
-		// // Titanium.App.Properties.setString("HeightL", HeightL);
-// 
-// });
-// 
-// Ti.App.addEventListener('From_Settings_WidthP', function(e) {
-	// Ti.API.info("WidthP  sent by app=" + e.WidthP);
-	// WidthP = e.WidthP;
-// });
-// Ti.App.addEventListener('From_Settings_WidthL', function(e) {
-	// Ti.API.info("WidthL  sent by app=" + e.WidthL);
-	// WidthL = e.WidthL;
-// });
-// 
-// Ti.App.addEventListener('From_Settings_GapP', function(e) {
-	// Ti.API.info("GapP  sent by app=" + e.GapP);
-	// GapP = e.GapP;
-// });
-// Ti.App.addEventListener('From_Settings_GapL', function(e) {
-	// Ti.API.info("GapL  sent by app=" + e.GapL);
-	// GapL = e.GapL;
-// });
-// 
-// Ti.App.addEventListener('From_Settings_FPPDisplay', function(e) {
-	// Ti.API.info("FPPDisplay  sent by app=" + e.FPPDisplay);
-	// FPPDisplay = e.FPPDisplay;
-// });
-// 
-// Ti.App.addEventListener('From_Settings_FPhelp', function(e) {
-	// Ti.API.info("FPhelp  sent by app=" + e.FPhelp);
-	// FPhelp = e.FPhelp;
-// });
-
-
-initialise();
-//if (HeightP==0) defaults();
 do_update();
-
 
 function defaults() {
 	alert("defaults called");
-	// HeightP = 190;
-	// WidthP = 98;
-	// GapP = -2;
-	// LRposP = 2;
-	// TwistP = 0;
-	// UpDwnP = 140;
-	// LRHP = 1;
-	// LRHL = 1;
-	// LRH = 1;
-	// HeightL = 195;
-	// WidthL = 91;
-	// GapL = -3;
-	// LRposL = 0;
-	// TwistL = 0;
-	// UpDwnL = 305;
- }
+	HeightP = 190;
+	WidthP = 98;
+	GapP = -2;
+	LRposP = 2;
+	TwistP = 0;
+	UpDwnP = 140;
+	LRHP = 1;
+	LRHL = 1;
+	LRH = 1;
+	HeightL = 195;
+	WidthL = 91;
+	GapL = -3;
+	LRposL = 0;
+	TwistL = 0;
+	UpDwnL = 305;
+}
 
 var reset = false;
 
@@ -177,14 +94,13 @@ Ti.App.addEventListener('sizer_switch_change', function(e) {
 
 ///////////////// FROM APP///////////////////////////////////////////
 
-
 Ti.App.removeEventListener('app:initialise', function(e) {
 });
 
 Ti.App.addEventListener('app:initialise', function(e) {
 	//Ti.API.info("initialise recieved !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	Ti.API.info("initialise recieved  LRH !!!!!!!!!!!!!!!!!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + LRH);
-alert("initialise");
+	alert("initialise");
 	//recover_settings -For Next ENDSrecover_settings -For Next ENDSalert("start app"+start);
 	initialise();
 });
@@ -192,23 +108,16 @@ alert("initialise");
 Ti.App.removeEventListener("app:orientation", function(e) {
 });
 
-
-
 Ti.App.addEventListener("app:orientation", function(e) {
 	Ti.API.info("UFP-!!!!!!!!app:orientation!!!!!!!!!");
 	HTMLorientation = e.orientation;
 	initialise();
-	// if (LRH == 1) {
-	// Ti.API.info("ufp line 264 LRH="+LRH);
-	// do_righthanded(1);
-	// } else {
-	// do_lefthanded(-1);
-	// }
 	do_update();
 });
 
 function initialise() {
-
+//alert(HeightP);
+//alert(UpDwnP);
 	Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
 		HeightL : HeightL
@@ -259,11 +168,6 @@ function initialise() {
 		Twist - TwistL;
 
 	}
-	//Ti.API.info("orientation_offset  CALLED " + orientation);
-	//Ti.API.info("UpDwn = " + UpDwn + " UdOffset= " + UdOffset + " UdOffsetP =" + UdOffsetP + " UdOffsetL= " + UdOffsetL);
-	//	chordKeyboard_id.style.margin = UdOffset + UpDwn + "px 0px 0px 0px";
-	//	webview.reload();
-	//alert("orientation="+orientation)
 
 	Ti.API.info('!!!!!!!!!globalArrayP!!!!!!!!!!!!!!!!');
 	Ti.API.info(globalArrayP[0]);
@@ -501,9 +405,18 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			UpDwnP -= 5;
 			UpDwn = UpDwnP;
+			Ti.App.fireEvent('app:UpDwnP', {
+				UpDwnP : UpDwn
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:UpDwnP" + UpDwn);
+
 		} else {
 			UpDwnL -= 5;
 			UpDwn = UpDwnL;
+			Ti.App.fireEvent('app:UpDwnL', {
+				UpDwnL : UpDwn
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:UpDwnL" + UpDwn);
 		};
 		do_pad_updwn();
 
@@ -513,9 +426,17 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			UpDwnP += 5;
 			UpDwn = UpDwnP;
+			Ti.App.fireEvent('app:UpDwnP', {
+				UpDwnP : UpDwn
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:UpDwnP" + UpDwn);
 		} else {
 			UpDwnL += 5;
 			UpDwn = UpDwnL;
+			Ti.App.fireEvent('app:UpDwnL', {
+				UpDwnL : UpDwn
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:UpDwnL" + UpDwn);
 		};
 		do_pad_updwn();
 
@@ -532,33 +453,39 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			HeightP += 4;
 			Height = HeightP;
-			
-	Ti.App.fireEvent('app:HeightP', { HeightP: Height });
-	Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightP" + Height);		
+
+			Ti.App.fireEvent('app:HeightP', {
+				HeightP : Height
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightP" + Height);
 		} else {
 			HeightL += 4;
 			Height = HeightL;
-	Ti.App.fireEvent('app:HeightL', { HeightL: Height });
-	Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightL" + HeightL);			
+			Ti.App.fireEvent('app:HeightL', {
+				HeightL : Height
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightL" + HeightL);
 		};
-		
 
 		do_pad_height();
 		do_save_pad_state_h(Height);
 	};
-	
-	
+
 	did("DamountH").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
 			HeightP -= 4;
 			Height = HeightP;
-	Ti.App.fireEvent('app:HeightP', { HeightP: Height });
-	Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightP" + Height);	
+			Ti.App.fireEvent('app:HeightP', {
+				HeightP : Height
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightP" + Height);
 		} else {
 			HeightL -= 4;
 			Height = HeightL;
-	Ti.App.fireEvent('app:HeightL', { HeightL: Height });
-	Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightL" + Height);	
+			Ti.App.fireEvent('app:HeightL', {
+				HeightL : Height
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:HeightL" + Height);
 		};
 		do_pad_height();
 		do_save_pad_state_h(Height);
@@ -748,22 +675,22 @@ function do_pad_fphelp(FPhelp) {
 
 	Ti.API.info("ufp line 464 do_pad_fphelp:-" + FPhelp);
 	do_save_pad_state_fph(FPhelp);
-				if ((FPhelp) == true){
-					//alert("False ? FPhelp ="+FPhelp);
-				$("#k0").addClass("chordKeywLG");
-				$("#k1").addClass("chordKeywLG");
-				$("#k2").addClass("chordKeywLG");
-				$("#k3").addClass("chordKeywLG");
-				$("#k4").addClass("chordKeywLG");
-			} else {
-				//alert("true ? FPhelp ="+FPhelp);
+	if ((FPhelp) == true) {
+		//alert("False ? FPhelp ="+FPhelp);
+		$("#k0").addClass("chordKeywLG");
+		$("#k1").addClass("chordKeywLG");
+		$("#k2").addClass("chordKeywLG");
+		$("#k3").addClass("chordKeywLG");
+		$("#k4").addClass("chordKeywLG");
+	} else {
+		//alert("true ? FPhelp ="+FPhelp);
 
-				$("#k0").removeClass("chordKeywLG");				
-				$("#k1").removeClass("chordKeywLG");				
-				$("#k2").removeClass("chordKeywLG");				
-				$("#k3").removeClass("chordKeywLG");				
-				$("#k4").removeClass("chordKeywLG");					
-			}	
+		$("#k0").removeClass("chordKeywLG");
+		$("#k1").removeClass("chordKeywLG");
+		$("#k2").removeClass("chordKeywLG");
+		$("#k3").removeClass("chordKeywLG");
+		$("#k4").removeClass("chordKeywLG");
+	}
 };
 
 function do_save_pad_state_fph(FPhelp) {
@@ -775,7 +702,7 @@ function do_save_pad_state_fph(FPhelp) {
 
 function do_save_pad_state_hP(HeightP) {
 	// Ti.App.fireEvent('app:HeightP', {
-		// recHeightP : HeightP
+	// recHeightP : HeightP
 	// });
 	// Ti.API.info("heightP variable sent as fired event by User_FingerPads.js  " + HeightP);
 	// // Titanium.App.Properties.setString("HeightP", "HeightP");
@@ -784,10 +711,10 @@ function do_save_pad_state_hP(HeightP) {
 
 function do_save_pad_state_hL(HeightL) {
 	// Ti.App.fireEvent('app:HeightL', {
-		// recHeightL : HeightL
+	// recHeightL : HeightL
 	// });
 	// Ti.API.info("HeightL variable sent as fired event by User_FingerPads.js  " + HeightL);
-		// // Titanium.App.Properties.setString("HeightL", "HeightL");
+	// // Titanium.App.Properties.setString("HeightL", "HeightL");
 
 }
 
@@ -856,17 +783,17 @@ function do_save_pad_state_t(Twist) {
 }
 
 function do_save_pad_state_uP(UpDwnP) {
-	Ti.App.fireEvent('UpDwnP', {
-		UpDwnP : UpDwnP
-	});
-	Ti.API.info("UpDwnP variable sent as fired event by User_FingerPads.js  " + UpDwnP);
+	// Ti.App.fireEvent('UpDwnP', {
+		// UpDwnP : UpDwnP
+	// });
+	// Ti.API.info("UpDwnP variable sent as fired event by User_FingerPads.js  " + UpDwnP);
 }
 
 function do_save_pad_state_uL(UpDwnL) {
-	Ti.App.fireEvent('UpDwnL', {
-		UpDwnL : UpDwnL
-	});
-	Ti.API.info("UpDwnL variable sent as fired event by User_FingerPads.js  " + UpDwnL);
+	// Ti.App.fireEvent('UpDwnL', {
+		// UpDwnL : UpDwnL
+	// });
+	// Ti.API.info("UpDwnL variable sent as fired event by User_FingerPads.js  " + UpDwnL);
 }
 
 function get_user_settings() {
@@ -941,7 +868,7 @@ function do_pad_height() {
 	Ti.API.info("UFP Line 950 variable update by user finger pads.js is :-height =" + Height);
 
 	if (Height < 0) {
-		Height=100;
+		Height = 100;
 
 	}
 }

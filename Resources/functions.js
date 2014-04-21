@@ -5,11 +5,12 @@
 /////////////FUNCTIONS////////////////
 /////////////FUNCTIONS////////////////
 function checkInternet() {
-	if (!Titanium.Network.getOnline( ) ){alert("You are not online");
-	var dialog = Ti.UI.createAlertDialog({
-    title: 'Sorry'
-  }).show();	
-}	
+	if (!Titanium.Network.getOnline()) {
+		alert("You are not online");
+		var dialog = Ti.UI.createAlertDialog({
+			title : 'Sorry'
+		}).show();
+	}
 }
 
 function recover_settings() {
@@ -23,7 +24,7 @@ function recover_settings() {
 		if (value == 1) {
 			setting = true;
 		}
-		Titanium.API.info("!xxxx! "+props[c] + " = " + value);
+		Titanium.API.info("!xxxx! " + props[c] + " = " + value);
 
 		if (props[c] == "Master_Setting_Window_Switch") {
 			help_windowSwitch.value = setting;
@@ -73,25 +74,28 @@ function recover_settings() {
 		if (props[c] == "LR_posL") {
 			var LR_posL = value;
 		}
-		if (props[c] == "UpDwnL") {
-			var UpDwnL = value;
 
+		if (props[c] == "recUpDwnP") {
+			recUpDwnP = value;
+			Ti.API.info("func:UpDwnP fired UpDwnP recovered " + recUpDwnP);
 		}
-		if (props[c] == "UpDwnP") {
-			var UpDwnP = value;
+
+		if (props[c] == "recUpDwnL") {
+		    recUpDwnL = value;
+			Ti.API.info("func:UpDwnL fired UpDwnL recovered " + recUpDwnL);
 		}
 
 		if (props[c] == "recHeightP") {
 			recHeightP = value;
 			//recHeightP = 200;
 			//alert("functions line 86 recovered HeightP="+recHeightP);
-			Ti.API.info("func:HeightP fired HeightP recovered "+recHeightP);
+			Ti.API.info("func:HeightP fired HeightP recovered " + recHeightP);
 		}
 
 		if (props[c] == "recHeightL") {
 			recHeightL = value;
 			//alert("functions line 93 recovered HeightL="+recHeightL);
-			Ti.API.info("func:HeightL fired HeightL recovered "+recHeightL);
+			Ti.API.info("func:HeightL fired HeightL recovered " + recHeightL);
 
 		}
 
@@ -297,18 +301,17 @@ function timeStamp() {
 	txtViewDesc.value = contentTyped;
 }
 
-function getDate()
-{
+function getDate() {
 	// var dateObj = new MMPDate("Year         : YYYY, YYY<br/>\
-						 // Month        : MMMMM, MMMM, MMM<br/>\
-						 // Day          : DDDDD, DDDD<br/>\
-						 // Date         : DDD<br/>\
-						 // Hour         : HHHH, HHH<br/>\
-						 // Minute       : mmm<br/>\
-						 // Second       : sss<br/>\
-						 // Milli Second : lll");
+	// Month        : MMMMM, MMMM, MMM<br/>\
+	// Day          : DDDDD, DDDD<br/>\
+	// Date         : DDD<br/>\
+	// Hour         : HHHH, HHH<br/>\
+	// Minute       : mmm<br/>\
+	// Second       : sss<br/>\
+	// Milli Second : lll");
 	// //document.getElementById("datetime").innerHTML = dateObj.FormattedDate();
-	
+
 	var dateObj = new MMPDate("DDDDD, MMMMM DDD at HHHH:mmm:sss");
 	Now = dateObj.FormattedDate();
 }
@@ -356,64 +359,61 @@ function help_bigWindowSwitch() {
 	}
 }
 
-function get_MasterSettings() {
-	for (var c = 0; c < props.length; c++) {
-		var value = Titanium.App.Properties.getString(props[c]);
-		if (value == 0) {
-			setting = false;
-		}
-		if (value == 1) {
-			setting = true;
-		}
-		Titanium.API.info(props[c] + " = " + value);
-		if (props[c] == "email_to_setting") {
-			aTextField.value = value;
-		}
-
-		if (props[c] == "HeightL") {
-		var HeightL = value;
-		}
-		
-		if (props[c] == "WidthL") {
-		var WidthL = value;
-		}
-		
-		if (props[c] == "posL") {
-		var posL = value;
-		}
-		
-		if (props[c] == "GapL") {
-		var GapL = value;
-		}
-		
-		if (props[c] == "HeightP") {
-		var HeightP = value;
-		}
-		if (props[c] == "HeightL") {
-		var HeightL = value;
-		}		
-		if (props[c] == "WidthP") {
-		var WidthP = value;
-		}
-		
-		if (props[c] == "posP") {
-		var posP = value;
-		}
-		
-		if (props[c] == "GapP") {
-		var GapP = value;
-		}
-
-		if (props[c] == "FPPDisplay") {
-			var FPPDisplay = value;
-		}
-
-		if (props[c] == "FPhelp") {
-			//var FPhelp = value;
-		}
-
-	}
-}
+// function get_MasterSettings() {
+// for (var c = 0; c < props.length; c++) {
+// var value = Titanium.App.Properties.getString(props[c]);
+// if (value == 0) {
+// setting = false;
+// }
+// if (value == 1) {
+// setting = true;
+// }
+// Titanium.API.info(props[c] + " = " + value);
+// if (props[c] == "email_to_setting") {
+// aTextField.value = value;
+// }
+//
+//
+// if (props[c] == "WidthP") {
+// var WidthP = value;
+// }
+// if (props[c] == "WidthL") {
+// var WidthL = value;
+// }
+//
+//
+// if (props[c] == "GapP") {
+// var GapP = value;
+// }
+// if (props[c] == "GapL") {
+// var GapL = value;
+// }
+//
+// if (props[c] == "HeightP") {
+// var HeightP = value;
+// }
+// if (props[c] == "HeightL") {
+// var HeightL = value;
+// }
+//
+//
+// if (props[c] == "posP") {
+// var posP = value;
+// }
+// if (props[c] == "posL") {
+// var posL = value;
+// }
+//
+// if (props[c] == "FPPDisplay") {
+// var FPPDisplay = value;
+// }
+//
+// if (props[c] == "FPhelp") {
+// //var FPhelp = value;
+// }
+//
+// }
+// }
 
 function help_WindowSwitcher() {
 
