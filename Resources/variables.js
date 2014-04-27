@@ -10,33 +10,36 @@ var orientation = null;
 
 var recHeightP = null;
 var recHeightL = null;
-var HeightP = null;
-var HeightL = null;
+var HeightP = 120;
+var HeightL = 120;
 
 var recUpDwnP = null;
 var recUpDwnL = null;
-var UpDwnP = null;
-var UpDwnL = null;
+var UpDwnP = 220;
+var UpDwnL = 140;
 
-var WidthP = null;
-var WidthL = null;
+var WidthP = 90;
+var WidthL = 90;
 var recWidthP = null;
 var recWidthL = null;
 
-var LRposP = null;
-var LRposL = null;
+var LRposP = 0;
+var LRposL = -150;
 var recLRposP = null;
 var recLRposL = null;
 
-var GapP = null;
-var GapL = null;
+var recLRposP = 10;
+var recLRposL = 0;
+
+var GapP = 4;
+var GapL = 4;
 
 var recGapP = null;
 var recGapL = null;
 
-var TwistP = null;
-var TwistL = null;
-var Twist = null;
+var TwistP = 0;
+var TwistL = 0;
+var Twist = 0;
 
 var recTwistP = null;
 var recTwistL = null;
