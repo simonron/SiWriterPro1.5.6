@@ -8,15 +8,39 @@ var start = 1;
 var orientation = null;
 //var oldOrientation="";
 
-var recHeightP =null;
-var recHeightL =null;
-var HeightP =null;
-var HeightL =null;
+var recHeightP = null;
+var recHeightL = null;
+var HeightP = null;
+var HeightL = null;
 
-var recUpDwnP =null;
-var recUpDwnL =null;
-var UpDwnP =null;
-var UpDwnL =null;
+var recUpDwnP = null;
+var recUpDwnL = null;
+var UpDwnP = null;
+var UpDwnL = null;
+
+var WidthP = null;
+var WidthL = null;
+var recWidthP = null;
+var recWidthL = null;
+
+var LRposP = null;
+var LRposL = null;
+var recLRposP = null;
+var recLRposL = null;
+
+var GapP = null;
+var GapL = null;
+
+var recGapP = null;
+var recGapL = null;
+
+var TwistP = null;
+var TwistL = null;
+var Twist = null;
+
+var recTwistP = null;
+var recTwistL = null;
+var recTwist = null;
 
 var saved_email_url_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter_default_email.txt');
 var saved_file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'SiWriter.txt' + new Date);
@@ -45,8 +69,6 @@ var orient = "";
 var props = Titanium.App.Properties.listProperties();
 var Last_Typed_Word = "!?!";
 var Review_mode = 0;
-var LRposP = null;
-var LRposL = null;
 var KV = false;
 var temp = "";
 var Toggle = false;

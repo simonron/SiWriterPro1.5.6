@@ -6,17 +6,17 @@
 //  Copyright 2014 Simon Anthony. All rights reserved.
 //
 //var HeightP =null;
-var WidthP = null;
-var GapP = null;
-var LRposP = null;
+//var WidthP = null;
+//var GapP = null;
+//var LRposP = null;
 var TwistP = null;
 
-var WidthL = null;
-var GapL = null;
-var LRposL = null;
-var LRposP = null;
+//var WidthL = null;
+//var GapL = null;
+//var LRposL = null;
+//var LRposP = null;
 var TwistL = null;
-
+twist();
 var Height = null;
 var Width = null;
 var Gap = null;
@@ -51,8 +51,6 @@ function defaults() {
 	HeightL = 195;
 	WidthL = 91;
 	GapL = -3;
-	LRposL = 0;
-	TwistL = 0;
 	UpDwnL = 305;
 }
 
@@ -116,8 +114,8 @@ Ti.App.addEventListener("app:orientation", function(e) {
 });
 
 function initialise() {
-//alert(HeightP);
-//alert(UpDwnP);
+	//alert(HeightP);
+	//alert(UpDwnP);
 	Ti.API.info("initialise heard app INITIALLY say " + HTMLorientation + " to webview!!");
 	globalArrayL = [{
 		HeightL : HeightL
@@ -155,7 +153,7 @@ function initialise() {
 		Gap = GapP;
 		Width = WidthP;
 		LRpos = LRposP;
-		Twist - TwistP;
+		Twist = TwistP;
 	}
 
 	if (HTMLorientation == "landscape") {
@@ -165,7 +163,7 @@ function initialise() {
 		Gap = GapL;
 		Width = WidthL;
 		LRpos = LRposL;
-		Twist - TwistL;
+		Twist = TwistL;
 
 	}
 
@@ -200,7 +198,7 @@ function do_update() {
 		Gap = GapP;
 		Width = WidthP;
 		LRpos = LRposP + LRHpoffset;
-		Twist - TwistP;
+		Twist = TwistP;
 		sizerholder.style.top = "72px";
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
 		appContainer.style.margin = "0px 0px 0px " + LRposP + "px";
@@ -221,7 +219,7 @@ function do_update() {
 		Gap = GapL;
 		Width = WidthL;
 		LRpos = LRposL + LRHloffset;
-		Twist - TwistL;
+		Twist = TwistL;
 		adjust_pads();
 		sizerholder.style.top = "270px";
 		chordKeyboard_id.style.margin = UpDwn + "px 0px 0px 0px";
@@ -351,7 +349,7 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			TwistP += 3;
 			Twist = TwistP;
-			twist(Twist);
+			twist(Twist); //keypad.html function
 		} else {
 			TwistL += 3;
 			Twist = TwistL;
@@ -368,25 +366,43 @@ function adjust_pads() {
 	/////////////////       LEFT RIGHT      ///////////////
 
 	did("amountP").onTouchDown = function(info) {
+Ti.API.info("finger pads.js is : twist(Twist)= "+twist(Twist)+ " Twist = " + Twist + " TwistP = " + TwistP + " TwistL = " + TwistL);
+
 		if (HTMLorientation == 'portrait') {
 			LRposP += 4;
 			LRpos = LRposP + LRHpoffset;
+			Ti.App.fireEvent('app:LRposP', {
+				LRposP : LRpos
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:LRposP = " + LRpos);
+
 		} else {
 			LRposL += 4;
 			LRpos = LRposL + LRHloffset;
+			Ti.App.fireEvent('app:LRposL', {
+				LRposL : LRpos
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:LRposL" + LRpos);
 		};
-		Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
+		Ti.API.info(orientation + "+++++++++++++++++++LRposL = " + LRposL);
 		do_pad_LRpos();
-		Ti.API.info(orientation + "+++++++++++++++++++LRposL =" + LRposL);
 	};
 
 	did("DamountP").onTouchDown = function(info) {
 		if (HTMLorientation == 'portrait') {
 			LRposP -= 4;
 			LRpos = LRposP + LRHpoffset;
+			Ti.App.fireEvent('app:LRposP', {
+				LRposP : LRpos
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:LRposP" + LRpos);
 		} else {
 			LRposL -= 4;
 			LRpos = LRposL + LRHloffset;
+			Ti.App.fireEvent('app:LRposL', {
+				LRposL : LRpos
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:LRposL" + LRpos);
 		};
 		Ti.API.info(orientation + "--------------------LRposL =" + LRposL);
 
@@ -501,9 +517,18 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			WidthP += 2;
 			Width = WidthP;
+
+			Ti.App.fireEvent('app:WidthP', {
+				WidthP : Width
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:WidthP" + Width);
 		} else {
 			WidthL += 2;
 			Width = WidthL;
+			Ti.App.fireEvent('app:WidthL', {
+				WidthL : Width
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:WidthL" + Width);
 		};
 		do_pad_width();
 		do_save_pad_state_w(Width);
@@ -513,9 +538,18 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			WidthP -= 2;
 			Width = WidthP;
+			Ti.App.fireEvent('app:WidthP', {
+				WidthP : Width
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:WidthP" + Width);
 		} else {
 			WidthL -= 2;
 			Width = WidthL;
+			Ti.App.fireEvent('app:WidthL', {
+				WidthL : Width
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:WidthL" + Width);
+
 		};
 		do_pad_width();
 		do_save_pad_state_w(Width);
@@ -531,9 +565,18 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			GapP += 1;
 			Gap = GapP;
+
+			Ti.App.fireEvent('app:GapP', {
+				GapP : Gap
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:GapP" + Gap);
 		} else {
 			GapL += 1;
 			Gap = GapL;
+			Ti.App.fireEvent('app:GapL', {
+				GapL : Gap
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:GapL" + Gap);
 		};
 		do_pad_Gap();
 		do_save_pad_state_g(Gap);
@@ -543,9 +586,17 @@ function adjust_pads() {
 		if (HTMLorientation == 'portrait') {
 			GapP -= 1;
 			Gap = GapP;
+			Ti.App.fireEvent('app:GapP', {
+				GapP : Gap
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:GapP" + Gap);
 		} else {
 			GapL -= 1;
 			Gap = GapL;
+			Ti.App.fireEvent('app:GapL', {
+				GapL : Gap
+			});
+			Ti.API.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!app:GapL" + Gap);
 		};
 		do_pad_Gap();
 		do_save_pad_state_g(Gap);
@@ -592,7 +643,8 @@ function do_righthanded(LRH) {
 };
 
 function do_lefthanded(LRH) {
-	LRHpoffset = -196;
+	LRHpoffset = -196; // fixed repositionning for left hand screen rejig
+	LRHpoffset = -224; // fixed repositionning for left hand screen rejig
 	LRHloffset = -450;
 	Ti.API.info("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ufp line 614 do_lefthanded called. LRH=" + LRH);
 	Ti.API.info("ufp line 615 HTMLorientation = " + HTMLorientation);
@@ -763,7 +815,7 @@ function do_save_pad_state_pL(LRposL) {
 	Ti.App.fireEvent('LRposL', {
 		LRposL : LRposL
 	});
-	Ti.API.info("LRposL variable sent as fired event by User_FingerPads.js  " + LRposL);
+	Ti.API.info("UFP817 LRposL variable sent as fired event by User_FingerPads.js  " + LRposL);
 }
 
 function do_save_pad_state_lrh(LRH) {
@@ -784,14 +836,14 @@ function do_save_pad_state_t(Twist) {
 
 function do_save_pad_state_uP(UpDwnP) {
 	// Ti.App.fireEvent('UpDwnP', {
-		// UpDwnP : UpDwnP
+	// UpDwnP : UpDwnP
 	// });
 	// Ti.API.info("UpDwnP variable sent as fired event by User_FingerPads.js  " + UpDwnP);
 }
 
 function do_save_pad_state_uL(UpDwnL) {
 	// Ti.App.fireEvent('UpDwnL', {
-		// UpDwnL : UpDwnL
+	// UpDwnL : UpDwnL
 	// });
 	// Ti.API.info("UpDwnL variable sent as fired event by User_FingerPads.js  " + UpDwnL);
 }
@@ -807,16 +859,16 @@ function do_pad_LRpos() {
 	if (HTMLorientation == 'portrait') {
 		Twist = TwistP;
 		LRpos = LRposP + LRHpoffset;
-		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
+		finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 	}
 	if (HTMLorientation == 'landscape') {
 		Twist = TwistL;
 		LRpos = LRposL + LRHloffset;
-		//finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
+		finger_pads.style.margin = "0px 0px 0px " + LRpos + "px";
 
 	}
-	Ti.API.info("[UFP 817] LRpos do_pad_LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + " LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
-	Ti.API.info("[UFP 818] LHR is : = " + LRH);
+	Ti.API.info("[UFP 869] LRpos do_pad_LRpos finger pads.js is : LRpos = " + LRpos + " LRposP =" + LRposP + " LRposL =" + LRposL + " LRHpoffset = " + LRHpoffset + " LRHloffset = " + LRHloffset);
+	Ti.API.info("[UFP 870] LHR is : = " + LRH);
 
 	document.getElementById("finger_pads").setAttribute("style", "-webkit-transform:translateX(" + LRpos + "px) scale(" + LRH + ",1) rotate(" + Twist + "deg)");
 

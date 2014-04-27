@@ -1,18 +1,6 @@
-// var cloudebug = require("com.infinery.cdb");
-// var cdb = cloudebug.create('6d1aa3d3-db47-44ed-8680-5b6e30478b1f');
-//
-// cdb.session({
-// connected : function(e) {
-// cdb.write('info', 'cloudebug is connected to the server and ready');
-// }
-// });
-
 Ti.include('variables.js');
 Ti.include('functions.js');
 Ti.include('js/mmp_datetime.min.js');
-//Ti.include('socialise.js');
-// var newrelic = require('ti.newrelic');
-// newrelic.start("AA74e486693cef4750c1e890e35e57d02534907bde");
 
 if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
 	orientation = 'portrait';
@@ -33,17 +21,30 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var HTMLorientation='" + orientation + "';");
 	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs", true);
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
+	
 	webview.evalJS("var HeightP=" + recHeightP + ";");
 	webview.evalJS("var HeightL=" + recHeightL + ";");
+	
 	webview.evalJS("var UpDwnP=" + recUpDwnP + ";");
 	webview.evalJS("var UpDwnL=" + recUpDwnL + ";");
+
+	webview.evalJS("var GapP=" + recGapP + ";");
+	webview.evalJS("var GapL=" + recGapL + ";");
+
+	webview.evalJS("var LRposP=" + recLRposP + ";");
+	webview.evalJS("var LRposL=" + recLRposL + ";");
+
+	webview.evalJS("var WidthP=" + recWidthP + ";");
+	webview.evalJS("var WidthL=" + recWidthL + ";");
 	start = 0;
 });
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
 
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////
-Ti.App.fireEvent('app:reset', { reset_pads: 'reset_pads' });
+Ti.App.fireEvent('app:reset', {
+	reset_pads : 'reset_pads'
+});
 
 ////////////////////////////////////////////////////////////
 
@@ -84,35 +85,83 @@ win1.add(webview);
 win1.add(view);
 //recover_settings();
 
-
-
 Ti.App.addEventListener('app:HeightP', function(e) {
-	HeightP=e.HeightP;
-Titanium.App.Properties.setString("recHeightP", HeightP);
-//alert("dynamically altered HeightP event from fp = "+HeightP);
-Ti.API.info("dynamically altered HeightP event from fp = "+HeightP);
+	HeightP = e.HeightP;
+	Titanium.App.Properties.setString("recHeightP", HeightP);
+	//alert("dynamically altered HeightP event from fp = "+HeightP);
+	Ti.API.info("dynamically altered HeightP event from fp = " + HeightP);
 });
 
 Ti.App.addEventListener('app:HeightL', function(e) {
-	HeightL=e.HeightL;
-Titanium.App.Properties.setString("recHeightL", HeightL);
-//alert("dynamically altered HeightL event from fp = "+HeightL);
-Ti.API.info("dynamically altered HeightL event from fp = "+HeightL);
+	HeightL = e.HeightL;
+	Titanium.App.Properties.setString("recHeightL", HeightL);
+	//alert("dynamically altered HeightL event from fp = "+HeightL);
+	Ti.API.info("dynamically altered HeightL event from fp = " + HeightL);
+});
+
+Ti.App.addEventListener('app:UpDwnP', function(e) {
+	UpDwnP = e.UpDwnP;
+	Titanium.App.Properties.setString("recUpDwnP", UpDwnP);
+	Ti.API.info("dynamically altered UpDwnP event from fp = " + UpDwnP);
+});
+
+Ti.App.addEventListener('app:UpDwnL', function(e) {
+	UpDwnL = e.UpDwnL;
+	Titanium.App.Properties.setString("recUpDwnL", UpDwnL);
+	Ti.API.info("dynamically altered UpDwnL event from fp = " + UpDwnL);
 });
 
 
 Ti.App.addEventListener('app:UpDwnP', function(e) {
-	UpDwnP=e.UpDwnP;
-Titanium.App.Properties.setString("recUpDwnP", UpDwnP);
-Ti.API.info("dynamically altered UpDwnP event from fp = "+UpDwnP);
+	UpDwnP = e.UpDwnP;
+	Titanium.App.Properties.setString("recUpDwnP", UpDwnP);
+	Ti.API.info("dynamically altered UpDwnP event from fp = " + UpDwnP);
 });
 
 Ti.App.addEventListener('app:UpDwnL', function(e) {
-	UpDwnL=e.UpDwnL;
-Titanium.App.Properties.setString("recUpDwnL", UpDwnL);
-Ti.API.info("dynamically altered UpDwnL event from fp = "+UpDwnL);
+	UpDwnL = e.UpDwnL;
+	Titanium.App.Properties.setString("recUpDwnL", UpDwnL);
+	Ti.API.info("dynamically altered UpDwnL event from fp = " + UpDwnL);
 });
 
+
+Ti.App.addEventListener('app:GapP', function(e) {
+	GapP = e.GapP;
+	Titanium.App.Properties.setString("recGapP", GapP);
+	Ti.API.info("dynamically altered recGapP event from fp = " + GapP);
+});
+
+Ti.App.addEventListener('app:GapL', function(e) {
+	GapL = e.GapL;
+	Titanium.App.Properties.setString("recGapL", GapL);
+	Ti.API.info("dynamically altered recGapL event from fp = " + GapL);
+});
+
+
+Ti.App.addEventListener('app:LRposP', function(e) {
+	LRposP = e.LRposP;
+	Titanium.App.Properties.setString("recLRposP", LRposP);
+	Ti.API.info("dynamically altered recLRposP event from fp = " + LRposP);
+});
+
+Ti.App.addEventListener('app:LRposL', function(e) {
+	LRposL = e.LRposL;
+	Titanium.App.Properties.setString("recLRposL", LRposL);
+	Ti.API.info("dynamically altered recLRposL event from fp = " + LRposL);
+});
+
+
+Ti.App.addEventListener('app:WidthP', function(e) {
+	WidthP = e.WidthP;
+	Titanium.App.Properties.setString("recWidthP", WidthP);
+	Ti.API.info("dynamically altered recWidthP event from fp = " + WidthP);
+});
+
+Ti.App.addEventListener('app:WidthL', function(e) {
+	WidthL = e.WidthL;
+	Titanium.App.Properties.setString("recWidthL", WidthL);
+	Ti.API.info("dynamically altered recWidthL event from fp = " + WidthL);
+});
 
 //webview.add(testButton);
 
@@ -126,7 +175,7 @@ Ti.App.addEventListener('do_reset', function(e) {
 	help_LettersSwitch();
 	help_bigWindowSwitch();
 	Ti.App.fireEvent('webviewEvent', {
-		text : "ELEPHANT"
+		text : ""
 	});
 
 });
@@ -227,8 +276,6 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
 	Ti.App.fireEvent('app:orientation', {
 		orientation : orientation
 	});
-
-
 
 	Ti.API.info('-- App Line 311 ---------------------------------orientation: ' + orientation);
 	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 119 = " + LRH);

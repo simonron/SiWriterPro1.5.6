@@ -53,26 +53,28 @@ function recover_settings() {
 
 		}
 
-		if (props[c] == "TwistP") {
-			var TwistP = value;
-			Ti.App.fireEvent('From_Settings_Twist', {
-				TwistP : TwistP
-			});
+		if (props[c] == "recTwistP") {
+			recTwistP = value;
+			//Ti.App.fireEvent('From_Settings_Twist', {
+				//TwistP : TwistP
+			//});
 			//alert("from setting one");
 		}
-		if (props[c] == "TwistL") {
-			var TwistL = value;
-			Ti.App.fireEvent('From_Settings_Twist', {
-				TwistL : TwistL
-			});
+		if (props[c] == "recTwistL") {
+			recTwistL = value;
+			//Ti.App.fireEvent('From_Settings_Twist', {
+			//	TwistL : TwistL
+			//});
 			//alert("from setting one");
 		}
 
-		if (props[c] == "LR_posP") {
-			var LR_posP = value;
+		if (props[c] == "recLRposP") {
+			recLRposP = value;
+			Ti.API.info("func:recLRposP recovered " + recLRposP);
 		}
-		if (props[c] == "LR_posL") {
-			var LR_posL = value;
+		if (props[c] == "recLRposL") {
+			recLRposL = value;
+			Ti.API.info("func:recLRposL recovered " + recLRposL);
 		}
 
 		if (props[c] == "recUpDwnP") {
@@ -81,7 +83,7 @@ function recover_settings() {
 		}
 
 		if (props[c] == "recUpDwnL") {
-		    recUpDwnL = value;
+			recUpDwnL = value;
 			Ti.API.info("func:UpDwnL fired UpDwnL recovered " + recUpDwnL);
 		}
 
@@ -96,23 +98,26 @@ function recover_settings() {
 			recHeightL = value;
 			//alert("functions line 93 recovered HeightL="+recHeightL);
 			Ti.API.info("func:HeightL fired HeightL recovered " + recHeightL);
-
 		}
 
-		if (props[c] == "WidthP") {
-			var WidthP = value;
+		if (props[c] == "recWidthP") {
+			recWidthP = value;
+			Ti.API.info("func:WidthP recovered " + recWidthP);
 		}
 
-		if (props[c] == "WidthL") {
-			var WidthL = value;
+		if (props[c] == "recWidthL") {
+			recWidthL = value;
+			Ti.API.info("func:WidthL recovered " + recWidthL);
 		}
 
-		if (props[c] == "GapP") {
-			var GapP = value;
+		if (props[c] == "recGapP") {
+			recGapP = value;
+			Ti.API.info("func:GapP recovered " + recGapP);
 		}
 
-		if (props[c] == "GapL") {
-			var GapL = value;
+		if (props[c] == "recGapL") {
+			recGapL = value;
+			Ti.API.info("func:GapL recovered " + recGapL);
 		}
 
 		if (props[c] == "FPPDisplay") {
@@ -134,8 +139,8 @@ function recover_settings() {
 }
 
 function missedKeypad() {
-	Ti.Media.vibrate();
-	alert("missed");
+	// Ti.Media.vibrate();
+	// alert("missed");
 }
 
 function setup_buttons() {
@@ -236,7 +241,6 @@ function saveBackgroundImage(image) {
 
 	writeFile.write(image);
 	DoOrientation();
-
 }
 
 function viewLastText() {
@@ -302,15 +306,6 @@ function timeStamp() {
 }
 
 function getDate() {
-	// var dateObj = new MMPDate("Year         : YYYY, YYY<br/>\
-	// Month        : MMMMM, MMMM, MMM<br/>\
-	// Day          : DDDDD, DDDD<br/>\
-	// Date         : DDD<br/>\
-	// Hour         : HHHH, HHH<br/>\
-	// Minute       : mmm<br/>\
-	// Second       : sss<br/>\
-	// Milli Second : lll");
-	// //document.getElementById("datetime").innerHTML = dateObj.FormattedDate();
 
 	var dateObj = new MMPDate("DDDDD, MMMMM DDD at HHHH:mmm:sss");
 	Now = dateObj.FormattedDate();
@@ -318,16 +313,12 @@ function getDate() {
 
 function close_main() {
 	Ti.API.info("close main triggered");
-
 	updateSettings();
-	//win2.remove(openWebsiteButton);
 	getOrientation();
-
 	Titanium.App.Properties.setString("email_to_setting", aTextField.value);
 	Ti.App.fireEvent('webviewEvent', {
 		text : "  "
 	});
-
 }
 
 function updateSettings() {
@@ -358,62 +349,6 @@ function help_bigWindowSwitch() {
 		smallHelpimages.image = '/images/AllCodes.png';
 	}
 }
-
-// function get_MasterSettings() {
-// for (var c = 0; c < props.length; c++) {
-// var value = Titanium.App.Properties.getString(props[c]);
-// if (value == 0) {
-// setting = false;
-// }
-// if (value == 1) {
-// setting = true;
-// }
-// Titanium.API.info(props[c] + " = " + value);
-// if (props[c] == "email_to_setting") {
-// aTextField.value = value;
-// }
-//
-//
-// if (props[c] == "WidthP") {
-// var WidthP = value;
-// }
-// if (props[c] == "WidthL") {
-// var WidthL = value;
-// }
-//
-//
-// if (props[c] == "GapP") {
-// var GapP = value;
-// }
-// if (props[c] == "GapL") {
-// var GapL = value;
-// }
-//
-// if (props[c] == "HeightP") {
-// var HeightP = value;
-// }
-// if (props[c] == "HeightL") {
-// var HeightL = value;
-// }
-//
-//
-// if (props[c] == "posP") {
-// var posP = value;
-// }
-// if (props[c] == "posL") {
-// var posL = value;
-// }
-//
-// if (props[c] == "FPPDisplay") {
-// var FPPDisplay = value;
-// }
-//
-// if (props[c] == "FPhelp") {
-// //var FPhelp = value;
-// }
-//
-// }
-// }
 
 function help_WindowSwitcher() {
 

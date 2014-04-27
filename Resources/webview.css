@@ -96,7 +96,7 @@ div#spacer {
 	border-bottom-left-radius:23px;
 	border-bottom-right-radius:23px;
 	position:absolute;
-	width:200px;
+	//width:200px;
 	height:75px;
 	background:url(images/horiz_buttons.png) 0px 0px;
 	text-align:center;
@@ -109,7 +109,7 @@ div#spacer {
 	border-top-right-radius:27px;
 	position:absolute;
 	//height:194px;
-	width:100px;
+	//width:100px;
 	background:url(images/buttonw.png) -2px 0px;
 	text-align:center;
 	color:#777;
@@ -128,8 +128,8 @@ div#spacer {
 	border-top-left-radius:27px;
 	border-top-right-radius:27px;
 	position:absolute;
-	height:100px;
-	width:100px;
+	//height:100px;
+	//width:100px;
 	background:url(images/small_buttons.png) 0px -1px;
 	text-align:center;
 	color:#777;
@@ -179,8 +179,8 @@ div#spacer {
 .CapsKeyUpL {
 	background:url(images/buttonw_L.png) -5px 0px;
 	background-size:101% 100%;
-	height:194px;
-	width:100px;
+	//height:194px;
+	//width:100px;
 }
 .NumKeyUp {
 	/*background: url(images/horiz_buttons_A.png);*/

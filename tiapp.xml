@@ -49,7 +49,6 @@
     </mobileweb>
     <modules>
         <module platform="iphone">bencoding.utterance</module>
-        <module platform="iphone">com.infinery.cdb</module>
     </modules>
     <deployment-targets>
         <target device="tizen">false</target>
