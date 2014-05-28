@@ -129,8 +129,16 @@ function recover_settings() {
 		}
 	}
 
+if (recUpDwnP == null) {
+	Ti.App.fireEvent('app:reset', {
+	reset_pads : 'reset_pads'
+});
+//alert("SiWriter Initialised");
+Ti.App.fireEvent('app:initialise', {});
+} 
+
 	Ti.API.info("recover_settings -For Next ENDS");
-	if (start == 1) {
+	if (start == true) {
 		Ti.App.fireEvent('app:initialise', {});
 		start = false;
 	};

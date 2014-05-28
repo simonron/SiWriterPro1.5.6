@@ -2,22 +2,13 @@ Ti.include('variables.js');
 Ti.include('functions.js');
 Ti.include('js/mmp_datetime.min.js');
 
-if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
-	orientation = 'portrait';
-} else {
-	orientation = 'landscape';
-}
-Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
-
-help_WindowSwitcher();
-///////////////////// INITIALISE //////////////////////////////////////////////////////////////
-webview.removeEventListener('beforeload', function(e) {
-});
-
 recover_settings();
 
 webview.addEventListener('beforeload', function(e) {
+	
+	//alert("yes");
 	webview.evalJS("var start='" + start + "';");
+	Ti.API.info("start = "+start);
 	webview.evalJS("var HTMLorientation='" + orientation + "';");
 	var FPhelp = Titanium.App.Properties.getString("Master_Setting_Help_Tabs", true);
 	webview.evalJS("var FPhelp='" + FPhelp + "';");
@@ -38,13 +29,24 @@ webview.addEventListener('beforeload', function(e) {
 	webview.evalJS("var WidthL=" + recWidthL + ";");
 	start = 0;
 });
+
+
+if (Titanium.Platform.displayCaps.platformWidth < Titanium.Platform.displayCaps.platformHeight) {
+	orientation = 'portrait';
+} else {
+	orientation = 'landscape';
+}
+Ti.API.info(" !!!!!!!!!!!!!!!!!!!!!!! Launched in  " + orientation);
+
+help_WindowSwitcher();
+///////////////////// INITIALISE //////////////////////////////////////////////////////////////
+
+
 /////////////////////////////////////////////////////////////////////////
 /* var Cloud = require('ti.cloud');*/
 
 //////////////////////////TO WEBVIEW from App demo/////////////////////////////
-Ti.App.fireEvent('app:reset', {
-	reset_pads : 'reset_pads'
-});
+
 
 ////////////////////////////////////////////////////////////
 
@@ -69,6 +71,7 @@ Ti.App.addEventListener('Handedness', function(e) {
 	Ti.API.info(" HHHHHHHHHHHHHHHHHHH Handedness at App.js 61 = " + LRH);
 	set_orientation_variables(orientation);
 });
+Ti.App.fireEvent('app:initialise', {});
 // SETS INITIAL SCREEN DISPLAY positions.
 removeChildrens(win1);
 // can do without ?
